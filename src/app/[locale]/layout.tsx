@@ -9,34 +9,33 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { ibmPlexMono, montserrat, satoshi } from "../font";
 
+const TITLE = "BrainDAO - The DAO behind the IQ token.";
+const DESCRIPTION =
+	"BrainDAO is the legal entity that launched IQ. Track live IQ token stats, stake IQ for HiIQ, and explore the BrainDAO treasury.";
+
 export const metadata: Metadata = {
-	title: "BrainDAO - Building a more intelligent future through the IQ token.",
-	description:
-		"Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+	title: TITLE,
+	description: DESCRIPTION,
 	metadataBase: new URL("https://braindao.org"),
 	openGraph: {
-		title:
-			"BrainDAO - Building a more intelligent future through the IQ token.",
+		title: TITLE,
 		url: "https://braindao.org",
 		type: "website",
-		description:
-			"Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+		description: DESCRIPTION,
 		images: [
 			{
 				url: "https://braindao.org/images/og-image.png",
-				alt: "BrainDAO - Building a more intelligent future through the IQ token.",
+				alt: TITLE,
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title:
-			"BrainDAO - Building a more intelligent future through the IQ token.",
-		description:
-			"Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+		title: TITLE,
+		description: DESCRIPTION,
 		images: ["https://braindao.org/images/og-image.png"],
-		site: "@Everipedia",
-		creator: "@Everipedia",
+		site: "@IQofficial",
+		creator: "@IQofficial",
 	},
 };
 

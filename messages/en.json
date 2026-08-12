@@ -1,6 +1,12 @@
 {
 	"navbar": {
 		"launch-app": "Launch App",
+		"links": {
+			"home": "Home",
+			"hiiq": "HiIQ",
+			"treasury": "Treasury",
+			"dashboard": "Dashboard"
+		},
 		"exchanges": {
 			"title": "Get the IQ token",
 			"description": "Get involved in the IQ Ecosystem and swap the IQ token easily across different exchange platforms.",
@@ -11,168 +17,122 @@
 		}
 	},
 	"introduction": {
-		"title": "<line>Building A More</line><line>Intelligent Future</line><line>Through The <highlight>IQ Token.</highlight></line>",
-		"description": "Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+		"title": "<line>The DAO Behind</line><line>The <highlight>IQ Token.</highlight></line>",
+		"description": "BrainDAO is the legal entity that launched IQ. Token holders lock IQ for HiIQ to govern the protocol, earn staking rewards, and steer the BrainDAO treasury.",
 		"stats": {
 			"iq-price-title": "IQ Price (USD)",
-			"sophia-price-title": "SOPHIA Price (USD)",
 			"market-cap-title": "Market Cap (USD)",
+			"circulating-supply-title": "Circulating Supply",
+			"total-locked-title": "Total IQ Locked",
 			"errors": {
 				"iq-price": "Error fetching IQ price",
-				"sophia-price": "Error fetching SOPHIA price",
-				"market-cap": "Error fetching Market Cap"
+				"market-cap": "Error fetching Market Cap",
+				"circulating-supply": "Error fetching Circulating Supply",
+				"total-locked": "Error fetching Total IQ Locked"
 			}
-		},
-		"exchanges": {
-			"title": "Exchanges",
-			"binance": "Binance",
-			"one-inch": "1inch",
-			"upbit": "Upbit",
-			"frax": "Frax Finance",
-			"trade-on": "Trade on {name}"
 		}
 	},
-	"ecosystem": {
-		"title": "The IQ Ecosystem",
-		"token": {
-			"title": "The IQ Token",
-			"description": "The IQ token is a cryptocurrency that powers a knowledge ecosystem that includes the world's largest cryptocurrency and blockchain encyclopedia, IQ.wiki. IQ token holders can stake their tokens to participate in governance and get access to additional features. They can vote on governance decisions and govern BrainDAO, the native DAO and treasury of the IQ ecosystem.",
-			"learn-more": "Learn more"
+	"utility": {
+		"title": "IQ Token Utility",
+		"description": "IQ is the governance and staking token of BrainDAO. Locking IQ produces HiIQ, which decides voting power, reward share, and how ecosystem fees flow back to holders.",
+		"governance": {
+			"title": "Governance",
+			"description": "Your HiIQ balance determines your voting power on IQ proposals. The longer you lock, the more say you have in how BrainDAO and its treasury are run."
 		},
-		"hiiq": {
-			"title": "HiIQ",
-			"description": "HiIQ, launched to incentivize long-term engagement and governance participation, allows users to lock up IQ tokens, increasing HiIQ balance for voting power and earning IQ token rewards, with 3 million tokens generated daily.",
-			"circulating-supply": "Circulating supply",
-			"market-cap": "Market cap",
-			"total-supply": "Total HiIQ",
-			"total-volume-locked": "Total volume locked"
+		"staking": {
+			"title": "Staking rewards",
+			"description": "Stakers earn additional IQ in proportion to their HiIQ balance, rewarding long-term commitment to the protocol."
 		},
-		"iqai": {
-			"title": "IQ AI",
-			"description": "IQ AI is building the foundation for mass blockchain adoption through the Agent Tokenization Platform (ATP). By enabling the creation of tokenized, autonomous on-chain agents, ATP is redefining decentralized ecosystems and unlocking new opportunities for collaboration, growth, and innovation.",
-			"button": "Explore IQ AI"
-		},
-		"iqwiki": {
-			"title": "IQ.wiki",
-			"description": "IQ.wiki is the largest blockchain and cryptocurrency encyclopedia in the world with thousands of pages. IQ.wiki is powered by IQ token and all edits on the platform are recorded on-chain through Polygon and IPFS.",
-			"button": "Explore IQ.wiki",
-			"sections": {
-				"intro-text": "Explore a diverse range of wikis designed to guide you through the realms of cryptocurrency and blockchain."
-			},
-			"widgets": "Widgets",
-			"wikiRank": "Wikis Ranked by Marketcap"
-		},
-		"sophia": {
-			"title": "SOPHIA",
-			"description": "Sophia is a self-documenting AI trained on the IQ.wiki dataset, curating blockchain knowledge, providing valuable insights and maintaining up-to-date information across the IQ.wiki platform, building a career as an agent-influencer, journalist, and editor.",
-			"button": "Explore Sophia",
-			"cards": {
-				"ai-editing": {
-					"badge": "AI-assisted <highlight>Editing</highlight>",
-					"title": "Influence Editing Focus",
-					"description": "Vote on which topics SOPHIA should prioritize in her research and editing process."
-				},
-				"exclusive-updates": {
-					"badge": "Exclusive <highlight>Updates</highlight>",
-					"title": "Exclusive Weekly Insights",
-					"description": "Access weekly gated content including insights threads, reports and behind-the-scenes."
-				},
-				"transparency": "SOPHIA maintains transparent records of her editorial work and analyzes blockchain projects with credible sources. Additionally, she updates wiki entries on the latest crypto information and trends."
-			}
-		},
-		"aiden": {
-			"title": "AIDEN",
-			"description": "AIDEN is an Advanced AI assistant developed to engage with blockchain technologies, helping users navigate the cryptocurrency landscape by offering in-depth insights and seamless onboarding assistance for both beginners and seasoned crypto enthusiasts.",
-			"extraDescription": "AIDEN is powered by the IQ token, enabling IQ holders to participate in governance and get access to additional features.",
-			"button": "Explore AIDEN",
-			"features": {
-				"realtime-data": {
-					"title": "Access to real-time data",
-					"description": "Access to real-time price data, trading volumes, and market capitalization."
-				},
-				"ai-answers": {
-					"title": "AI-generated answers",
-					"description": "Receive AI-generated answers to all your crypto questions."
-				},
-				"news-trends": {
-					"title": "Update on news and trends",
-					"description": "Equip yourself with AI-powered market analysis using real-time market data, news, and trends."
-				},
-				"plugins": {
-					"title": "Plugins",
-					"description": "Access various plugins to select data sources for your inquiries."
-				}
-			},
-			"sections": {
-				"knowledge": "Train AIDEN on your project documents and web pages and incorporate text and Q&A pairs to tailor the bot to the needs of your community.",
-				"social": "AIDEN can be integrated into different social platforms to deliver specialized, context-relevant information to meet the unique needs of each community."
-			}
-		},
-		"dashboard": {
-			"title": "IQ Dashboard",
-			"description": "Using the IQ Dashboard, you can stake your tokens, facilitate cross-blockchain bridging, vote on governance proposals, and engage in many other activities within the blockchain ecosystem.",
-			"button": "Explore IQ Dashboard",
-			"stats": {
-				"swap": {
-					"title": "Swap",
-					"description": "Engage with the IQ ecosystem and effortlessly swap the IQ token across various exchange platforms"
-				},
-				"lock": {
-					"title": "Lock",
-					"description": "Lock IQ token over a period of time and earn IQ token rewards."
-				},
-				"vote": {
-					"title": "Vote",
-					"description": "Stakers can vote on all governance proposals and create their own proposals."
-				},
-				"monitor": {
-					"title": "Monitor Protocol",
-					"description": "Users get real-time insights into the IQ ecosystem's growth and BrainDAO's treasury health."
-				}
-			},
-			"cards": {
-				"vote": "Vote",
-				"exchanges": "Exchanges",
-				"lock": "Lock",
-				"stats": "Stats"
-			}
-		},
-		"blog": {
-			"title": "IQ Blog",
-			"description": "Check out our blog to stay updated on all the exciting developments from BrainDAO and the IQ Ecosystem!",
-			"button": "Visit Blog"
+		"burn": {
+			"title": "Fee burn & redistribution",
+			"description": "A share of ecosystem platform fees paid in IQ is burned or redistributed to stakers, contributing to a deflationary supply model."
 		}
 	},
-	"team": {
-		"title": "Meet the Team",
-		"description": "BrainDAO is made up of a diverse team united by our mission, hailing from various corners of the globe.",
-		"alt": "Profile picture of {name}",
-		"social": {
-			"twitter": "Twitter profile of {name}",
-			"linkedin": "LinkedIn profile of {name}",
-			"wiki": "Wiki page of {name}"
-		},
-		"roles": {
-			"galaxyBrain": "Galaxy Brain",
-			"chiefTinkererOfficer": "Chief Tinkerer Officer",
-			"chiefOperatingOfficer": "Chief Operating Officer",
-			"contentGuru": "Content Guru",
-			"developer": "Developer",
-			"designer": "Designer",
-			"communityManager": "Community Manager",
-			"productManager": "Product Manager",
-			"advisor": "Advisor",
-			"executiveEditor": "Executive Editor",
-			"developerRelationsEngineer": "Developer Relations Engineer",
-			"softwareEngineer": "Software Engineer",
-			"backendEngineer": "Backend Engineer",
-			"fullStackEngineer": "Full Stack Engineer",
-			"productDesigner": "Product Designer",
-			"leadProductDesigner": "Lead Product Designer",
-			"technicalProductManager": "Technical Product Manager",
-			"businessDevelopmentManager": "Business Development Manager",
-			"juniorBusinessDeveloper": "Junior Business Developer"
+	"markets": {
+		"title": "Where IQ Trades",
+		"description": "IQ is listed on major centralized exchanges and available to swap on decentralized exchanges across the chains it is deployed on.",
+		"centralized": "Centralized exchanges",
+		"decentralized": "Decentralized exchanges",
+		"chains": {
+			"title": "Deployed chains",
+			"description": "IQ is deployed across multiple networks. Contract addresses are verifiable on each chain's block explorer.",
+			"ethereum": "Home chain of IQ and where HiIQ staking happens.",
+			"fraxtal": "Native IQ liquidity and Frax Finance swaps.",
+			"polygon": "Used for on-chain IQ.wiki edits."
 		}
+	},
+	"treasury": {
+		"title": "IQ Treasury",
+		"description": "BrainDAO holds the IQ treasury and reports on it openly. Use the IQ Dashboard to stake your tokens, bridge across chains, vote on governance proposals, and monitor treasury health in real time.",
+		"button": "Explore IQ Dashboard",
+		"holdings": {
+			"total-locked": "Total IQ locked in HiIQ",
+			"total-hiiq": "Total HiIQ outstanding"
+		},
+		"stats": {
+			"swap": {
+				"title": "Swap",
+				"description": "Engage with the IQ ecosystem and effortlessly swap the IQ token across various exchange platforms"
+			},
+			"lock": {
+				"title": "Lock",
+				"description": "Lock IQ token over a period of time and earn IQ token rewards."
+			},
+			"vote": {
+				"title": "Vote",
+				"description": "Stakers can vote on all governance proposals and create their own proposals."
+			},
+			"monitor": {
+				"title": "Monitor Protocol",
+				"description": "Users get real-time insights into the IQ ecosystem's growth and BrainDAO's treasury health."
+			}
+		},
+		"cards": {
+			"vote": "Vote",
+			"exchanges": "Exchanges",
+			"lock": "Lock",
+			"stats": "Stats"
+		}
+	},
+	"hiiq": {
+		"meta": {
+			"title": "HiIQ - Stake IQ for governance power and rewards",
+			"description": "HiIQ is the staking mechanism for the IQ token. Lock IQ for up to four years to increase your voting power and earn staking rewards."
+		},
+		"title": "HiIQ",
+		"description": "HiIQ is the staking mechanism for IQ. Locking IQ grants HiIQ, which determines your governance voting power and your share of staking rewards.",
+		"cta": "Stake IQ",
+		"stats": {
+			"locked": "Total IQ locked",
+			"supply": "Total HiIQ outstanding"
+		},
+		"sections": {
+			"what": {
+				"title": "What HiIQ is",
+				"description": "HiIQ is the staking mechanism for the IQ token. When you lock IQ you receive HiIQ, an account-based measure of your locked position that sets both your governance voting power and your share of rewards."
+			},
+			"how": {
+				"title": "How it works",
+				"description": "Lock IQ for up to four years to receive up to 4x HiIQ, following a veCRV-style model. The longer the lock, the higher the resulting HiIQ balance for the same amount of IQ."
+			},
+			"non-transferable": {
+				"title": "Non-transferable",
+				"description": "HiIQ does not trade on any market and cannot be transferred. It is an account-based measure of how long your IQ remains locked, not a tradeable asset."
+			},
+			"decay": {
+				"title": "Decay",
+				"description": "Your HiIQ balance decreases linearly as the lock approaches expiry, reaching a 1:1 ratio with your locked IQ when no time remains. Extending a lock restores the multiplier."
+			},
+			"rewards": {
+				"title": "Rewards",
+				"description": "Stakers earn additional IQ in proportion to their HiIQ balance. A share of ecosystem fees paid in IQ may also be burned or redistributed to stakers, making the supply model deflationary."
+			},
+			"requirements": {
+				"title": "Requirements",
+				"description": "Your IQ must be on Ethereum to stake, and you need ETH in your wallet to cover gas for locking, extending, and claiming rewards."
+			}
+		},
+		"source": "Reference: <link>HiIQ on IQ.wiki</link>."
 	},
 	"footer": {
 		"newsletter": {
