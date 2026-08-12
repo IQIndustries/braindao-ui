@@ -1,7 +1,7 @@
 "use client";
 
 import ExchangesMenubar from "@/app/[locale]/_components/exchange-menu";
-import { appLinks, mobileNavLinks, navLinks } from "@/data/Nav";
+import { appLinks, navLinks } from "@/data/Nav";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -89,14 +89,18 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 						className="hidden xl:flex gap-8 xl:gap-6 text-sm lg:text-base"
 					>
 						{navLinks.map((link, index) => {
-							const activeHref = activeSection ? `#${activeSection}` : null;
-							const isActive = activeHref === link.href;
+							const isActive = Boolean(
+								link.section && link.section === activeSection,
+							);
 
 							return (
 								<motion.a
 									key={link.href}
 									href={link.href}
 									target={link.target}
+									rel={
+										link.target === "_blank" ? "noopener noreferrer" : undefined
+									}
 									className={cn(
 										"transition-colors duration-200",
 										isActive ? "text-primary" : "hover:text-primary",
@@ -112,7 +116,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 									whileHover={{ scale: 1.05 }}
 									whileTap={{ scale: 0.95 }}
 								>
-									{link.title}
+									{t(`links.${link.key}`)}
 								</motion.a>
 							);
 						})}
@@ -212,12 +216,16 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 									sideOffset={10}
 								>
 									<div className="space-y-2">
-										{mobileNavLinks.map((link, index) => (
+										{navLinks.map((link, index) => (
 											<motion.a
 												key={link.href}
 												href={link.href}
-												target="_blank"
-												rel="noopener noreferrer"
+												target={link.target}
+												rel={
+													link.target === "_blank"
+														? "noopener noreferrer"
+														: undefined
+												}
 												className="block text-muted-foreground hover:text-primary text-sm py-2 transition-colors duration-200"
 												initial={{ opacity: 0, x: -10 }}
 												animate={{
@@ -233,9 +241,30 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 													}))
 												}
 											>
-												{link.title}
+												{t(`links.${link.key}`)}
 											</motion.a>
 										))}
+
+										<div className="border-t border-neutral-700 !mt-4 pt-2">
+											{appLinks.map((link) => (
+												<motion.a
+													key={link.href}
+													href={link.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													className="block text-muted-foreground hover:text-primary text-sm py-2 transition-colors duration-200"
+													whileTap={{ scale: 0.95 }}
+													onClick={() =>
+														setState((prev) => ({
+															...prev,
+															isMobileMenuOpen: false,
+														}))
+													}
+												>
+													{link.title}
+												</motion.a>
+											))}
+										</div>
 									</div>
 								</PopoverContent>
 							</Popover>

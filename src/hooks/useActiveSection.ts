@@ -8,10 +8,8 @@ export const useActiveSection = () => {
 
 	useEffect(() => {
 		const sections = navLinks
-			.filter(
-				(link) => typeof link.href === "string" && link.href.startsWith("#"),
-			)
-			.map((link) => link.href.slice(1));
+			.map((link) => link.section)
+			.filter((section): section is string => Boolean(section));
 
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY + 150;
