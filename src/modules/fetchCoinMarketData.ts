@@ -1,4 +1,4 @@
-import config from "@/config";
+import { env } from "@/env";
 
 const CACHE_TIME = 60 * 60 * 24;
 export const formatNumber = new Intl.NumberFormat("en", {
@@ -6,7 +6,7 @@ export const formatNumber = new Intl.NumberFormat("en", {
 }).format;
 
 export const fetchCoinMarketData = async () => {
-	const proxyUrl = new URL(config.iqGatewayUrl);
+	const proxyUrl = new URL(env.NEXT_PUBLIC_IQ_GATEWAY_URL);
 	const targetUrl =
 		"https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=everipedia";
 
@@ -16,7 +16,7 @@ export const fetchCoinMarketData = async () => {
 	try {
 		const response = await fetch(proxyUrl.href, {
 			headers: {
-				"x-api-key": config.iqGatewayKey,
+				"x-api-key": env.NEXT_PUBLIC_IQ_GATEWAY_KEY,
 			},
 		});
 

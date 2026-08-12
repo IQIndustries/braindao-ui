@@ -45,17 +45,13 @@ const Footer = async () => {
 							<h3 className="font-bold mb-4 text-muted-foreground text-sm">
 								{t("business.title")}
 							</h3>
-							<div className="space-y-2">
-								<p className="text-primary font-medium">
-									{t("business.contact")}
-								</p>
-								<a
-									className="text-muted-foreground hover:underline"
-									href={`mailto:${t("business.email")}`}
-								>
-									{t("business.email")}
-								</a>
-							</div>
+							<a
+								className="text-primary font-medium hover:underline whitespace-nowrap"
+								href={`mailto:${t("business.email")}`}
+								title={t("business.email")}
+							>
+								{t("business.contact")}
+							</a>
 						</div>
 						<div>
 							<h3 className="font-bold mb-4 text-muted-foreground font-satoshi">

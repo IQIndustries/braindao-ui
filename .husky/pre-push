@@ -1,5 +1,4 @@
 #!/bin/sh
-# . "$(dirname "$0")/_/husky.sh" // Depreciated in husky v10, TODO: Remove this permanently
 . "$(dirname "$0")/common.sh"
 
 pnpm build

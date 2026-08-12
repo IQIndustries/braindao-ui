@@ -1,30 +1,30 @@
-import config from "@/config";
+import { env } from "@/env";
 import { HEX_BASE, WEI_TO_ETHER_DIVISOR, alchemyFetch } from "./alchemyFetch";
 
 const getTotalHiiqSupply = async () => {
-  try {
-    const data = await alchemyFetch("eth_call", [
-      {
-        to: config.hiiqAddress,
-        data: "0x18160ddd",
-      },
-      "latest",
-    ]);
+	try {
+		const data = await alchemyFetch("eth_call", [
+			{
+				to: env.NEXT_PUBLIC_HIIQ_ADDRESS,
+				data: "0x18160ddd",
+			},
+			"latest",
+		]);
 
-    const totalHiiq = Number.parseInt(data, HEX_BASE) / WEI_TO_ETHER_DIVISOR;
-    return totalHiiq;
-  } catch (error) {
-    console.error("🚨 Error getting total hiIQ supply", error);
-    throw new Error("🚨 Error getting total hiIQ supply");
-  }
+		const totalHiiq = Number.parseInt(data, HEX_BASE) / WEI_TO_ETHER_DIVISOR;
+		return totalHiiq;
+	} catch (error) {
+		console.error("🚨 Error getting total hiIQ supply", error);
+		throw new Error("🚨 Error getting total hiIQ supply");
+	}
 };
 
 export const getLockOverview = async () => {
-  const totalHiiqSupply = await getTotalHiiqSupply();
+	const totalHiiqSupply = await getTotalHiiqSupply();
 
-  return {
-    totalSupplyError: totalHiiqSupply === 0,
-    isFetchingTotalSupply: false,
-    totalHiiqSupply,
-  };
+	return {
+		totalSupplyError: totalHiiqSupply === 0,
+		isFetchingTotalSupply: false,
+		totalHiiqSupply,
+	};
 };
