@@ -8,13 +8,15 @@ export function TokenCard({
 	change,
 	icon,
 	link,
+	external = true,
 	errorMessage,
 }: {
 	title: string;
 	value: string | null;
-	change: { iqChange: number | null; formattedChange: string | null };
+	change?: { iqChange: number | null; formattedChange: string | null };
 	icon: React.ReactNode;
 	link: string;
+	external?: boolean;
 	errorMessage: string;
 }) {
 	return (
@@ -23,16 +25,18 @@ export function TokenCard({
 				<h1 className="text-xs ">{title}</h1>
 				<div className="flex flex-col gap-1.5">
 					<h2 className="text-xl font-semibold ">{value ?? errorMessage}</h2>
-					<ChangePercentage
-						iqChange={change.iqChange ?? 0}
-						formattedChange={change.formattedChange}
-					/>
+					{change && (
+						<ChangePercentage
+							iqChange={change.iqChange ?? 0}
+							formattedChange={change.formattedChange}
+						/>
+					)}
 				</div>
 			</div>
 			<Link
 				href={link}
-				target="_blank"
-				rel="noopener noreferrer"
+				target={external ? "_blank" : undefined}
+				rel={external ? "noopener noreferrer" : undefined}
 				aria-label={`View ${title} on dashboard`}
 				className="rounded-full p-1 border border-border"
 			>
