@@ -8,10 +8,3 @@ export const cmcTokenDataSchema = z.object({
 });
 
 export type CMCTokenData = z.infer<typeof cmcTokenDataSchema>;
-
-export const sophiaStatsSchema = z.object({
-	currentPriceInIq: z.number(),
-	currentPriceInUSD: z.number(),
-	marketCap: z.number(),
-	changeIn24h: z.number(),
-});

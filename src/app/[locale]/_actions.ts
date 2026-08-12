@@ -1,14 +1,9 @@
 import config from "@/config";
 import { formatNumber } from "@/modules/helpers/numFormatter";
 import axios, { AxiosError } from "axios";
-import {
-	type CMCTokenData,
-	cmcTokenDataSchema,
-	sophiaStatsSchema,
-} from "./_schema";
+import { type CMCTokenData, cmcTokenDataSchema } from "./_schema";
 
 const CACHE_DURATION_SECONDS_12_HR_IN_SECONDS = 12 * 60 * 60;
-const SOPHIA_STATS_API_URL = `https://app.iqai.com/api/agents/stats?address=${config.sophiaAgentAddress}`;
 
 export async function getIqStats() {
 	try {
@@ -69,17 +64,6 @@ export async function getIqStats() {
 			iqMCapChange: null,
 			formattedMCapChange: null,
 		};
-	}
-}
-
-export async function getSophiaStats() {
-	try {
-		const response = await axios.get(SOPHIA_STATS_API_URL);
-
-		return sophiaStatsSchema.parse(response.data);
-	} catch (error) {
-		console.error("Error fetching Sophia stats:", error);
-		return null;
 	}
 }
 
