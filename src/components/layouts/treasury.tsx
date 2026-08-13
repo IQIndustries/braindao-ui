@@ -105,7 +105,7 @@ const Treasury = async ({
 							</svg>
 
 							<div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
-								<span className="font-ibm-plex-mono text-2xl text-white">
+								<span className="font-mono text-2xl text-white">
 									{lockedShare !== null
 										? `${(lockedShare * 100).toFixed(1)}%`
 										: "—"}
@@ -123,7 +123,7 @@ const Treasury = async ({
 									/>
 									<MonoLabel>{t("chart.locked")}</MonoLabel>
 								</dt>
-								<dd className="font-ibm-plex-mono text-base text-white">
+								<dd className="font-mono text-base text-white">
 									{numFormatter(totalIqLocked)} IQ
 								</dd>
 							</div>
@@ -136,7 +136,7 @@ const Treasury = async ({
 									/>
 									<MonoLabel>{t("chart.circulating")}</MonoLabel>
 								</dt>
-								<dd className="font-ibm-plex-mono text-base text-white">
+								<dd className="font-mono text-base text-white">
 									{circulatingSupply
 										? `${numFormatter(circulatingSupply)} IQ`
 										: "—"}
@@ -151,7 +151,7 @@ const Treasury = async ({
 									/>
 									<MonoLabel>{t("chart.voting")}</MonoLabel>
 								</dt>
-								<dd className="font-ibm-plex-mono text-base text-white">
+								<dd className="font-mono text-base text-white">
 									{numFormatter(totalHiiqSupply)} HiIQ
 								</dd>
 							</div>

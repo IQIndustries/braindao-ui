@@ -35,7 +35,7 @@ const TokenUtility = async () => {
 					<div key={key} className="bg-surface p-6 sm:p-7">
 						<MonoLabel>{String(index + 1).padStart(2, "0")}</MonoLabel>
 
-						<h3 className="mt-5 font-display text-2xl font-normal text-white">
+						<h3 className="mt-5 text-lg font-medium tracking-[-0.01em] text-white">
 							{t(`${key}.title`)}
 						</h3>
 

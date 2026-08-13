@@ -28,19 +28,19 @@ export function StatCell({
 			target={external ? "_blank" : undefined}
 			rel={external ? "noopener noreferrer" : undefined}
 			className={cn(
-				"group flex flex-col gap-2 border-rule px-5 py-6 transition-colors hover:bg-white/[0.02] sm:py-7",
+				"group flex flex-col gap-1.5 border-rule px-5 py-5 transition-colors hover:bg-white/[0.03] sm:py-6",
 				className,
 			)}
 		>
-			<span className="font-ibm-plex-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+			<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
 				{label}
 			</span>
 
-			<span className="font-ibm-plex-mono text-xl text-white sm:text-2xl">
+			<span className="font-mono text-xl text-white sm:text-2xl">
 				{value ?? errorMessage}
 			</span>
 
-			<span className="flex items-center gap-3 font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em]">
+			<span className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em]">
 				{change?.formattedChange ? (
 					<>
 						<span

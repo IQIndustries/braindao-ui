@@ -86,7 +86,7 @@ export default async function HiIQPage() {
 						{stats.map((stat) => (
 							<div key={stat.label} className="bg-surface px-5 py-6 sm:px-6">
 								<MonoLabel>{stat.label}</MonoLabel>
-								<p className="mt-3 font-ibm-plex-mono text-xl text-white sm:text-2xl">
+								<p className="mt-3 font-mono text-xl text-white sm:text-2xl">
 									{stat.value}
 								</p>
 							</div>
@@ -100,7 +100,7 @@ export default async function HiIQPage() {
 					{SECTIONS.map((section, index) => (
 						<div key={section} className="bg-surface p-6 sm:p-7">
 							<MonoLabel>{String(index + 1).padStart(2, "0")}</MonoLabel>
-							<h2 className="mt-5 font-display text-2xl font-normal text-white">
+							<h2 className="mt-5 text-lg font-medium tracking-[-0.01em] text-white">
 								{t(`sections.${section}.title`)}
 							</h2>
 							<p className="mt-3 text-sm leading-relaxed text-neutral-400 text-pretty">
@@ -110,7 +110,7 @@ export default async function HiIQPage() {
 					))}
 				</div>
 
-				<p className="mt-10 font-ibm-plex-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
+				<p className="mt-10 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
 					{t.rich("source", {
 						link: (chunks) => (
 							<a

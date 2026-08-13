@@ -48,7 +48,7 @@ export const TokenFlow = ({
 			x="86"
 			y="155"
 			textAnchor="middle"
-			className="fill-primary font-ibm-plex-mono"
+			className="fill-primary font-mono"
 			fontSize="15"
 		>
 			{source}
@@ -70,7 +70,7 @@ export const TokenFlow = ({
 				<text
 					x="306"
 					y={node.y + 26}
-					className="fill-neutral-500 font-ibm-plex-mono"
+					className="fill-neutral-500 font-mono"
 					fontSize="10"
 					letterSpacing="1.6"
 				>
@@ -79,7 +79,7 @@ export const TokenFlow = ({
 				<text
 					x="306"
 					y={node.y + 47}
-					className="fill-white font-ibm-plex-mono"
+					className="fill-white font-mono"
 					fontSize="13"
 				>
 					{labels[node.key].value}

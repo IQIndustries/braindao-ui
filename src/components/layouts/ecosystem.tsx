@@ -44,7 +44,7 @@ const Ecosystem = async () => {
 						</MonoLabel>
 
 						<div className="min-w-0 flex-1">
-							<h3 className="font-display text-xl font-normal text-white sm:text-2xl">
+							<h3 className="text-base font-medium tracking-[-0.01em] text-white sm:text-lg">
 								{t(`${product.key}.name`)}
 							</h3>
 							<p className="mt-1.5 text-sm leading-relaxed text-neutral-400 text-pretty">
@@ -52,7 +52,7 @@ const Ecosystem = async () => {
 							</p>
 						</div>
 
-						<span className="inline-flex h-9 shrink-0 items-center gap-1.5 self-start rounded-full border border-rule px-4 font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-rule-strong group-hover:text-white sm:self-auto">
+						<span className="inline-flex h-9 shrink-0 items-center gap-1.5 self-start rounded-full border border-rule px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-rule-strong group-hover:text-white sm:self-auto">
 							{t("visit")}
 							<span aria-hidden="true">↗</span>
 						</span>

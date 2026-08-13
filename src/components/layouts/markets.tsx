@@ -46,12 +46,12 @@ const ExchangeRow = ({
 				<span className="block truncate text-sm text-white">
 					{exchange.name}
 				</span>
-				<span className="mt-0.5 block font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
+				<span className="mt-0.5 block font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
 					{exchange.pair}
 				</span>
 			</span>
 
-			<span className="inline-flex h-8 items-center rounded-full border border-rule px-3.5 font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-rule-strong group-hover:text-white">
+			<span className="inline-flex h-8 items-center rounded-full border border-rule px-3.5 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-rule-strong group-hover:text-white">
 				{cta}
 			</span>
 		</Link>
@@ -102,7 +102,7 @@ const Markets = async () => {
 								>
 									<Logo width={16} height={16} className="shrink-0" />
 									<span className="text-[13px] text-white">{chain.name}</span>
-									<span className="font-ibm-plex-mono text-[10px] uppercase tracking-[0.14em] text-neutral-600">
+									<span className="font-mono text-[10px] uppercase tracking-[0.14em] text-neutral-600">
 										{t(`chains.${chain.key}`)}
 									</span>
 								</Link>
@@ -118,7 +118,7 @@ const Markets = async () => {
 									key={chain.key}
 									className="flex items-center gap-3 px-4 py-3.5 sm:px-5"
 								>
-									<span className="w-20 shrink-0 font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500">
+									<span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500">
 										{chain.name}
 									</span>
 									<span
@@ -129,7 +129,7 @@ const Markets = async () => {
 										<span className="size-1.5 rounded-full bg-primary" />
 										<span className="h-px flex-1 bg-rule" />
 									</span>
-									<span className="shrink-0 text-right font-ibm-plex-mono text-[11px] text-neutral-300">
+									<span className="shrink-0 text-right font-mono text-[11px] text-neutral-300">
 										{ROUTES[chain.key].join(" · ")}
 									</span>
 								</div>
