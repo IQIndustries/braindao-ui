@@ -23,8 +23,8 @@ export default async function Home() {
 
 	return (
 		<main>
-			{/* Hero and the stats strip share one viewport: the hero takes whatever
-			    height the strip leaves, so neither needs scrolling to reach. */}
+			{/* Hero and the stats strip share one viewport frame: the strip sits
+			    below the scene, so the rings and figure end at its top edge. */}
 			<div className="flex min-h-svh flex-col">
 				<Hero />
 				<IQStats
