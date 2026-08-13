@@ -19,11 +19,10 @@ export async function Hero() {
 
 			<HeroOrbits />
 
-			{/* Bottom padding in vh so the hero plus the stats strip still close
-			    at 100svh on the design's 1440x800 frame — the copy has ~12px of
-			    slack under the navbar there — while taller viewports lift the
-			    copy off the figure instead of stretching the gap above it. */}
-			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)]">
+			{/* Top-anchored: bottom-anchoring pooled every extra pixel of a tall
+			    viewport into the gap under the navbar. The bottom padding only
+			    binds on short screens, holding the copy off the figure. */}
+			<Container className="relative z-10 flex flex-1 flex-col justify-start pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)] sm:pt-[clamp(5rem,10.5vh,7rem)]">
 				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
 					{t("eyebrow")}
 				</Eyebrow>
