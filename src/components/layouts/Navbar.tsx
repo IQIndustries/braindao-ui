@@ -38,13 +38,14 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 	};
 
 	return (
-		<header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
+		<header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:pt-5">
+			{/* The pill hugs its content rather than stretching to a column width. */}
 			<nav
 				className={cn(
-					"mx-auto flex h-14 max-w-[860px] items-center gap-2 rounded-full border pl-4 pr-2 transition-colors duration-300",
+					"mx-auto flex h-12 w-fit items-center rounded-full border pl-5 pr-1.5 transition-colors duration-300",
 					isScrolled
-						? "border-rule-strong bg-canvas/80 backdrop-blur-xl"
-						: "border-rule bg-canvas/60 backdrop-blur-md",
+						? "border-rule-strong bg-surface/90 backdrop-blur-xl"
+						: "border-rule bg-surface/70 backdrop-blur-md",
 				)}
 			>
 				<Link
@@ -66,7 +67,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 					/>
 				</Link>
 
-				<ul className="mx-auto hidden items-center gap-1 md:flex">
+				<ul className="mx-5 hidden items-center gap-1 md:flex">
 					{navLinks.map((link) => {
 						const active = isLinkActive(link);
 						return (
@@ -78,9 +79,9 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 										link.target === "_blank" ? "noopener noreferrer" : undefined
 									}
 									className={cn(
-										"inline-flex h-9 items-center rounded-full px-4 text-[13px] transition-colors",
+										"inline-flex h-8 items-center px-3 text-[14px] transition-colors",
 										active
-											? "bg-white/10 text-white"
+											? "font-medium text-white"
 											: "text-neutral-400 hover:text-white",
 									)}
 								>
@@ -91,7 +92,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 					})}
 				</ul>
 
-				<div className="ml-auto flex items-center gap-2 md:ml-0">
+				<div className="ml-3 flex items-center gap-1.5 md:ml-0">
 					<LocaleSwitcher className="h-8 gap-1 border-rule px-2.5 text-[11px] text-neutral-300" />
 
 					<Link
@@ -99,7 +100,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 						target="_blank"
 						rel="noopener noreferrer"
 						data-ph-capture-attribute-product-link-clicked="stake-iq"
-						className="hidden h-9 items-center rounded-full bg-white px-4 text-[13px] font-medium text-black transition-colors hover:bg-neutral-200 sm:inline-flex"
+						className="hidden h-9 items-center rounded-full bg-white px-5 text-[14px] font-semibold text-black transition-colors hover:bg-neutral-200 sm:inline-flex"
 					>
 						{t("stake")}
 					</Link>
