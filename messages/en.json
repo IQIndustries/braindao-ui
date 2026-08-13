@@ -1,40 +1,90 @@
 {
 	"navbar": {
-		"launch-app": "Launch App",
+		"stake": "Stake IQ",
 		"links": {
 			"home": "Home",
 			"hiiq": "HiIQ",
 			"treasury": "Treasury",
 			"dashboard": "Dashboard"
-		},
-		"exchanges": {
-			"title": "Get the IQ token",
-			"description": "Get involved in the IQ Ecosystem and swap the IQ token easily across different exchange platforms.",
-			"centralized": "Centralized Exchanges",
-			"decentralized": "Decentralized Exchanges",
-			"seeMore": "See more",
-			"closeAria": "Close modal"
 		}
 	},
 	"introduction": {
-		"title": "<line>The DAO Behind</line><line>The <highlight>IQ Token.</highlight></line>",
-		"description": "BrainDAO is the legal entity that launched IQ. Token holders lock IQ for HiIQ to govern the protocol, earn staking rewards, and steer the BrainDAO treasury.",
+		"eyebrow": "BrainDAO",
+		"title": "The DAO behind the <highlight>IQ token.</highlight>",
+		"description": "BrainDAO is the legal entity that launched IQ. Holders lock IQ for HiIQ to govern the protocol, earn staking rewards, and steer the treasury.",
+		"primary-cta": "Stake IQ",
+		"secondary-cta": "What is HiIQ",
 		"stats": {
-			"iq-price-title": "IQ Price (USD)",
-			"market-cap-title": "Market Cap (USD)",
+			"iq-price-title": "IQ Price",
+			"market-cap-title": "Market Cap",
 			"circulating-supply-title": "Circulating Supply",
 			"total-locked-title": "Total IQ Locked",
+			"units": {
+				"change": "24h change",
+				"usd": "USD",
+				"iq": "IQ",
+				"locked": "Locked in HiIQ"
+			},
 			"errors": {
-				"iq-price": "Error fetching IQ price",
-				"market-cap": "Error fetching Market Cap",
-				"circulating-supply": "Error fetching Circulating Supply",
-				"total-locked": "Error fetching Total IQ Locked"
+				"iq-price": "Unavailable",
+				"market-cap": "Unavailable",
+				"circulating-supply": "Unavailable",
+				"total-locked": "Unavailable"
 			}
 		}
 	},
+	"token": {
+		"eyebrow": "The IQ token",
+		"title": "Governance, staking, and a <highlight>shared treasury.</highlight>",
+		"description": "IQ is the governance and staking token of BrainDAO. Locking IQ produces HiIQ, which sets voting power, reward share, and how ecosystem fees flow back to holders.",
+		"primary-cta": "About $IQ",
+		"secondary-cta": "View treasury",
+		"flow": {
+			"label": "What locking IQ produces",
+			"meta": "HiIQ",
+			"source": "$IQ",
+			"governance": {
+				"kicker": "Governance",
+				"value": "Voting power on proposals"
+			},
+			"staking": {
+				"kicker": "Staking",
+				"value": "Rewards paid in IQ"
+			},
+			"burn": {
+				"kicker": "Fees",
+				"value": "Burned or redistributed"
+			},
+			"legend": "One lock, three outcomes"
+		}
+	},
+	"markets": {
+		"eyebrow": "Markets",
+		"title": "Where $IQ <highlight>trades and lives.</highlight>",
+		"description": "IQ is listed on major centralized exchanges and swappable on decentralized venues across every chain it is deployed on.",
+		"centralized": "Centralized",
+		"decentralized": "Decentralized",
+		"trade": "Trade",
+		"chains": {
+			"title": "Deployed on",
+			"ethereum": "Staking",
+			"fraxtal": "Liquidity",
+			"polygon": "Wiki edits"
+		},
+		"routing": {
+			"label": "Liquidity routing",
+			"meta": "By chain"
+		},
+		"venues": {
+			"label": "Venues",
+			"meta": "{count} listed"
+		}
+	},
 	"utility": {
-		"title": "IQ Token Utility",
-		"description": "IQ is the governance and staking token of BrainDAO. Locking IQ produces HiIQ, which decides voting power, reward share, and how ecosystem fees flow back to holders.",
+		"eyebrow": "Utility",
+		"title": "What <highlight>$IQ does.</highlight>",
+		"description": "Three things happen when IQ is locked. Each one is decided by your HiIQ balance, which grows with the length of the lock.",
+		"cta": "Learn about HiIQ",
 		"governance": {
 			"title": "Governance",
 			"description": "Your HiIQ balance determines your voting power on IQ proposals. The longer you lock, the more say you have in how BrainDAO and its treasury are run."
@@ -48,50 +98,38 @@
 			"description": "A share of ecosystem platform fees paid in IQ is burned or redistributed to stakers, contributing to a deflationary supply model."
 		}
 	},
-	"markets": {
-		"title": "Where IQ Trades",
-		"description": "IQ is listed on major centralized exchanges and available to swap on decentralized exchanges across the chains it is deployed on.",
-		"centralized": "Centralized exchanges",
-		"decentralized": "Decentralized exchanges",
-		"chains": {
-			"title": "Deployed chains",
-			"description": "IQ is deployed across multiple networks. Contract addresses are verifiable on each chain's block explorer.",
-			"ethereum": "Home chain of IQ and where HiIQ staking happens.",
-			"fraxtal": "Native IQ liquidity and Frax Finance swaps.",
-			"polygon": "Used for on-chain IQ.wiki edits."
+	"treasury": {
+		"eyebrow": "Treasury",
+		"title": "A treasury governed by <highlight>IQ stakers.</highlight>",
+		"description": "BrainDAO holds the IQ treasury and reports on it openly. Stake IQ to vote on how it is used, or open the dashboard to monitor it in real time.",
+		"primary-cta": "Stake IQ",
+		"secondary-cta": "Open dashboard",
+		"chart": {
+			"label": "Supply locked in HiIQ",
+			"meta": "Live",
+			"center": "Of supply",
+			"locked": "Locked in HiIQ",
+			"circulating": "Circulating supply",
+			"voting": "Voting weight",
+			"foot": "On-chain figures, read live from Ethereum"
 		}
 	},
-	"treasury": {
-		"title": "IQ Treasury",
-		"description": "BrainDAO holds the IQ treasury and reports on it openly. Use the IQ Dashboard to stake your tokens, bridge across chains, vote on governance proposals, and monitor treasury health in real time.",
-		"button": "Explore IQ Dashboard",
-		"holdings": {
-			"total-locked": "Total IQ locked in HiIQ",
-			"total-hiiq": "Total HiIQ outstanding"
+	"ecosystem": {
+		"eyebrow": "Ecosystem",
+		"title": "Built on <highlight>$IQ.</highlight>",
+		"description": "The products that use the IQ token, run by teams across the ecosystem BrainDAO governs.",
+		"visit": "Visit",
+		"iqai": {
+			"name": "IQ AI",
+			"description": "Tokenized AI agents and the infrastructure behind them."
 		},
-		"stats": {
-			"swap": {
-				"title": "Swap",
-				"description": "Engage with the IQ ecosystem and effortlessly swap the IQ token across various exchange platforms"
-			},
-			"lock": {
-				"title": "Lock",
-				"description": "Lock IQ token over a period of time and earn IQ token rewards."
-			},
-			"vote": {
-				"title": "Vote",
-				"description": "Stakers can vote on all governance proposals and create their own proposals."
-			},
-			"monitor": {
-				"title": "Monitor Protocol",
-				"description": "Users get real-time insights into the IQ ecosystem's growth and BrainDAO's treasury health."
-			}
+		"wiki": {
+			"name": "IQ.wiki",
+			"description": "The blockchain and crypto encyclopedia, with edits recorded on-chain."
 		},
-		"cards": {
-			"vote": "Vote",
-			"exchanges": "Exchanges",
-			"lock": "Lock",
-			"stats": "Stats"
+		"dashboard": {
+			"name": "IQ Dashboard",
+			"description": "Stake IQ, bridge across chains, vote on proposals, and track the treasury."
 		}
 	},
 	"hiiq": {
@@ -99,9 +137,11 @@
 			"title": "HiIQ - Stake IQ for governance power and rewards",
 			"description": "HiIQ is the staking mechanism for the IQ token. Lock IQ for up to four years to increase your voting power and earn staking rewards."
 		},
+		"eyebrow": "Staking",
 		"title": "HiIQ",
 		"description": "HiIQ is the staking mechanism for IQ. Locking IQ grants HiIQ, which determines your governance voting power and your share of staking rewards.",
 		"cta": "Stake IQ",
+		"secondary-cta": "View treasury",
 		"stats": {
 			"locked": "Total IQ locked",
 			"supply": "Total HiIQ outstanding"
@@ -135,30 +175,44 @@
 		"source": "Reference: <link>HiIQ on IQ.wiki</link>."
 	},
 	"footer": {
+		"now": {
+			"title": "IQ right now",
+			"price": "Price",
+			"mcap": "Market cap",
+			"locked": "Locked"
+		},
+		"columns": {
+			"pages": "Pages",
+			"ecosystem": "Ecosystem",
+			"resources": "Resources",
+			"newsletter": "Newsletter"
+		},
+		"pages": {
+			"home": "Home",
+			"hiiq": "HiIQ",
+			"treasury": "Treasury",
+			"dashboard": "Dashboard"
+		},
+		"resources": {
+			"about": "About $IQ",
+			"contract": "IQ contract"
+		},
 		"newsletter": {
-			"title": "Subscribe to our newsletter",
-			"description": "Never miss any of the most popular and trending articles when you sign up to our email newsletter.",
+			"description": "Occasional updates on IQ, HiIQ, and BrainDAO governance.",
 			"button": "Subscribe"
 		},
 		"business": {
-			"title": "For business Inquiries",
-			"contact": "Contact us via email",
+			"contact": "Business inquiries",
 			"email": "tara@iq.wiki"
-		},
-		"social": {
-			"title": "Follow us"
-		},
-		"company": {
-			"title": "Company"
 		},
 		"about": {
 			"text": "BrainDAO is creating an intelligent future as the governing DAO behind the IQ ecosystem, supported by <link>BrainFund</link>."
 		},
 		"legal": {
-			"privacy": "Privacy & Cookies policy",
+			"privacy": "Privacy & cookies",
 			"rights": "All rights reserved"
 		},
-		"powered": "© {year} — Powered by IQ and BrainDAO.",
+		"powered": "© {year} BrainDAO",
 		"scrollTop": "Scroll to top"
 	}
 }

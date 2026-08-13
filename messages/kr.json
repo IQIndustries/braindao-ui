@@ -1,40 +1,90 @@
 {
 	"navbar": {
-		"launch-app": "앱 실행",
+		"stake": "IQ 스테이킹",
 		"links": {
 			"home": "홈",
 			"hiiq": "HiIQ",
 			"treasury": "트레저리",
 			"dashboard": "대시보드"
-		},
-		"exchanges": {
-			"title": "IQ 토큰 받기",
-			"description": "IQ 생태계에 참여하고 다양한 거래소에서 IQ 토큰을 쉽게 교환하세요.",
-			"centralized": "중앙화 거래소",
-			"decentralized": "탈중앙화 거래소",
-			"seeMore": "더보기",
-			"closeAria": "모달 닫기"
 		}
 	},
 	"introduction": {
-		"title": "<line><highlight>IQ 토큰</highlight>을</line><line>만든 DAO.</line>",
-		"description": "BrainDAO는 IQ를 발행한 법인입니다. 토큰 보유자는 IQ를 잠가 HiIQ를 받고, 프로토콜 거버넌스에 참여하며 스테이킹 보상을 얻고 BrainDAO 트레저리 운영에 관여합니다.",
+		"eyebrow": "BrainDAO",
+		"title": "<highlight>IQ 토큰</highlight>을 만든 DAO.",
+		"description": "BrainDAO는 IQ를 발행한 법인입니다. 보유자는 IQ를 잠가 HiIQ를 받고 프로토콜 거버넌스에 참여하며, 스테이킹 보상을 얻고 트레저리 운영에 관여합니다.",
+		"primary-cta": "IQ 스테이킹",
+		"secondary-cta": "HiIQ란",
 		"stats": {
-			"iq-price-title": "IQ 가격 (USD)",
-			"market-cap-title": "시가총액 (USD)",
+			"iq-price-title": "IQ 가격",
+			"market-cap-title": "시가총액",
 			"circulating-supply-title": "유통 공급량",
 			"total-locked-title": "총 잠긴 IQ",
+			"units": {
+				"change": "24시간 변동",
+				"usd": "USD",
+				"iq": "IQ",
+				"locked": "HiIQ에 잠김"
+			},
 			"errors": {
-				"iq-price": "IQ 가격 가져오기 오류",
-				"market-cap": "시가총액 가져오기 오류",
-				"circulating-supply": "유통 공급량 가져오기 오류",
-				"total-locked": "총 잠긴 IQ 가져오기 오류"
+				"iq-price": "표시 불가",
+				"market-cap": "표시 불가",
+				"circulating-supply": "표시 불가",
+				"total-locked": "표시 불가"
 			}
 		}
 	},
+	"token": {
+		"eyebrow": "IQ 토큰",
+		"title": "거버넌스, 스테이킹, 그리고 <highlight>공동 트레저리.</highlight>",
+		"description": "IQ는 BrainDAO의 거버넌스 및 스테이킹 토큰입니다. IQ를 잠그면 HiIQ가 생성되며, 이는 투표 권한과 보상 비중, 생태계 수수료가 보유자에게 환원되는 방식을 결정합니다.",
+		"primary-cta": "$IQ 알아보기",
+		"secondary-cta": "트레저리 보기",
+		"flow": {
+			"label": "IQ를 잠그면 생기는 것",
+			"meta": "HiIQ",
+			"source": "$IQ",
+			"governance": {
+				"kicker": "거버넌스",
+				"value": "제안에 대한 투표 권한"
+			},
+			"staking": {
+				"kicker": "스테이킹",
+				"value": "IQ로 지급되는 보상"
+			},
+			"burn": {
+				"kicker": "수수료",
+				"value": "소각 또는 재분배"
+			},
+			"legend": "하나의 잠금, 세 가지 결과"
+		}
+	},
+	"markets": {
+		"eyebrow": "마켓",
+		"title": "$IQ가 <highlight>거래되는 곳.</highlight>",
+		"description": "IQ는 주요 중앙화 거래소에 상장되어 있으며, IQ가 배포된 모든 체인의 탈중앙화 거래소에서도 교환할 수 있습니다.",
+		"centralized": "중앙화",
+		"decentralized": "탈중앙화",
+		"trade": "거래",
+		"chains": {
+			"title": "배포된 체인",
+			"ethereum": "스테이킹",
+			"fraxtal": "유동성",
+			"polygon": "위키 편집"
+		},
+		"routing": {
+			"label": "유동성 라우팅",
+			"meta": "체인별"
+		},
+		"venues": {
+			"label": "거래처",
+			"meta": "{count}곳 상장"
+		}
+	},
 	"utility": {
-		"title": "IQ 토큰 유틸리티",
-		"description": "IQ는 BrainDAO의 거버넌스 및 스테이킹 토큰입니다. IQ를 잠그면 HiIQ가 생성되며, 이는 투표 권한과 보상 비중, 그리고 생태계 수수료가 보유자에게 환원되는 방식을 결정합니다.",
+		"eyebrow": "유틸리티",
+		"title": "<highlight>$IQ</highlight>가 하는 일.",
+		"description": "IQ를 잠그면 세 가지 일이 일어납니다. 각각은 잠금 기간에 따라 커지는 HiIQ 잔액이 결정합니다.",
+		"cta": "HiIQ 알아보기",
 		"governance": {
 			"title": "거버넌스",
 			"description": "HiIQ 잔액이 IQ 제안에 대한 투표 권한을 결정합니다. 더 오래 잠글수록 BrainDAO와 트레저리 운영에 대한 발언권이 커집니다."
@@ -48,50 +98,38 @@
 			"description": "IQ로 지불된 생태계 플랫폼 수수료의 일부는 소각되거나 스테이커에게 재분배되어 디플레이션 공급 모델에 기여합니다."
 		}
 	},
-	"markets": {
-		"title": "IQ 거래처",
-		"description": "IQ는 주요 중앙화 거래소에 상장되어 있으며, IQ가 배포된 각 체인의 탈중앙화 거래소에서도 교환할 수 있습니다.",
-		"centralized": "중앙화 거래소",
-		"decentralized": "탈중앙화 거래소",
-		"chains": {
-			"title": "배포된 체인",
-			"description": "IQ는 여러 네트워크에 배포되어 있습니다. 컨트랙트 주소는 각 체인의 블록 익스플로러에서 확인할 수 있습니다.",
-			"ethereum": "IQ의 기본 체인이자 HiIQ 스테이킹이 이루어지는 곳입니다.",
-			"fraxtal": "네이티브 IQ 유동성과 Frax Finance 스왑을 제공합니다.",
-			"polygon": "IQ.wiki의 온체인 편집 기록에 사용됩니다."
+	"treasury": {
+		"eyebrow": "트레저리",
+		"title": "<highlight>IQ 스테이커</highlight>가 운영하는 트레저리.",
+		"description": "BrainDAO는 IQ 트레저리를 보유하고 이를 투명하게 공개합니다. IQ를 스테이킹해 사용처에 투표하거나, 대시보드에서 실시간으로 확인하세요.",
+		"primary-cta": "IQ 스테이킹",
+		"secondary-cta": "대시보드 열기",
+		"chart": {
+			"label": "HiIQ에 잠긴 공급량",
+			"meta": "실시간",
+			"center": "공급량 대비",
+			"locked": "HiIQ에 잠김",
+			"circulating": "유통 공급량",
+			"voting": "투표 가중치",
+			"foot": "이더리움에서 실시간으로 읽어온 온체인 수치"
 		}
 	},
-	"treasury": {
-		"title": "IQ 트레저리",
-		"description": "BrainDAO는 IQ 트레저리를 보유하고 이를 투명하게 공개합니다. IQ 대시보드에서 토큰을 스테이킹하고, 체인 간 브리징을 하고, 거버넌스 제안에 투표하고, 트레저리 상태를 실시간으로 확인할 수 있습니다.",
-		"button": "IQ 대시보드 탐색",
-		"holdings": {
-			"total-locked": "HiIQ에 잠긴 총 IQ",
-			"total-hiiq": "총 HiIQ 발행량"
+	"ecosystem": {
+		"eyebrow": "생태계",
+		"title": "<highlight>$IQ</highlight> 위에 세워진 것들.",
+		"description": "IQ 토큰을 사용하는 제품들로, BrainDAO가 운영하는 생태계 전반의 팀이 만듭니다.",
+		"visit": "방문",
+		"iqai": {
+			"name": "IQ AI",
+			"description": "토큰화된 AI 에이전트와 이를 뒷받침하는 인프라."
 		},
-		"stats": {
-			"swap": {
-				"title": "스왑",
-				"description": "IQ 생태계에서 IQ 토큰을 다양한 거래소에서 쉽게 교환하세요."
-			},
-			"lock": {
-				"title": "잠금",
-				"description": "IQ 토큰을 일정 기간 잠그고 보상을 받으세요."
-			},
-			"vote": {
-				"title": "투표",
-				"description": "스테이킹한 사용자는 모든 거버넌스 제안에 투표하고 자신만의 제안을 만들 수 있습니다."
-			},
-			"monitor": {
-				"title": "프로토콜 모니터링",
-				"description": "IQ 생태계 성장과 BrainDAO 재무 상태를 실시간으로 확인하세요."
-			}
+		"wiki": {
+			"name": "IQ.wiki",
+			"description": "편집 기록이 온체인에 남는 블록체인·크립토 백과사전."
 		},
-		"cards": {
-			"vote": "투표",
-			"exchanges": "거래소",
-			"lock": "잠금",
-			"stats": "통계"
+		"dashboard": {
+			"name": "IQ 대시보드",
+			"description": "IQ 스테이킹, 체인 간 브리징, 제안 투표, 트레저리 추적."
 		}
 	},
 	"hiiq": {
@@ -99,9 +137,11 @@
 			"title": "HiIQ - IQ를 스테이킹하고 거버넌스 권한과 보상을 받으세요",
 			"description": "HiIQ는 IQ 토큰의 스테이킹 메커니즘입니다. 최대 4년 동안 IQ를 잠가 투표 권한을 높이고 스테이킹 보상을 받으세요."
 		},
+		"eyebrow": "스테이킹",
 		"title": "HiIQ",
 		"description": "HiIQ는 IQ의 스테이킹 메커니즘입니다. IQ를 잠그면 HiIQ가 부여되며, 이는 거버넌스 투표 권한과 스테이킹 보상 비중을 결정합니다.",
 		"cta": "IQ 스테이킹",
+		"secondary-cta": "트레저리 보기",
 		"stats": {
 			"locked": "총 잠긴 IQ",
 			"supply": "총 HiIQ 발행량"
@@ -135,30 +175,44 @@
 		"source": "출처: <link>IQ.wiki의 HiIQ</link>."
 	},
 	"footer": {
+		"now": {
+			"title": "지금의 IQ",
+			"price": "가격",
+			"mcap": "시가총액",
+			"locked": "잠긴 수량"
+		},
+		"columns": {
+			"pages": "페이지",
+			"ecosystem": "생태계",
+			"resources": "자료",
+			"newsletter": "뉴스레터"
+		},
+		"pages": {
+			"home": "홈",
+			"hiiq": "HiIQ",
+			"treasury": "트레저리",
+			"dashboard": "대시보드"
+		},
+		"resources": {
+			"about": "$IQ 소개",
+			"contract": "IQ 컨트랙트"
+		},
 		"newsletter": {
-			"title": "뉴스레터 구독",
-			"description": "이메일 뉴스레터에 등록하면 인기 기사와 트렌드 기사를 놓치지 않을 수 있습니다.",
+			"description": "IQ, HiIQ, BrainDAO 거버넌스에 대한 소식을 가끔 전해드립니다.",
 			"button": "구독"
 		},
 		"business": {
-			"title": "사업 문의",
-			"contact": "이메일로 문의하기",
+			"contact": "사업 문의",
 			"email": "tara@iq.wiki"
-		},
-		"social": {
-			"title": "팔로우"
-		},
-		"company": {
-			"title": "회사 정보"
 		},
 		"about": {
 			"text": "BrainDAO는 IQ 생태계를 운영하는 DAO로서 지능적인 미래를 창조하고 있으며, <link>BrainFund</link>의 지원을 받고 있습니다."
 		},
 		"legal": {
-			"privacy": "개인정보 & 쿠키 정책",
+			"privacy": "개인정보 & 쿠키",
 			"rights": "모든 권리 보유"
 		},
-		"powered": "© {year} — IQ 및 BrainDAO 제공.",
+		"powered": "© {year} BrainDAO",
 		"scrollTop": "상단으로 스크롤"
 	}
 }

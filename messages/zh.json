@@ -1,40 +1,90 @@
 {
 	"navbar": {
-		"launch-app": "启动应用",
+		"stake": "质押 IQ",
 		"links": {
 			"home": "首页",
 			"hiiq": "HiIQ",
 			"treasury": "资金库",
 			"dashboard": "仪表盘"
-		},
-		"exchanges": {
-			"title": "获取 IQ 代币",
-			"description": "加入 IQ 生态系统，轻松在不同交易平台上兑换 IQ 代币。",
-			"centralized": "中心化交易所",
-			"decentralized": "去中心化交易所",
-			"seeMore": "查看更多",
-			"closeAria": "关闭弹窗"
 		}
 	},
 	"introduction": {
-		"title": "<line>打造 <highlight>IQ 代币</highlight></line><line>的 DAO。</line>",
-		"description": "BrainDAO 是发行 IQ 的法律实体。代币持有者锁定 IQ 获得 HiIQ，参与协议治理、赚取质押奖励，并共同管理 BrainDAO 资金库。",
+		"eyebrow": "BrainDAO",
+		"title": "打造 <highlight>IQ 代币</highlight> 的 DAO。",
+		"description": "BrainDAO 是发行 IQ 的法律实体。持有者锁定 IQ 获得 HiIQ，参与协议治理、赚取质押奖励，并共同管理资金库。",
+		"primary-cta": "质押 IQ",
+		"secondary-cta": "什么是 HiIQ",
 		"stats": {
-			"iq-price-title": "IQ 价格 (USD)",
-			"market-cap-title": "市值 (USD)",
+			"iq-price-title": "IQ 价格",
+			"market-cap-title": "市值",
 			"circulating-supply-title": "流通供应量",
 			"total-locked-title": "IQ 锁仓总量",
+			"units": {
+				"change": "24 小时涨跌",
+				"usd": "USD",
+				"iq": "IQ",
+				"locked": "锁定于 HiIQ"
+			},
 			"errors": {
-				"iq-price": "获取 IQ 价格出错",
-				"market-cap": "获取市值出错",
-				"circulating-supply": "获取流通供应量出错",
-				"total-locked": "获取 IQ 锁仓总量出错"
+				"iq-price": "暂不可用",
+				"market-cap": "暂不可用",
+				"circulating-supply": "暂不可用",
+				"total-locked": "暂不可用"
 			}
 		}
 	},
-	"utility": {
-		"title": "IQ 代币效用",
+	"token": {
+		"eyebrow": "IQ 代币",
+		"title": "治理、质押与 <highlight>共同的资金库。</highlight>",
 		"description": "IQ 是 BrainDAO 的治理与质押代币。锁定 IQ 会生成 HiIQ，它决定了投票权重、奖励份额，以及生态系统费用如何回馈持有者。",
+		"primary-cta": "了解 $IQ",
+		"secondary-cta": "查看资金库",
+		"flow": {
+			"label": "锁定 IQ 会产生什么",
+			"meta": "HiIQ",
+			"source": "$IQ",
+			"governance": {
+				"kicker": "治理",
+				"value": "对提案的投票权重"
+			},
+			"staking": {
+				"kicker": "质押",
+				"value": "以 IQ 支付的奖励"
+			},
+			"burn": {
+				"kicker": "费用",
+				"value": "销毁或再分配"
+			},
+			"legend": "一次锁仓，三种结果"
+		}
+	},
+	"markets": {
+		"eyebrow": "市场",
+		"title": "$IQ 在哪里 <highlight>交易与流通。</highlight>",
+		"description": "IQ 已在主要中心化交易所上线，并可在其部署的每一条链上的去中心化场所进行兑换。",
+		"centralized": "中心化",
+		"decentralized": "去中心化",
+		"trade": "交易",
+		"chains": {
+			"title": "部署的链",
+			"ethereum": "质押",
+			"fraxtal": "流动性",
+			"polygon": "维基编辑"
+		},
+		"routing": {
+			"label": "流动性路由",
+			"meta": "按链划分"
+		},
+		"venues": {
+			"label": "交易场所",
+			"meta": "已上线 {count} 家"
+		}
+	},
+	"utility": {
+		"eyebrow": "效用",
+		"title": "<highlight>$IQ</highlight> 能做什么。",
+		"description": "锁定 IQ 会带来三件事，每一件都由随锁仓时长增长的 HiIQ 余额决定。",
+		"cta": "了解 HiIQ",
 		"governance": {
 			"title": "治理",
 			"description": "您的 HiIQ 余额决定了您对 IQ 提案的投票权重。锁定时间越长，您对 BrainDAO 及其资金库运作的话语权越大。"
@@ -48,50 +98,38 @@
 			"description": "以 IQ 支付的生态系统平台费用中，有一部分会被销毁或再分配给质押者，从而形成通缩的供应模型。"
 		}
 	},
-	"markets": {
-		"title": "IQ 在哪里交易",
-		"description": "IQ 已在主要中心化交易所上线，并可在其部署的各条链上的去中心化交易所进行兑换。",
-		"centralized": "中心化交易所",
-		"decentralized": "去中心化交易所",
-		"chains": {
-			"title": "部署的链",
-			"description": "IQ 部署在多条网络上。合约地址可在各条链的区块浏览器上查验。",
-			"ethereum": "IQ 的主链，也是 HiIQ 质押所在的网络。",
-			"fraxtal": "提供原生 IQ 流动性与 Frax Finance 兑换。",
-			"polygon": "用于 IQ.wiki 的链上编辑记录。"
+	"treasury": {
+		"eyebrow": "资金库",
+		"title": "由 <highlight>IQ 质押者</highlight> 治理的资金库。",
+		"description": "BrainDAO 持有 IQ 资金库并公开披露其状况。质押 IQ 即可对其用途投票，或打开仪表盘实时监控。",
+		"primary-cta": "质押 IQ",
+		"secondary-cta": "打开仪表盘",
+		"chart": {
+			"label": "锁定于 HiIQ 的供应量",
+			"meta": "实时",
+			"center": "占供应量",
+			"locked": "锁定于 HiIQ",
+			"circulating": "流通供应量",
+			"voting": "投票权重",
+			"foot": "链上数据，实时读取自以太坊"
 		}
 	},
-	"treasury": {
-		"title": "IQ 资金库",
-		"description": "BrainDAO 持有 IQ 资金库并公开披露其状况。通过 IQ 仪表盘，您可以质押代币、进行跨链桥接、对治理提案投票，并实时监控资金库健康状况。",
-		"button": "探索 IQ 仪表盘",
-		"holdings": {
-			"total-locked": "锁定在 HiIQ 中的 IQ 总量",
-			"total-hiiq": "HiIQ 流通总量"
+	"ecosystem": {
+		"eyebrow": "生态系统",
+		"title": "构建于 <highlight>$IQ</highlight> 之上。",
+		"description": "使用 IQ 代币的产品，由 BrainDAO 所治理生态系统中的各个团队打造。",
+		"visit": "访问",
+		"iqai": {
+			"name": "IQ AI",
+			"description": "代币化的 AI 智能体及其背后的基础设施。"
 		},
-		"stats": {
-			"swap": {
-				"title": "兑换",
-				"description": "在 IQ 生态系统中轻松在各交易平台上兑换 IQ 代币。"
-			},
-			"lock": {
-				"title": "锁仓",
-				"description": "锁定 IQ 代币一段时间以获得奖励。"
-			},
-			"vote": {
-				"title": "投票",
-				"description": "质押者可以对所有治理提案投票，并创建自己的提案。"
-			},
-			"monitor": {
-				"title": "监控协议",
-				"description": "实时洞察 IQ 生态系统的成长及 BrainDAO 的资金状况。"
-			}
+		"wiki": {
+			"name": "IQ.wiki",
+			"description": "区块链与加密百科全书，编辑记录上链存证。"
 		},
-		"cards": {
-			"vote": "投票",
-			"exchanges": "交易所",
-			"lock": "锁仓",
-			"stats": "统计"
+		"dashboard": {
+			"name": "IQ 仪表盘",
+			"description": "质押 IQ、跨链桥接、对提案投票并追踪资金库。"
 		}
 	},
 	"hiiq": {
@@ -99,9 +137,11 @@
 			"title": "HiIQ - 质押 IQ 获取治理权与奖励",
 			"description": "HiIQ 是 IQ 代币的质押机制。最长可锁定 IQ 四年，以提升投票权重并赚取质押奖励。"
 		},
+		"eyebrow": "质押",
 		"title": "HiIQ",
 		"description": "HiIQ 是 IQ 的质押机制。锁定 IQ 即可获得 HiIQ，它决定了您的治理投票权重以及质押奖励的分配份额。",
 		"cta": "质押 IQ",
+		"secondary-cta": "查看资金库",
 		"stats": {
 			"locked": "IQ 锁仓总量",
 			"supply": "HiIQ 流通总量"
@@ -135,30 +175,44 @@
 		"source": "参考资料：<link>IQ.wiki 上的 HiIQ</link>。"
 	},
 	"footer": {
+		"now": {
+			"title": "IQ 实时数据",
+			"price": "价格",
+			"mcap": "市值",
+			"locked": "锁仓量"
+		},
+		"columns": {
+			"pages": "页面",
+			"ecosystem": "生态系统",
+			"resources": "资源",
+			"newsletter": "订阅"
+		},
+		"pages": {
+			"home": "首页",
+			"hiiq": "HiIQ",
+			"treasury": "资金库",
+			"dashboard": "仪表盘"
+		},
+		"resources": {
+			"about": "关于 $IQ",
+			"contract": "IQ 合约"
+		},
 		"newsletter": {
-			"title": "订阅我们的新闻邮件",
-			"description": "注册电子邮件新闻邮件，永不错过最受欢迎和热门的文章。",
+			"description": "不定期分享 IQ、HiIQ 与 BrainDAO 治理的最新动态。",
 			"button": "订阅"
 		},
 		"business": {
-			"title": "商务咨询",
-			"contact": "通过电子邮件联系我们",
+			"contact": "商务咨询",
 			"email": "tara@iq.wiki"
-		},
-		"social": {
-			"title": "关注我们"
-		},
-		"company": {
-			"title": "公司信息"
 		},
 		"about": {
 			"text": "BrainDAO 正在创建智能未来，作为 IQ 生态系统背后的治理 DAO，并获得 <link>BrainFund</link> 支持。"
 		},
 		"legal": {
-			"privacy": "隐私与 Cookie 政策",
+			"privacy": "隐私与 Cookie",
 			"rights": "版权所有"
 		},
-		"powered": "© {year} — 由 IQ 和 BrainDAO 提供。",
+		"powered": "© {year} BrainDAO",
 		"scrollTop": "滚动到顶部"
 	}
 }
