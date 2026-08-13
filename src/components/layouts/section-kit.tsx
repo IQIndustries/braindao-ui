@@ -32,7 +32,7 @@ export const Eyebrow = ({
 			className,
 		)}
 	>
-		<span aria-hidden="true" className="text-[1.1em] leading-none">
+		<span aria-hidden="true" className="text-[1.6em] leading-none">
 			{glyph}
 		</span>
 		{children}
