@@ -1,4 +1,4 @@
-import { IBM_Plex_Mono, Instrument_Serif, Montserrat } from "next/font/google";
+import { IBM_Plex_Mono, Montserrat, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 
 export const montserrat = Montserrat({
@@ -13,12 +13,12 @@ export const ibmPlexMono = IBM_Plex_Mono({
 	variable: "--font-ibm-plex-mono",
 });
 
-export const instrumentSerif = Instrument_Serif({
+export const playfairDisplay = Playfair_Display({
 	subsets: ["latin"],
-	weight: ["400"],
+	weight: ["400", "500"],
 	style: ["normal", "italic"],
 	display: "swap",
-	variable: "--font-instrument-serif",
+	variable: "--font-playfair",
 });
 
 export const satoshi = localFont({

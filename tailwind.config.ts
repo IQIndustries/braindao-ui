@@ -97,7 +97,7 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			fontFamily: {
-				display: ["var(--font-instrument-serif)", "Georgia", "serif"],
+				display: ["var(--font-playfair)", "Georgia", "serif"],
 				satoshi: ["var(--font-satoshi)", "sans-serif"],
 				"satoshi-light": ["var(--font-satoshi-light)", "sans-serif"],
 				"ibm-plex-mono": ["var(--font-ibm-plex-mono)", "monospace"],
