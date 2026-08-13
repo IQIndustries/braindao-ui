@@ -1,12 +1,16 @@
-import { StatsPointers } from "@/components/layouts/stats-pointer";
-import InViewAnimateBottom from "@/components/transitions/InViewAnimateBottom";
-import { Button } from "@/components/ui/button";
+import {
+	Container,
+	Display,
+	Eyebrow,
+	MonoLabel,
+	PillLink,
+	Section,
+} from "@/components/layouts/section-kit";
 import { getLockOverview } from "@/modules/getLockOverview";
 import { getTvl } from "@/modules/getTVL";
 import { numFormatter } from "@/modules/helpers/numFormatter";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import Link from "next/link";
 
 const SECTIONS = [
 	"what",
@@ -39,77 +43,88 @@ export default async function HiIQPage() {
 		getTranslations("hiiq"),
 	]);
 
+	const stats = [
+		{ label: t("stats.locked"), value: `${numFormatter(totalIqLocked)} IQ` },
+		{
+			label: t("stats.supply"),
+			value: `${numFormatter(lockOverview.totalHiiqSupply)} HiIQ`,
+		},
+	];
+
 	return (
-		<div className="max-w-7xl mx-auto text-muted-foreground">
-			<div className="px-4 xl:px-4 pt-32 md:pt-40 pb-12 sm:pb-20">
-				<div className="max-w-3xl">
-					<InViewAnimateBottom>
-						<h1 className="text-foreground font-semibold font-satoshi text-4xl sm:text-5xl xl:text-6xl">
-							{t("title")}
-						</h1>
-					</InViewAnimateBottom>
-					<InViewAnimateBottom>
-						<p className="mt-6 text-base xl:text-lg">{t("description")}</p>
-					</InViewAnimateBottom>
-					<InViewAnimateBottom>
-						<Button asChild size="lg" className="mt-8">
-							<Link
-								href="https://iq.iqai.com/dashboard/stake"
-								target="_blank"
-								rel="noopener noreferrer"
-								data-ph-capture-attribute-product-link-clicked="stake-iq"
-							>
-								{t("cta")}
-							</Link>
-						</Button>
-					</InViewAnimateBottom>
+		<main>
+			<section className="relative isolate overflow-hidden">
+				<div aria-hidden="true" className="absolute inset-0 -z-10">
+					<div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_0%,rgba(255,26,136,0.16),transparent_70%)]" />
 				</div>
 
-				<div className="grid sm:grid-cols-2 gap-12 xl:gap-6 mt-16">
-					<StatsPointers
-						title={`${numFormatter(totalIqLocked)} IQ`}
-						content={t("stats.locked")}
-						className="h-[80px] xl:h-[95px] justify-between"
-					/>
-					<StatsPointers
-						title={`${numFormatter(lockOverview.totalHiiqSupply)} HiIQ`}
-						content={t("stats.supply")}
-						className="h-[80px] xl:h-[95px] justify-between"
-					/>
-				</div>
+				<Container className="pb-16 pt-32 sm:pt-40">
+					<Eyebrow glyph="◉">{t("eyebrow")}</Eyebrow>
 
-				<div className="grid md:grid-cols-2 gap-8 mt-20">
-					{SECTIONS.map((section) => (
-						<InViewAnimateBottom key={section}>
-							<div className="h-full border border-neutral-800 rounded-2xl p-6 bg-neutral-950/60">
-								<h2 className="text-foreground font-semibold font-satoshi text-xl xl:text-2xl">
-									{t(`sections.${section}.title`)}
-								</h2>
-								<p className="mt-3 text-sm xl:text-base">
-									{t(`sections.${section}.description`)}
+					<Display as="h1" className="mt-5 max-w-3xl">
+						{t("title")}
+					</Display>
+
+					<p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-neutral-400 text-pretty">
+						{t("description")}
+					</p>
+
+					<div className="mt-9 flex flex-wrap gap-3">
+						<PillLink
+							href="https://iq.iqai.com/dashboard/stake"
+							external
+							analyticsKey="stake-iq"
+						>
+							{t("cta")}
+						</PillLink>
+						<PillLink href="/#treasury" variant="outline">
+							{t("secondary-cta")}
+						</PillLink>
+					</div>
+
+					<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2">
+						{stats.map((stat) => (
+							<div key={stat.label} className="bg-surface px-5 py-6 sm:px-6">
+								<MonoLabel>{stat.label}</MonoLabel>
+								<p className="mt-3 font-ibm-plex-mono text-xl text-white sm:text-2xl">
+									{stat.value}
 								</p>
 							</div>
-						</InViewAnimateBottom>
+						))}
+					</div>
+				</Container>
+			</section>
+
+			<Section>
+				<div className="grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2">
+					{SECTIONS.map((section, index) => (
+						<div key={section} className="bg-surface p-6 sm:p-7">
+							<MonoLabel>{String(index + 1).padStart(2, "0")}</MonoLabel>
+							<h2 className="mt-5 font-display text-2xl font-normal text-white">
+								{t(`sections.${section}.title`)}
+							</h2>
+							<p className="mt-3 text-sm leading-relaxed text-neutral-400 text-pretty">
+								{t(`sections.${section}.description`)}
+							</p>
+						</div>
 					))}
 				</div>
 
-				<InViewAnimateBottom>
-					<p className="mt-12 text-sm">
-						{t.rich("source", {
-							link: (chunks) => (
-								<a
-									href="https://iq.wiki/wiki/hiiq"
-									target="_blank"
-									rel="noopener noreferrer"
-									className="text-primary hover:underline"
-								>
-									{chunks}
-								</a>
-							),
-						})}
-					</p>
-				</InViewAnimateBottom>
-			</div>
-		</div>
+				<p className="mt-10 font-ibm-plex-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
+					{t.rich("source", {
+						link: (chunks) => (
+							<a
+								href="https://iq.wiki/wiki/hiiq"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-primary hover:underline"
+							>
+								{chunks}
+							</a>
+						),
+					})}
+				</p>
+			</Section>
+		</main>
 	);
 }
