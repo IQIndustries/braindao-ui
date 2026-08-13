@@ -1,49 +1,51 @@
 import { getTranslations } from "next-intl/server";
-import { FaFire, FaLock, FaScaleBalanced } from "react-icons/fa6";
-import InViewAnimateBottom from "../transitions/InViewAnimateBottom";
+import { Display, Eyebrow, MonoLabel, PillLink, Section } from "./section-kit";
 
-const UTILITIES = [
-	{ key: "governance", icon: FaScaleBalanced },
-	{ key: "staking", icon: FaLock },
-	{ key: "burn", icon: FaFire },
-] as const;
+const UTILITIES = ["governance", "staking", "burn"] as const;
 
 const TokenUtility = async () => {
 	const t = await getTranslations("utility");
 
 	return (
-		<section id="utility" className="text-muted-foreground">
-			<div className="px-4 xl:container xl:mx-auto xl:px-4 py-12 sm:py-20">
-				<InViewAnimateBottom>
-					<h2 className="font-semibold text-foreground text-2xl sm:text-3xl xl:text-4xl font-satoshi">
-						{t("title")}
-					</h2>
-				</InViewAnimateBottom>
-				<InViewAnimateBottom>
-					<p className="xl:text-lg mt-4 max-w-3xl">{t("description")}</p>
-				</InViewAnimateBottom>
+		<Section id="utility">
+			<div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+				<div className="max-w-2xl">
+					<Eyebrow glyph="◇">{t("eyebrow")}</Eyebrow>
 
-				<div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8 xl:gap-6 mt-12">
-					{UTILITIES.map(({ key, icon: Icon }) => (
-						<InViewAnimateBottom key={key}>
-							<div className="h-full border border-neutral-800 rounded-2xl p-6 bg-neutral-950/60">
-								<Icon
-									size="1.5em"
-									className="text-primary"
-									aria-hidden="true"
-								/>
-								<h3 className="text-foreground font-semibold font-satoshi text-xl mt-4">
-									{t(`${key}.title`)}
-								</h3>
-								<p className="mt-2 text-sm xl:text-base">
-									{t(`${key}.description`)}
-								</p>
-							</div>
-						</InViewAnimateBottom>
-					))}
+					<Display className="mt-5">
+						{t.rich("title", {
+							highlight: (chunks) => (
+								<span className="text-primary">{chunks}</span>
+							),
+						})}
+					</Display>
+
+					<p className="mt-6 max-w-xl text-[15px] leading-relaxed text-neutral-400 text-pretty">
+						{t("description")}
+					</p>
 				</div>
+
+				<PillLink href="/hiiq" variant="outline" className="self-start">
+					{t("cta")}
+				</PillLink>
 			</div>
-		</section>
+
+			<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+				{UTILITIES.map((key, index) => (
+					<div key={key} className="bg-surface p-6 sm:p-7">
+						<MonoLabel>{String(index + 1).padStart(2, "0")}</MonoLabel>
+
+						<h3 className="mt-5 font-display text-2xl font-normal text-white">
+							{t(`${key}.title`)}
+						</h3>
+
+						<p className="mt-3 text-sm leading-relaxed text-neutral-400 text-pretty">
+							{t(`${key}.description`)}
+						</p>
+					</div>
+				))}
+			</div>
+		</Section>
 	);
 };
 

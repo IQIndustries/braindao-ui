@@ -1,121 +1,169 @@
-import { TokenBrief } from "@/app/[locale]/_components/token-brief";
 import { numFormatter } from "@/modules/helpers/numFormatter";
 import { getTranslations } from "next-intl/server";
-import DetailCard from "./detailed-card";
-import exchangeImage from "./images/treasury/exchange.svg";
-import lockImage from "./images/treasury/lock.svg";
-import statImage from "./images/treasury/stat.svg";
-import VotingImage from "./images/treasury/voting.svg";
-import { StatsPointers } from "./stats-pointer";
+import {
+	Display,
+	Eyebrow,
+	MonoLabel,
+	Panel,
+	PanelHeader,
+	PillLink,
+	Section,
+} from "./section-kit";
+
+const RADIUS = 68;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const Treasury = async ({
 	totalIqLocked,
 	totalHiiqSupply,
+	circulatingSupply,
 }: {
 	totalIqLocked: number;
 	totalHiiqSupply: number;
+	circulatingSupply: number | null;
 }) => {
 	const t = await getTranslations("treasury");
 
+	const lockedShare =
+		circulatingSupply && circulatingSupply > 0
+			? Math.min(totalIqLocked / circulatingSupply, 1)
+			: null;
+
 	return (
-		<div id="treasury" className="bg-black text-muted-foreground">
-			<div className="px-4 xl:container xl:mx-auto xl:px-4 py-12 sm:py-20 xl:py-32">
-				<TokenBrief
-					title={t("title")}
-					description={t("description")}
-					action="https://iq.iqai.com/dashboard"
-					buttonText={t("button")}
-				/>
+		<Section id="treasury">
+			<div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
+				<div className="lg:col-span-5">
+					<Eyebrow glyph="⬡">{t("eyebrow")}</Eyebrow>
 
-				<div className="grid sm:grid-cols-2 gap-12 xl:gap-6 mt-16 w-full">
-					<StatsPointers
-						title={`${numFormatter(totalIqLocked)} IQ`}
-						content={t("holdings.total-locked")}
-						className="h-[80px] xl:h-[95px] justify-between"
-					/>
-					<StatsPointers
-						title={`${numFormatter(totalHiiqSupply)} HiIQ`}
-						content={t("holdings.total-hiiq")}
-						className="h-[80px] xl:h-[95px] justify-between"
-					/>
-				</div>
+					<Display className="mt-5">
+						{t.rich("title", {
+							highlight: (chunks) => (
+								<span className="text-primary">{chunks}</span>
+							),
+						})}
+					</Display>
 
-				<div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-12 xl:gap-6 mt-16 w-full">
-					<StatsPointers
-						title={t("stats.swap.title")}
-						headerSize="text-xl"
-						content={t("stats.swap.description")}
-						className="gap-4"
-					/>
-					<StatsPointers
-						title={t("stats.lock.title")}
-						headerSize="text-xl"
-						content={t("stats.lock.description")}
-						className="gap-4"
-					/>
-					<StatsPointers
-						title={t("stats.vote.title")}
-						headerSize="text-xl"
-						content={t("stats.vote.description")}
-						className="gap-4"
-					/>
-					<StatsPointers
-						title={t("stats.monitor.title")}
-						headerSize="text-xl"
-						content={t("stats.monitor.description")}
-						className="gap-4"
-					/>
-				</div>
+					<p className="mt-6 max-w-lg text-[15px] leading-relaxed text-neutral-400 text-pretty">
+						{t("description")}
+					</p>
 
-				<div className="mt-16 w-full flex flex-col gap-6 md:gap-8">
-					<div className="flex flex-col sm:flex-row w-full justify-center gap-6 md:gap-6">
-						<div className="w-full sm:w-[70%]">
-							<DetailCard
-								title={t("cards.vote")}
-								image={VotingImage}
-								alt={t("cards.vote")}
-								className="w-full"
-								containerClassName="px-10"
-								imageClassName="w-full mt-2"
-							/>
-						</div>
-
-						<div className="w-full sm:w-[35%]">
-							<DetailCard
-								title={t("cards.exchanges")}
-								image={exchangeImage}
-								alt={t("cards.exchanges")}
-								className="w-full border-l border-t"
-								imageClassName="pl-9"
-								imageContainerPadding="flex justify-end items-end"
-							/>
-						</div>
-					</div>
-
-					<div className="flex flex-col sm:flex-row w-full justify-center gap-6 md:gap-6">
-						<div className="w-full sm:w-[50%]">
-							<DetailCard
-								title={t("cards.lock")}
-								image={lockImage}
-								alt={t("cards.lock")}
-								className="w-full"
-							/>
-						</div>
-
-						<div className="w-full sm:w-[50%]">
-							<DetailCard
-								title={t("cards.stats")}
-								image={statImage}
-								alt={t("cards.stats")}
-								className="w-full"
-								imageClassName="pl-11"
-								imageContainerPadding="flex justify-end"
-							/>
-						</div>
+					<div className="mt-8 flex flex-wrap gap-3">
+						<PillLink
+							href="https://iq.iqai.com/dashboard/stake"
+							external
+							analyticsKey="treasury-stake"
+						>
+							{t("primary-cta")}
+						</PillLink>
+						<PillLink
+							href="https://iq.iqai.com/dashboard"
+							variant="outline"
+							external
+							analyticsKey="treasury-dashboard"
+						>
+							{t("secondary-cta")}
+						</PillLink>
 					</div>
 				</div>
+
+				<Panel className="lg:col-span-7">
+					<PanelHeader
+						label={t("chart.label")}
+						meta={t("chart.meta")}
+						metaTone="primary"
+					/>
+
+					<div className="flex flex-col items-center gap-8 p-6 sm:flex-row sm:gap-10 sm:p-8">
+						<div className="relative shrink-0">
+							<svg
+								viewBox="0 0 160 160"
+								className="size-40 -rotate-90"
+								role="img"
+								aria-label={t("chart.label")}
+							>
+								<title>{t("chart.label")}</title>
+								<circle
+									cx="80"
+									cy="80"
+									r={RADIUS}
+									fill="none"
+									stroke="rgb(255 255 255 / 0.09)"
+									strokeWidth="10"
+								/>
+								{lockedShare !== null && (
+									<circle
+										cx="80"
+										cy="80"
+										r={RADIUS}
+										fill="none"
+										stroke="#FF1A88"
+										strokeWidth="10"
+										strokeLinecap="round"
+										strokeDasharray={`${CIRCUMFERENCE * lockedShare} ${CIRCUMFERENCE}`}
+									/>
+								)}
+							</svg>
+
+							<div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
+								<span className="font-ibm-plex-mono text-2xl text-white">
+									{lockedShare !== null
+										? `${(lockedShare * 100).toFixed(1)}%`
+										: "—"}
+								</span>
+								<MonoLabel>{t("chart.center")}</MonoLabel>
+							</div>
+						</div>
+
+						<dl className="w-full divide-y divide-rule">
+							<div className="flex items-baseline justify-between gap-4 pb-4">
+								<dt className="flex items-center gap-2.5">
+									<span
+										aria-hidden="true"
+										className="size-2 rounded-full bg-primary"
+									/>
+									<MonoLabel>{t("chart.locked")}</MonoLabel>
+								</dt>
+								<dd className="font-ibm-plex-mono text-base text-white">
+									{numFormatter(totalIqLocked)} IQ
+								</dd>
+							</div>
+
+							<div className="flex items-baseline justify-between gap-4 py-4">
+								<dt className="flex items-center gap-2.5">
+									<span
+										aria-hidden="true"
+										className="size-2 rounded-full bg-white/15"
+									/>
+									<MonoLabel>{t("chart.circulating")}</MonoLabel>
+								</dt>
+								<dd className="font-ibm-plex-mono text-base text-white">
+									{circulatingSupply
+										? `${numFormatter(circulatingSupply)} IQ`
+										: "—"}
+								</dd>
+							</div>
+
+							<div className="flex items-baseline justify-between gap-4 pt-4">
+								<dt className="flex items-center gap-2.5">
+									<span
+										aria-hidden="true"
+										className="size-2 rounded-full border border-rule-strong"
+									/>
+									<MonoLabel>{t("chart.voting")}</MonoLabel>
+								</dt>
+								<dd className="font-ibm-plex-mono text-base text-white">
+									{numFormatter(totalHiiqSupply)} HiIQ
+								</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div className="border-t border-rule px-4 py-3 sm:px-5">
+						<MonoLabel>{t("chart.foot")}</MonoLabel>
+					</div>
+				</Panel>
 			</div>
-		</div>
+		</Section>
 	);
 };
 

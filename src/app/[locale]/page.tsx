@@ -1,5 +1,7 @@
 import { Hero } from "@/components/layouts/Hero";
+import Ecosystem from "@/components/layouts/ecosystem";
 import Markets from "@/components/layouts/markets";
+import TokenOverview from "@/components/layouts/token-overview";
 import TokenUtility from "@/components/layouts/token-utility";
 import Treasury from "@/components/layouts/treasury";
 import { fetchCoinMarketData } from "@/modules/fetchCoinMarketData";
@@ -17,18 +19,25 @@ export default async function Home() {
 	]);
 
 	const { totalHiiqSupply } = lockOverview;
+	const circulatingSupply = marketData?.circulatingSupply ?? null;
 
 	return (
-		<div className="max-w-7xl mx-auto">
+		<main>
 			<Hero />
 			<IQStats
 				iqStatsData={iqStatsData}
-				circulatingSupply={marketData?.circulatingSupply ?? null}
+				circulatingSupply={circulatingSupply}
 				totalIqLocked={tvl}
 			/>
-			<TokenUtility />
+			<TokenOverview />
 			<Markets />
-			<Treasury totalIqLocked={tvl} totalHiiqSupply={totalHiiqSupply} />
-		</div>
+			<TokenUtility />
+			<Treasury
+				totalIqLocked={tvl}
+				totalHiiqSupply={totalHiiqSupply}
+				circulatingSupply={circulatingSupply}
+			/>
+			<Ecosystem />
+		</main>
 	);
 }

@@ -1,74 +1,61 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa6";
 
-export function TokenCard({
-	title,
-	value,
-	change,
-	icon,
-	link,
-	external = true,
-	errorMessage,
-}: {
-	title: string;
+export type StatCellProps = {
+	label: string;
 	value: string | null;
+	foot: string;
 	change?: { iqChange: number | null; formattedChange: string | null };
-	icon: React.ReactNode;
 	link: string;
 	external?: boolean;
 	errorMessage: string;
-}) {
-	return (
-		<div className="bg-neutral-950 backdrop-filter backdrop-blur-sm border border-neutral-700 rounded-xl p-3 flex flex-row text-sm justify-between items-center w-full">
-			<div className="flex flex-col gap-2 text-sm text-card-foreground">
-				<h1 className="text-xs ">{title}</h1>
-				<div className="flex flex-col gap-1.5">
-					<h2 className="text-xl font-semibold ">{value ?? errorMessage}</h2>
-					{change && (
-						<ChangePercentage
-							iqChange={change.iqChange ?? 0}
-							formattedChange={change.formattedChange}
-						/>
-					)}
-				</div>
-			</div>
-			<Link
-				href={link}
-				target={external ? "_blank" : undefined}
-				rel={external ? "noopener noreferrer" : undefined}
-				aria-label={`View ${title} on dashboard`}
-				className="rounded-full p-1 border border-border"
-			>
-				{icon}
-			</Link>
-		</div>
-	);
-}
+	className?: string;
+};
 
-function ChangePercentage({
-	iqChange = 0,
-	formattedChange,
-}: {
-	iqChange: number;
-	formattedChange: string | null;
-}) {
-	const changeDirection = iqChange > 0 ? "increase" : "decrease";
-
+export function StatCell({
+	label,
+	value,
+	foot,
+	change,
+	link,
+	external = true,
+	errorMessage,
+	className,
+}: StatCellProps) {
 	return (
-		<div
+		<Link
+			href={link}
+			target={external ? "_blank" : undefined}
+			rel={external ? "noopener noreferrer" : undefined}
 			className={cn(
-				"flex items-center gap-1 rounded-xl text-sm",
-				iqChange <= 0 ? "text-destructive" : "text-green-500",
+				"group flex flex-col gap-2 border-rule px-5 py-6 transition-colors hover:bg-white/[0.02] sm:py-7",
+				className,
 			)}
-			aria-label={`Price ${changeDirection} of ${formattedChange}%`}
 		>
-			{iqChange > 0 ? (
-				<FaArrowUp size={12} aria-hidden="true" />
-			) : (
-				<FaArrowDown size={12} aria-hidden="true" />
-			)}
-			<h3>{formattedChange}%</h3>
-		</div>
+			<span className="font-ibm-plex-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+				{label}
+			</span>
+
+			<span className="font-ibm-plex-mono text-xl text-white sm:text-2xl">
+				{value ?? errorMessage}
+			</span>
+
+			<span className="flex items-center gap-3 font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em]">
+				{change?.formattedChange ? (
+					<>
+						<span
+							className={cn(
+								(change.iqChange ?? 0) < 0 ? "text-primary" : "text-green-500",
+							)}
+						>
+							{change.formattedChange}%
+						</span>
+						<span className="text-neutral-600">{foot}</span>
+					</>
+				) : (
+					<span className="text-neutral-600">{foot}</span>
+				)}
+			</span>
+		</Link>
 	);
 }
