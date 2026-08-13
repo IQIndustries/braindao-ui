@@ -34,8 +34,9 @@ const CLUSTER_CORES = [
 	{ x: 1500, y: 150, spread: 220, tilt: 0.65, count: 90 },
 	{ x: 1660, y: 540, spread: 110, tilt: 0.4, count: 45 },
 	{ x: 870, y: 90, spread: 100, tilt: 0.55, count: 35 },
-	// Continues the figure's head-dissolve above the cropped asset's top edge.
-	{ x: 1090, y: 630, spread: 150, tilt: 0.35, count: 75 },
+	// Thickens the figure's head-dissolve so the first paint hints at it
+	// before the scene video loads.
+	{ x: 1090, y: 665, spread: 105, tilt: 0.35, count: 30 },
 ];
 
 const CLUSTERS = (() => {
