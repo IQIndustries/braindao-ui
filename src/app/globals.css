@@ -87,7 +87,7 @@ body {
 /* Hero orbit rings: a short bright arc travels each ring continuously.
    pathLength="100" normalises every ellipse so one dash rule fits all. */
 .orbit-trace {
-  stroke-dasharray: 12 88;
+  stroke-dasharray: 16 84;
   animation: orbit-trace-move var(--orbit-duration, 7s) linear infinite;
   animation-delay: var(--orbit-delay, 0s);
 }
@@ -101,24 +101,8 @@ body {
   }
 }
 
-.orbit-pulse {
-  animation: orbit-pulse-fade 5s ease-in-out infinite;
-  animation-delay: var(--orbit-delay, 0s);
-}
-
-@keyframes orbit-pulse-fade {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 0.75;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .orbit-trace,
-  .orbit-pulse {
+  .orbit-trace {
     animation: none;
   }
 }
