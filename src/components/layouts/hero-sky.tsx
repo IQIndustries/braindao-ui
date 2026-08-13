@@ -48,13 +48,12 @@ export const HeroSky = () => (
 				<radialGradient id="sky-haze" cx="50%" cy="80%" r="64%">
 					<stop offset="0%" stopColor="#9A4487" stopOpacity="0.36" />
 					<stop offset="42%" stopColor="#4A1740" stopOpacity="0.17" />
-					<stop offset="100%" stopColor="#1D1D20" stopOpacity="0" />
+					<stop offset="100%" stopColor="#0E0E10" stopOpacity="0" />
 				</radialGradient>
-				{/* The page background is #1D1D20, so depth at the top of the sky comes
-				    from a veil rather than from a darker base colour. */}
+				{/* Deepens the top of the sky so the haze reads as a horizon glow. */}
 				<linearGradient id="sky-vault" x1="0" y1="0" x2="0" y2="1">
-					<stop offset="0%" stopColor="#101014" stopOpacity="0.92" />
-					<stop offset="55%" stopColor="#101014" stopOpacity="0" />
+					<stop offset="0%" stopColor="#07070A" stopOpacity="0.9" />
+					<stop offset="55%" stopColor="#07070A" stopOpacity="0" />
 				</linearGradient>
 				<radialGradient id="sky-crown" cx="50%" cy="80%" r="34%">
 					<stop offset="0%" stopColor="#FF2D94" stopOpacity="0.13" />
@@ -122,7 +121,7 @@ export const HeroSky = () => (
 			<rect width={VIEW_W} height={VIEW_H} fill="url(#sky-crown)" />
 
 			<g mask="url(#sky-dust-mask)">
-				<rect width={VIEW_W} height={VIEW_H} fill="#141418" />
+				<rect width={VIEW_W} height={VIEW_H} fill="#0B0B0E" />
 
 				<g filter="url(#sky-filament)" opacity="0.16">
 					<ellipse cx="1330" cy="130" rx="290" ry="18" fill="#FF5AAC" />

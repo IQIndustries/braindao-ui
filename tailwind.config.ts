@@ -69,8 +69,8 @@ const config: Config = {
 				// Hairline rules and panel fills carry the structure across the site.
 				rule: "rgb(255 255 255 / 0.09)",
 				"rule-strong": "rgb(255 255 255 / 0.18)",
-				canvas: "#1D1D20",
-				surface: "#17171A",
+				canvas: "#0E0E10",
+				surface: "#1D1D20",
 				"surface-raised": "#26262B",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
