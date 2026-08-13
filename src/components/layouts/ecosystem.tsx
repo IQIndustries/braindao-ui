@@ -14,7 +14,7 @@ const Ecosystem = async () => {
 	return (
 		<Section id="ecosystem">
 			<div className="max-w-2xl">
-				<Eyebrow glyph="◎">{t("eyebrow")}</Eyebrow>
+				<Eyebrow icon="grid">{t("eyebrow")}</Eyebrow>
 
 				<Display className="mt-5">
 					{t.rich("title", {

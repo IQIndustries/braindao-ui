@@ -23,7 +23,10 @@ export async function Hero() {
 			    viewport into the gap under the navbar. The bottom padding only
 			    binds on short screens, holding the copy off the figure. */}
 			<Container className="relative z-10 flex flex-1 flex-col justify-start pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)] sm:pt-[clamp(5rem,10.5vh,7rem)]">
-				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
+				{/* White, not pink: the headline keyword already spends the accent
+				    here, so a pink eyebrow above it doubles up. Section eyebrows
+				    below the fold keep the pink. */}
+				<Eyebrow icon="orbit" className="justify-center text-white">
 					{t("eyebrow")}
 				</Eyebrow>
 

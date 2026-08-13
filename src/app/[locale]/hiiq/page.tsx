@@ -59,7 +59,7 @@ export default async function HiIQPage() {
 				</div>
 
 				<Container className="pb-16 pt-32 sm:pt-40">
-					<Eyebrow glyph="◉">{t("eyebrow")}</Eyebrow>
+					<Eyebrow icon="lock">{t("eyebrow")}</Eyebrow>
 
 					<Display as="h1" className="mt-5 max-w-3xl">
 						{t("title")}

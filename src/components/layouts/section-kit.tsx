@@ -1,3 +1,7 @@
+import {
+	EyebrowIcon,
+	type EyebrowIconName,
+} from "@/components/icons/eyebrow-icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import type React from "react";
@@ -22,19 +26,21 @@ export const Section = ({
 );
 
 export const Eyebrow = ({
-	glyph,
+	icon,
 	children,
 	className,
-}: { glyph: string; children: React.ReactNode; className?: string }) => (
+}: {
+	icon: EyebrowIconName;
+	children: React.ReactNode;
+	className?: string;
+}) => (
 	<p
 		className={cn(
-			"flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-primary",
+			"flex items-center gap-[9px] font-mono text-[11.5px] uppercase tracking-[0.14em] text-primary",
 			className,
 		)}
 	>
-		<span aria-hidden="true" className="text-[1.6em] leading-none">
-			{glyph}
-		</span>
+		<EyebrowIcon name={icon} />
 		{children}
 	</p>
 );

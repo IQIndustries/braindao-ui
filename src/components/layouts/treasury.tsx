@@ -33,7 +33,7 @@ const Treasury = async ({
 		<Section id="treasury">
 			<div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
 				<div className="lg:col-span-5">
-					<Eyebrow glyph="⬡">{t("eyebrow")}</Eyebrow>
+					<Eyebrow icon="vault">{t("eyebrow")}</Eyebrow>
 
 					<Display className="mt-5">
 						{t.rich("title", {
