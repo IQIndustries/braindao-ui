@@ -9,9 +9,9 @@
 		}
 	},
 	"introduction": {
-		"eyebrow": "BrainDAO",
-		"title": "打造 <highlight>IQ 代币</highlight> 的 DAO。",
-		"description": "BrainDAO 是发行 IQ 的法律实体。持有者锁定 IQ 获得 HiIQ，参与协议治理、赚取质押奖励，并共同管理资金库。",
+		"eyebrow": "治理 IQ 生态",
+		"title": "由 $IQ 驱动的<highlight>更智能</highlight>的未来。",
+		"description": "BrainDAO 是发行 $IQ 的法律实体，负责代币治理、资金库管理与 HiIQ 质押运营。",
 		"primary-cta": "质押 IQ",
 		"secondary-cta": "什么是 HiIQ",
 		"stats": {

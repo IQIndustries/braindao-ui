@@ -9,9 +9,9 @@
 		}
 	},
 	"introduction": {
-		"eyebrow": "BrainDAO",
-		"title": "<highlight>IQ 토큰</highlight>을 만든 DAO.",
-		"description": "BrainDAO는 IQ를 발행한 법인입니다. 보유자는 IQ를 잠가 HiIQ를 받고 프로토콜 거버넌스에 참여하며, 스테이킹 보상을 얻고 트레저리 운영에 관여합니다.",
+		"eyebrow": "IQ 생태계 거버넌스",
+		"title": "$IQ가 이끄는 <highlight>더 지적인</highlight> 미래.",
+		"description": "BrainDAO는 $IQ를 발행한 법인입니다. 토큰을 거버넌스하고, 트레저리를 관리하며, HiIQ 스테이킹을 운영합니다.",
 		"primary-cta": "IQ 스테이킹",
 		"secondary-cta": "HiIQ란",
 		"stats": {
