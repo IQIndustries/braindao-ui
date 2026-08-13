@@ -1,16 +1,7 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { getTranslations } from "next-intl/server";
 import { HeroOrbits } from "./hero-orbits";
 import { HeroSky } from "./hero-sky";
 import { Container, Display, Eyebrow, PillLink } from "./section-kit";
-
-// The design centres a cut-out figure whose head dissolves into the dust field.
-// Drop that export in (any of these formats) and it composites between the
-// rings and the copy; without it the sky and rings stand on their own.
-const figureSrc = ["gif", "webp", "png"]
-	.map((ext) => `/images/hero-figure.${ext}`)
-	.find((src) => existsSync(join(process.cwd(), "public", src)));
 
 export async function Hero() {
 	const t = await getTranslations("introduction");
@@ -18,30 +9,22 @@ export async function Hero() {
 	return (
 		<section className="relative isolate flex min-h-[27rem] flex-1 flex-col overflow-hidden sm:min-h-[34rem]">
 			<HeroSky />
-			<HeroOrbits />
 
-			{figureSrc && (
-				<div
-					aria-hidden="true"
-					className="pointer-events-none absolute bottom-0 left-[55.5vw] -z-[4] w-[clamp(15rem,33vw,41.25rem)] -translate-x-1/2"
-				>
-					{/* The crop is a rectangle out of the design frame, so its edges are
-					    faded into the sky; the dust clusters continue the dissolve above. */}
-					<img
-						src={figureSrc}
-						alt=""
-						className="w-full"
-						style={{
-							WebkitMaskImage:
-								"linear-gradient(to bottom, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-							WebkitMaskComposite: "source-in",
-							maskImage:
-								"linear-gradient(to bottom, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-							maskComposite: "intersect",
-						}}
-					/>
-				</div>
-			)}
+			{/* The design's whole scene — sky, dust dissolve and figure — is this
+			    loop. It sits over the SVG sky, which covers the first paint, and
+			    under the rings. Bottom-anchored so the horizon glow meets the
+			    stats strip at every aspect ratio. */}
+			<video
+				autoPlay
+				loop
+				muted
+				playsInline
+				preload="auto"
+				className="pointer-events-none absolute inset-0 -z-[6] size-full object-cover object-bottom"
+				src="/images/hero-scene.mp4"
+			/>
+
+			<HeroOrbits />
 
 			{/* Bottom padding in vw keeps the CTA row riding just above the inner
 			    ring's top arc, which is drawn 19.25vw above the hero's bottom edge. */}

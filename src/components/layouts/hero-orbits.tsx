@@ -26,41 +26,70 @@ export const HeroOrbits = () => (
 						<feMergeNode in="SourceGraphic" />
 					</feMerge>
 				</filter>
+				<filter id="orbit-soften" x="-50%" y="-50%" width="200%" height="200%">
+					<feGaussianBlur stdDeviation="12" />
+				</filter>
+				{/* The scene video renders below the rings, so the figure can't
+				    occlude them; this soft column over her silhouette makes the
+				    arcs read as passing behind her like the design. */}
+				<mask id="orbit-occlude">
+					<rect x="0" y="0" width="2000" height="400" fill="#fff" />
+					<g filter="url(#orbit-soften)">
+						<rect
+							x="905"
+							y="110"
+							width="120"
+							height="140"
+							rx="55"
+							fill="#000"
+						/>
+						<rect
+							x="835"
+							y="215"
+							width="325"
+							height="185"
+							rx="70"
+							fill="#000"
+						/>
+					</g>
+				</mask>
 			</defs>
 
-			{ORBITS.map((orbit) => (
-				<g key={orbit.rx}>
-					<ellipse
-						cx={1000}
-						cy={orbit.cy}
-						rx={orbit.rx}
-						ry={orbit.ry}
-						stroke="#C23370"
-						strokeWidth="1.1"
-						strokeOpacity={orbit.opacity}
-						vectorEffect="non-scaling-stroke"
-					/>
-					<ellipse
-						cx={1000}
-						cy={orbit.cy}
-						rx={orbit.rx}
-						ry={orbit.ry}
-						pathLength={100}
-						stroke="#FF9DCB"
-						strokeWidth="1.4"
-						strokeLinecap="round"
-						vectorEffect="non-scaling-stroke"
-						filter="url(#orbit-glow)"
-						className="orbit-trace"
-						style={
-							{
-								"--orbit-duration": orbit.duration,
-								"--orbit-delay": orbit.delay,
-							} as React.CSSProperties
-						}
-					/>
-				</g>
-			))}
+			<g mask="url(#orbit-occlude)">
+				{ORBITS.map((orbit) => (
+					<g key={orbit.rx}>
+						<ellipse
+							cx={1000}
+							cy={orbit.cy}
+							rx={orbit.rx}
+							ry={orbit.ry}
+							stroke="#C23370"
+							strokeWidth="1.1"
+							strokeOpacity={orbit.opacity}
+							vectorEffect="non-scaling-stroke"
+						/>
+						<ellipse
+							cx={1000}
+							cy={orbit.cy}
+							rx={orbit.rx}
+							ry={orbit.ry}
+							pathLength={100}
+							stroke="#FF9DCB"
+							strokeWidth="1.4"
+							strokeLinecap="round"
+							vectorEffect="non-scaling-stroke"
+							filter="url(#orbit-glow)"
+							className="orbit-trace"
+							style={
+								{
+									"--orbit-duration": orbit.duration,
+									"--orbit-delay": orbit.delay,
+								} as React.CSSProperties
+							}
+						/>
+					</g>
+				))}
+			</g>
 		</svg>
 	</div>
 );
