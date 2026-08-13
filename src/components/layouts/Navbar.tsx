@@ -60,9 +60,9 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 								: "/svgs/Braindao-logo.svg"
 						}
 						alt="BrainDAO"
-						width={112}
-						height={26}
-						className={cn("h-[26px] w-auto", isChristmasTheme && "pb-3")}
+						width={110}
+						height={32}
+						className={cn("h-8 w-auto", isChristmasTheme && "pb-3")}
 						priority
 					/>
 				</Link>
