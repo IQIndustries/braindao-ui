@@ -6,10 +6,11 @@ import { HeroSky } from "./hero-sky";
 import { Container, Display, Eyebrow, PillLink } from "./section-kit";
 
 // The design centres a cut-out figure whose head dissolves into the dust field.
-// Drop that PNG in and it composites between the rings and the copy; without it
-// the sky and rings stand on their own.
-const FIGURE_SRC = "/images/hero-figure.png";
-const hasFigure = existsSync(join(process.cwd(), "public", FIGURE_SRC));
+// Drop that export in (any of these formats) and it composites between the
+// rings and the copy; without it the sky and rings stand on their own.
+const figureSrc = ["gif", "webp", "png"]
+	.map((ext) => `/images/hero-figure.${ext}`)
+	.find((src) => existsSync(join(process.cwd(), "public", src)));
 
 export async function Hero() {
 	const t = await getTranslations("introduction");
@@ -19,11 +20,11 @@ export async function Hero() {
 			<HeroSky />
 			<HeroOrbits />
 
-			{hasFigure && (
+			{figureSrc && (
 				<div
 					aria-hidden="true"
 					className="pointer-events-none absolute inset-x-0 bottom-0 -z-[4] h-[62%] bg-contain bg-bottom bg-no-repeat"
-					style={{ backgroundImage: `url(${FIGURE_SRC})` }}
+					style={{ backgroundImage: `url(${figureSrc})` }}
 				/>
 			)}
 

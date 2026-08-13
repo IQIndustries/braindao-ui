@@ -27,6 +27,34 @@ const STARS = (() => {
 	});
 })();
 
+// The design's dust field clumps into dense pink swarms rather than an even
+// scatter. Each cluster is a diagonal streak of dots thinning outward.
+const CLUSTER_CORES = [
+	{ x: 545, y: 370, spread: 130, tilt: 0.5, count: 55 },
+	{ x: 1450, y: 165, spread: 170, tilt: 0.65, count: 70 },
+	{ x: 1660, y: 540, spread: 110, tilt: 0.4, count: 45 },
+	{ x: 870, y: 90, spread: 100, tilt: 0.55, count: 35 },
+];
+
+const CLUSTERS = (() => {
+	const rand = seeded(1729);
+	return CLUSTER_CORES.flatMap((core, c) =>
+		Array.from({ length: core.count }, (_, i) => {
+			// Sum of two rands ≈ triangular: dots pile up near the core.
+			const d = (rand() + rand() - 1) * core.spread;
+			const off = (rand() + rand() - 1) * core.spread * 0.35;
+			return {
+				id: `${c}-${i}`,
+				cx: core.x + d,
+				cy: core.y - d * core.tilt + off,
+				r: 0.8 + rand() * 2.1,
+				opacity: 0.25 + rand() * 0.7,
+				bright: rand() > 0.8,
+			};
+		}),
+	);
+})();
+
 const SPARKLES = [
 	{ x: 1522, y: 34, s: 26 },
 	{ x: 1637, y: 92, s: 15 },
@@ -139,6 +167,17 @@ export const HeroSky = () => (
 					r={star.r}
 					fill={star.pink ? "#FF7AC0" : "#FFFFFF"}
 					opacity={star.opacity}
+				/>
+			))}
+
+			{CLUSTERS.map((dot) => (
+				<circle
+					key={dot.id}
+					cx={dot.cx}
+					cy={dot.cy}
+					r={dot.r}
+					fill={dot.bright ? "#FFB7DB" : "#FF4FA3"}
+					opacity={dot.opacity}
 				/>
 			))}
 
