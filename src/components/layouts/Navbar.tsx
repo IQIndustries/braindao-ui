@@ -43,8 +43,8 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 				className={cn(
 					"mx-auto flex h-14 max-w-[860px] items-center gap-2 rounded-full border pl-4 pr-2 transition-colors duration-300",
 					isScrolled
-						? "border-rule-strong bg-black/80 backdrop-blur-xl"
-						: "border-rule bg-black/50 backdrop-blur-md",
+						? "border-rule-strong bg-canvas/80 backdrop-blur-xl"
+						: "border-rule bg-canvas/60 backdrop-blur-md",
 				)}
 			>
 				<Link
@@ -121,7 +121,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 			</nav>
 
 			{isMenuOpen && (
-				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-strong bg-black/95 backdrop-blur-xl md:hidden">
+				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-strong bg-canvas/95 backdrop-blur-xl md:hidden">
 					{navLinks.map((link) => (
 						<Link
 							key={link.href}

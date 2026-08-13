@@ -87,7 +87,7 @@ const Footer = async () => {
 	];
 
 	return (
-		<footer className="border-t border-rule bg-[#050506]">
+		<footer className="border-t border-rule bg-surface">
 			<Container className="py-16 sm:py-20">
 				<div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
 					<div className="lg:col-span-5">
@@ -117,7 +117,7 @@ const Footer = async () => {
 									href={link.href}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex h-9 items-center rounded-full border border-rule px-4 font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors hover:border-rule-strong hover:text-white"
+									className="inline-flex h-9 items-center rounded-full border border-rule px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors hover:border-rule-strong hover:text-white"
 								>
 									{link.name}
 								</a>
@@ -130,9 +130,9 @@ const Footer = async () => {
 
 						<div className="mt-5 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-3">
 							{miniStats.map((stat) => (
-								<div key={stat.label} className="bg-surface px-5 py-5">
+								<div key={stat.label} className="bg-surface-raised px-5 py-5">
 									<MonoLabel>{stat.label}</MonoLabel>
-									<p className="mt-3 font-ibm-plex-mono text-lg text-white">
+									<p className="mt-3 font-mono text-lg text-white">
 										{stat.value}
 									</p>
 								</div>
@@ -198,7 +198,7 @@ const Footer = async () => {
 
 			<div className="border-t border-rule">
 				<Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
-					<span className="font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
+					<span className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
 						{t("powered", { year: new Date().getFullYear() })}
 					</span>
 
@@ -207,11 +207,11 @@ const Footer = async () => {
 							href="https://iq.wiki/privacy"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600 transition-colors hover:text-white"
+							className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600 transition-colors hover:text-white"
 						>
 							{t("legal.privacy")}
 						</a>
-						<span className="font-ibm-plex-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
+						<span className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
 							{t("legal.rights")}
 						</span>
 						<ScrollToTopButton label={t("scrollTop")} />

@@ -59,8 +59,10 @@ export async function IQStats({
 		},
 	];
 
+	// Sits inside the hero's viewport frame, so it reads as glass over the sky
+	// rather than as its own band.
 	return (
-		<section className="border-y border-rule bg-[#060607]">
+		<section className="border-y border-rule bg-canvas/55 backdrop-blur-md">
 			<Container>
 				<div className="-mx-5 grid grid-cols-2 lg:grid-cols-4">
 					{cells.map((cell, index) => (

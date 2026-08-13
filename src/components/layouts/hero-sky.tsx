@@ -37,7 +37,7 @@ const SPARKLES = [
 ];
 
 export const HeroSky = () => (
-	<div aria-hidden="true" className="absolute inset-0 -z-10 bg-[#07030B]">
+	<div aria-hidden="true" className="absolute inset-0 -z-10 bg-canvas">
 		<svg
 			viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
 			preserveAspectRatio="xMidYMid slice"
@@ -45,20 +45,21 @@ export const HeroSky = () => (
 			role="presentation"
 		>
 			<defs>
-				<radialGradient id="sky-haze" cx="50%" cy="90%" r="88%">
-					<stop offset="0%" stopColor="#9A4487" stopOpacity="0.44" />
-					<stop offset="40%" stopColor="#4A1740" stopOpacity="0.24" />
-					<stop offset="100%" stopColor="#07030B" stopOpacity="0" />
+				<radialGradient id="sky-haze" cx="50%" cy="80%" r="64%">
+					<stop offset="0%" stopColor="#9A4487" stopOpacity="0.36" />
+					<stop offset="42%" stopColor="#4A1740" stopOpacity="0.17" />
+					<stop offset="100%" stopColor="#1D1D20" stopOpacity="0" />
 				</radialGradient>
-				<radialGradient id="sky-crown" cx="50%" cy="86%" r="42%">
-					<stop offset="0%" stopColor="#FF2D94" stopOpacity="0.16" />
+				{/* The page background is #1D1D20, so depth at the top of the sky comes
+				    from a veil rather than from a darker base colour. */}
+				<linearGradient id="sky-vault" x1="0" y1="0" x2="0" y2="1">
+					<stop offset="0%" stopColor="#101014" stopOpacity="0.92" />
+					<stop offset="55%" stopColor="#101014" stopOpacity="0" />
+				</linearGradient>
+				<radialGradient id="sky-crown" cx="50%" cy="80%" r="34%">
+					<stop offset="0%" stopColor="#FF2D94" stopOpacity="0.13" />
 					<stop offset="100%" stopColor="#FF2D94" stopOpacity="0" />
 				</radialGradient>
-				<linearGradient id="sky-floor" x1="0" y1="0" x2="0" y2="1">
-					<stop offset="0%" stopColor="#000000" stopOpacity="0" />
-					<stop offset="100%" stopColor="#000000" stopOpacity="0.9" />
-				</linearGradient>
-
 				{/* Ragged lower edge where the dust field breaks against the haze. */}
 				<filter id="sky-tear" x="-15%" y="-15%" width="130%" height="130%">
 					<feTurbulence
@@ -109,18 +110,19 @@ export const HeroSky = () => (
 						x="-140"
 						y="-300"
 						width={VIEW_W + 280}
-						height={VIEW_H * 0.58 + 300}
+						height={VIEW_H * 0.66 + 300}
 						fill="#fff"
 						filter="url(#sky-tear)"
 					/>
 				</mask>
 			</defs>
 
+			<rect width={VIEW_W} height={VIEW_H} fill="url(#sky-vault)" />
 			<rect width={VIEW_W} height={VIEW_H} fill="url(#sky-haze)" />
 			<rect width={VIEW_W} height={VIEW_H} fill="url(#sky-crown)" />
 
 			<g mask="url(#sky-dust-mask)">
-				<rect width={VIEW_W} height={VIEW_H} fill="#07030B" />
+				<rect width={VIEW_W} height={VIEW_H} fill="#141418" />
 
 				<g filter="url(#sky-filament)" opacity="0.16">
 					<ellipse cx="1330" cy="130" rx="290" ry="18" fill="#FF5AAC" />
@@ -151,14 +153,11 @@ export const HeroSky = () => (
 					/>
 				))}
 			</g>
-
-			<rect
-				y={VIEW_H - 110}
-				width={VIEW_W}
-				height="110"
-				fill="url(#sky-floor)"
-			/>
 		</svg>
+
+		{/* Outside the SVG: preserveAspectRatio="slice" crops the viewBox edges, so
+		    an in-SVG floor would land above the real bottom of the section. */}
+		<div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-canvas" />
 
 		<div
 			className="absolute inset-0 opacity-[0.14] mix-blend-overlay"

@@ -40,7 +40,7 @@ const LocaleSwitcher = ({ className }: LocaleSwitcherProps) => {
 					variant="ghost"
 					size="sm"
 					className={cn(
-						"flex items-center gap-1 sm:gap-2 hover:bg-white/10 border border-white/20 rounded-full uppercase text-xs md:text-sm font-satoshi transition-colors duration-200",
+						"flex items-center gap-1 sm:gap-2 hover:bg-white/10 border border-white/20 rounded-full uppercase text-xs md:text-sm transition-colors duration-200",
 						className,
 					)}
 				>
@@ -50,7 +50,7 @@ const LocaleSwitcher = ({ className }: LocaleSwitcherProps) => {
 				</Button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent className="w-64 bg-black/90 border border-white/20 rounded-xl p-2 shadow-lg backdrop-blur-md">
+			<DropdownMenuContent className="w-64 bg-canvas/95 border border-white/20 rounded-xl p-2 shadow-lg backdrop-blur-md">
 				{visibleLocales.map((loc) => (
 					<DropdownMenuItem key={loc.locale} className="p-0">
 						<Link
@@ -58,7 +58,7 @@ const LocaleSwitcher = ({ className }: LocaleSwitcherProps) => {
 							href={strippedPathname}
 							aria-label={`Change language to ${loc.name}`}
 							className={cn(
-								"w-full flex items-center justify-between px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-white/10 font-satoshi text-sm",
+								"w-full flex items-center justify-between px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-white/10 text-sm",
 							)}
 						>
 							<div className="flex items-center gap-2">
