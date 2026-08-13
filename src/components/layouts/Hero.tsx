@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { HeroOrbits } from "./hero-orbits";
+import { HeroScene } from "./hero-scene";
 import { HeroSky } from "./hero-sky";
 import { Container, Display, Eyebrow, PillLink } from "./section-kit";
 
@@ -10,19 +11,11 @@ export async function Hero() {
 		<section className="relative isolate flex min-h-[27rem] flex-1 flex-col overflow-hidden sm:min-h-[34rem]">
 			<HeroSky />
 
-			{/* The design's whole scene — sky, dust dissolve and figure — is this
-			    loop. It sits over the SVG sky, which covers the first paint, and
-			    under the rings. Bottom-anchored so the horizon glow meets the
-			    stats strip at every aspect ratio. */}
-			<video
-				autoPlay
-				loop
-				muted
-				playsInline
-				preload="auto"
-				className="pointer-events-none absolute inset-0 -z-[6] size-full object-cover object-bottom"
-				src="/images/hero-scene.mp4"
-			/>
+			{/* The design's whole scene — sky, dust dissolve and figure — is a
+			    video loop. It sits over the SVG sky, which covers the first
+			    paint, and under the rings. Bottom-anchored so the horizon glow
+			    meets the stats strip at every aspect ratio. */}
+			<HeroScene />
 
 			<HeroOrbits />
 
