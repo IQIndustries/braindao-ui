@@ -23,12 +23,16 @@ export default async function Home() {
 
 	return (
 		<main>
-			<Hero />
-			<IQStats
-				iqStatsData={iqStatsData}
-				circulatingSupply={circulatingSupply}
-				totalIqLocked={tvl}
-			/>
+			{/* Hero and the stats strip share one viewport: the hero takes whatever
+			    height the strip leaves, so neither needs scrolling to reach. */}
+			<div className="flex min-h-svh flex-col">
+				<Hero />
+				<IQStats
+					iqStatsData={iqStatsData}
+					circulatingSupply={circulatingSupply}
+					totalIqLocked={tvl}
+				/>
+			</div>
 			<TokenOverview />
 			<Markets />
 			<TokenUtility />

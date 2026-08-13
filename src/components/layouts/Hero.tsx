@@ -15,7 +15,7 @@ export async function Hero() {
 	const t = await getTranslations("introduction");
 
 	return (
-		<section className="relative isolate flex min-h-[92svh] flex-col overflow-hidden pb-24 sm:pb-28">
+		<section className="relative isolate flex min-h-[27rem] flex-1 flex-col overflow-hidden sm:min-h-[34rem]">
 			<HeroSky />
 			<HeroOrbits />
 
@@ -27,14 +27,16 @@ export async function Hero() {
 				/>
 			)}
 
-			<Container className="relative z-10 pt-[15vh] text-center">
+			{/* Asymmetric padding: the copy centres in the space left over, and the
+			    bottom reserve is where the orbit plane sits. */}
+			<Container className="relative z-10 flex flex-1 flex-col justify-center pb-[13vh] pt-24 text-center sm:pb-[16vh] sm:pt-28">
 				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
 					{t("eyebrow")}
 				</Eyebrow>
 
 				<Display
 					as="h1"
-					className="mx-auto mt-6 max-w-[54rem] text-[clamp(2.5rem,4.9vw,6.5rem)] leading-[1.08] tracking-[-0.015em] text-pretty"
+					className="mx-auto mt-5 max-w-[52rem] text-[clamp(2.35rem,4.7vw,5.6rem)] leading-[1.06] tracking-[-0.01em] text-pretty"
 				>
 					{t.rich("title", {
 						highlight: (chunks) => (
@@ -43,11 +45,11 @@ export async function Hero() {
 					})}
 				</Display>
 
-				<p className="mx-auto mt-7 max-w-[34rem] text-[17px] leading-relaxed text-neutral-300 text-pretty">
+				<p className="mx-auto mt-6 max-w-[34rem] text-[17px] leading-relaxed text-neutral-300 text-pretty">
 					{t("description")}
 				</p>
 
-				<div className="mt-9 flex flex-wrap items-center justify-center gap-3">
+				<div className="mt-8 flex flex-wrap items-center justify-center gap-3">
 					<PillLink
 						href="https://iq.iqai.com/dashboard/stake"
 						external
@@ -59,7 +61,7 @@ export async function Hero() {
 					<PillLink
 						href="/hiiq"
 						variant="outline"
-						className="h-12 border-white/20 bg-black/40 px-7 text-[15px] font-semibold backdrop-blur-sm"
+						className="h-12 border-white/25 bg-transparent px-7 text-[15px] font-semibold hover:bg-white/[0.06]"
 					>
 						{t("secondary-cta")}
 					</PillLink>
