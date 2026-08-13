@@ -23,21 +23,36 @@ export async function Hero() {
 			{figureSrc && (
 				<div
 					aria-hidden="true"
-					className="pointer-events-none absolute inset-x-0 bottom-0 -z-[4] h-[62%] bg-contain bg-bottom bg-no-repeat"
-					style={{ backgroundImage: `url(${figureSrc})` }}
-				/>
+					className="pointer-events-none absolute bottom-0 left-[55.5vw] -z-[4] w-[clamp(15rem,33vw,41.25rem)] -translate-x-1/2"
+				>
+					{/* The crop is a rectangle out of the design frame, so its edges are
+					    faded into the sky; the dust clusters continue the dissolve above. */}
+					<img
+						src={figureSrc}
+						alt=""
+						className="w-full"
+						style={{
+							WebkitMaskImage:
+								"linear-gradient(to bottom, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+							WebkitMaskComposite: "source-in",
+							maskImage:
+								"linear-gradient(to bottom, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+							maskComposite: "intersect",
+						}}
+					/>
+				</div>
 			)}
 
-			{/* Asymmetric padding: the copy centres in the space left over, and the
-			    bottom reserve is where the orbit plane sits. */}
-			<Container className="relative z-10 flex flex-1 flex-col justify-center pb-[13vh] pt-24 text-center sm:pb-[16vh] sm:pt-28">
+			{/* Bottom padding in vw parks the CTA row right on the inner ring's top
+			    arc, which is drawn 19.25vw above the hero's bottom edge. */}
+			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[13vh] pt-20 text-center sm:pb-[19.25vw] sm:pt-24">
 				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
 					{t("eyebrow")}
 				</Eyebrow>
 
 				<Display
 					as="h1"
-					className="mx-auto mt-5 max-w-[52rem] text-[clamp(2.35rem,4.7vw,5.6rem)] leading-[1.06] tracking-[-0.01em] text-pretty"
+					className="mx-auto mt-5 max-w-[10.5em] text-[clamp(2.35rem,4.7vw,5.6rem)] leading-[1.06] tracking-[-0.01em] text-pretty"
 				>
 					{t.rich("title", {
 						highlight: (chunks) => (
