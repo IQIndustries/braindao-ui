@@ -19,10 +19,11 @@ export async function Hero() {
 
 			<HeroOrbits />
 
-			{/* Bottom padding sized so the hero plus the stats strip close at
-			    100svh on the design's 1440x800 frame, with the CTA row settling
-			    into the rings just above the figure. */}
-			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[10vh] pt-20 text-center sm:pb-[13vw]">
+			{/* Bottom padding in vh so the hero plus the stats strip still close
+			    at 100svh on the design's 1440x800 frame — the copy has ~12px of
+			    slack under the navbar there — while taller viewports lift the
+			    copy off the figure instead of stretching the gap above it. */}
+			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)]">
 				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
 					{t("eyebrow")}
 				</Eyebrow>
