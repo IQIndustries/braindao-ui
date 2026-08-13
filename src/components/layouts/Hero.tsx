@@ -19,9 +19,10 @@ export async function Hero() {
 
 			<HeroOrbits />
 
-			{/* Bottom padding in vw keeps the CTA row riding just above the inner
-			    ring's top arc, which is drawn 19.25vw above the hero's bottom edge. */}
-			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[15vh] pt-20 text-center sm:pb-[21vw] sm:pt-24">
+			{/* Bottom padding sized so the hero plus the stats strip close at
+			    100svh on the design's 1440x800 frame, with the CTA row settling
+			    into the rings just above the figure. */}
+			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[10vh] pt-20 text-center sm:pb-[13vw]">
 				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
 					{t("eyebrow")}
 				</Eyebrow>
