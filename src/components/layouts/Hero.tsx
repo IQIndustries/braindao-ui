@@ -43,16 +43,16 @@ export async function Hero() {
 				</div>
 			)}
 
-			{/* Bottom padding in vw parks the CTA row right on the inner ring's top
-			    arc, which is drawn 19.25vw above the hero's bottom edge. */}
-			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[13vh] pt-20 text-center sm:pb-[19.25vw] sm:pt-24">
+			{/* Bottom padding in vw keeps the CTA row riding just above the inner
+			    ring's top arc, which is drawn 19.25vw above the hero's bottom edge. */}
+			<Container className="relative z-10 flex flex-1 flex-col justify-end pb-[15vh] pt-20 text-center sm:pb-[21vw] sm:pt-24">
 				<Eyebrow glyph="⊕" className="justify-center text-neutral-300">
 					{t("eyebrow")}
 				</Eyebrow>
 
 				<Display
 					as="h1"
-					className="mx-auto mt-5 max-w-[10.5em] text-[clamp(2.35rem,4.7vw,5.6rem)] leading-[1.06] tracking-[-0.01em] text-pretty"
+					className="mx-auto mt-5 max-w-[10.5em] text-[clamp(2.6rem,6.4vw,5.75rem)] leading-[1.06] tracking-[-0.01em] text-pretty sm:text-[clamp(2.6rem,6.4vw,5.75rem)] lg:text-[clamp(2.6rem,6.4vw,5.75rem)]"
 				>
 					{t.rich("title", {
 						highlight: (chunks) => (
@@ -61,7 +61,7 @@ export async function Hero() {
 					})}
 				</Display>
 
-				<p className="mx-auto mt-6 max-w-[34rem] text-[17px] leading-relaxed text-neutral-300 text-pretty">
+				<p className="mx-auto mt-6 max-w-[36rem] text-[clamp(1.0625rem,1.25vw,1.125rem)] leading-relaxed text-neutral-300 text-pretty">
 					{t("description")}
 				</p>
 
