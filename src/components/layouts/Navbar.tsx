@@ -62,7 +62,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 						alt="BrainDAO"
 						width={112}
 						height={26}
-						className={cn("h-[22px] w-auto", isChristmasTheme && "pb-3")}
+						className={cn("h-[26px] w-auto", isChristmasTheme && "pb-3")}
 						priority
 					/>
 				</Link>
