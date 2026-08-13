@@ -69,121 +69,56 @@
 html {
 	@apply scroll-smooth;
 }
-#iqai, #iq-wiki, #aiden {
-  scroll-margin-top: 120px;
-}
-
-#blog {
-  scroll-margin-top: 100px;
-}
 
 body {
-  background: black;
-  @apply text-[#4A5568];
-}
-.braindao-hero-text-char {
-	transform: none !important;
+  background: #000;
+  @apply text-neutral-400;
 }
 
-.shimmer-glass {
-  position: relative;
-  overflow: hidden;
+/* The fixed header floats over anchored sections. */
+#token,
+#markets,
+#utility,
+#treasury,
+#ecosystem {
+  scroll-margin-top: 110px;
 }
 
-.shimmer-glass::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-20deg);
-  animation: shimmer-glass-move 4.5s infinite;
-  pointer-events: none;
+/* Hero orbit rings: a short bright arc travels each ring continuously.
+   pathLength="100" normalises every ellipse so one dash rule fits all. */
+.orbit-trace {
+  stroke-dasharray: 12 88;
+  animation: orbit-trace-move var(--orbit-duration, 7s) linear infinite;
+  animation-delay: var(--orbit-delay, 0s);
 }
 
-@keyframes shimmer-glass-move {
-  100% {
-    left: 125%;
+@keyframes orbit-trace-move {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -100;
   }
 }
 
-.shadow-custom {
-  box-shadow: 0px -1.12px 0px -0px #FF5CAA,
-    -0.15px 0px 0px -0px #FF5CAA,
-    0.15px 0px 0px -0px #FF5CAA;
+.orbit-pulse {
+  animation: orbit-pulse-fade 5s ease-in-out infinite;
+  animation-delay: var(--orbit-delay, 0s);
 }
 
-.gradient-dark-bg {
-    background: linear-gradient(
-      359.56deg, 
-      #0A0A0A 5.2%, 
-      rgba(26, 27, 30, 0.1) 87.64%);
+@keyframes orbit-pulse-fade {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 0.75;
+  }
 }
 
-.hero-grid-bg {
-  background-image: repeating-linear-gradient(
-      to right,
-      rgba(255, 26, 136, 0.25) 0,
-      rgba(255, 26, 136, 0.25) 1.4456px,
-      transparent 1.4456px,
-      transparent 28px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255, 26, 136, 0.25) 0,
-      rgba(255, 26, 136, 0.25) 1.4456px,
-      transparent 1.4456px,
-      transparent 28px
-    );
-  -webkit-mask-image: radial-gradient(
-    ellipse 10% 23% at 30% 45%,
-    #000 70%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 40% 33% at 40% 35%,
-    #000 50%,
-    rgba(0, 0, 0, 0.8) 65%,
-    rgba(0, 0, 0, 0.4) 80%,
-    transparent 100%
-  );
-  border: 2px solid yellow;
-  border-radius: 16px;
-}
-
-@media (max-width: 640px) {
-  .hero-grid-bg {
-    background-image: repeating-linear-gradient(
-        to right,
-        rgba(255, 26, 136, 0.25) 0,
-        rgba(255, 26, 136, 0.25) 1.4456px,
-        transparent 1.4456px,
-        transparent 36px
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        rgba(255, 26, 136, 0.25) 0,
-        rgba(255, 26, 136, 0.25) 1.4456px,
-        transparent 1.4456px,
-        transparent 36px
-      );
-    -webkit-mask-image: radial-gradient(
-      ellipse 55% 30% at 50% 50%,
-      #000 70%,
-      transparent 100%
-    );
-    mask-image: radial-gradient(
-      ellipse 55% 30% at 50% 50%,
-      #000 70%,
-      transparent 100%
-    );
-    
+@media (prefers-reduced-motion: reduce) {
+  .orbit-trace,
+  .orbit-pulse {
+    animation: none;
   }
 }

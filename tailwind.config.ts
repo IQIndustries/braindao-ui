@@ -66,6 +66,11 @@ const config: Config = {
 					foreground: "hsl(var(--destructive-foreground))",
 				},
 				border: "hsl(var(--border))",
+				// Hairline rules and panel fills carry the structure across the site.
+				rule: "rgb(255 255 255 / 0.09)",
+				"rule-strong": "rgb(255 255 255 / 0.18)",
+				surface: "#0A0A0A",
+				"surface-raised": "#111114",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
 				chart: {
@@ -92,6 +97,7 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			fontFamily: {
+				display: ["var(--font-instrument-serif)", "Georgia", "serif"],
 				satoshi: ["var(--font-satoshi)", "sans-serif"],
 				"satoshi-light": ["var(--font-satoshi-light)", "sans-serif"],
 				"ibm-plex-mono": ["var(--font-ibm-plex-mono)", "monospace"],
