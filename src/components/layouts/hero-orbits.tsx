@@ -1,24 +1,20 @@
-// Geometry lifted from the design: two wide concentric rings wrapped around
-// the figure at CTA height, the outer one spanning ~85% of the viewport on a
-// much deeper plane (ry/rx ≈ 0.23) than a near-flat pancake.
-const CX = 1000;
-const CY = 250;
-
+// Geometry measured off the design capture (2000px frame): inner ring
+// rx 445 / ry 90 centred 363px above the hero's bottom edge, outer ring
+// rx 694 / ry 134 on a plane 18px lower. Bottom-anchoring in vw keeps the
+// rings locked to the bottom-anchored figure at every viewport width.
 const ORBITS = [
-	{ rx: 480, ry: 112, duration: "11s", delay: "-3.2s", opacity: 0.75 },
-	{ rx: 845, ry: 196, duration: "18s", delay: "-9s", opacity: 0.55 },
+	{ rx: 445, ry: 90, cy: 180, duration: "11s", delay: "-3.2s", opacity: 0.8 },
+	{ rx: 694, ry: 134, cy: 198, duration: "18s", delay: "-9s", opacity: 0.6 },
 ];
 
 export const HeroOrbits = () => (
 	<div
 		aria-hidden="true"
-		className="pointer-events-none absolute inset-x-0 top-[82%] -z-[5] flex -translate-y-1/2 justify-center"
+		className="pointer-events-none absolute inset-x-0 bottom-[7.15vw] -z-[5] flex justify-center"
 	>
-		{/* The outer ring is 84.5% of the svg, so 105vw keeps it just inside the
-		    section's overflow clip at every width. */}
 		<svg
-			viewBox={`0 0 2000 ${CY * 2}`}
-			className="h-auto w-[clamp(26rem,105vw,125rem)] max-w-none"
+			viewBox="0 0 2000 400"
+			className="h-auto w-[clamp(26rem,100vw,125rem)] max-w-none"
 			fill="none"
 			role="presentation"
 		>
@@ -35,23 +31,23 @@ export const HeroOrbits = () => (
 			{ORBITS.map((orbit) => (
 				<g key={orbit.rx}>
 					<ellipse
-						cx={CX}
-						cy={CY}
+						cx={1000}
+						cy={orbit.cy}
 						rx={orbit.rx}
 						ry={orbit.ry}
-						stroke="#E64C8C"
+						stroke="#C23370"
 						strokeWidth="1.1"
 						strokeOpacity={orbit.opacity}
 						vectorEffect="non-scaling-stroke"
 					/>
 					<ellipse
-						cx={CX}
-						cy={CY}
+						cx={1000}
+						cy={orbit.cy}
 						rx={orbit.rx}
 						ry={orbit.ry}
 						pathLength={100}
-						stroke="#FFC2E1"
-						strokeWidth="1.6"
+						stroke="#FF9DCB"
+						strokeWidth="1.4"
 						strokeLinecap="round"
 						vectorEffect="non-scaling-stroke"
 						filter="url(#orbit-glow)"

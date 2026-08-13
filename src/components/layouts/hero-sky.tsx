@@ -31,9 +31,11 @@ const STARS = (() => {
 // scatter. Each cluster is a diagonal streak of dots thinning outward.
 const CLUSTER_CORES = [
 	{ x: 545, y: 370, spread: 130, tilt: 0.5, count: 55 },
-	{ x: 1450, y: 165, spread: 170, tilt: 0.65, count: 70 },
+	{ x: 1500, y: 150, spread: 220, tilt: 0.65, count: 90 },
 	{ x: 1660, y: 540, spread: 110, tilt: 0.4, count: 45 },
 	{ x: 870, y: 90, spread: 100, tilt: 0.55, count: 35 },
+	// Continues the figure's head-dissolve above the cropped asset's top edge.
+	{ x: 1090, y: 630, spread: 150, tilt: 0.35, count: 75 },
 ];
 
 const CLUSTERS = (() => {
@@ -73,18 +75,20 @@ export const HeroSky = () => (
 			role="presentation"
 		>
 			<defs>
-				<radialGradient id="sky-haze" cx="50%" cy="80%" r="64%">
-					<stop offset="0%" stopColor="#9A4487" stopOpacity="0.36" />
-					<stop offset="42%" stopColor="#4A1740" stopOpacity="0.17" />
+				{/* Sampled off the design capture: the horizon glow is a muted plum
+				    (~#261829 at its brightest) hugging the very bottom of the frame. */}
+				<radialGradient id="sky-haze" cx="50%" cy="96%" r="70%">
+					<stop offset="0%" stopColor="#8A4090" stopOpacity="0.3" />
+					<stop offset="45%" stopColor="#3A1C46" stopOpacity="0.14" />
 					<stop offset="100%" stopColor="#0E0E10" stopOpacity="0" />
 				</radialGradient>
 				{/* Deepens the top of the sky so the haze reads as a horizon glow. */}
 				<linearGradient id="sky-vault" x1="0" y1="0" x2="0" y2="1">
-					<stop offset="0%" stopColor="#07070A" stopOpacity="0.9" />
-					<stop offset="55%" stopColor="#07070A" stopOpacity="0" />
+					<stop offset="0%" stopColor="#05070C" stopOpacity="0.95" />
+					<stop offset="55%" stopColor="#05070C" stopOpacity="0" />
 				</linearGradient>
-				<radialGradient id="sky-crown" cx="50%" cy="80%" r="34%">
-					<stop offset="0%" stopColor="#FF2D94" stopOpacity="0.13" />
+				<radialGradient id="sky-crown" cx="50%" cy="95%" r="34%">
+					<stop offset="0%" stopColor="#FF2D94" stopOpacity="0.1" />
 					<stop offset="100%" stopColor="#FF2D94" stopOpacity="0" />
 				</radialGradient>
 				{/* Ragged lower edge where the dust field breaks against the haze. */}
@@ -149,7 +153,8 @@ export const HeroSky = () => (
 			<rect width={VIEW_W} height={VIEW_H} fill="url(#sky-crown)" />
 
 			<g mask="url(#sky-dust-mask)">
-				<rect width={VIEW_W} height={VIEW_H} fill="#0B0B0E" />
+				{/* The design's cloud masses lean blue-black, darker than the sky. */}
+				<rect width={VIEW_W} height={VIEW_H} fill="#060C13" />
 
 				<g filter="url(#sky-filament)" opacity="0.16">
 					<ellipse cx="1330" cy="130" rx="290" ry="18" fill="#FF5AAC" />
