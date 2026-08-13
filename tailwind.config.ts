@@ -69,8 +69,9 @@ const config: Config = {
 				// Hairline rules and panel fills carry the structure across the site.
 				rule: "rgb(255 255 255 / 0.09)",
 				"rule-strong": "rgb(255 255 255 / 0.18)",
-				surface: "#0A0A0A",
-				"surface-raised": "#111114",
+				canvas: "#1D1D20",
+				surface: "#17171A",
+				"surface-raised": "#26262B",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
 				chart: {
@@ -97,10 +98,16 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			fontFamily: {
-				display: ["var(--font-playfair)", "Georgia", "serif"],
+				sans: [
+					"var(--font-dm-sans)",
+					"ui-sans-serif",
+					"system-ui",
+					"sans-serif",
+				],
+				display: ["var(--font-instrument-serif)", "Georgia", "serif"],
+				mono: ["var(--font-dm-mono)", "ui-monospace", "monospace"],
 				satoshi: ["var(--font-satoshi)", "sans-serif"],
 				"satoshi-light": ["var(--font-satoshi-light)", "sans-serif"],
-				"ibm-plex-mono": ["var(--font-ibm-plex-mono)", "monospace"],
 			},
 			animation: {
 				ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",

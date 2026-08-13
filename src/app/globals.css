@@ -71,8 +71,8 @@ html {
 }
 
 body {
-  background: #000;
-  @apply text-neutral-400;
+  background: #1D1D20;
+  @apply font-sans text-neutral-400;
 }
 
 /* The fixed header floats over anchored sections. */
