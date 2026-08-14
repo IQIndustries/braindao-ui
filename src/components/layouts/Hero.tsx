@@ -26,7 +26,7 @@ export async function Hero() {
 
 			{/* Legibility at the top, and a dark bottom edge that hands off to
 			    the stats strip. */}
-			<div className="pointer-events-none absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(10,10,11,.88)_0%,rgba(10,10,11,.6)_34%,rgba(10,10,11,.22)_58%,rgba(10,10,11,.1)_86%,rgba(10,10,11,.92)_100%)]" />
+			<div className="pointer-events-none absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(10,10,10,.88)_0%,rgba(10,10,10,.6)_34%,rgba(10,10,10,.22)_58%,rgba(10,10,10,.1)_86%,rgba(10,10,10,.92)_100%)]" />
 
 			<HeroOrbits />
 
