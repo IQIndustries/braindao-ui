@@ -49,7 +49,7 @@ export async function Hero() {
 					})}
 				</Display>
 
-				<p className="mx-auto mt-6 max-w-[36rem] text-[clamp(1.0625rem,1.25vw,1.125rem)] leading-relaxed text-neutral-300 text-pretty">
+				<p className="mx-auto mt-6 max-w-[36rem] text-lg leading-relaxed text-neutral-300 text-pretty">
 					{t("description")}
 				</p>
 
