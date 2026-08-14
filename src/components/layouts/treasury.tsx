@@ -75,7 +75,9 @@ const Treasury = async ({
 						<div className="relative shrink-0">
 							<TreasuryRing share={lockedShare} />
 
-							<div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
+							{/* Off dead-centre on purpose: this lands the two baselines where
+							    the ring export puts them, at 93 and 112 on its 180 board. */}
+							<div className="absolute inset-0 flex flex-col items-center justify-center gap-[3px] pt-0.5">
 								<span className="font-mono text-[32.5px] leading-none tracking-[-0.5px] text-white">
 									{lockedShare !== null
 										? `${(lockedShare * 100).toFixed(1)}%`
