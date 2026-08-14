@@ -33,7 +33,7 @@ const Markets = async () => {
 									href={chain.explorer}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 rounded-lg border border-rule-control bg-surface-raised px-3.5 py-2 transition-colors hover:border-primary"
+									className="inline-flex items-center gap-2 rounded-md border border-rule-control bg-surface-raised px-3.5 py-2 transition-colors hover:border-primary"
 								>
 									<Logo width={15} height={15} className="shrink-0" />
 									<span className="font-mono text-[12px] text-white">
@@ -86,7 +86,7 @@ const Markets = async () => {
 									{t(`venues.${exchange.key}`)}
 								</span>
 
-								<span className="inline-flex h-8 items-center rounded-full bg-white px-4 text-[12px] font-medium text-black transition-colors group-hover:bg-neutral-200">
+								<span className="inline-flex h-8 items-center rounded-full border border-rule-action px-4 text-[12px] font-medium text-white transition-colors group-hover:border-primary">
 									{t("trade")}
 								</span>
 							</Link>
