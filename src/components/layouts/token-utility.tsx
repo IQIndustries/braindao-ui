@@ -1,5 +1,6 @@
+import { Glyph } from "@/components/illustrations/glyphs";
 import { getTranslations } from "next-intl/server";
-import { Display, Eyebrow, MonoLabel, PillLink, Section } from "./section-kit";
+import { Display, Eyebrow, PillLink, Section } from "./section-kit";
 
 const UTILITIES = ["governance", "staking", "burn"] as const;
 
@@ -31,9 +32,9 @@ const TokenUtility = async () => {
 			</div>
 
 			<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
-				{UTILITIES.map((key, index) => (
+				{UTILITIES.map((key) => (
 					<div key={key} className="bg-surface p-6 sm:p-7">
-						<MonoLabel>{String(index + 1).padStart(2, "0")}</MonoLabel>
+						<Glyph name={key} />
 
 						<h3 className="mt-5 text-lg font-medium tracking-[-0.01em] text-white">
 							{t(`${key}.title`)}

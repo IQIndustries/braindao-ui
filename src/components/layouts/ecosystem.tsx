@@ -1,6 +1,7 @@
+import { Glyph } from "@/components/illustrations/glyphs";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import { Display, Eyebrow, MonoLabel, Section } from "./section-kit";
+import { Display, Eyebrow, Section } from "./section-kit";
 
 const PRODUCTS = [
 	{ key: "iqai", href: "https://iqai.com/" },
@@ -30,7 +31,7 @@ const Ecosystem = async () => {
 			</div>
 
 			<div className="mt-12 overflow-hidden rounded-xl border border-rule bg-surface divide-y divide-rule">
-				{PRODUCTS.map((product, index) => (
+				{PRODUCTS.map((product) => (
 					<Link
 						key={product.key}
 						href={product.href}
@@ -39,9 +40,7 @@ const Ecosystem = async () => {
 						data-ph-capture-attribute-product-link-clicked={product.key}
 						className="group flex flex-col gap-4 px-5 py-6 transition-colors hover:bg-white/[0.02] sm:flex-row sm:items-center sm:gap-8 sm:px-7 sm:py-7"
 					>
-						<MonoLabel className="w-8 shrink-0">
-							{String(index + 1).padStart(2, "0")}
-						</MonoLabel>
+						<Glyph name={product.key} className="size-[30px]" />
 
 						<div className="min-w-0 flex-1">
 							<h3 className="text-base font-medium tracking-[-0.01em] text-white sm:text-lg">
