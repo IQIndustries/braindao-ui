@@ -61,7 +61,10 @@
 		--chart-3: 30 80% 55%;
 		--chart-4: 280 65% 60%;
 		--chart-5: 340 75% 55%;
-		--placeholder: 213 4% 52%
+		--placeholder: 213 4% 52%;
+		/* The config maps rounded-lg/md/sm onto this shadcn variable; without it
+		   they all collapse to 0px. */
+		--radius: 0.5rem;
 	}
 
 }

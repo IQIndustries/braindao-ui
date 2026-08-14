@@ -33,7 +33,7 @@ const Markets = async () => {
 									href={chain.explorer}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 rounded-xl border border-rule-control bg-surface-raised px-3.5 py-2 transition-colors hover:border-primary"
+									className="inline-flex items-center gap-2 rounded-lg border border-rule-control bg-surface-raised px-3.5 py-2 transition-colors hover:border-primary"
 								>
 									<Logo width={15} height={15} className="shrink-0" />
 									<span className="font-mono text-[12px] text-white">
