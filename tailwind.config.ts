@@ -70,8 +70,8 @@ const config: Config = {
 				rule: "rgb(255 255 255 / 0.09)",
 				"rule-strong": "rgb(255 255 255 / 0.18)",
 				canvas: "#0E0E10",
-				surface: "#1D1D20",
-				"surface-raised": "#26262B",
+				surface: "#0E0E10",
+				"surface-raised": "#131316",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
 				chart: {
