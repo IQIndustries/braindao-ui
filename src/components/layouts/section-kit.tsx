@@ -20,7 +20,13 @@ export const Section = ({
 	children,
 	className,
 }: { id?: string; children: React.ReactNode; className?: string }) => (
-	<section id={id} className={cn("py-20 sm:py-24 lg:py-28", className)}>
+	<section
+		id={id}
+		className={cn(
+			"border-t border-rule-soft py-20 sm:py-24 lg:py-28",
+			className,
+		)}
+	>
 		<Container>{children}</Container>
 	</section>
 );
