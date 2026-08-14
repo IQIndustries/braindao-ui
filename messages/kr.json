@@ -89,19 +89,18 @@
 	"utility": {
 		"eyebrow": "유틸리티",
 		"title": "<highlight>$IQ</highlight>가 하는 일.",
-		"description": "IQ를 잠그면 세 가지 일이 일어납니다. 각각은 잠금 기간에 따라 커지는 HiIQ 잔액이 결정합니다.",
 		"cta": "HiIQ 알아보기",
 		"governance": {
 			"title": "거버넌스",
-			"description": "HiIQ 잔액이 IQ 제안에 대한 투표 권한을 결정합니다. 더 오래 잠글수록 BrainDAO와 트레저리 운영에 대한 발언권이 커집니다."
+			"description": "HiIQ 잔액이 IQ 제안에 대한 투표권을 결정합니다. 더 오래 잠글수록 DAO의 모든 결정에서 더 큰 무게를 갖습니다."
 		},
 		"staking": {
 			"title": "스테이킹 보상",
-			"description": "스테이커는 HiIQ 잔액에 비례하여 추가 IQ를 획득하며, 이는 프로토콜에 대한 장기적인 참여에 대한 보상입니다."
+			"description": "스테이커는 잠금이 유지되는 동안 HiIQ 잔액에 비례해 추가 IQ를 분배받습니다."
 		},
 		"burn": {
 			"title": "수수료 소각 및 재분배",
-			"description": "IQ로 지불된 생태계 플랫폼 수수료의 일부는 소각되거나 스테이커에게 재분배되어 디플레이션 공급 모델에 기여합니다."
+			"description": "IQ로 지불된 생태계 플랫폼 수수료의 일부는 소각되거나 스테이커에게 재분배되어 공급에 디플레이션 압력을 가합니다."
 		}
 	},
 	"treasury": {

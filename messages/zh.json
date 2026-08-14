@@ -89,19 +89,18 @@
 	"utility": {
 		"eyebrow": "效用",
 		"title": "<highlight>$IQ</highlight> 能做什么。",
-		"description": "锁定 IQ 会带来三件事，每一件都由随锁仓时长增长的 HiIQ 余额决定。",
 		"cta": "了解 HiIQ",
 		"governance": {
 			"title": "治理",
-			"description": "您的 HiIQ 余额决定了您对 IQ 提案的投票权重。锁定时间越长，您对 BrainDAO 及其资金库运作的话语权越大。"
+			"description": "HiIQ 余额决定你在 IQ 提案中的投票权。锁定越久，在 DAO 的每一项决策中分量越重。"
 		},
 		"staking": {
 			"title": "质押奖励",
-			"description": "质押者按其 HiIQ 余额比例获得额外的 IQ，以回报对协议的长期投入。"
+			"description": "质押者按其 HiIQ 余额比例获得额外 IQ，只要锁定有效便持续分配。"
 		},
 		"burn": {
 			"title": "费用销毁与再分配",
-			"description": "以 IQ 支付的生态系统平台费用中，有一部分会被销毁或再分配给质押者，从而形成通缩的供应模型。"
+			"description": "以 IQ 支付的生态平台费用中的一部分会被销毁或再分配给质押者，为供应带来通缩压力。"
 		}
 	},
 	"treasury": {

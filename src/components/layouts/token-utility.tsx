@@ -20,13 +20,9 @@ const TokenUtility = async () => {
 							),
 						})}
 					</Display>
-
-					<p className="mt-6 max-w-xl text-[15px] leading-relaxed text-neutral-400 text-pretty">
-						{t("description")}
-					</p>
 				</div>
 
-				<PillLink href="/hiiq" variant="outline" className="self-start">
+				<PillLink href="/hiiq" variant="outline">
 					{t("cta")}
 				</PillLink>
 			</div>

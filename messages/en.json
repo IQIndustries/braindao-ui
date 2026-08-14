@@ -88,20 +88,19 @@
 	},
 	"utility": {
 		"eyebrow": "Utility",
-		"title": "What <highlight>$IQ does.</highlight>",
-		"description": "Three things happen when IQ is locked. Each one is decided by your HiIQ balance, which grows with the length of the lock.",
+		"title": "What <highlight>$IQ</highlight> does.",
 		"cta": "Learn about HiIQ",
 		"governance": {
 			"title": "Governance",
-			"description": "Your HiIQ balance determines your voting power on IQ proposals. The longer you lock, the more say you have in how BrainDAO and its treasury are run."
+			"description": "HiIQ balance determines voting power on IQ proposals. Lock longer, weigh heavier in every decision the DAO makes."
 		},
 		"staking": {
 			"title": "Staking rewards",
-			"description": "Stakers earn additional IQ in proportion to their HiIQ balance, rewarding long-term commitment to the protocol."
+			"description": "Stakers earn additional IQ, distributed proportionally to their HiIQ balance for as long as their lock is active."
 		},
 		"burn": {
 			"title": "Fee burn & redistribution",
-			"description": "A share of ecosystem platform fees paid in IQ is burned or redistributed to stakers, contributing to a deflationary supply model."
+			"description": "A share of ecosystem platform fees paid in IQ is burned or redistributed to stakers, putting deflationary pressure on supply."
 		}
 	},
 	"treasury": {
