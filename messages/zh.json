@@ -179,10 +179,10 @@
 	},
 	"footer": {
 		"now": {
-			"title": "IQ 实时数据",
+			"title": "<iq>$IQ</iq> 实时数据",
 			"price": "价格",
 			"mcap": "市值",
-			"locked": "锁仓量"
+			"locked": "HiIQ 锁定量"
 		},
 		"columns": {
 			"pages": "页面",
@@ -197,25 +197,26 @@
 			"dashboard": "仪表盘"
 		},
 		"resources": {
-			"about": "关于 $IQ",
-			"contract": "IQ 合约"
+			"hiiq": "IQ.wiki 上的 HiIQ",
+			"learn": "学习",
+			"privacy": "隐私政策",
+			"contact": "联系我们"
 		},
 		"newsletter": {
-			"description": "不定期分享 IQ、HiIQ 与 BrainDAO 治理的最新动态。",
+			"description": "治理动态与 $IQ 新闻，直达您的收件箱。",
+			"placeholder": "you@domain.com",
 			"button": "订阅"
 		},
 		"business": {
-			"contact": "商务咨询",
 			"email": "tara@iq.wiki"
 		},
 		"about": {
-			"text": "BrainDAO 正在创建智能未来，作为 IQ 生态系统背后的治理 DAO，并获得 <link>BrainFund</link> 支持。"
+			"text": "BrainDAO 是 IQ 代币背后的治理 DAO 与法律实体，由 <link>BrainFund</link> 支持。它管理 IQ 资金库并运营 HiIQ 质押。"
 		},
 		"legal": {
-			"privacy": "隐私与 Cookie",
-			"rights": "版权所有"
+			"privacy": "隐私政策",
+			"tagline": "<iq>$IQ</iq> 背后的 DAO"
 		},
-		"powered": "© {year} BrainDAO",
-		"scrollTop": "滚动到顶部"
+		"powered": "© BrainDAO {year}"
 	}
 }

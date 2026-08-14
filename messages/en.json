@@ -179,10 +179,10 @@
 	},
 	"footer": {
 		"now": {
-			"title": "IQ right now",
+			"title": "<iq>$IQ</iq> right now",
 			"price": "Price",
 			"mcap": "Market cap",
-			"locked": "Locked"
+			"locked": "HiIQ locked"
 		},
 		"columns": {
 			"pages": "Pages",
@@ -197,25 +197,26 @@
 			"dashboard": "Dashboard"
 		},
 		"resources": {
-			"about": "About $IQ",
-			"contract": "IQ contract"
+			"hiiq": "HiIQ on IQ.wiki",
+			"learn": "Learn",
+			"privacy": "Privacy",
+			"contact": "Contact"
 		},
 		"newsletter": {
-			"description": "Occasional updates on IQ, HiIQ, and BrainDAO governance.",
-			"button": "Subscribe"
+			"description": "Governance updates and $IQ news, in your inbox.",
+			"placeholder": "you@domain.com",
+			"button": "Join"
 		},
 		"business": {
-			"contact": "Business inquiries",
 			"email": "tara@iq.wiki"
 		},
 		"about": {
-			"text": "BrainDAO is creating an intelligent future as the governing DAO behind the IQ ecosystem, supported by <link>BrainFund</link>."
+			"text": "BrainDAO is the governing DAO and legal entity behind the IQ token, supported by <link>BrainFund</link>. It stewards the IQ treasury and operates HiIQ staking."
 		},
 		"legal": {
-			"privacy": "Privacy & cookies",
-			"rights": "All rights reserved"
+			"privacy": "Privacy policy",
+			"tagline": "The DAO behind <iq>$IQ</iq>"
 		},
-		"powered": "© {year} BrainDAO",
-		"scrollTop": "Scroll to top"
+		"powered": "© BrainDAO {year}"
 	}
 }

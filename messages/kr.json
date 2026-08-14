@@ -179,15 +179,15 @@
 	},
 	"footer": {
 		"now": {
-			"title": "지금의 IQ",
+			"title": "지금의 <iq>$IQ</iq>",
 			"price": "가격",
 			"mcap": "시가총액",
-			"locked": "잠긴 수량"
+			"locked": "HiIQ 잠금량"
 		},
 		"columns": {
 			"pages": "페이지",
-			"ecosystem": "생태계",
-			"resources": "자료",
+			"ecosystem": "에코시스템",
+			"resources": "리소스",
 			"newsletter": "뉴스레터"
 		},
 		"pages": {
@@ -197,25 +197,26 @@
 			"dashboard": "대시보드"
 		},
 		"resources": {
-			"about": "$IQ 소개",
-			"contract": "IQ 컨트랙트"
+			"hiiq": "IQ.wiki의 HiIQ",
+			"learn": "배우기",
+			"privacy": "개인정보",
+			"contact": "문의하기"
 		},
 		"newsletter": {
-			"description": "IQ, HiIQ, BrainDAO 거버넌스에 대한 소식을 가끔 전해드립니다.",
+			"description": "거버넌스 소식과 $IQ 뉴스를 메일함으로 보내드립니다.",
+			"placeholder": "you@domain.com",
 			"button": "구독"
 		},
 		"business": {
-			"contact": "사업 문의",
 			"email": "tara@iq.wiki"
 		},
 		"about": {
-			"text": "BrainDAO는 IQ 생태계를 운영하는 DAO로서 지능적인 미래를 창조하고 있으며, <link>BrainFund</link>의 지원을 받고 있습니다."
+			"text": "BrainDAO는 IQ 토큰을 이끄는 거버넌스 DAO이자 법인으로, <link>BrainFund</link>의 지원을 받습니다. IQ 트레저리를 관리하고 HiIQ 스테이킹을 운영합니다."
 		},
 		"legal": {
-			"privacy": "개인정보 & 쿠키",
-			"rights": "모든 권리 보유"
+			"privacy": "개인정보 처리방침",
+			"tagline": "<iq>$IQ</iq>를 움직이는 DAO"
 		},
-		"powered": "© {year} BrainDAO",
-		"scrollTop": "상단으로 스크롤"
+		"powered": "© BrainDAO {year}"
 	}
 }
