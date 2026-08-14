@@ -10,8 +10,10 @@ export async function Hero() {
 			{/* The whole scene — sky, dust dissolve and figure — is one clip,
 			    pre-baked as a seamless loop: its tail is crossfaded back into
 			    its head in the encode, so a plain `loop` restart is a clean
-			    one-frame step. Do not re-trim or re-encode it. Oversized and
-			    bottom-anchored so the top of the frame never shows. */}
+			    one-frame step. Do not re-trim or re-encode it. The clip is
+			    wider than the hero box, so `cover` takes its crop off the top
+			    and the full frame width stays on screen — the figure keeps the
+			    dark space either side of her that the composition is built on. */}
 			<video
 				src="/images/hero-cosmic-mind-loop.mp4"
 				autoPlay
@@ -19,7 +21,7 @@ export async function Hero() {
 				muted
 				playsInline
 				preload="auto"
-				className="pointer-events-none absolute inset-x-0 bottom-0 -z-[6] h-[137%] w-full bg-canvas object-cover object-[50%_100%] [filter:saturate(.7)_brightness(.92)]"
+				className="pointer-events-none absolute inset-0 -z-[6] size-full bg-canvas object-cover object-[50%_100%] [filter:saturate(.7)_brightness(.92)]"
 			/>
 
 			{/* Legibility at the top, and a dark bottom edge that hands off to

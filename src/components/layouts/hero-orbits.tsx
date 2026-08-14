@@ -1,12 +1,16 @@
 import type React from "react";
 
 // Authored in the video's own pixel space and painted over the exact same box
-// (bottom-anchored, 137% tall, xMidYMax slice mirrors object-position 50% 100%),
-// so the rings stay welded to the figure at every viewport instead of being
-// re-tuned per width.
+// (xMidYMax slice mirrors object-cover + object-position 50% 100%), so the rings
+// stay welded to the figure at every viewport instead of being re-tuned per width.
+// They read as one tilted plane, so ry tracks rx at a fixed ratio and cy drifts
+// down as they widen — break either and they stop looking concentric.
 const RINGS = [
-	{ rx: 261, ry: 61, cy: 670, duration: "9s", delay: "0s" },
-	{ rx: 390, ry: 99, cy: 682, duration: "14s", delay: "-5s" },
+	{ rx: 210, ry: 52, cy: 665, duration: "8s", delay: "0s" },
+	{ rx: 340, ry: 84, cy: 677, duration: "11s", delay: "-3s" },
+	{ rx: 480, ry: 119, cy: 690, duration: "14s", delay: "-6s" },
+	{ rx: 630, ry: 156, cy: 704, duration: "18s", delay: "-9s" },
+	{ rx: 790, ry: 195, cy: 719, duration: "23s", delay: "-12s" },
 ];
 
 export const HeroOrbits = () => (
@@ -15,7 +19,7 @@ export const HeroOrbits = () => (
 		preserveAspectRatio="xMidYMax slice"
 		aria-hidden="true"
 		role="presentation"
-		className="pointer-events-none absolute inset-x-0 bottom-0 -z-[5] h-[137%] w-full"
+		className="pointer-events-none absolute inset-0 -z-[5] size-full"
 	>
 		<defs>
 			<filter id="hero-head-soft" x="-40%" y="-40%" width="180%" height="180%">
