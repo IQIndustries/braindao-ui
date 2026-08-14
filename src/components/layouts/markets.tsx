@@ -1,3 +1,4 @@
+import { LiquidityRouting } from "@/components/illustrations/liquidity-routing";
 import { chains } from "@/data/chains";
 import {
 	type ExchangeInfo,
@@ -112,28 +113,15 @@ const Markets = async () => {
 
 					<Panel className="mt-8">
 						<PanelHeader label={t("routing.label")} meta={t("routing.meta")} />
-						<div className="divide-y divide-rule">
-							{chains.map((chain) => (
-								<div
-									key={chain.key}
-									className="flex items-center gap-3 px-4 py-3.5 sm:px-5"
-								>
-									<span className="w-20 shrink-0 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-500">
-										{chain.name}
-									</span>
-									<span
-										aria-hidden="true"
-										className="flex flex-1 items-center gap-1.5"
-									>
-										<span className="h-px flex-1 bg-rule" />
-										<span className="size-1.5 rounded-full bg-primary" />
-										<span className="h-px flex-1 bg-rule" />
-									</span>
-									<span className="shrink-0 text-right font-mono text-[11px] text-neutral-300">
-										{ROUTES[chain.key].join(" · ")}
-									</span>
-								</div>
-							))}
+						<div className="p-4 sm:p-5">
+							<LiquidityRouting
+								label={t("routing.label")}
+								rows={chains.map((chain) => ({
+									key: chain.key,
+									from: chain.name,
+									to: ROUTES[chain.key].join(" · "),
+								}))}
+							/>
 						</div>
 					</Panel>
 				</div>

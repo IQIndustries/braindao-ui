@@ -107,3 +107,94 @@ body {
     animation: none;
   }
 }
+
+/* Illustration system. The exported SVGs each carry their own <style> using
+   generic names (.rail, .dot, .lit) — inline those as-is and the rules leak
+   document-wide, since an inline <svg><style> is not scoped. Hoisting the one
+   shared copy under .ill keeps the export's markup usable verbatim while
+   confining the names, and the palette stays swappable from one place. */
+.ill {
+  --ill-line: #1d1d20;
+  --ill-line-2: #232326;
+  --ill-line-3: #2a2a2e;
+  --ill-card: #131316;
+  --ill-ink: #f4f4f5;
+  --ill-ink-4: #8a8a94;
+  --ill-pink: #ff1a88;
+  font-family: var(--font-dm-mono), monospace;
+}
+
+.ill .rail { fill: none; stroke: var(--ill-line-2); stroke-width: 1.6; }
+.ill .rail-lead { stroke: var(--ill-line-3); }
+.ill .node { fill: var(--ill-card); stroke: var(--ill-line-3); stroke-width: 1; }
+.ill .track { fill: var(--ill-line); stroke: none; }
+.ill .dot { fill: var(--ill-pink); stroke: none; }
+.ill .dotw { fill: #fff; stroke: none; }
+
+.ill .lbl { fill: var(--ill-ink-4); stroke: none; font-size: 9.5px; letter-spacing: 0.1em; }
+.ill .lbl-p { fill: var(--ill-pink); stroke: none; font-size: 9.5px; letter-spacing: 0.1em; }
+.ill .val { fill: var(--ill-ink); stroke: none; font-size: 12.5px; }
+.ill .val-p { fill: var(--ill-pink); stroke: none; font-size: 12.5px; }
+
+.ill .lit {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-dasharray: 6 74;
+  stroke-dashoffset: 80;
+  animation: ill-flow 4.6s linear infinite;
+}
+
+.ill .ping { animation: ill-ping 3s ease-in-out infinite; }
+
+.ill .ring { fill: none; stroke: var(--ill-line-2); stroke-width: 1; stroke-dasharray: 1 7; }
+.ill .ring-track { fill: none; stroke: var(--ill-line); stroke-width: 11; }
+.ill .ring-arc {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 11;
+  stroke-linecap: round;
+  animation: ill-ring-in 1.6s cubic-bezier(0.3, 0.85, 0.25, 1) 0.3s forwards;
+}
+.ill .ring-spin {
+  transform-box: view-box;
+  transform-origin: 90px 90px;
+  animation: ill-ring-spin 46s linear infinite;
+}
+
+.ill .tipper {
+  transform-box: view-box;
+  transform-origin: 12px 8px;
+  animation: ill-tip 5s ease-in-out infinite;
+}
+.ill .shackle { stroke-dasharray: 1; animation: ill-reclose 5.4s ease-in-out infinite; }
+.ill .burnbar {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: ill-burn 4.8s ease-in-out infinite;
+}
+
+@keyframes ill-flow { from { stroke-dashoffset: 80; } to { stroke-dashoffset: 0; } }
+@keyframes ill-ping { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes ill-ring-in { from { stroke-dashoffset: 0.5; } to { stroke-dashoffset: 0; } }
+@keyframes ill-ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes ill-tip { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+@keyframes ill-reclose {
+  0% { stroke-dashoffset: 0; }
+  18% { stroke-dashoffset: 1; }
+  56%, 100% { stroke-dashoffset: 0; }
+}
+@keyframes ill-burn {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(0.16); opacity: 0.35; }
+}
+
+/* Reduced motion snaps each loop to its end frame, which is why every keyframe
+   set above is authored to end on the correct static state. */
+@media (prefers-reduced-motion: reduce) {
+  .ill * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

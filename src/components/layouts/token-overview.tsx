@@ -1,3 +1,4 @@
+import { TokenFlow } from "@/components/illustrations/token-flow";
 import { getTranslations } from "next-intl/server";
 import {
 	Display,
@@ -8,7 +9,6 @@ import {
 	PillLink,
 	Section,
 } from "./section-kit";
-import { TokenFlow } from "./token-flow";
 
 const TokenOverview = async () => {
 	const t = await getTranslations("token");
