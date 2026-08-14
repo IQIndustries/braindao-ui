@@ -137,21 +137,21 @@ const Footer = async () => {
 						</div>
 					</div>
 
-					<div className="lg:text-right">
+					<div className="text-right">
 						<MonoLabel>
 							{t.rich("now.title", {
 								iq: (chunks) => <span className="text-primary">{chunks}</span>,
 							})}
 						</MonoLabel>
 
-						<div className="mt-4 flex flex-wrap gap-2.5 lg:justify-end">
+						<div className="mt-4 flex flex-wrap justify-end gap-2.5">
 							{miniStats.map((stat) => (
 								<div
 									key={stat.label}
-									className="rounded-lg border border-rule bg-surface-raised px-4 py-3 text-left"
+									className="rounded-lg border border-rule bg-surface-raised px-3.5 py-2.5 text-left"
 								>
 									<MonoLabel>{stat.label}</MonoLabel>
-									<p className="mt-1.5 font-mono text-[15px] text-white">
+									<p className="mt-1 font-mono text-[15px] leading-tight text-white">
 										{stat.value}
 									</p>
 								</div>
