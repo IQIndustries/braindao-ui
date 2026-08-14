@@ -203,7 +203,7 @@
 			"contact": "联系我们"
 		},
 		"newsletter": {
-			"description": "治理动态与 $IQ 新闻，直达您的收件箱。",
+			"description": "治理动态与 <iq>$IQ</iq> 新闻，直达您的收件箱。",
 			"placeholder": "you@domain.com",
 			"button": "订阅"
 		},

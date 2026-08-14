@@ -94,8 +94,8 @@ const Footer = async () => {
 	return (
 		<footer className="border-t border-rule-soft bg-surface">
 			<Container className="py-16 sm:py-20">
-				<div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
-					<div className="lg:col-span-5">
+				<div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+					<div className="max-w-sm">
 						<Link href="/" className="inline-flex" aria-label="BrainDAO">
 							<Image
 								src="/svgs/Braindao-logo.svg"
@@ -106,7 +106,7 @@ const Footer = async () => {
 							/>
 						</Link>
 
-						<p className="mt-5 max-w-sm text-sm leading-relaxed text-neutral-400 text-pretty">
+						<p className="mt-5 text-sm leading-relaxed text-neutral-400 text-pretty">
 							{t.rich("about.text", {
 								link: (chunks) => (
 									<a
@@ -121,7 +121,7 @@ const Footer = async () => {
 							})}
 						</p>
 
-						<div className="mt-7 flex gap-2.5">
+						<div className="mt-6 flex gap-2.5">
 							{socialLinks.map((link) => (
 								<a
 									key={link.name}
@@ -129,7 +129,7 @@ const Footer = async () => {
 									target="_blank"
 									rel="noopener noreferrer"
 									aria-label={link.label}
-									className="inline-flex size-10 items-center justify-center rounded-lg border border-rule-control text-neutral-400 transition-colors hover:border-primary/50 hover:text-primary"
+									className="inline-flex size-9 items-center justify-center rounded-full border border-rule-control text-neutral-400 transition-colors hover:border-primary/50 hover:text-primary"
 								>
 									<SocialIcon name={link.name} />
 								</a>
@@ -137,21 +137,21 @@ const Footer = async () => {
 						</div>
 					</div>
 
-					<div className="lg:col-span-7">
+					<div className="lg:text-right">
 						<MonoLabel>
 							{t.rich("now.title", {
 								iq: (chunks) => <span className="text-primary">{chunks}</span>,
 							})}
 						</MonoLabel>
 
-						<div className="mt-5 grid gap-3 sm:grid-cols-3">
+						<div className="mt-4 flex flex-wrap gap-2.5 lg:justify-end">
 							{miniStats.map((stat) => (
 								<div
 									key={stat.label}
-									className="rounded-xl border border-rule bg-surface-raised px-5 py-5"
+									className="rounded-lg border border-rule bg-surface-raised px-4 py-3 text-left"
 								>
 									<MonoLabel>{stat.label}</MonoLabel>
-									<p className="mt-3 font-mono text-lg text-white">
+									<p className="mt-1.5 font-mono text-[15px] text-white">
 										{stat.value}
 									</p>
 								</div>
@@ -209,7 +209,9 @@ const Footer = async () => {
 
 					<FooterPanel label={t("columns.newsletter")}>
 						<p className="text-sm leading-relaxed text-neutral-400 text-pretty">
-							{t("newsletter.description")}
+							{t.rich("newsletter.description", {
+								iq: (chunks) => <span className="text-primary">{chunks}</span>,
+							})}
 						</p>
 						<form
 							action={NEWSLETTER_ACTION}
@@ -222,7 +224,7 @@ const Footer = async () => {
 								name="fields[email]"
 								required
 								placeholder={t("newsletter.placeholder")}
-								className="h-10 min-w-0 flex-1 rounded-full border border-rule-control bg-transparent px-4 text-[13px] text-white placeholder:text-neutral-600 focus:border-primary/60 focus:outline-none"
+								className="h-10 min-w-0 flex-1 rounded-lg border border-rule-control bg-transparent px-4 text-[13px] text-white placeholder:text-neutral-600 focus:border-primary/60 focus:outline-none"
 							/>
 							<button
 								type="submit"

@@ -203,7 +203,7 @@
 			"contact": "Contact"
 		},
 		"newsletter": {
-			"description": "Governance updates and $IQ news, in your inbox.",
+			"description": "Governance updates and <iq>$IQ</iq> news, in your inbox.",
 			"placeholder": "you@domain.com",
 			"button": "Join"
 		},
