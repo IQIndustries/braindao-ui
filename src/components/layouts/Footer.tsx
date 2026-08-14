@@ -87,7 +87,7 @@ const Footer = async () => {
 	];
 
 	return (
-		<footer className="border-t border-rule bg-surface">
+		<footer className="border-t border-rule-soft bg-surface">
 			<Container className="py-16 sm:py-20">
 				<div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
 					<div className="lg:col-span-5">
@@ -128,7 +128,7 @@ const Footer = async () => {
 					<div className="lg:col-span-7">
 						<MonoLabel>{t("now.title")}</MonoLabel>
 
-						<div className="mt-5 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-3">
+						<div className="mt-5 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft sm:grid-cols-3">
 							{miniStats.map((stat) => (
 								<div key={stat.label} className="bg-surface-raised px-5 py-5">
 									<MonoLabel>{stat.label}</MonoLabel>
@@ -141,7 +141,7 @@ const Footer = async () => {
 					</div>
 				</div>
 
-				<div className="mt-14 grid gap-10 border-t border-rule pt-12 sm:grid-cols-2 lg:grid-cols-4">
+				<div className="mt-14 grid gap-10 border-t border-rule-soft pt-12 sm:grid-cols-2 lg:grid-cols-4">
 					<FooterColumn label={t("columns.pages")}>
 						{navLinks.map((link) => (
 							<FooterLink
@@ -196,7 +196,7 @@ const Footer = async () => {
 				</div>
 			</Container>
 
-			<div className="border-t border-rule">
+			<div className="border-t border-rule-soft">
 				<Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
 					<span className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
 						{t("powered", { year: new Date().getFullYear() })}

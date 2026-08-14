@@ -30,7 +30,7 @@ const Ecosystem = async () => {
 				</p>
 			</div>
 
-			<div className="mt-12 overflow-hidden rounded-xl border border-rule bg-surface divide-y divide-rule">
+			<div className="mt-12 overflow-hidden rounded-xl border border-rule bg-surface divide-y divide-rule-soft">
 				{PRODUCTS.map((product) => (
 					<Link
 						key={product.key}

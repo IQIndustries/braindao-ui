@@ -60,7 +60,7 @@ export async function IQStats({
 	];
 
 	return (
-		<section className="border-y border-rule bg-canvas">
+		<section className="border-y border-rule-soft bg-canvas">
 			<Container>
 				<div className="-mx-5 grid grid-cols-2 lg:grid-cols-4">
 					{cells.map((cell, index) => (

@@ -100,7 +100,7 @@ export const PanelHeader = ({
 	meta,
 	metaTone = "muted",
 }: { label: string; meta?: string; metaTone?: "muted" | "primary" }) => (
-	<div className="flex items-center justify-between gap-4 border-b border-rule px-4 py-3 sm:px-5">
+	<div className="flex items-center justify-between gap-4 border-b border-rule-soft px-4 py-3 sm:px-5">
 		<MonoLabel>{label}</MonoLabel>
 		{meta && (
 			<span

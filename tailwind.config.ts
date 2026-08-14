@@ -67,7 +67,10 @@ const config: Config = {
 				},
 				border: "hsl(var(--border))",
 				// Hairline rules and panel fills carry the structure across the site.
-				rule: "rgb(255 255 255 / 0.09)",
+				// `rule` bounds a container, `rule-soft` divides the rows inside one —
+				// the design draws those at different weights, so they are not one token.
+				rule: "#232326",
+				"rule-soft": "#1D1D20",
 				"rule-strong": "rgb(255 255 255 / 0.18)",
 				canvas: "#0E0E10",
 				surface: "#0E0E10",

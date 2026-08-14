@@ -89,7 +89,7 @@ const Treasury = async ({
 							</div>
 						</div>
 
-						<dl className="w-full divide-y divide-rule">
+						<dl className="w-full divide-y divide-rule-soft">
 							<div className="flex items-baseline justify-between gap-4 pb-4">
 								<dt className="flex items-center gap-2.5">
 									<span
@@ -133,7 +133,7 @@ const Treasury = async ({
 						</dl>
 					</div>
 
-					<div className="border-t border-rule px-4 py-3 sm:px-5">
+					<div className="border-t border-rule-soft px-4 py-3 sm:px-5">
 						<MonoLabel>{t("chart.foot")}</MonoLabel>
 					</div>
 				</Panel>

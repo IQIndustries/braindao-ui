@@ -82,7 +82,7 @@ export default async function HiIQPage() {
 						</PillLink>
 					</div>
 
-					<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2">
+					<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft sm:grid-cols-2">
 						{stats.map((stat) => (
 							<div key={stat.label} className="bg-surface px-5 py-6 sm:px-6">
 								<MonoLabel>{stat.label}</MonoLabel>
@@ -96,7 +96,7 @@ export default async function HiIQPage() {
 			</section>
 
 			<Section>
-				<div className="grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2">
+				<div className="grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft sm:grid-cols-2">
 					{SECTIONS.map((section, index) => (
 						<div key={section} className="bg-surface p-6 sm:p-7">
 							<MonoLabel>{String(index + 1).padStart(2, "0")}</MonoLabel>

@@ -71,7 +71,7 @@ const TokenOverview = async () => {
 							}}
 						/>
 					</div>
-					<div className="flex items-center gap-2 border-t border-rule px-4 py-3 sm:px-5">
+					<div className="flex items-center gap-2 border-t border-rule-soft px-4 py-3 sm:px-5">
 						<span aria-hidden="true" className="h-px w-5 bg-primary" />
 						<MonoLabel>{t("flow.legend")}</MonoLabel>
 					</div>

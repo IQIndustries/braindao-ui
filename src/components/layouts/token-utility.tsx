@@ -31,7 +31,7 @@ const TokenUtility = async () => {
 				</PillLink>
 			</div>
 
-			<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule sm:grid-cols-2 lg:grid-cols-3">
+			<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft sm:grid-cols-2 lg:grid-cols-3">
 				{UTILITIES.map((key) => (
 					<div key={key} className="bg-surface p-6 sm:p-7">
 						<Glyph name={key} />

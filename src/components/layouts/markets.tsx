@@ -137,12 +137,12 @@ const Markets = async () => {
 							<div
 								className={cn(
 									"bg-white/[0.02] px-4 py-2.5 sm:px-5",
-									groupIndex > 0 && "border-t border-rule",
+									groupIndex > 0 && "border-t border-rule-soft",
 								)}
 							>
 								<MonoLabel>{group.label}</MonoLabel>
 							</div>
-							<div className="divide-y divide-rule border-t border-rule">
+							<div className="divide-y divide-rule-soft border-t border-rule-soft">
 								{group.exchanges.map((exchange) => (
 									<ExchangeRow
 										key={exchange.name}

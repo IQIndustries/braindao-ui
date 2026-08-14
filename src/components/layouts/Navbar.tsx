@@ -130,7 +130,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 							target={link.target}
 							rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
 							onClick={() => setIsMenuOpen(false)}
-							className="flex h-12 items-center border-b border-rule px-5 text-sm text-neutral-300 transition-colors hover:bg-white/5 hover:text-white"
+							className="flex h-12 items-center border-b border-rule-soft px-5 text-sm text-neutral-300 transition-colors hover:bg-white/5 hover:text-white"
 						>
 							{t(`links.${link.key}`)}
 						</Link>
