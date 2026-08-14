@@ -56,10 +56,10 @@ export const Display = ({
 }) => (
 	<Tag
 		className={cn(
-			"font-display font-normal text-white text-balance",
+			"font-display font-normal tracking-[-0.01em] text-white text-balance",
 			Tag === "h1"
-				? "text-[2.6rem] leading-[1.06] tracking-[-0.02em] sm:text-6xl lg:text-[4.25rem]"
-				: "text-[2rem] leading-[1.1] tracking-[-0.015em] sm:text-[2.5rem] lg:text-[2.9rem]",
+				? "text-[37px] leading-[1.02] min-[481px]:text-[46px] min-[769px]:text-[64px] min-[1025px]:text-[92px]"
+				: "text-[27px] leading-[1.11] min-[481px]:text-[31px] min-[769px]:text-[38px] min-[1025px]:text-[48px]",
 			className,
 		)}
 	>

@@ -31,7 +31,7 @@ export async function Hero() {
 			{/* Top-anchored: bottom-anchoring pooled every extra pixel of a tall
 			    viewport into the gap under the navbar. The bottom padding only
 			    binds on short screens, holding the copy off the figure. */}
-			<Container className="relative z-10 flex flex-1 flex-col justify-start pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)] sm:pt-[clamp(5rem,10.5vh,7rem)]">
+			<Container className="relative z-10 flex max-w-[880px] flex-1 flex-col justify-start pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)] sm:pt-[clamp(5rem,10.5vh,7rem)]">
 				{/* White, not pink: the headline keyword already spends the accent
 				    here, so a pink eyebrow above it doubles up. Section eyebrows
 				    below the fold keep the pink. */}
@@ -39,13 +39,10 @@ export async function Hero() {
 					{t("eyebrow")}
 				</Eyebrow>
 
-				<Display
-					as="h1"
-					className="mx-auto mt-5 max-w-[10.5em] text-[clamp(2.6rem,6.4vw,5.75rem)] leading-[1.06] tracking-[-0.01em] text-pretty sm:text-[clamp(2.6rem,6.4vw,5.75rem)] lg:text-[clamp(2.6rem,6.4vw,5.75rem)]"
-				>
+				<Display as="h1" className="mt-5">
 					{t.rich("title", {
 						highlight: (chunks) => (
-							<span className="text-primary">{chunks}</span>
+							<span className="italic text-primary">{chunks}</span>
 						),
 					})}
 				</Display>
