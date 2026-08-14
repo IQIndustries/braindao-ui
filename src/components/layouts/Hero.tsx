@@ -44,7 +44,7 @@ export async function Hero() {
 				<Display as="h1" className="mt-5">
 					{t.rich("title", {
 						highlight: (chunks) => (
-							<span className="italic text-primary">{chunks}</span>
+							<span className="text-primary">{chunks}</span>
 						),
 					})}
 				</Display>
