@@ -33,6 +33,7 @@ const TokenOverview = async () => {
 					<div className="mt-8 flex flex-wrap gap-3">
 						<PillLink
 							href="https://iq.wiki/wiki/iq"
+							variant="outline"
 							external
 							analyticsKey="about-iq"
 						>
