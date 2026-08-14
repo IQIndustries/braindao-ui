@@ -104,19 +104,18 @@
 		}
 	},
 	"treasury": {
-		"eyebrow": "트레저리",
+		"eyebrow": "IQ 트레저리",
 		"title": "<highlight>IQ 스테이커</highlight>가 운영하는 트레저리.",
-		"description": "BrainDAO는 IQ 트레저리를 보유하고 이를 투명하게 공개합니다. IQ를 스테이킹해 사용처에 투표하거나, 대시보드에서 실시간으로 확인하세요.",
-		"primary-cta": "IQ 스테이킹",
-		"secondary-cta": "대시보드 열기",
+		"description": "BrainDAO는 IQ 생태계의 트레저리(IQ, 스테이블코인, 전략 자산)를 관리하며, 거버넌스 투표로 보상·유동성·성장에 투입합니다.",
+		"primary-cta": "트레저리 열기",
+		"secondary-cta": "IQ 대시보드",
 		"chart": {
-			"label": "HiIQ에 잠긴 공급량",
+			"label": "HiIQ 총 잠금량",
 			"meta": "실시간",
 			"center": "공급량 대비",
 			"locked": "HiIQ에 잠김",
-			"circulating": "유통 공급량",
-			"voting": "투표 가중치",
-			"foot": "이더리움에서 실시간으로 읽어온 온체인 수치"
+			"circulating": "유통량",
+			"foot": "유통 공급량의 약 {percent}가 HiIQ에 잠겨 보상을 받고 있습니다."
 		}
 	},
 	"ecosystem": {

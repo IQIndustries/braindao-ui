@@ -104,19 +104,18 @@
 		}
 	},
 	"treasury": {
-		"eyebrow": "Treasury",
+		"eyebrow": "IQ Treasury",
 		"title": "A treasury governed by <highlight>IQ stakers.</highlight>",
-		"description": "BrainDAO holds the IQ treasury and reports on it openly. Stake IQ to vote on how it is used, or open the dashboard to monitor it in real time.",
-		"primary-cta": "Stake IQ",
-		"secondary-cta": "Open dashboard",
+		"description": "BrainDAO stewards the IQ ecosystem's treasury (IQ, stablecoins, and strategic assets), deployed by governance vote to fund rewards, liquidity, and growth.",
+		"primary-cta": "Open Treasury",
+		"secondary-cta": "IQ Dashboard",
 		"chart": {
-			"label": "Supply locked in HiIQ",
+			"label": "HiIQ total locked",
 			"meta": "Live",
 			"center": "Of supply",
 			"locked": "Locked in HiIQ",
-			"circulating": "Circulating supply",
-			"voting": "Voting weight",
-			"foot": "On-chain figures, read live from Ethereum"
+			"circulating": "Circulating",
+			"foot": "≈ {percent} of circulating supply is locked in HiIQ and earning rewards."
 		}
 	},
 	"ecosystem": {

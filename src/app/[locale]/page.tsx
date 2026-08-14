@@ -5,20 +5,17 @@ import TokenOverview from "@/components/layouts/token-overview";
 import TokenUtility from "@/components/layouts/token-utility";
 import Treasury from "@/components/layouts/treasury";
 import { fetchCoinMarketData } from "@/modules/fetchCoinMarketData";
-import { getLockOverview } from "@/modules/getLockOverview";
 import { getTvl } from "@/modules/getTVL";
 import { getIqStats } from "./_actions";
 import { IQStats } from "./_components/iq-stat";
 
 export default async function Home() {
-	const [tvl, marketData, lockOverview, iqStatsData] = await Promise.all([
+	const [tvl, marketData, iqStatsData] = await Promise.all([
 		getTvl(),
 		fetchCoinMarketData(),
-		getLockOverview(),
 		getIqStats(),
 	]);
 
-	const { totalHiiqSupply } = lockOverview;
 	const circulatingSupply = marketData?.circulatingSupply ?? null;
 
 	return (
@@ -36,11 +33,7 @@ export default async function Home() {
 			<TokenOverview />
 			<Markets />
 			<TokenUtility />
-			<Treasury
-				totalIqLocked={tvl}
-				totalHiiqSupply={totalHiiqSupply}
-				circulatingSupply={circulatingSupply}
-			/>
+			<Treasury totalIqLocked={tvl} circulatingSupply={circulatingSupply} />
 			<Ecosystem />
 		</main>
 	);

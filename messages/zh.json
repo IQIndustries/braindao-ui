@@ -104,19 +104,18 @@
 		}
 	},
 	"treasury": {
-		"eyebrow": "资金库",
+		"eyebrow": "IQ 资金库",
 		"title": "由 <highlight>IQ 质押者</highlight> 治理的资金库。",
-		"description": "BrainDAO 持有 IQ 资金库并公开披露其状况。质押 IQ 即可对其用途投票，或打开仪表盘实时监控。",
-		"primary-cta": "质押 IQ",
-		"secondary-cta": "打开仪表盘",
+		"description": "BrainDAO 管理 IQ 生态的资金库（IQ、稳定币及战略资产），由治理投票决定投入奖励、流动性与增长。",
+		"primary-cta": "打开资金库",
+		"secondary-cta": "IQ 仪表盘",
 		"chart": {
-			"label": "锁定于 HiIQ 的供应量",
+			"label": "HiIQ 总锁定量",
 			"meta": "实时",
 			"center": "占供应量",
 			"locked": "锁定于 HiIQ",
-			"circulating": "流通供应量",
-			"voting": "投票权重",
-			"foot": "链上数据，实时读取自以太坊"
+			"circulating": "流通量",
+			"foot": "约 {percent} 的流通供应量锁定于 HiIQ，并持续赚取奖励。"
 		}
 	},
 	"ecosystem": {
