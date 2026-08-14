@@ -1,3 +1,4 @@
+import { TreasuryRing } from "@/components/illustrations/treasury-ring";
 import { numFormatter } from "@/modules/helpers/numFormatter";
 import { getTranslations } from "next-intl/server";
 import {
@@ -9,9 +10,6 @@ import {
 	PillLink,
 	Section,
 } from "./section-kit";
-
-const RADIUS = 68;
-const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
 const Treasury = async ({
 	totalIqLocked,
@@ -75,42 +73,17 @@ const Treasury = async ({
 
 					<div className="flex flex-col items-center gap-8 p-6 sm:flex-row sm:gap-10 sm:p-8">
 						<div className="relative shrink-0">
-							<svg
-								viewBox="0 0 160 160"
-								className="size-40 -rotate-90"
-								role="img"
-								aria-label={t("chart.label")}
-							>
-								<title>{t("chart.label")}</title>
-								<circle
-									cx="80"
-									cy="80"
-									r={RADIUS}
-									fill="none"
-									stroke="rgb(255 255 255 / 0.09)"
-									strokeWidth="10"
-								/>
-								{lockedShare !== null && (
-									<circle
-										cx="80"
-										cy="80"
-										r={RADIUS}
-										fill="none"
-										stroke="#FF1A88"
-										strokeWidth="10"
-										strokeLinecap="round"
-										strokeDasharray={`${CIRCUMFERENCE * lockedShare} ${CIRCUMFERENCE}`}
-									/>
-								)}
-							</svg>
+							<TreasuryRing share={lockedShare} />
 
-							<div className="absolute inset-0 flex flex-col items-center justify-center gap-1">
-								<span className="font-mono text-2xl text-white">
+							<div className="absolute inset-0 flex flex-col items-center justify-center gap-1.5">
+								<span className="font-mono text-[32.5px] leading-none tracking-[-0.5px] text-white">
 									{lockedShare !== null
 										? `${(lockedShare * 100).toFixed(1)}%`
 										: "—"}
 								</span>
-								<MonoLabel>{t("chart.center")}</MonoLabel>
+								<MonoLabel className="tracking-[0.1em]">
+									{t("chart.center")}
+								</MonoLabel>
 							</div>
 						</div>
 

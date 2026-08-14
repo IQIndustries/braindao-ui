@@ -149,6 +149,7 @@ body {
 .ill .ping { animation: ill-ping 3s ease-in-out infinite; }
 
 .ill .ring { fill: none; stroke: var(--ill-line-2); stroke-width: 1; stroke-dasharray: 1 7; }
+.ill .ring-inner { stroke: var(--ill-line); stroke-dasharray: none; }
 .ill .ring-track { fill: none; stroke: var(--ill-line); stroke-width: 11; }
 .ill .ring-arc {
   fill: none;
