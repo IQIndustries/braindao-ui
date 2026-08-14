@@ -62,25 +62,28 @@
 		}
 	},
 	"markets": {
-		"eyebrow": "Markets",
-		"title": "Where $IQ <highlight>trades and lives.</highlight>",
-		"description": "IQ is listed on major centralized exchanges and swappable on decentralized venues across every chain it is deployed on.",
-		"centralized": "Centralized",
-		"decentralized": "Decentralized",
+		"eyebrow": "Exchanges & chains",
+		"title": "Where $IQ <highlight>trades</highlight> and lives.",
 		"trade": "Trade",
 		"chains": {
 			"title": "Deployed on",
-			"ethereum": "Staking",
-			"fraxtal": "Liquidity",
-			"polygon": "Wiki edits"
+			"ethereum": "staking",
+			"fraxtal": "L2",
+			"polygon": "wiki edits"
 		},
 		"routing": {
 			"label": "Liquidity routing",
-			"meta": "By chain"
+			"to": {
+				"ethereum": "HiIQ",
+				"fraxtal": "Swap",
+				"polygon": "Edits"
+			}
 		},
 		"venues": {
-			"label": "Venues",
-			"meta": "{count} listed"
+			"binance": "IQ / USDT",
+			"upbit": "KRW / IQ",
+			"oneinch": "DEX aggregator",
+			"frax": "Swap on Fraxtal"
 		}
 	},
 	"utility": {

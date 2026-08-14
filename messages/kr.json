@@ -62,25 +62,28 @@
 		}
 	},
 	"markets": {
-		"eyebrow": "마켓",
-		"title": "$IQ가 <highlight>거래되는 곳.</highlight>",
-		"description": "IQ는 주요 중앙화 거래소에 상장되어 있으며, IQ가 배포된 모든 체인의 탈중앙화 거래소에서도 교환할 수 있습니다.",
-		"centralized": "중앙화",
-		"decentralized": "탈중앙화",
+		"eyebrow": "거래소 & 체인",
+		"title": "$IQ가 <highlight>거래되는</highlight> 곳.",
 		"trade": "거래",
 		"chains": {
 			"title": "배포된 체인",
 			"ethereum": "스테이킹",
-			"fraxtal": "유동성",
+			"fraxtal": "L2",
 			"polygon": "위키 편집"
 		},
 		"routing": {
 			"label": "유동성 라우팅",
-			"meta": "체인별"
+			"to": {
+				"ethereum": "HiIQ",
+				"fraxtal": "스왑",
+				"polygon": "편집"
+			}
 		},
 		"venues": {
-			"label": "거래처",
-			"meta": "{count}곳 상장"
+			"binance": "IQ / USDT",
+			"upbit": "KRW / IQ",
+			"oneinch": "DEX 애그리게이터",
+			"frax": "Fraxtal에서 스왑"
 		}
 	},
 	"utility": {

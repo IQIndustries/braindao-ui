@@ -62,25 +62,28 @@
 		}
 	},
 	"markets": {
-		"eyebrow": "市场",
-		"title": "$IQ 在哪里 <highlight>交易与流通。</highlight>",
-		"description": "IQ 已在主要中心化交易所上线，并可在其部署的每一条链上的去中心化场所进行兑换。",
-		"centralized": "中心化",
-		"decentralized": "去中心化",
+		"eyebrow": "交易所与链",
+		"title": "$IQ 在哪里 <highlight>交易</highlight>与流通。",
 		"trade": "交易",
 		"chains": {
 			"title": "部署的链",
 			"ethereum": "质押",
-			"fraxtal": "流动性",
+			"fraxtal": "L2",
 			"polygon": "维基编辑"
 		},
 		"routing": {
 			"label": "流动性路由",
-			"meta": "按链划分"
+			"to": {
+				"ethereum": "HiIQ",
+				"fraxtal": "兑换",
+				"polygon": "编辑"
+			}
 		},
 		"venues": {
-			"label": "交易场所",
-			"meta": "已上线 {count} 家"
+			"binance": "IQ / USDT",
+			"upbit": "KRW / IQ",
+			"oneinch": "DEX 聚合器",
+			"frax": "在 Fraxtal 上兑换"
 		}
 	},
 	"utility": {
