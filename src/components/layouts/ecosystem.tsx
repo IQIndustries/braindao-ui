@@ -30,7 +30,7 @@ const Ecosystem = async () => {
 						target="_blank"
 						rel="noopener noreferrer"
 						data-ph-capture-attribute-product-link-clicked={product.key}
-						className="group flex items-center gap-4 py-5 transition-colors hover:bg-white/[0.02] sm:gap-6 sm:py-6"
+						className="group flex items-center gap-4 py-5 sm:gap-6 sm:py-6"
 					>
 						<span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10">
 							<Glyph name={product.key} className="size-[22px]" />
@@ -40,7 +40,7 @@ const Ecosystem = async () => {
 							{t(`${product.key}.name`)}
 						</h3>
 
-						<span className="hidden text-[13px] text-neutral-400 md:block">
+						<span className="hidden text-[13px] text-neutral-400 underline-offset-4 transition-colors group-hover:text-white group-hover:underline md:block">
 							{t(`${product.key}.description`)}
 						</span>
 
