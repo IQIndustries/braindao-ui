@@ -121,19 +121,18 @@
 	"ecosystem": {
 		"eyebrow": "Ecosystem",
 		"title": "Built on <highlight>$IQ.</highlight>",
-		"description": "The products that use the IQ token, run by teams across the ecosystem BrainDAO governs.",
 		"visit": "Visit",
 		"iqai": {
 			"name": "IQ AI",
-			"description": "Tokenized AI agents and the infrastructure behind them."
+			"description": "Autonomous on-chain agents · ATP"
 		},
 		"wiki": {
 			"name": "IQ.wiki",
-			"description": "The blockchain and crypto encyclopedia, with edits recorded on-chain."
+			"description": "The world's largest crypto encyclopedia"
 		},
-		"dashboard": {
-			"name": "IQ Dashboard",
-			"description": "Stake IQ, bridge across chains, vote on proposals, and track the treasury."
+		"industries": {
+			"name": "IQ Industries",
+			"description": "Applied intelligence, on-chain"
 		}
 	},
 	"hiiq": {

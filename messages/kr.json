@@ -119,21 +119,20 @@
 		}
 	},
 	"ecosystem": {
-		"eyebrow": "생태계",
+		"eyebrow": "에코시스템",
 		"title": "<highlight>$IQ</highlight> 위에 세워진 것들.",
-		"description": "IQ 토큰을 사용하는 제품들로, BrainDAO가 운영하는 생태계 전반의 팀이 만듭니다.",
 		"visit": "방문",
 		"iqai": {
 			"name": "IQ AI",
-			"description": "토큰화된 AI 에이전트와 이를 뒷받침하는 인프라."
+			"description": "자율 온체인 에이전트 · ATP"
 		},
 		"wiki": {
 			"name": "IQ.wiki",
-			"description": "편집 기록이 온체인에 남는 블록체인·크립토 백과사전."
+			"description": "세계 최대 크립토 백과사전"
 		},
-		"dashboard": {
-			"name": "IQ 대시보드",
-			"description": "IQ 스테이킹, 체인 간 브리징, 제안 투표, 트레저리 추적."
+		"industries": {
+			"name": "IQ Industries",
+			"description": "온체인 응용 인텔리전스"
 		}
 	},
 	"hiiq": {

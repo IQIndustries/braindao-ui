@@ -121,19 +121,18 @@
 	"ecosystem": {
 		"eyebrow": "生态系统",
 		"title": "构建于 <highlight>$IQ</highlight> 之上。",
-		"description": "使用 IQ 代币的产品，由 BrainDAO 所治理生态系统中的各个团队打造。",
 		"visit": "访问",
 		"iqai": {
 			"name": "IQ AI",
-			"description": "代币化的 AI 智能体及其背后的基础设施。"
+			"description": "自主链上智能体 · ATP"
 		},
 		"wiki": {
 			"name": "IQ.wiki",
-			"description": "区块链与加密百科全书，编辑记录上链存证。"
+			"description": "全球最大的加密百科全书"
 		},
-		"dashboard": {
-			"name": "IQ 仪表盘",
-			"description": "质押 IQ、跨链桥接、对提案投票并追踪资金库。"
+		"industries": {
+			"name": "IQ Industries",
+			"description": "链上应用智能"
 		}
 	},
 	"hiiq": {

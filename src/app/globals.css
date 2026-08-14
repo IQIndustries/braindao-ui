@@ -177,6 +177,16 @@ body {
   transform-origin: bottom center;
   animation: ill-burn 4.8s ease-in-out infinite;
 }
+.ill .sway {
+  transform-box: view-box;
+  transform-origin: 12px 21px;
+  animation: ill-sway 5.2s ease-in-out infinite;
+}
+.ill .growbar {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: ill-grow 4.4s ease-in-out infinite;
+}
 
 @keyframes ill-flow { from { stroke-dashoffset: 80; } to { stroke-dashoffset: 0; } }
 @keyframes ill-ping { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
@@ -191,6 +201,14 @@ body {
 @keyframes ill-burn {
   0%, 100% { transform: scaleY(1); opacity: 1; }
   50% { transform: scaleY(0.16); opacity: 0.35; }
+}
+@keyframes ill-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+@keyframes ill-grow {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.45); }
 }
 
 /* Reduced motion snaps each loop to its end frame, which is why every keyframe
