@@ -68,9 +68,9 @@ const FooterPanel = ({
 	label,
 	children,
 }: { label: string; children: React.ReactNode }) => (
-	<div className="rounded-xl border border-rule p-6">
+	<div className="rounded-xl border border-rule p-5">
 		<MonoLabel>{label}</MonoLabel>
-		<div className="mt-5 border-t border-rule-soft pt-5">{children}</div>
+		<div className="mt-4 border-t border-rule-soft pt-4">{children}</div>
 	</div>
 );
 
@@ -162,7 +162,7 @@ const Footer = async () => {
 
 				<div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
 					<FooterPanel label={t("columns.pages")}>
-						<div className="flex flex-col items-start gap-3.5">
+						<div className="flex flex-col items-start gap-2.5">
 							{navLinks.map((link) => (
 								<FooterLink
 									key={link.key}
@@ -176,7 +176,7 @@ const Footer = async () => {
 					</FooterPanel>
 
 					<FooterPanel label={t("columns.ecosystem")}>
-						<div className="flex flex-col items-start gap-3.5">
+						<div className="flex flex-col items-start gap-2.5">
 							{ecosystemLinks.map((link) => (
 								<FooterLink
 									key={link.name}
@@ -191,7 +191,7 @@ const Footer = async () => {
 					</FooterPanel>
 
 					<FooterPanel label={t("columns.resources")}>
-						<div className="flex flex-col items-start gap-3.5">
+						<div className="flex flex-col items-start gap-2.5">
 							<FooterLink href="https://iq.wiki/wiki/hiiq" external>
 								{t("resources.hiiq")}
 							</FooterLink>
@@ -228,7 +228,7 @@ const Footer = async () => {
 							/>
 							<button
 								type="submit"
-								className="h-10 shrink-0 rounded-full bg-white px-4 text-[13px] font-medium text-black transition-colors hover:bg-neutral-200"
+								className="h-10 shrink-0 rounded-lg bg-white px-4 text-[13px] font-medium text-black transition-colors hover:bg-neutral-200"
 							>
 								{t("newsletter.button")}
 							</button>
