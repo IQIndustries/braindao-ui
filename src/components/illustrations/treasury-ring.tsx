@@ -16,6 +16,6 @@ export const TreasuryRing = ({ share }: { share: number | null }) => (
 				style={{ strokeDasharray: `${share} 1` }}
 			/>
 		)}
-		<circle className="ring ring-inner" cx="90" cy="90" r="50" />
+		<circle className="ring" cx="90" cy="90" r="50" />
 	</svg>
 );

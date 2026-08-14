@@ -151,9 +151,8 @@ body {
 
 .ill .ping { animation: ill-ping 3s ease-in-out infinite; }
 
-.ill .ring { fill: none; stroke: var(--ill-line-2); stroke-width: 1; stroke-dasharray: 1 7; }
-.ill .ring-inner { stroke: var(--ill-line); stroke-dasharray: none; }
-.ill .ring-track { fill: none; stroke: var(--ill-line); stroke-width: 11; }
+.ill .ring { fill: none; stroke: var(--ill-ink-4); stroke-width: 1.8; stroke-linecap: round; stroke-dasharray: 0.1 7.4; opacity: 0.7; }
+.ill .ring-track { fill: none; stroke: var(--ill-line-2); stroke-width: 11; }
 .ill .ring-arc {
   fill: none;
   stroke: var(--ill-pink);
