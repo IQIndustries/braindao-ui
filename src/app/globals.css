@@ -126,7 +126,8 @@ body {
 .ill .rail { fill: none; stroke: var(--ill-line-2); stroke-width: 1.6; }
 .ill .rail-lead { stroke: var(--ill-line-3); }
 .ill .node { fill: var(--ill-card); stroke: var(--ill-line-3); stroke-width: 1; }
-.ill .track { fill: var(--ill-line); stroke: none; }
+.ill .track { fill: var(--ill-line-3); stroke: none; }
+.ill .bar { fill: var(--ill-pink); stroke: none; }
 .ill .dot { fill: var(--ill-pink); stroke: none; }
 .ill .dotw { fill: #fff; stroke: none; }
 

@@ -35,27 +35,30 @@
 	},
 	"token": {
 		"eyebrow": "The IQ token",
-		"title": "Governance, staking, and a <highlight>shared treasury.</highlight>",
-		"description": "IQ is the governance and staking token of BrainDAO. Locking IQ produces HiIQ, which sets voting power, reward share, and how ecosystem fees flow back to holders.",
+		"title": "Governance, staking, and a shared <highlight>treasury.</highlight>",
+		"description": "$IQ is the governance token launched by BrainDAO. Holders lock IQ through HiIQ to vote on proposals, earn staking rewards, and direct the DAO's treasury. Products built on IQ live on their own platforms; BrainDAO is the entity behind the token itself.",
 		"primary-cta": "About $IQ",
 		"secondary-cta": "View treasury",
 		"flow": {
-			"label": "What locking IQ produces",
-			"meta": "HiIQ",
+			"label": "Token flow",
+			"meta": "Live mechanism",
 			"source": "$IQ",
 			"governance": {
 				"kicker": "Governance",
-				"value": "Voting power on proposals"
+				"value": "72% FOR"
 			},
 			"staking": {
-				"kicker": "Staking",
-				"value": "Rewards paid in IQ"
+				"kicker": "Staking rewards",
+				"value": "+3.0M IQ / day"
 			},
 			"burn": {
-				"kicker": "Fees",
-				"value": "Burned or redistributed"
+				"kicker": "Fee burn",
+				"value": "Deflationary"
 			},
-			"legend": "One lock, three outcomes"
+			"legend": {
+				"flow": "$IQ flow",
+				"rail": "Rail"
+			}
 		}
 	},
 	"markets": {

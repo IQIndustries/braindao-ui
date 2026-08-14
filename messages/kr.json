@@ -35,27 +35,30 @@
 	},
 	"token": {
 		"eyebrow": "IQ 토큰",
-		"title": "거버넌스, 스테이킹, 그리고 <highlight>공동 트레저리.</highlight>",
-		"description": "IQ는 BrainDAO의 거버넌스 및 스테이킹 토큰입니다. IQ를 잠그면 HiIQ가 생성되며, 이는 투표 권한과 보상 비중, 생태계 수수료가 보유자에게 환원되는 방식을 결정합니다.",
+		"title": "거버넌스, 스테이킹, 그리고 공동 <highlight>트레저리.</highlight>",
+		"description": "$IQ는 BrainDAO가 발행한 거버넌스 토큰입니다. 보유자는 HiIQ를 통해 IQ를 잠가 제안에 투표하고, 스테이킹 보상을 받고, DAO 트레저리의 방향을 정합니다. IQ 위에 구축된 제품들은 각자의 플랫폼에서 운영되며, BrainDAO는 토큰 자체를 뒷받침하는 주체입니다.",
 		"primary-cta": "$IQ 알아보기",
 		"secondary-cta": "트레저리 보기",
 		"flow": {
-			"label": "IQ를 잠그면 생기는 것",
-			"meta": "HiIQ",
+			"label": "토큰 플로우",
+			"meta": "실시간 메커니즘",
 			"source": "$IQ",
 			"governance": {
 				"kicker": "거버넌스",
-				"value": "제안에 대한 투표 권한"
+				"value": "72% 찬성"
 			},
 			"staking": {
-				"kicker": "스테이킹",
-				"value": "IQ로 지급되는 보상"
+				"kicker": "스테이킹 보상",
+				"value": "+3.0M IQ / 일"
 			},
 			"burn": {
-				"kicker": "수수료",
-				"value": "소각 또는 재분배"
+				"kicker": "수수료 소각",
+				"value": "디플레이션"
 			},
-			"legend": "하나의 잠금, 세 가지 결과"
+			"legend": {
+				"flow": "$IQ 플로우",
+				"rail": "레일"
+			}
 		}
 	},
 	"markets": {

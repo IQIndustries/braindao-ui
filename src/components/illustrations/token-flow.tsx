@@ -60,9 +60,40 @@ export const TokenFlow = ({
 				<text className="lbl" x={NODE_X + 16} y={node.y + 22}>
 					{labels[node.key].kicker.toUpperCase()}
 				</text>
-				<text className="val" x={NODE_X + 16} y={node.y + 47}>
-					{labels[node.key].value}
-				</text>
+				{/* The governance card is the odd one out: its reading sits on the
+				    kicker row and a tally bar takes the value row. */}
+				{node.key === "governance" ? (
+					<>
+						<text
+							className="val"
+							x={NODE_X + NODE_W - 16}
+							y={node.y + 22}
+							textAnchor="end"
+						>
+							{labels[node.key].value}
+						</text>
+						<rect
+							className="track"
+							x={NODE_X + 16}
+							y={node.y + 36}
+							width={NODE_W - 32}
+							height="6"
+							rx="3"
+						/>
+						<rect
+							className="bar"
+							x={NODE_X + 16}
+							y={node.y + 36}
+							width={(NODE_W - 32) * 0.72}
+							height="6"
+							rx="3"
+						/>
+					</>
+				) : (
+					<text className="val" x={NODE_X + 16} y={node.y + 47}>
+						{labels[node.key].value}
+					</text>
+				)}
 				<circle className="dotw" cx={NODE_X} cy={node.cy} r="2.6" />
 			</g>
 		))}

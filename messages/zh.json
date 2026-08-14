@@ -35,27 +35,30 @@
 	},
 	"token": {
 		"eyebrow": "IQ 代币",
-		"title": "治理、质押与 <highlight>共同的资金库。</highlight>",
-		"description": "IQ 是 BrainDAO 的治理与质押代币。锁定 IQ 会生成 HiIQ，它决定了投票权重、奖励份额，以及生态系统费用如何回馈持有者。",
+		"title": "治理、质押与共同的<highlight>资金库。</highlight>",
+		"description": "$IQ 是 BrainDAO 发行的治理代币。持有者通过 HiIQ 锁定 IQ，以对提案投票、赚取质押奖励并决定 DAO 资金库的去向。基于 IQ 构建的产品在各自的平台上运行；BrainDAO 是代币本身背后的主体。",
 		"primary-cta": "了解 $IQ",
 		"secondary-cta": "查看资金库",
 		"flow": {
-			"label": "锁定 IQ 会产生什么",
-			"meta": "HiIQ",
+			"label": "代币流向",
+			"meta": "实时机制",
 			"source": "$IQ",
 			"governance": {
 				"kicker": "治理",
-				"value": "对提案的投票权重"
+				"value": "72% 赞成"
 			},
 			"staking": {
-				"kicker": "质押",
-				"value": "以 IQ 支付的奖励"
+				"kicker": "质押奖励",
+				"value": "+3.0M IQ / 天"
 			},
 			"burn": {
-				"kicker": "费用",
-				"value": "销毁或再分配"
+				"kicker": "费用销毁",
+				"value": "通缩"
 			},
-			"legend": "一次锁仓，三种结果"
+			"legend": {
+				"flow": "$IQ 流向",
+				"rail": "轨道"
+			}
 		}
 	},
 	"markets": {

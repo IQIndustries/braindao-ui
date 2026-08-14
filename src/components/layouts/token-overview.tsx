@@ -5,7 +5,6 @@ import {
 	Eyebrow,
 	MonoLabel,
 	Panel,
-	PanelHeader,
 	PillLink,
 	Section,
 } from "./section-kit";
@@ -34,7 +33,6 @@ const TokenOverview = async () => {
 					<div className="mt-8 flex flex-wrap gap-3">
 						<PillLink
 							href="https://iq.wiki/wiki/iq"
-							variant="outline"
 							external
 							analyticsKey="about-iq"
 						>
@@ -46,13 +44,16 @@ const TokenOverview = async () => {
 					</div>
 				</div>
 
-				<Panel className="lg:col-span-7">
-					<PanelHeader
-						label={t("flow.label")}
-						meta={t("flow.meta")}
-						metaTone="primary"
-					/>
-					<div className="p-4 sm:p-5">
+				{/* No header rule or legend rule here: the inset frame around the
+				    diagram carries the panel's structure on its own. */}
+				<Panel className="p-4 sm:p-5 lg:col-span-7">
+					<div className="flex items-center justify-between gap-4 pb-4">
+						<MonoLabel>{t("flow.label")}</MonoLabel>
+						<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+							{t("flow.meta")}
+						</span>
+					</div>
+					<div className="rounded-lg border border-rule-soft p-3 sm:p-4">
 						<TokenFlow
 							source={t("flow.source")}
 							labels={{
@@ -71,9 +72,21 @@ const TokenOverview = async () => {
 							}}
 						/>
 					</div>
-					<div className="flex items-center gap-2 border-t border-rule-soft px-4 py-3 sm:px-5">
-						<span aria-hidden="true" className="h-px w-5 bg-primary" />
-						<MonoLabel>{t("flow.legend")}</MonoLabel>
+					<div className="mt-4 flex items-center gap-6">
+						<span className="flex items-center gap-2">
+							<span
+								aria-hidden="true"
+								className="h-[2px] w-5 rounded-full bg-primary"
+							/>
+							<MonoLabel>{t("flow.legend.flow")}</MonoLabel>
+						</span>
+						<span className="flex items-center gap-2">
+							<span
+								aria-hidden="true"
+								className="h-[2px] w-5 rounded-full bg-rule-control"
+							/>
+							<MonoLabel>{t("flow.legend.rail")}</MonoLabel>
+						</span>
 					</div>
 				</Panel>
 			</div>

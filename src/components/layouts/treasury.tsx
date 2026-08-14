@@ -30,7 +30,9 @@ const Treasury = async ({
 	return (
 		<Section id="treasury">
 			<div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
-				<div className="lg:col-span-5">
+				{/* Copy stays first in the DOM for the stacked layout; on desktop the
+				    panel takes the left column, mirroring the token section above. */}
+				<div className="lg:order-2 lg:col-span-5">
 					<Eyebrow icon="vault">{t("eyebrow")}</Eyebrow>
 
 					<Display className="mt-5">
@@ -64,7 +66,7 @@ const Treasury = async ({
 					</div>
 				</div>
 
-				<Panel className="lg:col-span-7">
+				<Panel className="lg:order-1 lg:col-span-7">
 					<PanelHeader
 						label={t("chart.label")}
 						meta={t("chart.meta")}
