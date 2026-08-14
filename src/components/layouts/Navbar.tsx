@@ -122,7 +122,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 			</nav>
 
 			{isMenuOpen && (
-				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-control bg-canvas/95 backdrop-blur-xl md:hidden">
+				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-control bg-surface/95 backdrop-blur-xl md:hidden">
 					{navLinks.map((link) => (
 						<Link
 							key={link.href}

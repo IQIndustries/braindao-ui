@@ -50,7 +50,7 @@ const LocaleSwitcher = ({ className }: LocaleSwitcherProps) => {
 				</Button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent className="w-64 bg-canvas/95 border border-rule-control rounded-xl p-2 shadow-lg backdrop-blur-md">
+			<DropdownMenuContent className="w-64 bg-surface/95 border border-rule-control rounded-xl p-2 shadow-lg backdrop-blur-md">
 				{visibleLocales.map((loc) => (
 					<DropdownMenuItem key={loc.locale} className="p-0">
 						<Link

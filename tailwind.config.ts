@@ -76,7 +76,9 @@ const config: Config = {
 				rule: "#232326",
 				"rule-control": "#2A2A2E",
 				"rule-action": "#2F2F34",
-				canvas: "#0E0E10",
+				// The fills climb the same way: `canvas` is the page itself, `surface`
+				// a panel sitting on it, `surface-raised` a cell inside that panel.
+				canvas: "#0A0A0B",
 				surface: "#0E0E10",
 				"surface-raised": "#131316",
 				input: "hsl(var(--input))",

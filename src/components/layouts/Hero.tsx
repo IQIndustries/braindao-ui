@@ -19,7 +19,7 @@ export async function Hero() {
 				muted
 				playsInline
 				preload="auto"
-				className="pointer-events-none absolute inset-x-0 bottom-0 -z-[6] h-[137%] w-full bg-[#0a0a0b] object-cover object-[50%_100%] [filter:saturate(.7)_brightness(.92)]"
+				className="pointer-events-none absolute inset-x-0 bottom-0 -z-[6] h-[137%] w-full bg-canvas object-cover object-[50%_100%] [filter:saturate(.7)_brightness(.92)]"
 			/>
 
 			{/* Legibility at the top, and a dark bottom edge that hands off to

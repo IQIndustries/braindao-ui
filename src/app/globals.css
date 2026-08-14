@@ -71,8 +71,7 @@ html {
 }
 
 body {
-  background: #0A0A0B;
-  @apply font-sans text-neutral-400;
+	@apply bg-canvas font-sans text-neutral-400;
 }
 
 /* The fixed header floats over anchored sections. */
