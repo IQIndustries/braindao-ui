@@ -1,7 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { HeroOrbits } from "./hero-orbits";
-import { HeroScene } from "./hero-scene";
-import { HeroSky } from "./hero-sky";
 import { Container, Display, Eyebrow, PillLink } from "./section-kit";
 
 export async function Hero() {
@@ -9,13 +7,24 @@ export async function Hero() {
 
 	return (
 		<section className="relative isolate flex min-h-[27rem] flex-1 flex-col overflow-hidden sm:min-h-[34rem]">
-			<HeroSky />
+			{/* The whole scene — sky, dust dissolve and figure — is one clip,
+			    pre-baked as a seamless loop: its tail is crossfaded back into
+			    its head in the encode, so a plain `loop` restart is a clean
+			    one-frame step. Do not re-trim or re-encode it. Oversized and
+			    bottom-anchored so the top of the frame never shows. */}
+			<video
+				src="/images/hero-cosmic-mind-loop.mp4"
+				autoPlay
+				loop
+				muted
+				playsInline
+				preload="auto"
+				className="pointer-events-none absolute inset-x-0 bottom-0 -z-[6] h-[137%] w-full bg-[#0a0a0b] object-cover object-[50%_100%] [filter:saturate(.7)_brightness(.92)]"
+			/>
 
-			{/* The design's whole scene — sky, dust dissolve and figure — is a
-			    video loop. It sits over the SVG sky, which covers the first
-			    paint, and under the rings. Bottom-anchored so the horizon glow
-			    meets the stats strip at every aspect ratio. */}
-			<HeroScene />
+			{/* Legibility at the top, and a dark bottom edge that hands off to
+			    the stats strip. */}
+			<div className="pointer-events-none absolute inset-0 -z-[5] bg-[linear-gradient(180deg,rgba(10,10,11,.88)_0%,rgba(10,10,11,.6)_34%,rgba(10,10,11,.22)_58%,rgba(10,10,11,.1)_86%,rgba(10,10,11,.92)_100%)]" />
 
 			<HeroOrbits />
 

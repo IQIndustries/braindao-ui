@@ -1,95 +1,91 @@
-// Geometry measured off the design capture (2000px frame): inner ring
-// rx 445 / ry 90 centred 363px above the hero's bottom edge, outer ring
-// rx 694 / ry 134 on a plane 18px lower. Bottom-anchoring in vw keeps the
-// rings locked to the bottom-anchored figure at every viewport width.
-const ORBITS = [
-	{ rx: 445, ry: 90, cy: 180, duration: "11s", delay: "-3.2s", opacity: 0.8 },
-	{ rx: 694, ry: 134, cy: 198, duration: "18s", delay: "-9s", opacity: 0.6 },
+import type React from "react";
+
+// Authored in the video's own pixel space and painted over the exact same box
+// (bottom-anchored, 137% tall, xMidYMax slice mirrors object-position 50% 100%),
+// so the rings stay welded to the figure at every viewport instead of being
+// re-tuned per width.
+const RINGS = [
+	{ rx: 261, ry: 61, cy: 670, duration: "9s", delay: "0s" },
+	{ rx: 390, ry: 99, cy: 682, duration: "14s", delay: "-5s" },
 ];
 
 export const HeroOrbits = () => (
-	<div
+	<svg
+		viewBox="0 0 1756 986"
+		preserveAspectRatio="xMidYMax slice"
 		aria-hidden="true"
-		className="pointer-events-none absolute inset-x-0 bottom-[7.15vw] -z-[5] flex justify-center"
+		role="presentation"
+		className="pointer-events-none absolute inset-x-0 bottom-0 -z-[5] h-[137%] w-full"
 	>
-		<svg
-			viewBox="0 0 2000 400"
-			className="h-auto w-[clamp(26rem,100vw,125rem)] max-w-none"
-			fill="none"
-			role="presentation"
-		>
-			<defs>
-				<filter id="orbit-glow" x="-12%" y="-45%" width="124%" height="190%">
-					<feGaussianBlur stdDeviation="6" result="blur" />
-					<feMerge>
-						<feMergeNode in="blur" />
-						<feMergeNode in="SourceGraphic" />
-					</feMerge>
-				</filter>
-				<filter id="orbit-soften" x="-50%" y="-50%" width="200%" height="200%">
-					<feGaussianBlur stdDeviation="12" />
-				</filter>
-				{/* The scene video renders below the rings, so the figure can't
-				    occlude them; this soft column over her silhouette makes the
-				    arcs read as passing behind her like the design. */}
-				<mask id="orbit-occlude">
-					<rect x="0" y="0" width="2000" height="400" fill="#fff" />
-					<g filter="url(#orbit-soften)">
-						<rect
-							x="905"
-							y="110"
-							width="120"
-							height="140"
-							rx="55"
-							fill="#000"
-						/>
-						<rect
-							x="835"
-							y="215"
-							width="325"
-							height="185"
-							rx="70"
-							fill="#000"
-						/>
-					</g>
-				</mask>
-			</defs>
+		<defs>
+			<filter id="hero-head-soft" x="-40%" y="-40%" width="180%" height="180%">
+				<feGaussianBlur stdDeviation="24" />
+			</filter>
+			{/* Rings dim toward the top of their band and vanish behind her head,
+			    which is what sells them as orbiting rather than overlaid. */}
+			<linearGradient
+				id="hero-ring-fade"
+				x1="0"
+				y1="560"
+				x2="0"
+				y2="775"
+				gradientUnits="userSpaceOnUse"
+			>
+				<stop offset="0" stopColor="#3a3a3a" />
+				<stop offset="1" stopColor="#ffffff" />
+			</linearGradient>
+			<mask id="hero-ring-mask">
+				<rect
+					x="-200"
+					y="-200"
+					width="2160"
+					height="1400"
+					fill="url(#hero-ring-fade)"
+				/>
+				<ellipse
+					cx="869"
+					cy="718"
+					rx="115"
+					ry="153"
+					fill="#000"
+					filter="url(#hero-head-soft)"
+				/>
+			</mask>
+		</defs>
 
-			<g mask="url(#orbit-occlude)">
-				{ORBITS.map((orbit) => (
-					<g key={orbit.rx}>
-						<ellipse
-							cx={1000}
-							cy={orbit.cy}
-							rx={orbit.rx}
-							ry={orbit.ry}
-							stroke="#C23370"
-							strokeWidth="1.1"
-							strokeOpacity={orbit.opacity}
-							vectorEffect="non-scaling-stroke"
-						/>
-						<ellipse
-							cx={1000}
-							cy={orbit.cy}
-							rx={orbit.rx}
-							ry={orbit.ry}
-							pathLength={100}
-							stroke="#FF9DCB"
-							strokeWidth="1.4"
-							strokeLinecap="round"
-							vectorEffect="non-scaling-stroke"
-							filter="url(#orbit-glow)"
-							className="orbit-trace"
-							style={
-								{
-									"--orbit-duration": orbit.duration,
-									"--orbit-delay": orbit.delay,
-								} as React.CSSProperties
-							}
-						/>
-					</g>
-				))}
-			</g>
-		</svg>
-	</div>
+		<g mask="url(#hero-ring-mask)">
+			{RINGS.map((ring) => (
+				<g key={ring.rx}>
+					<ellipse
+						cx="869"
+						cy={ring.cy}
+						rx={ring.rx}
+						ry={ring.ry}
+						fill="none"
+						stroke="rgba(255,255,255,.13)"
+						strokeWidth="1.2"
+					/>
+					<ellipse
+						cx="869"
+						cy={ring.cy}
+						rx={ring.rx}
+						ry={ring.ry}
+						pathLength={1000}
+						fill="none"
+						stroke="#FF1A88"
+						strokeWidth="2"
+						strokeLinecap="round"
+						opacity="0.85"
+						className="hero-ring-lit"
+						style={
+							{
+								"--ring-duration": ring.duration,
+								"--ring-delay": ring.delay,
+							} as React.CSSProperties
+						}
+					/>
+				</g>
+			))}
+		</g>
+	</svg>
 );

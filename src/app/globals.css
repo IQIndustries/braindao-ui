@@ -85,24 +85,25 @@ body {
 }
 
 /* Hero orbit rings: a short bright arc travels each ring continuously.
-   pathLength="100" normalises every ellipse so one dash rule fits all. */
-.orbit-trace {
-  stroke-dasharray: 16 84;
-  animation: orbit-trace-move var(--orbit-duration, 7s) linear infinite;
-  animation-delay: var(--orbit-delay, 0s);
+   pathLength="1000" normalises every ellipse so one dash rule fits all. */
+.hero-ring-lit {
+  stroke-dasharray: 70 930;
+  stroke-dashoffset: 1000;
+  animation: hero-ring-orbit var(--ring-duration, 9s) linear infinite;
+  animation-delay: var(--ring-delay, 0s);
 }
 
-@keyframes orbit-trace-move {
+@keyframes hero-ring-orbit {
   from {
-    stroke-dashoffset: 0;
+    stroke-dashoffset: 1000;
   }
   to {
-    stroke-dashoffset: -100;
+    stroke-dashoffset: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .orbit-trace {
+  .hero-ring-lit {
     animation: none;
   }
 }
