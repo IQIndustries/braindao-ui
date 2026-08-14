@@ -51,7 +51,7 @@ const Ecosystem = async () => {
 							</p>
 						</div>
 
-						<span className="inline-flex h-9 shrink-0 items-center gap-1.5 self-start rounded-full border border-rule px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-rule-strong group-hover:text-white sm:self-auto">
+						<span className="inline-flex h-9 shrink-0 items-center gap-1.5 self-start rounded-full border border-rule-action px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-primary group-hover:text-white sm:self-auto">
 							{t("visit")}
 							<span aria-hidden="true">↗</span>
 						</span>

@@ -122,7 +122,13 @@ export const pillStyles = {
 	solid: cn(pillBase, "bg-white text-black hover:bg-neutral-200"),
 	outline: cn(
 		pillBase,
-		"border border-rule-strong bg-white/[0.03] text-white hover:bg-white/[0.08]",
+		"border border-rule-action text-white hover:border-primary hover:bg-surface-raised",
+	),
+	// The hairline greys vanish over the hero video, so that one button gets a
+	// white-alpha edge and a tinted backdrop of its own.
+	veil: cn(
+		pillBase,
+		"border border-white/[0.34] bg-canvas/40 text-white backdrop-blur-lg hover:border-primary hover:bg-surface-raised/60",
 	),
 	ghost: cn(pillBase, "text-neutral-400 hover:text-white"),
 };

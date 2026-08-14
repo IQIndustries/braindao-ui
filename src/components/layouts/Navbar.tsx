@@ -42,10 +42,10 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 			{/* The pill hugs its content rather than stretching to a column width. */}
 			<nav
 				className={cn(
-					"mx-auto flex h-12 w-fit items-center rounded-full border pl-5 pr-1.5 transition-colors duration-300",
+					"mx-auto flex h-12 w-fit items-center rounded-full border border-rule-control pl-5 pr-1.5 transition-colors duration-300",
 					isScrolled
-						? "border-rule-strong bg-surface/90 backdrop-blur-xl"
-						: "border-rule bg-surface/70 backdrop-blur-md",
+						? "bg-surface/90 backdrop-blur-xl"
+						: "bg-surface/70 backdrop-blur-md",
 				)}
 			>
 				<Link
@@ -93,7 +93,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 				</ul>
 
 				<div className="ml-3 flex items-center gap-1.5 md:ml-0">
-					<LocaleSwitcher className="h-8 gap-1 border-rule px-2.5 text-[11px] text-neutral-300" />
+					<LocaleSwitcher className="h-8 gap-1 px-2.5 text-[11px] text-neutral-300" />
 
 					<Link
 						href={STAKE_HREF}
@@ -110,7 +110,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 						aria-label="Menu"
 						aria-expanded={isMenuOpen}
 						onClick={() => setIsMenuOpen((open) => !open)}
-						className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-rule text-white transition-colors hover:bg-white/10 md:hidden"
+						className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-rule-control text-neutral-300 transition-colors hover:border-primary hover:text-primary md:hidden"
 					>
 						{isMenuOpen ? (
 							<RiCloseLine className="h-4 w-4" />
@@ -122,7 +122,7 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 			</nav>
 
 			{isMenuOpen && (
-				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-strong bg-canvas/95 backdrop-blur-xl md:hidden">
+				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-control bg-canvas/95 backdrop-blur-xl md:hidden">
 					{navLinks.map((link) => (
 						<Link
 							key={link.href}

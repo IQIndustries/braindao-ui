@@ -122,7 +122,7 @@ const Treasury = async ({
 								<dt className="flex items-center gap-2.5">
 									<span
 										aria-hidden="true"
-										className="size-2 rounded-full border border-rule-strong"
+										className="size-2 rounded-full border border-rule-control"
 									/>
 									<MonoLabel>{t("chart.voting")}</MonoLabel>
 								</dt>

@@ -62,8 +62,8 @@ export async function Hero() {
 					</PillLink>
 					<PillLink
 						href="/hiiq"
-						variant="outline"
-						className="h-12 border-white/25 bg-transparent px-7 text-[15px] font-semibold hover:bg-white/[0.06]"
+						variant="veil"
+						className="h-12 px-7 text-[15px] font-semibold"
 					>
 						{t("secondary-cta")}
 					</PillLink>

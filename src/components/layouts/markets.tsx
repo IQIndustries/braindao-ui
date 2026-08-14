@@ -39,7 +39,7 @@ const ExchangeRow = ({
 			data-ph-capture-attribute-exchange-clicked={exchange.name.toLowerCase()}
 			className="group flex items-center gap-4 px-4 py-4 transition-colors hover:bg-white/[0.02] sm:px-5"
 		>
-			<span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-rule bg-white/[0.03]">
+			<span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-rule-control bg-surface-raised transition-colors group-hover:border-primary/40">
 				<Logo width={18} height={18} />
 			</span>
 
@@ -52,7 +52,7 @@ const ExchangeRow = ({
 				</span>
 			</span>
 
-			<span className="inline-flex h-8 items-center rounded-full border border-rule px-3.5 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-rule-strong group-hover:text-white">
+			<span className="inline-flex h-8 items-center rounded-full border border-rule-action px-3.5 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors group-hover:border-primary group-hover:text-white">
 				{cta}
 			</span>
 		</Link>
@@ -99,7 +99,7 @@ const Markets = async () => {
 									href={chain.explorer}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex items-center gap-2 rounded-full border border-rule bg-white/[0.03] py-2 pl-2.5 pr-4 transition-colors hover:border-rule-strong"
+									className="inline-flex items-center gap-2 rounded-full border border-rule-control bg-surface-raised py-2 pl-2.5 pr-4 transition-colors hover:border-primary"
 								>
 									<Logo width={16} height={16} className="shrink-0" />
 									<span className="text-[13px] text-white">{chain.name}</span>

@@ -117,7 +117,7 @@ const Footer = async () => {
 									href={link.href}
 									target="_blank"
 									rel="noopener noreferrer"
-									className="inline-flex h-9 items-center rounded-full border border-rule px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors hover:border-rule-strong hover:text-white"
+									className="inline-flex h-9 items-center rounded-full border border-rule-control px-4 font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-400 transition-colors hover:border-primary/50 hover:text-primary"
 								>
 									{link.name}
 								</a>

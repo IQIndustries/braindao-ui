@@ -67,11 +67,15 @@ const config: Config = {
 				},
 				border: "hsl(var(--border))",
 				// Hairline rules and panel fills carry the structure across the site.
-				// `rule` bounds a container, `rule-soft` divides the rows inside one —
-				// the design draws those at different weights, so they are not one token.
-				rule: "#232326",
+				// One ladder, four rungs, each tied to a role: `rule-soft` divides the
+				// rows inside a container, `rule` bounds the container itself,
+				// `rule-control` outlines chrome you can click, and `rule-action` the
+				// buttons and tag pills that sit highest. Chrome brightens to pink on
+				// hover rather than climbing this ladder.
 				"rule-soft": "#1D1D20",
-				"rule-strong": "rgb(255 255 255 / 0.18)",
+				rule: "#232326",
+				"rule-control": "#2A2A2E",
+				"rule-action": "#2F2F34",
 				canvas: "#0E0E10",
 				surface: "#0E0E10",
 				"surface-raised": "#131316",
