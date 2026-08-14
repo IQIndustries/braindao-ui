@@ -6,11 +6,8 @@ import type React from "react";
 // They read as one tilted plane, so ry tracks rx at a fixed ratio and cy drifts
 // down as they widen — break either and they stop looking concentric.
 const RINGS = [
-	{ rx: 210, ry: 52, cy: 665, duration: "8s", delay: "0s" },
-	{ rx: 340, ry: 84, cy: 677, duration: "11s", delay: "-3s" },
-	{ rx: 480, ry: 119, cy: 690, duration: "14s", delay: "-6s" },
-	{ rx: 630, ry: 156, cy: 704, duration: "18s", delay: "-9s" },
-	{ rx: 790, ry: 195, cy: 719, duration: "23s", delay: "-12s" },
+	{ rx: 400, ry: 99, cy: 683, duration: "10s", delay: "0s" },
+	{ rx: 790, ry: 195, cy: 719, duration: "18s", delay: "-6s" },
 ];
 
 export const HeroOrbits = () => (
