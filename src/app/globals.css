@@ -86,7 +86,7 @@ body {
 /* Hero orbit rings: a short bright arc travels each ring continuously.
    pathLength="1000" normalises every ellipse so one dash rule fits all. */
 .hero-ring-lit {
-  stroke-dasharray: 70 930;
+  stroke-dasharray: 260 740;
   stroke-dashoffset: 1000;
   animation: hero-ring-orbit var(--ring-duration, 9s) linear infinite;
   animation-delay: var(--ring-delay, 0s);
