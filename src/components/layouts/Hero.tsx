@@ -33,7 +33,7 @@ export async function Hero() {
 			{/* Top-anchored: bottom-anchoring pooled every extra pixel of a tall
 			    viewport into the gap under the navbar. The bottom padding only
 			    binds on short screens, holding the copy off the figure. */}
-			<Container className="relative z-10 flex max-w-[880px] flex-1 flex-col justify-start pb-[10vh] pt-20 text-center sm:pb-[clamp(10rem,23vh,16rem)] sm:pt-[clamp(5rem,10.5vh,7rem)]">
+			<Container className="relative z-10 flex max-w-[880px] flex-1 flex-col justify-start pb-[10vh] pt-20 text-center sm:pb-[clamp(6rem,13vh,11rem)] sm:pt-[clamp(5rem,10.5vh,7rem)]">
 				{/* White, not pink: the headline keyword already spends the accent
 				    here, so a pink eyebrow above it doubles up. Section eyebrows
 				    below the fold keep the pink. */}
