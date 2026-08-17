@@ -10,7 +10,7 @@ type IQStatsData = Awaited<ReturnType<typeof getIqStats>>;
 interface IQStatsProps {
 	iqStatsData: IQStatsData;
 	circulatingSupply: number | null;
-	totalIqLocked: number;
+	totalIqLocked: number | null;
 }
 
 const DASHBOARD = "https://iq.iqai.com/dashboard";

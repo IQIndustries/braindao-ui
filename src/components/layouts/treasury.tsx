@@ -14,13 +14,13 @@ const Treasury = async ({
 	totalIqLocked,
 	circulatingSupply,
 }: {
-	totalIqLocked: number;
+	totalIqLocked: number | null;
 	circulatingSupply: number | null;
 }) => {
 	const t = await getTranslations("treasury");
 
 	const lockedShare =
-		circulatingSupply && circulatingSupply > 0
+		totalIqLocked && circulatingSupply && circulatingSupply > 0
 			? Math.min(totalIqLocked / circulatingSupply, 1)
 			: null;
 
@@ -96,10 +96,12 @@ const Treasury = async ({
 
 						<div className="flex flex-col items-center sm:items-start">
 							<span className="font-mono text-[32px] leading-none text-white">
-								{formatNumber(totalIqLocked, {
-									minDecimals: 2,
-									compact: true,
-								})}
+								{totalIqLocked
+									? formatNumber(totalIqLocked, {
+											minDecimals: 2,
+											compact: true,
+										})
+									: "—"}
 							</span>
 
 							<div className="mt-6 flex flex-col gap-3">

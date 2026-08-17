@@ -15,7 +15,7 @@ const getTotalHiiqSupply = async () => {
 		return totalHiiq;
 	} catch (error) {
 		console.error("🚨 Error getting total hiIQ supply", error);
-		throw new Error("🚨 Error getting total hiIQ supply");
+		return null;
 	}
 };
 
@@ -23,7 +23,7 @@ export const getLockOverview = async () => {
 	const totalHiiqSupply = await getTotalHiiqSupply();
 
 	return {
-		totalSupplyError: totalHiiqSupply === 0,
+		totalSupplyError: !totalHiiqSupply,
 		isFetchingTotalSupply: false,
 		totalHiiqSupply,
 	};

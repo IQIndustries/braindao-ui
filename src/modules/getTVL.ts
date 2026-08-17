@@ -19,7 +19,9 @@ export const getTvl = async () => {
 		tvl = tvl / WEI_TO_ETHER_DIVISOR;
 		return Math.floor(tvl);
 	} catch (error) {
+		// A flaky RPC shouldn't take the page down with it: every consumer
+		// renders its own placeholder when the figure is missing.
 		console.error("🚨 Error getting TVL", error);
-		throw new Error("🚨 Error getting TVL");
+		return null;
 	}
 };

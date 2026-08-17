@@ -44,10 +44,15 @@ export default async function HiIQPage() {
 	]);
 
 	const stats = [
-		{ label: t("stats.locked"), value: `${numFormatter(totalIqLocked)} IQ` },
+		{
+			label: t("stats.locked"),
+			value: totalIqLocked ? `${numFormatter(totalIqLocked)} IQ` : "—",
+		},
 		{
 			label: t("stats.supply"),
-			value: `${numFormatter(lockOverview.totalHiiqSupply)} HiIQ`,
+			value: lockOverview.totalHiiqSupply
+				? `${numFormatter(lockOverview.totalHiiqSupply)} HiIQ`
+				: "—",
 		},
 	];
 

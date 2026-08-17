@@ -32,10 +32,7 @@ const ecosystemLinks = [
 // separately from the homepage's own fetches.
 const getFooterStats = unstable_cache(
 	async () => {
-		const [iqStats, locked] = await Promise.all([
-			getIqStats(),
-			getTvl().catch(() => null),
-		]);
+		const [iqStats, locked] = await Promise.all([getIqStats(), getTvl()]);
 		return { price: iqStats.price, mcap: iqStats.mcap, locked };
 	},
 	["footer-stats"],
