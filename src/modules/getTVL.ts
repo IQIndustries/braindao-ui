@@ -1,8 +1,10 @@
 import { env } from "@/env";
+import { unstable_cache } from "next/cache";
 import { HEX_BASE, WEI_TO_ETHER_DIVISOR, alchemyFetch } from "./alchemyFetch";
+import { DATA_REVALIDATE_SECONDS } from "./cache";
 
-export const getTvl = async () => {
-	try {
+const fetchTvl = unstable_cache(
+	async () => {
 		const data = await alchemyFetch("eth_call", [
 			{
 				from: "0x0000000000000000000000000000000000000000",
@@ -15,9 +17,21 @@ export const getTvl = async () => {
 			"latest",
 		]);
 
-		let tvl = Number.parseInt(data, HEX_BASE);
-		tvl = tvl / WEI_TO_ETHER_DIVISOR;
+		const tvl = Number.parseInt(data, HEX_BASE) / WEI_TO_ETHER_DIVISOR;
+
+		if (!Number.isFinite(tvl)) {
+			throw new Error(`Malformed IQ balance response: ${data}`);
+		}
+
 		return Math.floor(tvl);
+	},
+	["iq-tvl"],
+	{ revalidate: DATA_REVALIDATE_SECONDS },
+);
+
+export const getTvl = async () => {
+	try {
+		return await fetchTvl();
 	} catch (error) {
 		// A flaky RPC shouldn't take the page down with it: every consumer
 		// renders its own placeholder when the figure is missing.

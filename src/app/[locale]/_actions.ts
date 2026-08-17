@@ -1,6 +1,8 @@
 import { env } from "@/env";
+import { DATA_REVALIDATE_SECONDS } from "@/modules/cache";
 import { formatNumber } from "@/modules/helpers/numFormatter";
 import axios, { AxiosError } from "axios";
+import { unstable_cache } from "next/cache";
 import { type CMCTokenData, cmcTokenDataSchema } from "./_schema";
 
 const CACHE_DURATION_SECONDS_12_HR_IN_SECONDS = 12 * 60 * 60;
@@ -67,23 +69,27 @@ export async function getIqStats() {
 	}
 }
 
-async function fetchMarketCapData(): Promise<CMCTokenData> {
-	try {
-		const response = await axios.get(`${env.NEXT_PUBLIC_IQ_GATEWAY_URL}`, {
-			headers: {
-				"x-api-key": env.NEXT_PUBLIC_IQ_GATEWAY_KEY,
-			},
-			params: {
-				url: "https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=everipedia",
-				cacheDuration: CACHE_DURATION_SECONDS_12_HR_IN_SECONDS,
-			},
-		});
+const fetchMarketCapData = unstable_cache(
+	async (): Promise<CMCTokenData> => {
+		try {
+			const response = await axios.get(`${env.NEXT_PUBLIC_IQ_GATEWAY_URL}`, {
+				headers: {
+					"x-api-key": env.NEXT_PUBLIC_IQ_GATEWAY_KEY,
+				},
+				params: {
+					url: "https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=everipedia",
+					cacheDuration: CACHE_DURATION_SECONDS_12_HR_IN_SECONDS,
+				},
+			});
 
-		return cmcTokenDataSchema.parse(response.data[0]);
-	} catch (error) {
-		if (error instanceof AxiosError) {
-			throw new Error(`CoinMarketCap API error: ${error.message}`);
+			return cmcTokenDataSchema.parse(response.data[0]);
+		} catch (error) {
+			if (error instanceof AxiosError) {
+				throw new Error(`CoinMarketCap API error: ${error.message}`);
+			}
+			throw error;
 		}
-		throw error;
-	}
-}
+	},
+	["iq-market-cap-data"],
+	{ revalidate: DATA_REVALIDATE_SECONDS },
+);

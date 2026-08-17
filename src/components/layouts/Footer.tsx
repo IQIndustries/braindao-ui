@@ -4,7 +4,6 @@ import { navLinks } from "@/data/Nav";
 import { getTvl } from "@/modules/getTVL";
 import { formatNumber } from "@/modules/helpers/numFormatter";
 import { getTranslations } from "next-intl/server";
-import { unstable_cache } from "next/cache";
 import Image from "next/image";
 import Link from "next/link";
 import { Container, MonoLabel } from "./section-kit";
@@ -27,17 +26,6 @@ const ecosystemLinks = [
 	{ name: "IQ Industries", href: "https://iqindustries.ai/" },
 	{ name: "IQ Blog", href: "https://blog.iqai.com/" },
 ];
-
-// The layout renders the footer on every route, so the reads are cached
-// separately from the homepage's own fetches.
-const getFooterStats = unstable_cache(
-	async () => {
-		const [iqStats, locked] = await Promise.all([getIqStats(), getTvl()]);
-		return { price: iqStats.price, mcap: iqStats.mcap, locked };
-	},
-	["footer-stats"],
-	{ revalidate: 300 },
-);
 
 const FooterLink = ({
 	href,
@@ -72,18 +60,21 @@ const FooterPanel = ({
 );
 
 const Footer = async () => {
-	const [t, stats] = await Promise.all([
+	// Both reads are cached at the source, so the footer rendering on every
+	// route costs nothing extra beyond the homepage's own fetches.
+	const [t, iqStats, locked] = await Promise.all([
 		getTranslations("footer"),
-		getFooterStats(),
+		getIqStats(),
+		getTvl(),
 	]);
 
 	const miniStats = [
-		{ label: t("now.price"), value: stats.price ? `$${stats.price}` : "—" },
-		{ label: t("now.mcap"), value: stats.mcap ? `$${stats.mcap}` : "—" },
+		{ label: t("now.price"), value: iqStats.price ? `$${iqStats.price}` : "—" },
+		{ label: t("now.mcap"), value: iqStats.mcap ? `$${iqStats.mcap}` : "—" },
 		{
 			label: t("now.locked"),
-			value: stats.locked
-				? formatNumber(stats.locked, { minDecimals: 2, compact: true })
+			value: locked
+				? formatNumber(locked, { minDecimals: 2, compact: true })
 				: "—",
 		},
 	];
