@@ -9,7 +9,7 @@ const TokenUtility = async () => {
 
 	return (
 		<Section id="utility">
-			<div className="flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
+			<div className="flex flex-col items-start gap-8 sm:flex-row sm:items-end sm:justify-between">
 				<div className="max-w-2xl">
 					<Eyebrow icon="bolt">{t("eyebrow")}</Eyebrow>
 
@@ -27,7 +27,7 @@ const TokenUtility = async () => {
 				</PillLink>
 			</div>
 
-			<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft sm:grid-cols-2 lg:grid-cols-3">
+			<div className="mt-14 grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft lg:grid-cols-3">
 				{UTILITIES.map((key) => (
 					<div key={key} className="bg-surface p-6 sm:p-7">
 						<Glyph name={key} />

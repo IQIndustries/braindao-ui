@@ -28,7 +28,7 @@ export function StatCell({
 			target={external ? "_blank" : undefined}
 			rel={external ? "noopener noreferrer" : undefined}
 			className={cn(
-				"group flex flex-col gap-1.5 border-rule-soft p-[30px] transition-colors hover:bg-white/[0.03]",
+				"group flex flex-col gap-1.5 border-rule-soft p-5 transition-colors hover:bg-white/[0.03] sm:p-8",
 				className,
 			)}
 		>

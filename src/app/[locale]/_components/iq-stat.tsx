@@ -1,5 +1,4 @@
 import { Container } from "@/components/layouts/section-kit";
-import { cn } from "@/lib/utils";
 import { numFormatter } from "@/modules/helpers/numFormatter";
 import { getTranslations } from "next-intl/server";
 import type { getIqStats } from "../_actions";
@@ -14,6 +13,14 @@ interface IQStatsProps {
 }
 
 const DASHBOARD = "https://iq.iqai.com/dashboard";
+
+// One column, then two, then four — so the rules follow the wrap at each step.
+const CELL_RULES = [
+	"",
+	"border-t sm:border-l sm:border-t-0",
+	"border-t lg:border-l lg:border-t-0",
+	"border-t sm:border-l lg:border-t-0",
+];
 
 export async function IQStats({
 	iqStatsData,
@@ -62,17 +69,12 @@ export async function IQStats({
 	return (
 		<section className="border-t border-rule-soft bg-canvas">
 			<Container>
-				<div className="-mx-5 grid grid-cols-2 lg:grid-cols-4">
+				<div className="-mx-5 grid sm:-mx-8 sm:grid-cols-2 lg:grid-cols-4">
 					{cells.map((cell, index) => (
 						<StatCell
 							key={cell.label}
 							{...cell}
-							className={cn(
-								index % 2 === 1 && "border-l",
-								index >= 2 && "border-t",
-								"lg:border-l lg:border-t-0",
-								index === 0 && "lg:border-l-0",
-							)}
+							className={CELL_RULES[index]}
 						/>
 					))}
 				</div>

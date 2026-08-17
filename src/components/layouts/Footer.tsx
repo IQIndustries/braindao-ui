@@ -119,14 +119,14 @@ const Footer = async () => {
 						</div>
 					</div>
 
-					<div className="text-right">
+					<div className="lg:text-right">
 						<MonoLabel>
 							{t.rich("now.title", {
 								iq: (chunks) => <span className="text-primary">{chunks}</span>,
 							})}
 						</MonoLabel>
 
-						<div className="mt-4 flex flex-wrap justify-end gap-2.5">
+						<div className="mt-4 grid w-fit grid-cols-[auto_auto] gap-2.5 lg:flex lg:w-auto lg:flex-wrap lg:justify-end">
 							{miniStats.map((stat) => (
 								<div
 									key={stat.label}
@@ -220,7 +220,7 @@ const Footer = async () => {
 			</Container>
 
 			<div className="border-t border-rule-soft">
-				<Container className="flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
+				<Container className="flex flex-col items-start justify-between gap-4 py-6 sm:flex-row sm:items-center">
 					<div className="flex items-center gap-6">
 						<a
 							href="https://iq.wiki/privacy"
