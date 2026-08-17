@@ -32,15 +32,15 @@ export function StatCell({
 				className,
 			)}
 		>
-			<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500">
+			<span className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-500">
 				{label}
 			</span>
 
-			<span className="font-mono text-xl text-white sm:text-2xl">
+			<span className="font-mono text-2xl text-white sm:text-2xl">
 				{value ?? errorMessage}
 			</span>
 
-			<span className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.16em]">
+			<span className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.16em]">
 				{change?.formattedChange ? (
 					<>
 						<span

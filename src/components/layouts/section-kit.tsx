@@ -42,7 +42,7 @@ export const Eyebrow = ({
 }) => (
 	<p
 		className={cn(
-			"flex items-center gap-[9px] font-mono text-[11.5px] uppercase tracking-[0.14em] text-primary",
+			"flex items-center gap-[9px] font-mono text-xs uppercase tracking-[0.14em] text-primary",
 			className,
 		)}
 	>
@@ -79,7 +79,7 @@ export const MonoLabel = ({
 }: { children: React.ReactNode; className?: string }) => (
 	<span
 		className={cn(
-			"font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500",
+			"font-mono text-xs uppercase tracking-[0.2em] text-neutral-500",
 			className,
 		)}
 	>
@@ -111,7 +111,7 @@ export const PanelHeader = ({
 		{meta && (
 			<span
 				className={cn(
-					"font-mono text-[10px] uppercase tracking-[0.2em]",
+					"font-mono text-xs uppercase tracking-[0.2em]",
 					metaTone === "primary" ? "text-primary" : "text-neutral-600",
 				)}
 			>

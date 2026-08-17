@@ -115,7 +115,7 @@ export default async function HiIQPage() {
 					))}
 				</div>
 
-				<p className="mt-10 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
+				<p className="mt-10 font-mono text-xs uppercase tracking-[0.14em] text-neutral-600">
 					{t.rich("source", {
 						link: (chunks) => (
 							<a

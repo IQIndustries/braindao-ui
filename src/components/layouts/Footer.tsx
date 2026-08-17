@@ -43,7 +43,7 @@ const FooterLink = ({
 		target={external ? "_blank" : undefined}
 		rel={external ? "noopener noreferrer" : undefined}
 		data-ph-capture-attribute-product-link-clicked={analyticsKey}
-		className="font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-400 transition-colors hover:text-white"
+		className="font-mono text-xs uppercase tracking-[0.14em] text-neutral-400 transition-colors hover:text-white"
 	>
 		{children}
 	</Link>
@@ -226,7 +226,7 @@ const Footer = async () => {
 							href="https://iq.wiki/privacy"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600 transition-colors hover:text-white"
+							className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600 transition-colors hover:text-white"
 						>
 							{t("legal.privacy")}
 						</a>
@@ -234,17 +234,17 @@ const Footer = async () => {
 							href="https://www.brainfund.com/"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="font-mono text-[10px] uppercase tracking-[0.16em] text-primary/80 transition-colors hover:text-primary"
+							className="font-mono text-xs uppercase tracking-[0.16em] text-primary/80 transition-colors hover:text-primary"
 						>
 							BrainFund
 						</a>
 					</div>
 
-					<span className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
+					<span className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600">
 						{t("powered", { year: new Date().getFullYear() })}
 					</span>
 
-					<span className="font-mono text-[10px] uppercase tracking-[0.16em] text-neutral-600">
+					<span className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600">
 						{t.rich("legal.tagline", {
 							iq: (chunks) => <span className="text-primary">{chunks}</span>,
 						})}

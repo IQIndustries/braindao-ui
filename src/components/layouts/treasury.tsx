@@ -69,7 +69,7 @@ const Treasury = async ({
 				<Panel className="p-6 sm:p-8 lg:order-1 lg:col-span-7">
 					<div className="flex items-center justify-between gap-4">
 						<MonoLabel>{t("chart.label")}</MonoLabel>
-						<span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.2em] text-emerald-400">
+						<span className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-emerald-400">
 							<span
 								aria-hidden="true"
 								className="size-1.5 rounded-full bg-emerald-400"

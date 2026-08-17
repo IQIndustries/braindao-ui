@@ -50,7 +50,7 @@ const TokenOverview = async () => {
 				<Panel className="p-4 sm:p-5 lg:col-span-7">
 					<div className="flex items-center justify-between gap-4 pb-4">
 						<MonoLabel>{t("flow.label")}</MonoLabel>
-						<span className="font-mono text-[10px] uppercase tracking-[0.2em] text-primary">
+						<span className="font-mono text-xs uppercase tracking-[0.2em] text-primary">
 							{t("flow.meta")}
 						</span>
 					</div>
