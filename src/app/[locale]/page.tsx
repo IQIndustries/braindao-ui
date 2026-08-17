@@ -20,10 +20,6 @@ export default async function Home() {
 
 	return (
 		<main>
-			{/* Hero and the stats strip share one viewport frame: the strip sits
-			    below the scene, so the rings and figure end at its top edge. The
-			    frame stops short of a full viewport so the next section breaks
-			    the fold — without that peek the page reads as a dead end. */}
 			<div className="flex min-h-[84svh] flex-col">
 				<Hero />
 				<IQStats
