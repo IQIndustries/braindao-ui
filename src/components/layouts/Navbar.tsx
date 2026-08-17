@@ -3,21 +3,30 @@
 import { appLinks, navLinks } from "@/data/Nav";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
+import {
+	Link as LocaleLink,
+	usePathname as useLocalePathname,
+} from "../../../i18n/routing";
+import { locales } from "../../../messages/_schema";
 import { BrandLogo } from "./brand-logo";
 import LocaleSwitcher from "./locale-switcher";
 
 const STAKE_HREF = appLinks[1].href;
+const visibleLocales = locales.filter((loc) => !loc.isHidden);
 
 const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const activeSection = useActiveSection();
 	const pathname = usePathname();
+	const localePathname = useLocalePathname();
+	const locale = useLocale();
 	const t = useTranslations("navbar");
 
 	useEffect(() => {
@@ -77,8 +86,8 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 					})}
 				</ul>
 
-				<div className="ml-3 flex items-center gap-1.5 md:ml-0">
-					<LocaleSwitcher className="h-8 gap-1 px-2.5 text-[11px] text-neutral-300" />
+				<div className="ml-10 flex items-center gap-1.5 md:ml-0">
+					<LocaleSwitcher className="hidden h-8 gap-1 px-2.5 text-[11px] text-neutral-300 md:flex" />
 
 					<Link
 						href={STAKE_HREF}
@@ -107,25 +116,54 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 			</nav>
 
 			{isMenuOpen && (
-				<div className="mx-auto mt-2 max-w-[860px] overflow-hidden rounded-2xl border border-rule-control bg-surface/95 backdrop-blur-xl md:hidden">
-					{navLinks.map((link) => (
+				<div className="mx-auto mt-2 overflow-hidden rounded-xl border border-rule-control bg-surface/95 backdrop-blur-xl md:hidden">
+					{navLinks.map((link, index) => (
 						<Link
 							key={link.href}
 							href={link.href}
 							target={link.target}
 							rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
 							onClick={() => setIsMenuOpen(false)}
-							className="flex h-12 items-center border-b border-rule-soft px-5 text-sm text-neutral-300 transition-colors hover:bg-white/5 hover:text-white"
+							className={cn(
+								"flex h-14 items-center px-5 text-[17px] text-white transition-colors hover:bg-white/5",
+								index < navLinks.length - 1 && "border-b border-rule-soft",
+							)}
 						>
 							{t(`links.${link.key}`)}
 						</Link>
 					))}
+
+					{visibleLocales.map((loc, index) => (
+						<LocaleLink
+							key={loc.locale}
+							locale={loc.locale}
+							href={localePathname}
+							onClick={() => setIsMenuOpen(false)}
+							aria-label={`Change language to ${loc.name}`}
+							className={cn(
+								"flex h-14 items-center gap-3 border-b border-rule-soft px-5 text-[17px] transition-colors hover:bg-white/5",
+								index === 0 && "border-t border-rule",
+								loc.locale === locale ? "text-white" : "text-neutral-400",
+							)}
+						>
+							<Image
+								src={loc.icon}
+								alt=""
+								width={28}
+								height={20}
+								aria-hidden="true"
+								className="rounded-sm"
+							/>
+							{loc.name}
+						</LocaleLink>
+					))}
+
 					<Link
 						href={STAKE_HREF}
 						target="_blank"
 						rel="noopener noreferrer"
 						onClick={() => setIsMenuOpen(false)}
-						className="flex h-12 items-center px-5 text-sm font-medium text-primary"
+						className="flex h-14 items-center px-5 text-[17px] font-medium text-primary"
 					>
 						{t("stake")}
 					</Link>
