@@ -115,7 +115,6 @@ const config: Config = {
 				],
 				display: ["var(--font-instrument-serif)", "Georgia", "serif"],
 				mono: ["var(--font-dm-mono)", "ui-monospace", "monospace"],
-				montserrat: ["var(--font-montserrat)", "sans-serif"],
 				satoshi: ["var(--font-satoshi)", "sans-serif"],
 				"satoshi-light": ["var(--font-satoshi-light)", "sans-serif"],
 			},

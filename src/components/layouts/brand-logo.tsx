@@ -1,9 +1,9 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 
-// The wordmark is live text so it can be set in Montserrat; only the brain
-// stays an asset. The christmas mark carries a hat above the brain, so it is
-// nudged down to keep the brain optically centred against the text.
+// The wordmark is live text; only the brain stays an asset. The christmas mark
+// carries a hat above the brain, so it is nudged down to keep the brain
+// optically centred against the text.
 export const BrandLogo = ({
 	christmas,
 	priority,
@@ -24,7 +24,7 @@ export const BrandLogo = ({
 				christmas ? "h-[45px] -translate-y-[6px]" : "h-8",
 			)}
 		/>
-		<span className="font-montserrat text-[15px] font-semibold leading-none text-white">
+		<span className="text-[15px] font-semibold leading-none text-white">
 			BrainDAO
 		</span>
 	</span>

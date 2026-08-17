@@ -7,7 +7,7 @@ import { Theme, isTheme } from "@/lib/helpers/theme";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
-import { dmMono, dmSans, instrumentSerif, montserrat, satoshi } from "../font";
+import { dmMono, dmSans, instrumentSerif, satoshi } from "../font";
 
 const TITLE = "BrainDAO - The DAO behind the IQ token.";
 const DESCRIPTION =
@@ -56,7 +56,7 @@ export default async function RootLayout({
 	return (
 		<html
 			lang={locale}
-			className={`${dmSans.variable} ${dmMono.variable} ${satoshi.variable} ${instrumentSerif.variable} ${montserrat.variable}`}
+			className={`${dmSans.variable} ${dmMono.variable} ${satoshi.variable} ${instrumentSerif.variable}`}
 		>
 			<head>
 				<link rel="canonical" />

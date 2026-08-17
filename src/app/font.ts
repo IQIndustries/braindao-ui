@@ -1,9 +1,4 @@
-import {
-	DM_Mono,
-	DM_Sans,
-	Instrument_Serif,
-	Montserrat,
-} from "next/font/google";
+import { DM_Mono, DM_Sans, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 
 export const dmSans = DM_Sans({
@@ -17,13 +12,6 @@ export const dmMono = DM_Mono({
 	weight: ["300", "400", "500"],
 	display: "swap",
 	variable: "--font-dm-mono",
-});
-
-export const montserrat = Montserrat({
-	subsets: ["latin"],
-	weight: ["600"],
-	display: "swap",
-	variable: "--font-montserrat",
 });
 
 export const instrumentSerif = Instrument_Serif({
