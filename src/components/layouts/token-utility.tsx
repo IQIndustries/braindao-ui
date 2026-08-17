@@ -9,7 +9,7 @@ const TokenUtility = async () => {
 
 	return (
 		<Section id="utility">
-			<div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+			<div className="flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
 				<div className="max-w-2xl">
 					<Eyebrow icon="bolt">{t("eyebrow")}</Eyebrow>
 
