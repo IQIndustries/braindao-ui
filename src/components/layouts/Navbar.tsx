@@ -4,11 +4,11 @@ import { appLinks, navLinks } from "@/data/Nav";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
+import { BrandLogo } from "./brand-logo";
 import LocaleSwitcher from "./locale-switcher";
 
 const STAKE_HREF = appLinks[1].href;
@@ -48,23 +48,8 @@ const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
 						: "bg-surface/70 backdrop-blur-md",
 				)}
 			>
-				<Link
-					href="/"
-					className="flex shrink-0 items-center"
-					aria-label="BrainDAO"
-				>
-					<Image
-						src={
-							isChristmasTheme
-								? "/svgs/Braindao-logo-christmas.svg"
-								: "/svgs/Braindao-logo.svg"
-						}
-						alt="BrainDAO"
-						width={110}
-						height={32}
-						className={cn("h-8 w-auto", isChristmasTheme && "pb-3")}
-						priority
-					/>
+				<Link href="/" className="flex shrink-0 items-center">
+					<BrandLogo christmas={isChristmasTheme} priority />
 				</Link>
 
 				<ul className="mx-5 hidden items-center gap-1 md:flex">

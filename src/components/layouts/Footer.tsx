@@ -4,8 +4,8 @@ import { navLinks } from "@/data/Nav";
 import { getTvl } from "@/modules/getTVL";
 import { formatNumber } from "@/modules/helpers/numFormatter";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
 import Link from "next/link";
+import { BrandLogo } from "./brand-logo";
 import { Container, MonoLabel } from "./section-kit";
 
 const NEWSLETTER_ACTION = "https://www.getdrip.com/forms/505929689/submissions";
@@ -84,14 +84,8 @@ const Footer = async () => {
 			<Container className="py-16 sm:py-20">
 				<div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
 					<div className="max-w-sm">
-						<Link href="/" className="inline-flex" aria-label="BrainDAO">
-							<Image
-								src="/svgs/Braindao-logo.svg"
-								alt="BrainDAO"
-								width={110}
-								height={32}
-								className="h-8 w-auto"
-							/>
+						<Link href="/" className="inline-flex">
+							<BrandLogo />
 						</Link>
 
 						<p className="mt-5 text-sm leading-relaxed text-neutral-400 text-pretty">
