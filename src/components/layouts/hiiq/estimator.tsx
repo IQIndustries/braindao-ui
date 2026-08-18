@@ -7,8 +7,10 @@ export const Estimator = async () => {
 
 	return (
 		<Section id="estimate">
-			<div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
-				<div className="lg:col-span-5">
+			{/* Equal halves: the panel is a peer of the copy here, not the wider
+			    exhibit the board sections lead with. */}
+			<div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+				<div>
 					<Eyebrow icon="calculator">{t("eyebrow")}</Eyebrow>
 
 					<Display className="mt-5">
@@ -28,9 +30,7 @@ export const Estimator = async () => {
 					</p>
 				</div>
 
-				<div className="lg:col-span-7">
-					<LockEstimator />
-				</div>
+				<LockEstimator />
 			</div>
 		</Section>
 	);
