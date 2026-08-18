@@ -136,8 +136,10 @@ export const LockBoost = ({ labels }: { labels: LockBoostLabels }) => (
 			{labels.boostCaption.toUpperCase()}
 		</text>
 
-		<circle className="dot" cx={BOOST.x} cy="255" r="3" />
-		<path className="dash" d="M498 257 L598 290" />
+		{/* The dot sits back along the tail's own line, so its drift tracks the
+		    dashes rather than running parallel to them. */}
+		<circle className="dot decay-drift" cx={BOOST.x} cy="255" r="3" />
+		<path className="dash dash-drift" d="M498 257 L598 290" />
 		<text className="lbl" x="519" y="311" textAnchor="middle">
 			{labels.decay.toUpperCase()}
 		</text>

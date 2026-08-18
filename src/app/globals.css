@@ -200,6 +200,14 @@ body {
   opacity: 0.75;
   animation: ill-march 3.4s linear infinite;
 }
+/* The decay tail runs on one clock: the dashes march off toward expiry while
+   the balance's dot rides down them and fades, then returns to rest at the
+   node. The 5 6 dasharray is ill-march's period, which .dash's is not. */
+.ill .dash-drift {
+  stroke-dasharray: 5 6;
+  animation: ill-march 3.4s linear infinite;
+}
+.ill .decay-drift { animation: ill-decay-drift 3.4s ease-in-out infinite; }
 
 .ill .gauge-track { fill: none; stroke: var(--ill-line-2); stroke-width: 8; stroke-linecap: round; }
 .ill .gauge-arc {
@@ -289,6 +297,14 @@ body {
 }
 @keyframes ill-orbit { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
 @keyframes ill-march { from { stroke-dashoffset: 22; } to { stroke-dashoffset: 0; } }
+/* Snaps back to the node while it is invisible, so the return leg is a fade
+   rather than the dot travelling backwards up the tail. */
+@keyframes ill-decay-drift {
+  0% { transform: translate(0, 0); opacity: 1; }
+  58% { transform: translate(100px, 33px); opacity: 0; }
+  59%, 74% { transform: translate(0, 0); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
 @keyframes ill-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
 @keyframes ill-tick {
   0% { stroke-dashoffset: 1; }
