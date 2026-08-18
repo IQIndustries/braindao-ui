@@ -70,6 +70,8 @@ export const LockEstimator = () => {
 								index === 0 && "translate-x-0",
 								index === TICKS.length - 1 && "-translate-x-full",
 								index > 0 && index < TICKS.length - 1 && "-translate-x-1/2",
+								// The odd ticks collide on a phone-width track.
+								index % 2 === 1 && "hidden sm:block",
 							)}
 							style={{
 								left: `${((tick - MIN_WEEKS) / (MAX_WEEKS - MIN_WEEKS)) * 100}%`,
