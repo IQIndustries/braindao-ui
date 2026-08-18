@@ -42,7 +42,7 @@ export const LockEstimator = () => {
 		`${format.number(value, { maximumFractionDigits: 2 })}×`;
 
 	return (
-		<Panel className="p-5 sm:p-7">
+		<Panel className="p-5 sm:p-8">
 			<div className="flex items-center justify-between gap-4">
 				<MonoLabel>{t("panel.label", { amount })}</MonoLabel>
 				<span className="font-mono text-[17px] text-white">
