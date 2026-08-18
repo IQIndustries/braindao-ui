@@ -340,7 +340,7 @@ body {
 /* One selector per rule: an unknown vendor pseudo-element invalidates the whole
    selector list, so pairing the two would drop the track in both engines. */
 .lock-range::-webkit-slider-runnable-track {
-  height: 2px;
+  height: 4px;
   border-radius: 999px;
   background: linear-gradient(
     to right,
@@ -350,7 +350,7 @@ body {
 }
 
 .lock-range::-moz-range-track {
-  height: 2px;
+  height: 4px;
   border-radius: 999px;
   background: linear-gradient(
     to right,
@@ -363,8 +363,8 @@ body {
   -webkit-appearance: none;
   appearance: none;
   box-sizing: border-box;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   margin-top: -7px;
   border: 3px solid #ff1a88;
   border-radius: 999px;
@@ -374,8 +374,8 @@ body {
 
 .lock-range::-moz-range-thumb {
   box-sizing: border-box;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   border: 3px solid #ff1a88;
   border-radius: 999px;
   background: #ffffff;
