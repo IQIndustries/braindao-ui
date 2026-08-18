@@ -220,17 +220,17 @@ body {
 }
 @keyframes ill-wave-1 {
   0%, 21% { transform: scaleY(1); }
-  31%, 46% { transform: scaleY(0.25); }
+  31%, 46% { transform: scaleY(0); }
   56%, 100% { transform: scaleY(1); }
 }
 @keyframes ill-wave-2 {
   0%, 13% { transform: scaleY(1); }
-  23%, 54% { transform: scaleY(0.25); }
+  23%, 54% { transform: scaleY(0); }
   64%, 100% { transform: scaleY(1); }
 }
 @keyframes ill-wave-3 {
   0%, 5% { transform: scaleY(1); }
-  15%, 62% { transform: scaleY(0.25); }
+  15%, 62% { transform: scaleY(0); }
   72%, 100% { transform: scaleY(1); }
 }
 
