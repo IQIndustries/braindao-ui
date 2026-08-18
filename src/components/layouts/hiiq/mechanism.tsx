@@ -39,7 +39,9 @@ export const Mechanism = async () => {
 					</span>
 				</div>
 
-				<div className="mt-6">
+				{/* The board keeps its own width down to a phone, so the panel bleeds
+				    to the screen edge and scrolls rather than squashing it. */}
+				<div className="-mx-5 mt-8 overflow-x-auto px-5 sm:-mx-7 sm:px-7">
 					<LockBoost
 						labels={{
 							source: t("board.source"),
