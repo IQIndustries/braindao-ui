@@ -31,22 +31,25 @@ export const HiIQStats = async ({
 	return (
 		<section className="border-y border-rule-soft">
 			<Container>
-				<div className="-mx-5 grid sm:grid-cols-2">
+				{/* Flush with the column every other section's copy starts at, so the
+				    divider lands on the page's centre line. */}
+				<div className="grid sm:grid-cols-2">
 					{cells.map((cell, index) => (
 						<div
 							key={cell.label}
 							className={cn(
-								"flex flex-col gap-1.5 border-rule-soft p-[30px]",
-								index === 1 && "border-t sm:border-l sm:border-t-0",
+								"flex flex-col gap-2 border-rule-soft py-[30px]",
+								index === 0 && "sm:pr-8",
+								index === 1 && "border-t sm:border-l sm:border-t-0 sm:pl-8",
 							)}
 						>
 							<MonoLabel>{cell.label}</MonoLabel>
 
-							<span className="font-mono text-2xl text-white">
+							<span className="font-mono text-[28px] leading-tight text-white">
 								{cell.value}
 							</span>
 
-							<span className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600">
+							<span className="font-mono text-xs text-neutral-500">
 								{cell.foot}
 							</span>
 						</div>
