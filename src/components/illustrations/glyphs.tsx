@@ -46,9 +46,11 @@ const PATHS = {
 	),
 	iqai: (
 		<>
-			<rect className="spinner" x="6" y="6" width="12" height="12" rx="3" />
+			<g className="spinner">
+				<rect x="6" y="6" width="12" height="12" rx="3" />
+				<path d="M12 2.5v3.5M12 18v3.5M2.5 12H6M18 12h3.5" />
+			</g>
 			<circle cx="12" cy="12" r="2.2" />
-			<path d="M12 2.5v3.5M12 18v3.5M2.5 12H6M18 12h3.5" />
 		</>
 	),
 	industries: (

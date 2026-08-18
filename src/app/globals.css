@@ -181,22 +181,22 @@ body {
 .ill .spinner {
   transform-box: view-box;
   transform-origin: 12px 12px;
-  animation: ill-ring-spin 14s linear infinite;
+  animation: ill-ring-spin 9s linear infinite;
 }
 /* Both leaves fold onto the spine at x=12, so the book shuts and reopens. */
 .ill .leaf {
   transform-box: view-box;
   transform-origin: 12px 12px;
-  animation: ill-book 8s ease-in-out infinite;
+  animation: ill-book 6s ease-in-out infinite;
 }
 /* Same rise, three cadences — the bars never crest together. */
 .ill .riser {
   transform-box: fill-box;
   transform-origin: bottom center;
-  animation: ill-rise 6.4s ease-in-out infinite;
+  animation: ill-rise 4.8s ease-in-out infinite;
 }
-.ill .riser:nth-of-type(2) { animation-duration: 8.2s; animation-delay: -3.1s; }
-.ill .riser:nth-of-type(3) { animation-duration: 7.3s; animation-delay: -5.2s; }
+.ill .riser:nth-of-type(2) { animation-duration: 6.2s; animation-delay: -2.3s; }
+.ill .riser:nth-of-type(3) { animation-duration: 5.5s; animation-delay: -3.9s; }
 
 @keyframes ill-flow { from { stroke-dashoffset: 80; } to { stroke-dashoffset: 0; } }
 @keyframes ill-ping { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
