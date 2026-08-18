@@ -139,6 +139,10 @@ body {
 .ill .val { fill: var(--ill-ink); stroke: none; font-size: 12.5px; }
 .ill .val-p { fill: var(--ill-pink); stroke: none; font-size: 12.5px; }
 
+.ill .grid-line { fill: none; stroke: var(--ill-line); stroke-width: 1; }
+.ill .glyph-ink { fill: none; stroke: var(--ill-ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ill .dash { fill: none; stroke: var(--ill-line-3); stroke-width: 1.4; stroke-dasharray: 4 5; }
+
 .ill .lit {
   fill: none;
   stroke: var(--ill-pink);
@@ -164,6 +168,56 @@ body {
   transform-box: view-box;
   transform-origin: 90px 90px;
   animation: ill-ring-spin 46s linear infinite;
+}
+
+/* hiIQ boards: the lock's orbit, the decay plot, the boost gauge, the
+   requirement checks. */
+.ill .lock-ring { fill: none; stroke: var(--ill-pink); stroke-width: 3; }
+.ill .lock-ring-lit {
+  stroke-linecap: round;
+  stroke-dasharray: 26 74;
+  animation: ill-orbit 7s linear infinite;
+}
+.ill .orbit {
+  transform-box: view-box;
+  animation: ill-ring-spin 22s linear infinite;
+}
+
+.ill .curve {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ill-draw 1.6s cubic-bezier(0.3, 0.85, 0.25, 1) 0.3s forwards;
+}
+.ill .dash-lit {
+  fill: none;
+  stroke: var(--ill-ink-4);
+  stroke-width: 1.4;
+  stroke-dasharray: 5 6;
+  opacity: 0.75;
+  animation: ill-march 3.4s linear infinite;
+}
+
+.ill .gauge-track { fill: none; stroke: var(--ill-line-2); stroke-width: 8; stroke-linecap: round; }
+.ill .gauge-arc {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease-out;
+}
+
+.ill .check {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  animation: ill-tick 5.6s ease-in-out infinite;
 }
 
 .ill .tipper {
@@ -233,6 +287,13 @@ body {
   15%, 62% { transform: scaleY(0); }
   72%, 100% { transform: scaleY(1); }
 }
+@keyframes ill-orbit { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes ill-march { from { stroke-dashoffset: 22; } to { stroke-dashoffset: 0; } }
+@keyframes ill-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes ill-tick {
+  0% { stroke-dashoffset: 1; }
+  22%, 100% { stroke-dashoffset: 0; }
+}
 
 /* Reduced motion snaps each loop to its end frame, which is why every keyframe
    set above is authored to end on the correct static state. */
@@ -240,5 +301,9 @@ body {
   .ill * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .ill .gauge-arc {
+    transition: none;
   }
 }
