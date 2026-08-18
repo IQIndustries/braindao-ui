@@ -1,7 +1,12 @@
 // The board renders at 1:1, so these units are the design's pixels: the arc
 // runs out to the box's edges, with only the stroke's own width to spare.
-const CENTER = { x: 83, y: 82 };
+const CENTER = { x: 92, y: 88 };
 const R = 76;
+// The design scatters a few faint points just off the tube, like stray light.
+const SPARKS = [170, 118, 62, 10].map((deg) => {
+	const rad = (deg * Math.PI) / 180;
+	return { x: CENTER.x + 88 * Math.cos(rad), y: CENTER.y - 88 * Math.sin(rad) };
+});
 const ARC = `M${CENTER.x - R} ${CENTER.y} A${R} ${R} 0 0 1 ${CENTER.x + R} ${CENTER.y}`;
 
 // The arc takes the share as a dashoffset on a normalised pathLength, so the
@@ -23,11 +28,21 @@ export const BoostGauge = ({
 
 	return (
 		<svg
-			viewBox="0 0 166 108"
-			className="ill h-auto w-full max-w-[166px]"
+			viewBox="0 0 184 114"
+			className="ill h-auto w-full max-w-[184px]"
 			role="img"
 			aria-label={`${caption}: ${value}`}
 		>
+			{SPARKS.map((spark) => (
+				<circle
+					key={spark.x}
+					className="dotw"
+					opacity="0.45"
+					cx={spark.x}
+					cy={spark.y}
+					r="1.6"
+				/>
+			))}
 			<path className="gauge-track" d={ARC} />
 			<path
 				className="gauge-arc"
@@ -49,20 +64,20 @@ export const BoostGauge = ({
 			<text
 				className="val"
 				x={CENTER.x}
-				y="59"
+				y="65"
 				textAnchor="middle"
 				style={{ fontSize: 28 }}
 			>
 				{value}
 			</text>
-			<text className="lbl" x={CENTER.x} y="79" textAnchor="middle">
+			<text className="lbl" x={CENTER.x} y="85" textAnchor="middle">
 				{caption.toUpperCase()}
 			</text>
 
-			<text className="lbl" x={CENTER.x - R} y="103" textAnchor="middle">
+			<text className="lbl" x={CENTER.x - R} y="109" textAnchor="middle">
 				{min}
 			</text>
-			<text className="lbl" x={CENTER.x + R} y="103" textAnchor="middle">
+			<text className="lbl" x={CENTER.x + R} y="109" textAnchor="middle">
 				{max}
 			</text>
 		</svg>
