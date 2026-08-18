@@ -94,12 +94,6 @@ export const LockBoost = ({ labels }: { labels: LockBoostLabels }) => (
 			r={RING.r}
 			pathLength="100"
 		/>
-		<g
-			className="orbit"
-			style={{ transformOrigin: `${RING.cx}px ${RING.cy}px` }}
-		>
-			<circle className="dot" cx={RING.cx} cy={RING.cy - RING.r} r="3.4" />
-		</g>
 		<g className="glyph-ink">
 			<rect x="310" y="144" width="24" height="20" rx="5" />
 			<path d="M314 144v-6a8 8 0 0 1 16 0v6" />

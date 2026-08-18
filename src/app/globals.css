@@ -174,17 +174,13 @@ body {
   animation: ill-ring-spin 46s linear infinite;
 }
 
-/* hiIQ boards: the lock's orbit, the decay plot, the boost gauge, the
+/* hiIQ boards: the lock ring, the decay plot, the boost gauge, the
    requirement checks. */
 .ill .lock-ring { fill: none; stroke: var(--ill-pink); stroke-width: 3; }
 .ill .lock-ring-lit {
   stroke-linecap: round;
   stroke-dasharray: 26 74;
   animation: ill-orbit 7s linear infinite;
-}
-.ill .orbit {
-  transform-box: view-box;
-  animation: ill-ring-spin 22s linear infinite;
 }
 
 .ill .curve {
