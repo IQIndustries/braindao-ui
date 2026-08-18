@@ -197,7 +197,7 @@
 				"years": "{count, plural, =1 {# year} other {# years}}"
 			},
 			"duration-short": {
-				"weeks": "{count, plural, other {#w}}",
+				"months": "{count, plural, other {#mo}}",
 				"years": "{count, plural, other {#y}}"
 			}
 		},

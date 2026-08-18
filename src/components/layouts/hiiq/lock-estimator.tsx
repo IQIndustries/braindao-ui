@@ -10,11 +10,12 @@ import { useState } from "react";
 // linearly over that span — so 104 weeks is 2.5x, which is the curve the decay
 // section then walks back down.
 const AMOUNT = 1000;
-const MIN_WEEKS = 1;
+const MIN_WEEKS = 13;
 const MAX_WEEKS = 208;
 const MAX_BOOST = 4;
 const WEEKS_PER_YEAR = 52;
-const TICKS = [1, 52, 104, 156, 208] as const;
+const WEEKS_PER_MONTH = WEEKS_PER_YEAR / 12;
+const TICKS = [13, 52, 104, 156, 208] as const;
 
 export const LockEstimator = () => {
 	const t = useTranslations("hiiq.estimate");
@@ -25,17 +26,23 @@ export const LockEstimator = () => {
 	const boost = 1 + (MAX_BOOST - 1) * boostFraction;
 	const trackFraction = (weeks - MIN_WEEKS) / (MAX_WEEKS - MIN_WEEKS);
 
-	const spell = (key: "duration" | "duration-short", value: number) =>
+	// Weeks, not months, below a year: the boost moves with every week, so
+	// rounding the live value would leave two positions reading alike.
+	const duration = (value: number) =>
 		value < WEEKS_PER_YEAR
-			? t(`${key}.weeks`, { count: value })
-			: t(`${key}.years`, {
+			? t("duration.weeks", { count: value })
+			: t("duration.years", {
 					count: Math.round((value / WEEKS_PER_YEAR) * 10) / 10,
 				});
 
-	const duration = (value: number) => spell("duration", value);
 	// The scale is read at a glance, so its ticks stay abbreviated — and short
 	// enough that all five still fit on a phone-width track.
-	const tickLabel = (value: number) => spell("duration-short", value);
+	const tickLabel = (value: number) =>
+		value < WEEKS_PER_YEAR
+			? t("duration-short.months", {
+					count: Math.round(value / WEEKS_PER_MONTH),
+				})
+			: t("duration-short.years", { count: value / WEEKS_PER_YEAR });
 
 	const amount = format.number(AMOUNT);
 	const multiple = (value: number) =>

@@ -197,7 +197,7 @@
 				"years": "{count, plural, other {#년}}"
 			},
 			"duration-short": {
-				"weeks": "{count, plural, other {#주}}",
+				"months": "{count, plural, other {#개월}}",
 				"years": "{count, plural, other {#년}}"
 			}
 		},
