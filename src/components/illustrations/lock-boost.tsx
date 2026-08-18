@@ -5,9 +5,12 @@
 // so translated captions fit.
 const RAIL_Y = 151;
 const CAPTION_Y = 211;
-const RING = { cx: 322, cy: RAIL_Y, r: 53 };
+const RING = { cx: 322, cy: RAIL_Y, r: 48 };
 const SOURCE = { x: 20, y: 115, w: 111, h: 72 };
-const LOCK = { x: 233, y: 70, w: 179, h: 163 };
+const LOCK = { x: 233, y: 58, w: 179, h: 186 };
+// The lock's own caption sits below the other two so the ring keeps its
+// clearance inside the node.
+const LOCK_CAPTION_Y = 224;
 const BOOST = { x: 494, y: 107, w: 110, h: 88 };
 
 type LockBoostLabels = {
@@ -98,7 +101,7 @@ export const LockBoost = ({ labels }: { labels: LockBoostLabels }) => (
 			<rect x="310" y="144" width="24" height="20" rx="5" />
 			<path d="M314 144v-6a8 8 0 0 1 16 0v6" />
 		</g>
-		<text className="lbl" x={RING.cx} y={CAPTION_Y} textAnchor="middle">
+		<text className="lbl" x={RING.cx} y={LOCK_CAPTION_Y} textAnchor="middle">
 			{labels.lockCaption.toUpperCase()}
 		</text>
 
