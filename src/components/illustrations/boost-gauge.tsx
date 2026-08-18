@@ -1,5 +1,8 @@
-const CENTER = { x: 100, y: 100 };
-const R = 72;
+// The board renders at 1:1, so these units are the design's pixels: the arc is
+// tightened rather than the whole gauge scaled down, which would take the
+// value's type with it.
+const CENTER = { x: 83, y: 86 };
+const R = 58;
 const ARC = `M${CENTER.x - R} ${CENTER.y} A${R} ${R} 0 0 1 ${CENTER.x + R} ${CENTER.y}`;
 
 // The arc takes the share as a dashoffset on a normalised pathLength, so the
@@ -21,8 +24,8 @@ export const BoostGauge = ({
 
 	return (
 		<svg
-			viewBox="0 0 200 128"
-			className="ill h-auto w-full max-w-[200px]"
+			viewBox="0 0 165 114"
+			className="ill h-auto w-full max-w-[165px]"
 			role="img"
 			aria-label={`${caption}: ${value}`}
 		>
@@ -47,20 +50,20 @@ export const BoostGauge = ({
 			<text
 				className="val"
 				x={CENTER.x}
-				y="84"
+				y="70"
 				textAnchor="middle"
 				style={{ fontSize: 26 }}
 			>
 				{value}
 			</text>
-			<text className="lbl" x={CENTER.x} y="100" textAnchor="middle">
+			<text className="lbl" x={CENTER.x} y="86" textAnchor="middle">
 				{caption.toUpperCase()}
 			</text>
 
-			<text className="lbl" x={CENTER.x - R} y="120" textAnchor="middle">
+			<text className="lbl" x={CENTER.x - R} y="106" textAnchor="middle">
 				{min}
 			</text>
-			<text className="lbl" x={CENTER.x + R} y="120" textAnchor="middle">
+			<text className="lbl" x={CENTER.x + R} y="106" textAnchor="middle">
 				{max}
 			</text>
 		</svg>
