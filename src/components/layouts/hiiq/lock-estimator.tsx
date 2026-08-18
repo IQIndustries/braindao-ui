@@ -57,7 +57,7 @@ export const LockEstimator = () => {
 				</span>
 			</div>
 
-			<div className="mt-7">
+			<div className="mt-9">
 				<input
 					type="range"
 					className="lock-range"
@@ -93,7 +93,7 @@ export const LockEstimator = () => {
 				</div>
 			</div>
 
-			<div className="mt-7 flex flex-col gap-6 border-t border-rule-soft pt-6 sm:flex-row sm:items-center sm:justify-between">
+			<div className="mt-8 flex flex-col gap-6 border-t border-rule-soft pt-7 sm:flex-row sm:items-center sm:justify-between">
 				<div>
 					<MonoLabel>{t("panel.receive")}</MonoLabel>
 
