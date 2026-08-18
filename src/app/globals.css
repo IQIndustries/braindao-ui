@@ -307,3 +307,71 @@ body {
     transition: none;
   }
 }
+
+/* Lock-length slider. The filled half of the track is painted with a gradient
+   stop parked at --range-pct, which the estimator keeps in sync with the value,
+   so both engines share one rule instead of Firefox's ::-moz-range-progress
+   drifting from WebKit's. */
+.lock-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* One selector per rule: an unknown vendor pseudo-element invalidates the whole
+   selector list, so pairing the two would drop the track in both engines. */
+.lock-range::-webkit-slider-runnable-track {
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #ff1a88 var(--range-pct, 0%),
+    #2a2a2e var(--range-pct, 0%)
+  );
+}
+
+.lock-range::-moz-range-track {
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #ff1a88 var(--range-pct, 0%),
+    #2a2a2e var(--range-pct, 0%)
+  );
+}
+
+.lock-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  margin-top: -5.5px;
+  border: none;
+  border-radius: 999px;
+  background: #ff1a88;
+  box-shadow: 0 0 0 4px rgba(255, 26, 136, 0.16);
+}
+
+.lock-range::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
+  border: none;
+  border-radius: 999px;
+  background: #ff1a88;
+  box-shadow: 0 0 0 4px rgba(255, 26, 136, 0.16);
+}
+
+.lock-range:focus-visible {
+  outline: none;
+}
+
+.lock-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px rgba(255, 26, 136, 0.36);
+}
+
+.lock-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 5px rgba(255, 26, 136, 0.36);
+}
