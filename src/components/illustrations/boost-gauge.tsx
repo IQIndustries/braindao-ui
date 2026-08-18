@@ -73,7 +73,7 @@ export const BoostGauge = ({
 				x={CENTER.x}
 				y="65"
 				textAnchor="middle"
-				style={{ fontSize: 28 }}
+				style={{ fontSize: 30 }}
 			>
 				{value}
 			</text>
