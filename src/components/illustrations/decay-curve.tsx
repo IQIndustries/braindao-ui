@@ -1,10 +1,11 @@
 // HiIQ over a lock's lifetime: one straight fall from the boost it was minted
 // at down to parity at expiry, plus the dashed line an extension would put it
-// back on. The multiplier axis is fixed at 4x..1x, so the plot is pure geometry
-// — 52px of board per multiple.
-const PLOT = { left: 78, right: 470, top: 44, bottom: 200 };
+// back on. The panel renders the board at 1:1, so these units are the design's
+// pixels: the plot runs out to the panel's inner edge, and the fixed 4x..1x
+// axis makes it pure geometry — 55px of board per multiple.
+const PLOT = { left: 48, right: 458, top: 8, bottom: 173 };
 const MULTIPLES = [4, 3, 2, 1] as const;
-const rowY = (multiple: number) => PLOT.bottom - (multiple - 1) * 52;
+const rowY = (multiple: number) => PLOT.bottom - (multiple - 1) * 55;
 
 const MID = {
 	x: (PLOT.left + PLOT.right) / 2,
@@ -19,8 +20,10 @@ type DecayCurveLabels = {
 
 export const DecayCurve = ({ labels }: { labels: DecayCurveLabels }) => (
 	<svg
-		viewBox="0 0 520 268"
-		className="ill h-auto w-full"
+		viewBox="0 0 462 200"
+		// Below its natural width the axis captions would fall under 9px, so the
+		// plot scrolls in its wrapper instead of shrinking further.
+		className="ill mx-auto h-auto w-full min-w-[460px] max-w-[560px]"
 		role="img"
 		aria-label={`${labels.start} 4× → ${labels.expiry} 1×. ${labels.extend}`}
 	>
@@ -37,7 +40,7 @@ export const DecayCurve = ({ labels }: { labels: DecayCurveLabels }) => (
 					className="grid-line"
 					d={`M${PLOT.left} ${rowY(multiple)} H${PLOT.right}`}
 				/>
-				<text className="lbl" x="64" y={rowY(multiple) + 4} textAnchor="end">
+				<text className="lbl" x="34" y={rowY(multiple) + 4} textAnchor="end">
 					{multiple}×
 				</text>
 			</g>
@@ -55,8 +58,8 @@ export const DecayCurve = ({ labels }: { labels: DecayCurveLabels }) => (
 			pathLength="1"
 		/>
 
-		<path className="dash-lit" d={`M${MID.x} ${MID.y} L${PLOT.right} 60`} />
-		<text className="lbl" x={PLOT.right} y="42" textAnchor="end">
+		<path className="dash-lit" d={`M${MID.x} ${MID.y} L${PLOT.right} 34`} />
+		<text className="lbl" x={PLOT.right} y="22" textAnchor="end">
 			{labels.extend.toUpperCase()}
 		</text>
 
@@ -64,10 +67,10 @@ export const DecayCurve = ({ labels }: { labels: DecayCurveLabels }) => (
 		<circle className="dotw" cx={MID.x} cy={MID.y} r="3" />
 		<circle className="dotw" cx={PLOT.right} cy={PLOT.bottom} r="3" />
 
-		<text className="lbl" x={PLOT.left} y="228">
+		<text className="lbl" x={PLOT.left} y="192">
 			{labels.start.toUpperCase()}
 		</text>
-		<text className="lbl" x={PLOT.right} y="228" textAnchor="end">
+		<text className="lbl" x={PLOT.right} y="192" textAnchor="end">
 			{labels.expiry.toUpperCase()}
 		</text>
 	</svg>

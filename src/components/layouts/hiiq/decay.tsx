@@ -43,7 +43,9 @@ export const Decay = async () => {
 				<Panel className="p-5 sm:p-8 lg:order-1">
 					<MonoLabel>{t("chart.label")}</MonoLabel>
 
-					<div className="mt-5">
+					{/* The plot keeps its own width down to a phone, so the panel bleeds
+					    to the screen edge and scrolls rather than squashing it. */}
+					<div className="-mx-5 mt-5 overflow-x-auto px-5 sm:-mx-8 sm:px-8">
 						<DecayCurve
 							labels={{
 								extend: t("chart.extend"),
