@@ -230,8 +230,7 @@
 			"iq": "位于以太坊的 $IQ，HiIQ 质押在该网络上运行",
 			"gas": "用于锁仓、延长和领取交易 gas 费用的 ETH",
 			"lock": "由您自行选择的锁定期限，最长 4 年"
-		},
-		"source": "参考资料：<link>IQ.wiki 上的 HiIQ</link>。"
+		}
 	},
 	"footer": {
 		"now": {

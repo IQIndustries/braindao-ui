@@ -12,12 +12,16 @@ export const Rewards = async () => {
 		<Section id="rewards">
 			<div className="grid gap-px overflow-hidden rounded-xl border border-rule bg-rule-soft lg:grid-cols-2">
 				<div className="bg-surface p-6 sm:p-8">
-					<RewardFan
-						source={t("payout.board.source")}
-						target={t("payout.board.target")}
-					/>
+					{/* Fixed slots: the two boards differ in height, but the headings
+					    under them sit on one line across the card. */}
+					<div className="h-[100px]">
+						<RewardFan
+							source={t("payout.board.source")}
+							target={t("payout.board.target")}
+						/>
+					</div>
 
-					<h2 className="mt-7 text-lg font-medium tracking-[-0.01em] text-white">
+					<h2 className="mt-5 text-lg font-medium tracking-[-0.01em] text-white">
 						{t("payout.title")}
 					</h2>
 
@@ -27,9 +31,11 @@ export const Rewards = async () => {
 				</div>
 
 				<div className="bg-surface p-6 sm:p-8">
-					<StakeChecklist />
+					<div className="h-[100px]">
+						<StakeChecklist />
+					</div>
 
-					<h2 className="mt-7 text-lg font-medium tracking-[-0.01em] text-white">
+					<h2 className="mt-5 text-lg font-medium tracking-[-0.01em] text-white">
 						{t("requirements.title")}
 					</h2>
 
@@ -51,21 +57,6 @@ export const Rewards = async () => {
 					</ul>
 				</div>
 			</div>
-
-			<p className="mt-10 font-mono text-xs uppercase tracking-[0.14em] text-neutral-600">
-				{t.rich("source", {
-					link: (chunks) => (
-						<a
-							href="https://iq.wiki/wiki/hiiq"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="text-primary hover:underline"
-						>
-							{chunks}
-						</a>
-					),
-				})}
-			</p>
 		</Section>
 	);
 };

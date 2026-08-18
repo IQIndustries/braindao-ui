@@ -230,8 +230,7 @@
 			"iq": "$IQ on Ethereum, where HiIQ staking lives",
 			"gas": "ETH for gas on lock, extend, and claim transactions",
 			"lock": "A lock period of your choice, up to 4 years"
-		},
-		"source": "Reference: <link>HiIQ on IQ.wiki</link>."
+		}
 	},
 	"footer": {
 		"now": {

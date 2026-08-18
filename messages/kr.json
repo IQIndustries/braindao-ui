@@ -230,8 +230,7 @@
 			"iq": "HiIQ 스테이킹이 이루어지는 이더리움의 $IQ",
 			"gas": "잠금·연장·보상 청구 거래의 가스비로 쓰이는 ETH",
 			"lock": "최대 4년까지 원하는 잠금 기간"
-		},
-		"source": "출처: <link>IQ.wiki의 HiIQ</link>."
+		}
 	},
 	"footer": {
 		"now": {
