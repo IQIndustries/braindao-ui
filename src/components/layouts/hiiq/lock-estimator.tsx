@@ -97,7 +97,9 @@ export const LockEstimator = () => {
 						})}
 					</p>
 
-					<p className="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-600">
+					{/* Sentence case, unlike the mono captions: this reads as a footnote
+					    to the figure above it rather than a label of its own. */}
+					<p className="mt-3 font-mono text-[11px] text-neutral-600">
 						{t("panel.from", { amount })}
 					</p>
 				</div>
