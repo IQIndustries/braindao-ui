@@ -82,7 +82,11 @@ body {
 #markets,
 #utility,
 #treasury,
-#ecosystem {
+#ecosystem,
+#mechanism,
+#estimate,
+#decay,
+#rewards {
   scroll-margin-top: 110px;
 }
 
