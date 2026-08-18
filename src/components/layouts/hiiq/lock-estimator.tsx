@@ -40,7 +40,7 @@ export const LockEstimator = () => {
 		<Panel className="p-5 sm:p-7">
 			<div className="flex items-center justify-between gap-4">
 				<MonoLabel>{t("panel.label", { amount })}</MonoLabel>
-				<span className="font-mono text-[13px] text-white">
+				<span className="font-mono text-[17px] text-white">
 					{duration(weeks)}
 				</span>
 			</div>
