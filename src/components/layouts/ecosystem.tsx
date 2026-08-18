@@ -32,7 +32,7 @@ const Ecosystem = async () => {
 						data-ph-capture-attribute-product-link-clicked={product.key}
 						className="group flex items-center gap-4 py-5 sm:gap-6 sm:py-6"
 					>
-						<span className="flex size-11 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+						<span className="flex size-11 shrink-0 items-center justify-center rounded-lg border border-primary/[0.26] bg-primary/[0.07]">
 							<Glyph name={product.key} className="size-[22px]" />
 						</span>
 
