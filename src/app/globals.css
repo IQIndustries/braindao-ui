@@ -216,6 +216,9 @@ body {
   stroke-width: 8;
   stroke-linecap: round;
   transition: stroke-dashoffset 0.3s ease-out;
+  /* The design draws the arc as a neon tube; the glow is the only place the
+     boards use one, so it stays on the gauge rather than in a shared class. */
+  filter: drop-shadow(0 0 6px rgba(255, 26, 136, 0.45));
 }
 
 .ill .check {
