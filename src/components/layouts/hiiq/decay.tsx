@@ -13,10 +13,10 @@ export const Decay = async () => {
 
 	return (
 		<Section id="decay">
-			<div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
-				{/* Copy leads in the stacked layout; on desktop the plot takes the left
-				    column, the way the estimator's panel takes the right. */}
-				<div className="lg:order-2 lg:col-span-5">
+			{/* Equal halves, the estimator's grid mirrored: copy leads in the stacked
+			    layout, and on desktop the plot takes the left column. */}
+			<div className="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+				<div className="lg:order-2">
 					<Eyebrow icon="decay">{t("eyebrow")}</Eyebrow>
 
 					<Display className="mt-5">
@@ -40,7 +40,7 @@ export const Decay = async () => {
 					</p>
 				</div>
 
-				<Panel className="p-5 sm:p-7 lg:order-1 lg:col-span-7">
+				<Panel className="p-5 sm:p-8 lg:order-1">
 					<MonoLabel>{t("chart.label")}</MonoLabel>
 
 					<div className="mt-5">
