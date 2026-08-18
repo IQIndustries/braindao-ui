@@ -195,6 +195,10 @@
 			"duration": {
 				"weeks": "{count, plural, =1 {# week} other {# weeks}}",
 				"years": "{count, plural, =1 {# year} other {# years}}"
+			},
+			"duration-short": {
+				"weeks": "{count, plural, other {#w}}",
+				"years": "{count, plural, other {#y}}"
 			}
 		},
 		"decay": {

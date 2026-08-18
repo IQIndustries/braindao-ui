@@ -195,6 +195,10 @@
 			"duration": {
 				"weeks": "{count, plural, other {#周}}",
 				"years": "{count, plural, other {#年}}"
+			},
+			"duration-short": {
+				"weeks": "{count, plural, other {#周}}",
+				"years": "{count, plural, other {#年}}"
 			}
 		},
 		"decay": {

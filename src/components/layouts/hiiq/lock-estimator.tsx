@@ -25,12 +25,17 @@ export const LockEstimator = () => {
 	const boost = 1 + (MAX_BOOST - 1) * boostFraction;
 	const trackFraction = (weeks - MIN_WEEKS) / (MAX_WEEKS - MIN_WEEKS);
 
-	const duration = (value: number) =>
+	const spell = (key: "duration" | "duration-short", value: number) =>
 		value < WEEKS_PER_YEAR
-			? t("duration.weeks", { count: value })
-			: t("duration.years", {
+			? t(`${key}.weeks`, { count: value })
+			: t(`${key}.years`, {
 					count: Math.round((value / WEEKS_PER_YEAR) * 10) / 10,
 				});
+
+	const duration = (value: number) => spell("duration", value);
+	// The scale is read at a glance, so its ticks stay abbreviated — and short
+	// enough that all five still fit on a phone-width track.
+	const tickLabel = (value: number) => spell("duration-short", value);
 
 	const amount = format.number(AMOUNT);
 	const multiple = (value: number) =>
@@ -70,14 +75,12 @@ export const LockEstimator = () => {
 								index === 0 && "translate-x-0",
 								index === TICKS.length - 1 && "-translate-x-full",
 								index > 0 && index < TICKS.length - 1 && "-translate-x-1/2",
-								// The odd ticks collide on a phone-width track.
-								index % 2 === 1 && "hidden sm:block",
 							)}
 							style={{
 								left: `${((tick - MIN_WEEKS) / (MAX_WEEKS - MIN_WEEKS)) * 100}%`,
 							}}
 						>
-							{duration(tick)}
+							{tickLabel(tick)}
 						</span>
 					))}
 				</div>
