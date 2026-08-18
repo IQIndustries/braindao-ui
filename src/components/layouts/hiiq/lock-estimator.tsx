@@ -78,7 +78,7 @@ export const LockEstimator = () => {
 						<span
 							key={tick}
 							className={cn(
-								"absolute top-0 whitespace-nowrap font-mono text-[11px] text-neutral-600",
+								"absolute top-0 whitespace-nowrap font-mono text-[11px] text-neutral-500",
 								index === 0 && "translate-x-0",
 								index === TICKS.length - 1 && "-translate-x-full",
 								index > 0 && index < TICKS.length - 1 && "-translate-x-1/2",
@@ -106,7 +106,7 @@ export const LockEstimator = () => {
 
 					{/* Sentence case, unlike the mono captions: this reads as a footnote
 					    to the figure above it rather than a label of its own. */}
-					<p className="mt-3 font-mono text-[11px] text-neutral-600">
+					<p className="mt-3 font-mono text-[11px] text-neutral-500">
 						{t("panel.from", { amount })}
 					</p>
 				</div>
