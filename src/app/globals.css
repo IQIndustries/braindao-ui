@@ -189,14 +189,16 @@ body {
   transform-origin: 12px 12px;
   animation: ill-book 6s ease-in-out infinite;
 }
-/* Same rise, three cadences — the bars never crest together. */
+/* One wave on a shared clock: the bars drop right to left, hold, then climb
+   back left to right. Three keyframe sets rather than one plus delays, because
+   the return leg reverses the order. */
 .ill .riser {
   transform-box: fill-box;
   transform-origin: bottom center;
-  animation: ill-rise 4.8s ease-in-out infinite;
+  animation: ill-wave-1 5.2s ease-in-out infinite;
 }
-.ill .riser:nth-of-type(2) { animation-duration: 6.2s; animation-delay: -2.3s; }
-.ill .riser:nth-of-type(3) { animation-duration: 5.5s; animation-delay: -3.9s; }
+.ill .riser:nth-of-type(2) { animation-name: ill-wave-2; }
+.ill .riser:nth-of-type(3) { animation-name: ill-wave-3; }
 
 @keyframes ill-flow { from { stroke-dashoffset: 80; } to { stroke-dashoffset: 0; } }
 @keyframes ill-ping { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
@@ -216,9 +218,20 @@ body {
   0%, 100% { transform: scaleX(1); }
   50% { transform: scaleX(0.3); }
 }
-@keyframes ill-rise {
-  0%, 100% { transform: scaleY(1); }
-  50% { transform: scaleY(0.3); }
+@keyframes ill-wave-1 {
+  0%, 21% { transform: scaleY(1); }
+  31%, 46% { transform: scaleY(0.25); }
+  56%, 100% { transform: scaleY(1); }
+}
+@keyframes ill-wave-2 {
+  0%, 13% { transform: scaleY(1); }
+  23%, 54% { transform: scaleY(0.25); }
+  64%, 100% { transform: scaleY(1); }
+}
+@keyframes ill-wave-3 {
+  0%, 5% { transform: scaleY(1); }
+  15%, 62% { transform: scaleY(0.25); }
+  72%, 100% { transform: scaleY(1); }
 }
 
 /* Reduced motion snaps each loop to its end frame, which is why every keyframe
