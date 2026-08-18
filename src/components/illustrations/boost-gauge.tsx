@@ -21,7 +21,7 @@ export const BoostGauge = ({
 
 	return (
 		<svg
-			viewBox="0 0 200 120"
+			viewBox="0 0 200 128"
 			className="ill h-auto w-full max-w-[200px]"
 			role="img"
 			aria-label={`${caption}: ${value}`}
@@ -42,23 +42,25 @@ export const BoostGauge = ({
 				r="3.4"
 			/>
 
+			{/* Inline, not a fontSize attribute: the .val class carries a font-size,
+			    and a class beats a presentation attribute. */}
 			<text
 				className="val"
 				x={CENTER.x}
-				y="88"
+				y="84"
 				textAnchor="middle"
-				fontSize="26"
+				style={{ fontSize: 26 }}
 			>
 				{value}
 			</text>
-			<text className="lbl" x={CENTER.x} y="106" textAnchor="middle">
+			<text className="lbl" x={CENTER.x} y="100" textAnchor="middle">
 				{caption.toUpperCase()}
 			</text>
 
-			<text className="lbl" x={CENTER.x - R} y="106" textAnchor="middle">
+			<text className="lbl" x={CENTER.x - R} y="120" textAnchor="middle">
 				{min}
 			</text>
-			<text className="lbl" x={CENTER.x + R} y="106" textAnchor="middle">
+			<text className="lbl" x={CENTER.x + R} y="120" textAnchor="middle">
 				{max}
 			</text>
 		</svg>

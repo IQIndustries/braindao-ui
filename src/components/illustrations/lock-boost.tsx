@@ -18,8 +18,8 @@ type LockBoostLabels = {
 
 export const LockBoost = ({ labels }: { labels: LockBoostLabels }) => (
 	<svg
-		viewBox="0 0 620 300"
-		className="ill h-auto w-full"
+		viewBox="0 38 620 224"
+		className="ill mx-auto h-auto w-full max-w-[760px]"
 		role="img"
 		aria-label={`${labels.source} → ${labels.lockCaption} → ${labels.boost} ${labels.boostUnit}. ${labels.decay}`}
 	>
@@ -36,7 +36,15 @@ export const LockBoost = ({ labels }: { labels: LockBoostLabels }) => (
 		/>
 
 		<rect className="node" x="22" y="94" width="92" height="52" rx="12" />
-		<text className="val" x="68" y="126" textAnchor="middle" fontSize="17">
+		{/* Inline, not a fontSize attribute: the .val class carries a font-size,
+		    and a class beats a presentation attribute. */}
+		<text
+			className="val"
+			x="68"
+			y="126"
+			textAnchor="middle"
+			style={{ fontSize: 17 }}
+		>
 			{labels.source}
 		</text>
 		<text className="lbl" x="68" y="172" textAnchor="middle">
@@ -85,7 +93,7 @@ export const LockBoost = ({ labels }: { labels: LockBoostLabels }) => (
 		<rect className="node" x="418" y="88" width="104" height="64" rx="12" />
 		<circle className="dot" cx="318" cy={RAIL_Y} r="3.5" />
 		<circle className="dotw" cx="418" cy={RAIL_Y} r="2.6" />
-		<text className="val-p" x="436" y="120" fontSize="25">
+		<text className="val-p" x="436" y="120" style={{ fontSize: 25 }}>
 			{labels.boost}
 		</text>
 		<text className="lbl-p" x="437" y="138">
