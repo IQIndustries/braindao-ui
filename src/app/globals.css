@@ -362,21 +362,23 @@ body {
 .lock-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 13px;
-  height: 13px;
-  margin-top: -5.5px;
-  border: none;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin-top: -7px;
+  border: 3px solid #ff1a88;
   border-radius: 999px;
-  background: #ff1a88;
+  background: #ffffff;
   box-shadow: 0 0 0 4px rgba(255, 26, 136, 0.16);
 }
 
 .lock-range::-moz-range-thumb {
-  width: 13px;
-  height: 13px;
-  border: none;
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #ff1a88;
   border-radius: 999px;
-  background: #ff1a88;
+  background: #ffffff;
   box-shadow: 0 0 0 4px rgba(255, 26, 136, 0.16);
 }
 
