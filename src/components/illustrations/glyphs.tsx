@@ -32,24 +32,31 @@ const PATHS = {
 		</>
 	),
 	wiki: (
-		<g className="sway">
-			<path d="M12 6.6S10 4.4 4.4 5v13.4c5.6-.6 7.6 1.6 7.6 1.6s2-2.2 7.6-1.6V5C14 4.4 12 6.6 12 6.6Z" />
+		<>
+			<path
+				className="leaf"
+				d="M12 6.6S10 4.4 4.4 5v13.4c5.6-.6 7.6 1.6 7.6 1.6"
+			/>
+			<path
+				className="leaf"
+				d="M12 6.6s2-2.2 7.6-1.6v13.4c-5.6-.6-7.6 1.6-7.6 1.6"
+			/>
 			<path d="M12 6.6V20" />
-		</g>
+		</>
 	),
 	iqai: (
 		<>
-			<rect x="6" y="6" width="12" height="12" rx="3" />
-			<circle className="ping" cx="12" cy="12" r="2.2" />
+			<rect className="spinner" x="6" y="6" width="12" height="12" rx="3" />
+			<circle cx="12" cy="12" r="2.2" />
 			<path d="M12 2.5v3.5M12 18v3.5M2.5 12H6M18 12h3.5" />
 		</>
 	),
 	industries: (
 		<>
 			<path d="M3.5 20.5h17" />
-			<rect x="5" y="13" width="4" height="7.5" rx="1" />
-			<rect x="10" y="9" width="4" height="11.5" rx="1" />
-			<rect className="growbar" x="15" y="4.5" width="4" height="16" rx="1" />
+			<rect className="riser" x="5" y="13" width="4" height="7.5" rx="1" />
+			<rect className="riser" x="10" y="9" width="4" height="11.5" rx="1" />
+			<rect className="riser" x="15" y="4.5" width="4" height="16" rx="1" />
 		</>
 	),
 } satisfies Record<string, React.ReactNode>;
