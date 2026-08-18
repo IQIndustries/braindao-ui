@@ -221,6 +221,16 @@ body {
   filter: drop-shadow(0 0 6px rgba(255, 26, 136, 0.45));
 }
 
+/* The tube's white-hot core. It rides the same dashoffset as the arc under it
+   so the two sweep as one stroke. */
+.ill .gauge-core {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s ease-out;
+}
+
 .ill .check {
   fill: none;
   stroke: var(--ill-pink);
@@ -322,7 +332,8 @@ body {
     animation-iteration-count: 1 !important;
   }
 
-  .ill .gauge-arc {
+  .ill .gauge-arc,
+  .ill .gauge-core {
     transition: none;
   }
 }

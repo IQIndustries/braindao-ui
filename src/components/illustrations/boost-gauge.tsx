@@ -51,6 +51,13 @@ export const BoostGauge = ({
 				strokeDasharray="100"
 				strokeDashoffset={100 - fraction * 100}
 			/>
+			<path
+				className="gauge-core"
+				d={ARC}
+				pathLength="100"
+				strokeDasharray="100"
+				strokeDashoffset={100 - fraction * 100}
+			/>
 
 			<circle
 				className="dotw"
