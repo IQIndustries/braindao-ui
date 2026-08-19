@@ -6,7 +6,7 @@ import ThemeWinterSnow from "@/components/themes/theme-winter-snow";
 import { Theme, isTheme } from "@/lib/helpers/theme";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 import { dmMono, dmSans, instrumentSerif, satoshi } from "../font";
 
 const TITLE = "BrainDAO - The DAO behind the IQ token.";
@@ -49,13 +49,18 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const [locale, messages] = await Promise.all([getLocale(), getMessages()]);
+	const locale = await getLocale();
 
 	const isChristmasTheme = isTheme(Theme.enum.christmas);
 
 	return (
 		<html
 			lang={locale}
+			// globals.css sets `scroll-behavior: smooth` on html; Next 16 stopped
+			// overriding it during route transitions unless this opts back in.
+			data-scroll-behavior="smooth"
+			// next-themes writes class and color-scheme onto html before hydration.
+			suppressHydrationWarning
 			className={`${dmSans.variable} ${dmMono.variable} ${satoshi.variable} ${instrumentSerif.variable}`}
 		>
 			<head>
@@ -69,7 +74,8 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body>
-				<NextIntlClientProvider locale={locale} messages={messages}>
+				{/* next-intl v4 inherits messages from i18n/request.ts */}
+				<NextIntlClientProvider locale={locale}>
 					<ClientProviders>
 						<div>
 							<Navbar isChristmasTheme={isChristmasTheme} />

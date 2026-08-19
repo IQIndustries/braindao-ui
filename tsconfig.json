@@ -11,7 +11,7 @@
 		"moduleResolution": "bundler",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"incremental": true,
 		"paths": {
 			"@/*": ["./src/*"]
@@ -28,7 +28,8 @@
 		"**/*.tsx",
 		"**/*.d.ts",
 		".next/types/**/*.ts",
-		"next.config.mjs",
+		".next/dev/types/**/*.ts",
+		"next.config.ts",
 		"tailwind.config.ts",
 		"**/*.json"
 	],
