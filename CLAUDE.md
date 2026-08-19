@@ -44,7 +44,7 @@ pnpm env:dev      # Pull development env vars from Vercel
 ### Styling
 - Tailwind CSS with custom configuration
 - Shadcn/ui components (configured in `components.json`)
-- Framer Motion and GSAP for animations
+- Framer Motion for animations
 - next-themes for dark mode (default theme is dark)
 
 ### Data Fetching
