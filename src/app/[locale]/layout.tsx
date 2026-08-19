@@ -64,7 +64,6 @@ export default async function RootLayout({
 			className={`${dmSans.variable} ${dmMono.variable} ${satoshi.variable} ${instrumentSerif.variable}`}
 		>
 			<head>
-				<link rel="canonical" />
 				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link

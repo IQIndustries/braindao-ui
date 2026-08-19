@@ -6,11 +6,12 @@ import {
 	PillLink,
 	Section,
 } from "@/components/layouts/section-kit";
+import { alternatesFor } from "@/lib/helpers/alternates";
 import { getLockOverview } from "@/modules/getLockOverview";
 import { getTvl } from "@/modules/getTVL";
 import { numFormatter } from "@/modules/helpers/numFormatter";
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 const SECTIONS = [
 	"what",
@@ -22,11 +23,15 @@ const SECTIONS = [
 ] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
-	const t = await getTranslations("hiiq.meta");
+	const [t, locale] = await Promise.all([
+		getTranslations("hiiq.meta"),
+		getLocale(),
+	]);
 
 	return {
 		title: t("title"),
 		description: t("description"),
+		alternates: alternatesFor(locale, "/hiiq"),
 		openGraph: {
 			title: t("title"),
 			description: t("description"),
