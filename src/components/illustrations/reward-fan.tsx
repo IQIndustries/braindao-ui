@@ -6,9 +6,13 @@
 // node, the design's way of saying the payout is keyed off the balances.
 const DOTS = [13, 35, 57, 79];
 const APEX = { x: 78.5, y: 46 };
-const RAYS = DOTS.map(
-	(y) => `M192 ${y} C 150 ${y}, 122 ${APEX.y}, ${APEX.x} ${APEX.y}`,
-);
+const bend = (y: number) => `C 150 ${y}, 122 ${APEX.y}, ${APEX.x} ${APEX.y}`;
+const RAYS = DOTS.map((y) => `M192 ${y} ${bend(y)}`);
+// The route each staker dot rides: its own ray, started at the dot rather than
+// under it and carried on past the arrowhead to inside the node. Beginning 5
+// units out from the line's tip pulls the dot at most 0.7 off the line it
+// follows, which is a fifth of its radius.
+const TRIPS = DOTS.map((y) => `M197 ${y} ${bend(y)} L 62 ${APEX.y}`);
 
 export const RewardFan = ({
 	source,
@@ -24,6 +28,22 @@ export const RewardFan = ({
 			<path key={d} className="ray" d={d} />
 		))}
 
+		{/* Ahead of the node, so the card's own fill takes each dot in as it
+		    arrives — there is no room inside the node to park a dot beside the
+		    lettering, and a ball slipping behind the edge is the clearer read
+		    anyway. At the origin, not at the dot's position: the offset path does
+		    the placing, and its own start is where the design puts the dot. */}
+		{DOTS.map((y, i) => (
+			<circle
+				key={y}
+				className="dot staker"
+				cx="0"
+				cy="0"
+				r="3.4"
+				style={{ offsetPath: `path("${TRIPS[i]}")` }}
+			/>
+		))}
+
 		<rect className="node" x="0" y="30" width="68" height="32" rx="9" />
 		<text className="lbl-p" x="34" y="49.5" textAnchor="middle">
 			{source.toUpperCase()}
@@ -32,10 +52,6 @@ export const RewardFan = ({
 			className="dot"
 			d={`M68 ${APEX.y} L${APEX.x} ${APEX.y - 3.75} V${APEX.y + 3.75} Z`}
 		/>
-
-		{DOTS.map((y) => (
-			<circle key={y} className="dot" cx="197" cy={y} r="3.4" />
-		))}
 
 		<text className="lbl" x="197" y="96" textAnchor="middle">
 			{target.toUpperCase()}
