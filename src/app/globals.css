@@ -215,20 +215,45 @@ body {
   stroke: var(--ill-pink);
   stroke-width: 8;
   stroke-linecap: round;
-  transition: stroke-dashoffset 0.3s ease-out;
+  transition: stroke-dashoffset 0.3s cubic-bezier(0.3, 0.85, 0.25, 1);
   /* The design draws the arc as a neon tube; the glow is the only place the
-     boards use one, so it stays on the gauge rather than in a shared class. */
+     boards use one, so it stays on the gauge rather than in a shared class.
+     6px is about the room the filter region leaves around the arc's box —
+     blur past that clips to a visible rectangle instead of fading out. */
   filter: drop-shadow(0 0 6px rgba(255, 26, 136, 0.45));
 }
 
-/* The tube's white-hot core. It rides the same dashoffset as the arc under it
-   so the two sweep as one stroke. */
-.ill .gauge-core {
+/* The gauge's only moving part: a glowing light that runs the lit stretch of
+   tube, leaving its trail behind it until the tube is full, rests there, then
+   runs back to 1× and goes again. The pink tube under it is the readout and
+   stays put. The path is cut to the swept arc and normalised to a pathLength of
+   100, so one fixed animation covers 1× to the value whatever the value is, and
+   the gap outruns the path so the pattern cannot tile a second trail onto the
+   start. The glow is a filter the gauge carries, since its region has to be
+   pinned to the viewBox rather than to the path. */
+.ill .gauge-light {
   fill: none;
   stroke: #fff;
-  stroke-width: 3;
+  stroke-width: 3.6;
   stroke-linecap: round;
-  transition: stroke-dashoffset 0.3s ease-out;
+  stroke-dasharray: 100 100;
+  /* Not the boards' draw-in curve: that one is front-loaded, and a light meant to
+     be watched travelling has to hold a steady pace. alternate, so the run back
+     is the fill played in reverse — the two ends of a cycle hold the same offset,
+     which is what keeps the turn seamless. */
+  animation: ill-gauge-light 3.1s ease-in-out infinite alternate;
+}
+
+/* Stray light off the tube: unlit ones are barely there, and the sweep hands
+   each its colour on the same clock as the arc. */
+.ill .spark { fill: #fff; opacity: 0.4; transition: fill 0.4s ease-out, opacity 0.4s ease-out; }
+.ill .spark-lit { fill: var(--ill-pink); opacity: 0.95; }
+
+/* view-box, so the origin the gauge sets inline is read in the viewBox's own
+   units rather than the rendered box's. */
+.ill .gauge-head {
+  transform-box: view-box;
+  transition: transform 0.3s cubic-bezier(0.3, 0.85, 0.25, 1);
 }
 
 /* Checklist rows: the tick is the one pink thing — the square around it is a
@@ -318,6 +343,15 @@ body {
   100% { transform: translate(0, 0); opacity: 1; }
 }
 @keyframes ill-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+/* Fill, then rest at full — the run back is the same pair reversed. The dash is
+   as long as the path, so the offset is the head's position: 100 parks the whole
+   dash in the gap and draws nothing, 0 draws all of it. Both ends stay plain
+   numbers: a calc() at one end and a number at the other are different types to
+   interpolate, and the run turns into a jump from empty straight to full. */
+@keyframes ill-gauge-light {
+  0% { stroke-dashoffset: 100; }
+  55%, 100% { stroke-dashoffset: 0; }
+}
 
 /* Reduced motion snaps each loop to its end frame, which is why every keyframe
    set above is authored to end on the correct static state. */
@@ -328,7 +362,8 @@ body {
   }
 
   .ill .gauge-arc,
-  .ill .gauge-core {
+  .ill .gauge-head,
+  .ill .spark {
     transition: none;
   }
 }
