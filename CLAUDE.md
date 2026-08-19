@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-BrainDAO UI is a Next.js 15 landing page for BrainDAO, the governing DAO powering the IQ ecosystem. It showcases the IQ token, ecosystem products (IQ.wiki, IQ Dashboard, IQAI, Sophia), and team information.
+BrainDAO UI is a Next.js 16 landing page for BrainDAO, the governing DAO powering the IQ ecosystem. It showcases the IQ token, ecosystem products (IQ.wiki, IQ Dashboard, IQAI, Sophia), and team information.
 
 ## Commands
 
@@ -12,12 +12,12 @@ BrainDAO UI is a Next.js 15 landing page for BrainDAO, the governing DAO powerin
 pnpm dev          # Start development server (http://localhost:3000)
 pnpm build        # Production build
 pnpm lint         # Run lint-staged (Biome)
-pnpm format       # Format with Prettier
+pnpm format       # Format with Biome
 pnpm env:prod     # Pull production env vars from Vercel
 pnpm env:dev      # Pull development env vars from Vercel
 ```
 
-**Note:** This project requires pnpm (enforced via preinstall script). Node.js >= 20.0.0 and pnpm >= 9 required.
+**Note:** This project requires pnpm (enforced via preinstall script). Node.js >= 20.9.0 and pnpm >= 9 required.
 
 ## Architecture
 
