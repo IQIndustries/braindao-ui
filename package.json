@@ -49,7 +49,7 @@
 		"typescript": "^5.0.4"
 	},
 	"lint-staged": {
-		"*.{js,mjs,jsx,ts,tsx,json}": [
+		"*.{js,mjs,jsx,ts,tsx,json,jsonc,css}": [
 			"biome check --write --no-errors-on-unmatched"
 		]
 	},
