@@ -4,35 +4,35 @@
 
 /* Satoshi Font */
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi-light.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
+	font-family: "Satoshi";
+	src: url("/fonts/satoshi-light.woff2") format("woff2");
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi-variable.woff2') format('woff2');
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
+	font-family: "Satoshi";
+	src: url("/fonts/satoshi-variable.woff2") format("woff2");
+	font-weight: 300 900;
+	font-display: swap;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: 'Satoshi';
-  src: url('/fonts/satoshi-variable-italic.woff2') format('woff2');
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: italic;
+	font-family: "Satoshi";
+	src: url("/fonts/satoshi-variable-italic.woff2") format("woff2");
+	font-weight: 300 900;
+	font-display: swap;
+	font-style: italic;
 }
 
 @font-face {
-  font-family: 'SatoshiLight';
-  src: url('/fonts/satoshi-light.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
+	font-family: "SatoshiLight";
+	src: url("/fonts/satoshi-light.woff2") format("woff2");
+	font-weight: 300;
+	font-display: swap;
+	font-style: normal;
 }
 
 @layer base {
@@ -66,7 +66,6 @@
 		   they all collapse to 0px. */
 		--radius: 0.5rem;
 	}
-
 }
 
 html {
@@ -83,31 +82,31 @@ body {
 #utility,
 #treasury,
 #ecosystem {
-  scroll-margin-top: 110px;
+	scroll-margin-top: 110px;
 }
 
 /* Hero orbit rings: a short bright arc travels each ring continuously.
    pathLength="1000" normalises every ellipse so one dash rule fits all. */
 .hero-ring-lit {
-  stroke-dasharray: 260 740;
-  stroke-dashoffset: 1000;
-  animation: hero-ring-orbit var(--ring-duration, 9s) linear infinite;
-  animation-delay: var(--ring-delay, 0s);
+	stroke-dasharray: 260 740;
+	stroke-dashoffset: 1000;
+	animation: hero-ring-orbit var(--ring-duration, 9s) linear infinite;
+	animation-delay: var(--ring-delay, 0s);
 }
 
 @keyframes hero-ring-orbit {
-  from {
-    stroke-dashoffset: 1000;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+	from {
+		stroke-dashoffset: 1000;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-ring-lit {
-    animation: none;
-  }
+	.hero-ring-lit {
+		animation: none;
+	}
 }
 
 /* Illustration system. The exported SVGs each carry their own <style> using
@@ -116,129 +115,272 @@ body {
    shared copy under .ill keeps the export's markup usable verbatim while
    confining the names, and the palette stays swappable from one place. */
 .ill {
-  --ill-line: #1d1d20;
-  --ill-line-2: #232326;
-  --ill-line-3: #2a2a2e;
-  --ill-card: #131316;
-  --ill-ink: #f4f4f5;
-  --ill-ink-4: #8a8a94;
-  --ill-pink: #ff1a88;
-  font-family: var(--font-dm-mono), monospace;
+	--ill-line: #1d1d20;
+	--ill-line-2: #232326;
+	--ill-line-3: #2a2a2e;
+	--ill-card: #131316;
+	--ill-ink: #f4f4f5;
+	--ill-ink-4: #8a8a94;
+	--ill-pink: #ff1a88;
+	font-family: var(--font-dm-mono), monospace;
 }
 
-.ill .rail { fill: none; stroke: var(--ill-line-2); stroke-width: 1.6; }
-.ill .rail-lead { stroke: var(--ill-line-3); }
-.ill .node { fill: var(--ill-card); stroke: var(--ill-line-3); stroke-width: 1; }
-.ill .track { fill: var(--ill-line-3); stroke: none; }
-.ill .bar { fill: var(--ill-pink); stroke: none; }
-.ill .dot { fill: var(--ill-pink); stroke: none; }
-.ill .dotw { fill: #fff; stroke: none; }
+.ill .rail {
+	fill: none;
+	stroke: var(--ill-line-2);
+	stroke-width: 1.6;
+}
+.ill .rail-lead {
+	stroke: var(--ill-line-3);
+}
+.ill .node {
+	fill: var(--ill-card);
+	stroke: var(--ill-line-3);
+	stroke-width: 1;
+}
+.ill .track {
+	fill: var(--ill-line-3);
+	stroke: none;
+}
+.ill .bar {
+	fill: var(--ill-pink);
+	stroke: none;
+}
+.ill .dot {
+	fill: var(--ill-pink);
+	stroke: none;
+}
+.ill .dotw {
+	fill: #fff;
+	stroke: none;
+}
 
-.ill .lbl { fill: var(--ill-ink-4); stroke: none; font-size: 9.5px; letter-spacing: 0.1em; }
-.ill .lbl-p { fill: var(--ill-pink); stroke: none; font-size: 9.5px; letter-spacing: 0.1em; }
-.ill .val { fill: var(--ill-ink); stroke: none; font-size: 12.5px; }
-.ill .val-p { fill: var(--ill-pink); stroke: none; font-size: 12.5px; }
+.ill .lbl {
+	fill: var(--ill-ink-4);
+	stroke: none;
+	font-size: 9.5px;
+	letter-spacing: 0.1em;
+}
+.ill .lbl-p {
+	fill: var(--ill-pink);
+	stroke: none;
+	font-size: 9.5px;
+	letter-spacing: 0.1em;
+}
+.ill .val {
+	fill: var(--ill-ink);
+	stroke: none;
+	font-size: 12.5px;
+}
+.ill .val-p {
+	fill: var(--ill-pink);
+	stroke: none;
+	font-size: 12.5px;
+}
 
 .ill .lit {
-  fill: none;
-  stroke: var(--ill-pink);
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-dasharray: 6 74;
-  stroke-dashoffset: 80;
-  animation: ill-flow 4.6s linear infinite;
+	fill: none;
+	stroke: var(--ill-pink);
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-dasharray: 6 74;
+	stroke-dashoffset: 80;
+	animation: ill-flow 4.6s linear infinite;
 }
 
-.ill .ping { animation: ill-ping 3s ease-in-out infinite; }
+.ill .ping {
+	animation: ill-ping 3s ease-in-out infinite;
+}
 
-.ill .ring { fill: none; stroke: var(--ill-ink-4); stroke-width: 1.8; stroke-linecap: round; stroke-dasharray: 0.1 7.4; opacity: 0.7; }
-.ill .ring-track { fill: none; stroke: var(--ill-line-2); stroke-width: 11; }
+.ill .ring {
+	fill: none;
+	stroke: var(--ill-ink-4);
+	stroke-width: 1.8;
+	stroke-linecap: round;
+	stroke-dasharray: 0.1 7.4;
+	opacity: 0.7;
+}
+.ill .ring-track {
+	fill: none;
+	stroke: var(--ill-line-2);
+	stroke-width: 11;
+}
 .ill .ring-arc {
-  fill: none;
-  stroke: var(--ill-pink);
-  stroke-width: 11;
-  stroke-linecap: round;
-  animation: ill-ring-in 1.6s cubic-bezier(0.3, 0.85, 0.25, 1) 0.3s forwards;
+	fill: none;
+	stroke: var(--ill-pink);
+	stroke-width: 11;
+	stroke-linecap: round;
+	animation: ill-ring-in 1.6s cubic-bezier(0.3, 0.85, 0.25, 1) 0.3s forwards;
 }
 .ill .ring-spin {
-  transform-box: view-box;
-  transform-origin: 90px 90px;
-  animation: ill-ring-spin 46s linear infinite;
+	transform-box: view-box;
+	transform-origin: 90px 90px;
+	animation: ill-ring-spin 46s linear infinite;
 }
 
 .ill .tipper {
-  transform-box: view-box;
-  transform-origin: 12px 8px;
-  animation: ill-tip 5s ease-in-out infinite;
+	transform-box: view-box;
+	transform-origin: 12px 8px;
+	animation: ill-tip 5s ease-in-out infinite;
 }
-.ill .shackle { stroke-dasharray: 1; animation: ill-reclose 5.4s ease-in-out infinite; }
+.ill .shackle {
+	stroke-dasharray: 1;
+	animation: ill-reclose 5.4s ease-in-out infinite;
+}
 .ill .burnbar {
-  transform-box: fill-box;
-  transform-origin: bottom center;
-  animation: ill-burn 4.8s ease-in-out infinite;
+	transform-box: fill-box;
+	transform-origin: bottom center;
+	animation: ill-burn 4.8s ease-in-out infinite;
 }
 /* The square turns about the core, which stays put. */
 .ill .spinner {
-  transform-box: view-box;
-  transform-origin: 12px 12px;
-  animation: ill-ring-spin 9s linear infinite;
+	transform-box: view-box;
+	transform-origin: 12px 12px;
+	animation: ill-ring-spin 9s linear infinite;
 }
 /* Both leaves fold onto the spine at x=12, so the book shuts and reopens. */
 .ill .leaf {
-  transform-box: view-box;
-  transform-origin: 12px 12px;
-  animation: ill-book 6s ease-in-out infinite;
+	transform-box: view-box;
+	transform-origin: 12px 12px;
+	animation: ill-book 6s ease-in-out infinite;
 }
 /* One wave on a shared clock: the bars drop right to left, hold, then climb
    back left to right. Three keyframe sets rather than one plus delays, because
    the return leg reverses the order. */
 .ill .riser {
-  transform-box: fill-box;
-  transform-origin: bottom center;
-  animation: ill-wave-1 5.2s ease-in-out infinite;
+	transform-box: fill-box;
+	transform-origin: bottom center;
+	animation: ill-wave-1 5.2s ease-in-out infinite;
 }
-.ill .riser:nth-of-type(2) { animation-name: ill-wave-2; }
-.ill .riser:nth-of-type(3) { animation-name: ill-wave-3; }
+.ill .riser:nth-of-type(2) {
+	animation-name: ill-wave-2;
+}
+.ill .riser:nth-of-type(3) {
+	animation-name: ill-wave-3;
+}
 
-@keyframes ill-flow { from { stroke-dashoffset: 80; } to { stroke-dashoffset: 0; } }
-@keyframes ill-ping { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
-@keyframes ill-ring-in { from { stroke-dashoffset: 0.5; } to { stroke-dashoffset: 0; } }
-@keyframes ill-ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes ill-tip { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+@keyframes ill-flow {
+	from {
+		stroke-dashoffset: 80;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes ill-ping {
+	0%,
+	100% {
+		opacity: 0.25;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes ill-ring-in {
+	from {
+		stroke-dashoffset: 0.5;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes ill-ring-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes ill-tip {
+	0%,
+	100% {
+		transform: rotate(-7deg);
+	}
+	50% {
+		transform: rotate(7deg);
+	}
+}
 @keyframes ill-reclose {
-  0% { stroke-dashoffset: 0; }
-  18% { stroke-dashoffset: 1; }
-  56%, 100% { stroke-dashoffset: 0; }
+	0% {
+		stroke-dashoffset: 0;
+	}
+	18% {
+		stroke-dashoffset: 1;
+	}
+	56%,
+	100% {
+		stroke-dashoffset: 0;
+	}
 }
 @keyframes ill-burn {
-  0%, 100% { transform: scaleY(1); opacity: 1; }
-  50% { transform: scaleY(0.16); opacity: 0.35; }
+	0%,
+	100% {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scaleY(0.16);
+		opacity: 0.35;
+	}
 }
 @keyframes ill-book {
-  0%, 100% { transform: scaleX(1); }
-  50% { transform: scaleX(0.3); }
+	0%,
+	100% {
+		transform: scaleX(1);
+	}
+	50% {
+		transform: scaleX(0.3);
+	}
 }
 @keyframes ill-wave-1 {
-  0%, 21% { transform: scaleY(1); }
-  31%, 46% { transform: scaleY(0); }
-  56%, 100% { transform: scaleY(1); }
+	0%,
+	21% {
+		transform: scaleY(1);
+	}
+	31%,
+	46% {
+		transform: scaleY(0);
+	}
+	56%,
+	100% {
+		transform: scaleY(1);
+	}
 }
 @keyframes ill-wave-2 {
-  0%, 13% { transform: scaleY(1); }
-  23%, 54% { transform: scaleY(0); }
-  64%, 100% { transform: scaleY(1); }
+	0%,
+	13% {
+		transform: scaleY(1);
+	}
+	23%,
+	54% {
+		transform: scaleY(0);
+	}
+	64%,
+	100% {
+		transform: scaleY(1);
+	}
 }
 @keyframes ill-wave-3 {
-  0%, 5% { transform: scaleY(1); }
-  15%, 62% { transform: scaleY(0); }
-  72%, 100% { transform: scaleY(1); }
+	0%,
+	5% {
+		transform: scaleY(1);
+	}
+	15%,
+	62% {
+		transform: scaleY(0);
+	}
+	72%,
+	100% {
+		transform: scaleY(1);
+	}
 }
 
 /* Reduced motion snaps each loop to its end frame, which is why every keyframe
    set above is authored to end on the correct static state. */
 @media (prefers-reduced-motion: reduce) {
-  .ill * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-  }
+	.ill * {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+	}
 }
