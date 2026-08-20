@@ -249,13 +249,6 @@ body {
 .ill .spark { fill: #fff; opacity: 0.4; transition: fill 0.4s ease-out, opacity 0.4s ease-out; }
 .ill .spark-lit { fill: var(--ill-pink); opacity: 0.95; }
 
-/* view-box, so the origin the gauge sets inline is read in the viewBox's own
-   units rather than the rendered box's. */
-.ill .gauge-head {
-  transform-box: view-box;
-  transition: transform 0.3s cubic-bezier(0.3, 0.85, 0.25, 1);
-}
-
 /* Checklist rows: the tick is the one pink thing — the square around it is a
    bare grey outline. The tick stays drawn: a blinking check reads as
    unchecked. */
@@ -375,7 +368,6 @@ body {
   }
 
   .ill .gauge-arc,
-  .ill .gauge-head,
   .ill .spark {
     transition: none;
   }

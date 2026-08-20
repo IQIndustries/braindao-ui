@@ -95,20 +95,6 @@ export const BoostGauge = ({
 			filter="url(#gauge-glow)"
 		/>
 
-		{/* The head rides the tube instead of jumping to fresh coordinates: it is
-		    parked at the arc's start and rotated about the gauge's centre, so a
-		    tween between two positions follows the arc rather than cutting the
-		    chord between them. */}
-		<g
-			className="gauge-head"
-			style={{
-				transformOrigin: `${CENTER.x}px ${CENTER.y}px`,
-				transform: `rotate(${fraction * 180}deg)`,
-			}}
-		>
-			<circle className="dotw" cx={CENTER.x - R} cy={CENTER.y} r="3.4" />
-		</g>
-
 		{/* Inline, not a fontSize attribute: the .val class carries a font-size,
 		    and a class beats a presentation attribute. */}
 		<text
