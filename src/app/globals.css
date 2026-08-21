@@ -82,7 +82,11 @@ body {
 #markets,
 #utility,
 #treasury,
-#ecosystem {
+#ecosystem,
+#mechanism,
+#estimate,
+#decay,
+#rewards {
   scroll-margin-top: 110px;
 }
 
@@ -139,6 +143,10 @@ body {
 .ill .val { fill: var(--ill-ink); stroke: none; font-size: 12.5px; }
 .ill .val-p { fill: var(--ill-pink); stroke: none; font-size: 12.5px; }
 
+.ill .grid-line { fill: none; stroke: var(--ill-line); stroke-width: 1; }
+.ill .glyph-ink { fill: none; stroke: var(--ill-ink); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ill .dash { fill: none; stroke: var(--ill-line-3); stroke-width: 1.4; stroke-dasharray: 4 5; }
+
 .ill .lit {
   fill: none;
   stroke: var(--ill-pink);
@@ -165,6 +173,96 @@ body {
   transform-origin: 90px 90px;
   animation: ill-ring-spin 46s linear infinite;
 }
+
+/* hiIQ boards: the lock ring, the decay plot, the boost gauge, the
+   requirement checks. */
+.ill .lock-ring { fill: none; stroke: var(--ill-pink); stroke-width: 3; }
+.ill .lock-ring-lit {
+  stroke-linecap: round;
+  stroke-dasharray: 26 74;
+  animation: ill-orbit 7s linear infinite;
+}
+
+.ill .curve {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ill-draw 1.6s cubic-bezier(0.3, 0.85, 0.25, 1) 0.3s forwards;
+}
+.ill .dash-lit {
+  fill: none;
+  stroke: var(--ill-ink-4);
+  stroke-width: 1.4;
+  stroke-dasharray: 5 6;
+  opacity: 0.75;
+  animation: ill-march 3.4s linear infinite;
+}
+/* The decay tail runs on one clock: the dashes march off toward expiry while
+   the balance's dot rides down them and fades, then returns to rest at the
+   node. The 5 6 dasharray is ill-march's period, which .dash's is not. */
+.ill .dash-drift {
+  stroke-dasharray: 5 6;
+  animation: ill-march 3.4s linear infinite;
+}
+.ill .decay-drift { animation: ill-decay-drift 3.4s ease-in-out infinite; }
+
+.ill .gauge-track { fill: none; stroke: var(--ill-line-2); stroke-width: 8; stroke-linecap: round; }
+.ill .gauge-arc {
+  fill: none;
+  stroke: var(--ill-pink);
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.3s cubic-bezier(0.3, 0.85, 0.25, 1);
+  /* The design draws the arc as a neon tube; the glow is the only place the
+     boards use one, so it stays on the gauge rather than in a shared class.
+     6px is about the room the filter region leaves around the arc's box —
+     blur past that clips to a visible rectangle instead of fading out. */
+  filter: drop-shadow(0 0 6px rgba(255, 26, 136, 0.45));
+}
+
+/* The gauge's only moving part: a short glowing light sliding up and down the
+   lit stretch of tube, waiting a beat at each end. It never fills the tube —
+   the pink underneath is the readout and stays put. The path is cut to the
+   swept arc and normalised to a pathLength of 100, so one fixed animation
+   covers 1× to the value whatever the value is, and the gap outruns the path so
+   the pattern cannot tile a second light onto the start. The glow is a filter
+   the gauge carries, since its region has to be pinned to the viewBox rather
+   than to the path. */
+.ill .gauge-light {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 12 188;
+  /* Not the boards' draw-in curve: that one is front-loaded, and a light meant to
+     be watched travelling has to hold a steady pace. alternate, so the run back
+     is the run out reversed — the two ends of a cycle hold the same offset,
+     which is what keeps the turn seamless. */
+  animation: ill-gauge-light 1.7s ease-in-out infinite alternate;
+}
+
+/* Stray light off the tube: unlit ones are barely there, and the sweep hands
+   each its colour on the same clock as the arc. */
+.ill .spark { fill: #fff; opacity: 0.4; transition: fill 0.4s ease-out, opacity 0.4s ease-out; }
+.ill .spark-lit { fill: var(--ill-pink); opacity: 0.95; }
+
+/* Checklist rows: the tick is the one pink thing — the square around it is a
+   bare grey outline. The tick stays drawn: a blinking check reads as
+   unchecked. */
+.ill .checkbox { fill: none; stroke: var(--ill-line-3); stroke-width: 1.2; }
+.ill .tick { fill: none; stroke: var(--ill-pink); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+/* The reward fan's rays: heavier than a rail so the sweep reads at a glance. */
+.ill .ray { fill: none; stroke: var(--ill-line-3); stroke-width: 1.3; }
+
+/* The stakers' balances riding their rays into the pool and back out, all four
+   on one clock. An offset path, not a translate: the rays curve, so a dot
+   stepped straight at the node would leave its line on the way. The path each
+   dot follows is its own, so it lives inline on the dot; the run is shared. */
+.ill .staker { animation: ill-gather 3.6s ease-in-out infinite alternate; }
 
 .ill .tipper {
   transform-box: view-box;
@@ -205,6 +303,13 @@ body {
 @keyframes ill-ring-in { from { stroke-dashoffset: 0.5; } to { stroke-dashoffset: 0; } }
 @keyframes ill-ring-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 @keyframes ill-tip { 0%, 100% { transform: rotate(-7deg); } 50% { transform: rotate(7deg); } }
+/* Out, then a rest inside the node — alternate plays the run home, so the two
+   ends of a cycle hold the same distance and the turn is seamless. The 0% frame
+   is the design's resting fan, which is where reduced motion parks. */
+@keyframes ill-gather {
+  0%, 12% { offset-distance: 0%; }
+  88%, 100% { offset-distance: 100%; }
+}
 @keyframes ill-reclose {
   0% { stroke-dashoffset: 0; }
   18% { stroke-dashoffset: 1; }
@@ -233,6 +338,26 @@ body {
   15%, 62% { transform: scaleY(0); }
   72%, 100% { transform: scaleY(1); }
 }
+@keyframes ill-orbit { from { stroke-dashoffset: 100; } to { stroke-dashoffset: 0; } }
+@keyframes ill-march { from { stroke-dashoffset: 22; } to { stroke-dashoffset: 0; } }
+/* Snaps back to the node while it is invisible, so the return leg is a fade
+   rather than the dot travelling backwards up the tail. */
+@keyframes ill-decay-drift {
+  0% { transform: translate(0, 0); opacity: 1; }
+  58% { transform: translate(100px, 33px); opacity: 0; }
+  59%, 74% { transform: translate(0, 0); opacity: 0; }
+  100% { transform: translate(0, 0); opacity: 1; }
+}
+@keyframes ill-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+/* A negative offset walks the dash forward, so the light sits over [-offset,
+   -offset + 12] and 88 carries it to the head. The holds at both ends are what
+   alternate doubles into the pause before it turns round. Both ends stay plain
+   numbers: a calc() at one end and a number at the other are different types to
+   interpolate, and the run turns into a jump. */
+@keyframes ill-gauge-light {
+  0%, 12% { stroke-dashoffset: 0; }
+  88%, 100% { stroke-dashoffset: -88; }
+}
 
 /* Reduced motion snaps each loop to its end frame, which is why every keyframe
    set above is authored to end on the correct static state. */
@@ -241,4 +366,79 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+
+  .ill .gauge-arc,
+  .ill .spark {
+    transition: none;
+  }
+}
+
+/* Lock-length slider. The filled half of the track is painted with a gradient
+   stop parked at --range-pct, which the estimator keeps in sync with the value,
+   so both engines share one rule instead of Firefox's ::-moz-range-progress
+   drifting from WebKit's. */
+.lock-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* One selector per rule: an unknown vendor pseudo-element invalidates the whole
+   selector list, so pairing the two would drop the track in both engines. */
+.lock-range::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #ff1a88 var(--range-pct, 0%),
+    #2a2a2e var(--range-pct, 0%)
+  );
+}
+
+.lock-range::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    #ff1a88 var(--range-pct, 0%),
+    #2a2a2e var(--range-pct, 0%)
+  );
+}
+
+.lock-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px;
+  border: 3px solid #ff1a88;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 26, 136, 0.16);
+}
+
+.lock-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #ff1a88;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(255, 26, 136, 0.16);
+}
+
+.lock-range:focus-visible {
+  outline: none;
+}
+
+.lock-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 5px rgba(255, 26, 136, 0.36);
+}
+
+.lock-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 5px rgba(255, 26, 136, 0.36);
 }
