@@ -6,7 +6,7 @@ import { Display, Eyebrow, Section } from "./section-kit";
 const PRODUCTS = [
 	{ key: "iqai", href: "https://iqai.com/" },
 	{ key: "wiki", href: "https://iq.wiki/" },
-	{ key: "industries", href: "https://iqindustries.ai/" },
+	{ key: "industries", href: "https://iqindustries.com/" },
 ] as const;
 
 const Ecosystem = async () => {
