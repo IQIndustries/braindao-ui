@@ -1,11 +1,14 @@
 import type { IconType } from "react-icons";
 import {
+	RiArrowRightDownLine,
+	RiCalculatorLine,
 	RiCoinLine,
 	RiFlashlightFill,
 	RiGlobalLine,
 	RiLayoutGridLine,
 	RiLockLine,
 	RiSafe2Line,
+	RiTimeLine,
 	RiTokenSwapLine,
 } from "react-icons/ri";
 
@@ -17,6 +20,9 @@ const ICONS = {
 	vault: RiSafe2Line,
 	grid: RiLayoutGridLine,
 	lock: RiLockLine,
+	clock: RiTimeLine,
+	calculator: RiCalculatorLine,
+	decay: RiArrowRightDownLine,
 } satisfies Record<string, IconType>;
 
 export type EyebrowIconName = keyof typeof ICONS;

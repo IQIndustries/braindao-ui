@@ -137,45 +137,100 @@
 	},
 	"hiiq": {
 		"meta": {
-			"title": "HiIQ - Stake IQ for governance power and rewards",
+			"title": "HiIQ - Lock IQ for governance power and staking rewards",
 			"description": "HiIQ is the staking mechanism for the IQ token. Lock IQ for up to four years to increase your voting power and earn staking rewards."
 		},
-		"eyebrow": "Staking",
-		"title": "HiIQ",
-		"description": "HiIQ is the staking mechanism for IQ. Locking IQ grants HiIQ, which determines your governance voting power and your share of staking rewards.",
-		"cta": "Stake IQ",
-		"secondary-cta": "View treasury",
-		"stats": {
-			"locked": "Total IQ locked",
-			"supply": "Total HiIQ outstanding"
+		"eyebrow": "HiIQ staking",
+		"title": "Lock $IQ. <highlight>Gain HiIQ.</highlight>",
+		"description": "HiIQ is the staking mechanism for $IQ. Locking IQ grants HiIQ, the balance that determines your governance voting power and your share of staking rewards.",
+		"primary-cta": "Stake IQ",
+		"secondary-cta": "HiIQ on IQ.wiki",
+		"chips": {
+			"boost": "4× max boost",
+			"model": "veCRV model",
+			"transfer": "non-transferable",
+			"rewards": "rewards in <iq>IQ</iq>"
 		},
-		"sections": {
-			"what": {
-				"title": "What HiIQ is",
-				"description": "HiIQ is the staking mechanism for the IQ token. When you lock IQ you receive HiIQ, an account-based measure of your locked position that sets both your governance voting power and your share of rewards."
+		"stats": {
+			"locked": {
+				"label": "IQ locked",
+				"foot": "IQ"
 			},
-			"how": {
-				"title": "How it works",
-				"description": "Lock IQ for up to four years to receive up to 4x HiIQ, following a veCRV-style model. The longer the lock, the higher the resulting HiIQ balance for the same amount of IQ."
-			},
-			"non-transferable": {
-				"title": "Non-transferable",
-				"description": "HiIQ does not trade on any market and cannot be transferred. It is an account-based measure of how long your IQ remains locked, not a tradeable asset."
-			},
-			"decay": {
-				"title": "Decay",
-				"description": "Your HiIQ balance decreases linearly as the lock approaches expiry, reaching a 1:1 ratio with your locked IQ when no time remains. Extending a lock restores the multiplier."
-			},
-			"rewards": {
-				"title": "Rewards",
-				"description": "Stakers earn additional IQ in proportion to their HiIQ balance. A share of ecosystem fees paid in IQ may also be burned or redistributed to stakers, making the supply model deflationary."
-			},
-			"requirements": {
-				"title": "Requirements",
-				"description": "Your IQ must be on Ethereum to stake, and you need ETH in your wallet to cover gas for locking, extending, and claiming rewards."
+			"supply": {
+				"label": "Total HiIQ",
+				"foot": "HiIQ outstanding"
 			}
 		},
-		"source": "Reference: <link>HiIQ on IQ.wiki</link>."
+		"mechanism": {
+			"eyebrow": "How it works",
+			"title": "Up to 4 years. Up to <highlight>4× HiIQ.</highlight>",
+			"description": "HiIQ follows the veCRV model: lock $IQ for up to 4 years and receive up to 4× your locked amount in HiIQ. The longer the lock, the higher your HiIQ balance, and with it your voting power and reward share.",
+			"board": {
+				"label": "Lock → boost mechanism",
+				"meta": "4-year maximum",
+				"source": "$IQ",
+				"deposit": "Deposit",
+				"lock": "Lock",
+				"lock-caption": "4-year lock",
+				"mint": "Mint",
+				"boost": "4×",
+				"boost-unit": "HiIQ",
+				"boost-caption": "Boosted balance",
+				"decay": "Decays to 1× at expiry"
+			}
+		},
+		"estimate": {
+			"eyebrow": "Estimate",
+			"title": "See what a lock <highlight>returns.</highlight>",
+			"description": "Drag the lock length to see the HiIQ you would receive for 1,000 IQ, and the boost multiplier that comes with it. The same curve applies at any size.",
+			"note": "Locks can be extended at any time. Extending resets the decay and restores the boost.",
+			"panel": {
+				"label": "Lock {amount} IQ for",
+				"slider": "Lock length",
+				"receive": "You receive",
+				"receive-value": "{amount} <iq>HiIQ</iq>",
+				"from": "from {amount} IQ locked",
+				"boost": "Boost"
+			},
+			"duration": {
+				"weeks": "{count, plural, =1 {# week} other {# weeks}}",
+				"years": "{count, plural, =1 {# year} other {# years}}"
+			},
+			"duration-short": {
+				"months": "{count, plural, other {#mo}}",
+				"years": "{count, plural, other {#y}}"
+			}
+		},
+		"decay": {
+			"eyebrow": "Decay",
+			"title": "HiIQ <highlight>decays</highlight> as your lock matures.",
+			"description": "Your HiIQ balance decreases linearly as the lock approaches expiry, reaching 1:1 with your locked IQ at zero time remaining. Extending a lock restores the boost.",
+			"transfer": "<strong>HiIQ is non-transferable.</strong> It does not trade on markets; it is an account-based measure of how long your IQ stays locked.",
+			"chart": {
+				"label": "HiIQ balance over lock lifetime",
+				"extend": "Extend → boost restored",
+				"start": "Lock start",
+				"expiry": "Expiry",
+				"legend": {
+					"balance": "HiIQ balance",
+					"extended": "If extended"
+				}
+			}
+		},
+		"payout": {
+			"title": "Earn IQ, proportional to HiIQ",
+			"description": "Stakers earn additional IQ, distributed proportionally to HiIQ balance. A share of ecosystem platform fees may be burned or redistributed to stakers, a deflationary mechanism for $IQ.",
+			"board": {
+				"source": "Rewards",
+				"target": "Stakers"
+			}
+		},
+		"requirements": {
+			"title": "What you need to stake",
+			"iq": "$IQ on Ethereum, where HiIQ staking lives",
+			"gas": "ETH for gas on lock, extend, and claim transactions",
+			"lock": "A lock period of your choice, up to 4 years"
+		}
 	},
 	"footer": {
 		"now": {
