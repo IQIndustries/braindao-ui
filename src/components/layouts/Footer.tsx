@@ -23,7 +23,7 @@ const socialLinks: { name: SocialName; label: string; href: string }[] = [
 const ecosystemLinks = [
 	{ name: "IQ AI", href: "https://iqai.com/" },
 	{ name: "IQ.wiki", href: "https://iq.wiki/" },
-	{ name: "IQ Industries", href: "https://iqindustries.ai/" },
+	{ name: "IQ Industries", href: "https://iqindustries.com/" },
 	{ name: "IQ Blog", href: "https://blog.iqai.com/" },
 ];
 
