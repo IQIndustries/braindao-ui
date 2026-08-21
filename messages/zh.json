@@ -137,45 +137,100 @@
 	},
 	"hiiq": {
 		"meta": {
-			"title": "HiIQ - 质押 IQ 获取治理权与奖励",
+			"title": "HiIQ - 锁定 IQ 获取治理权与质押奖励",
 			"description": "HiIQ 是 IQ 代币的质押机制。最长可锁定 IQ 四年，以提升投票权重并赚取质押奖励。"
 		},
-		"eyebrow": "质押",
-		"title": "HiIQ",
-		"description": "HiIQ 是 IQ 的质押机制。锁定 IQ 即可获得 HiIQ，它决定了您的治理投票权重以及质押奖励的分配份额。",
-		"cta": "质押 IQ",
-		"secondary-cta": "查看资金库",
-		"stats": {
-			"locked": "IQ 锁仓总量",
-			"supply": "HiIQ 流通总量"
+		"eyebrow": "HiIQ 质押",
+		"title": "锁定 $IQ，<highlight>获得 HiIQ。</highlight>",
+		"description": "HiIQ 是 $IQ 的质押机制。锁定 IQ 即可获得 HiIQ，该余额决定了您的治理投票权重以及质押奖励的分配份额。",
+		"primary-cta": "质押 IQ",
+		"secondary-cta": "IQ.wiki 上的 HiIQ",
+		"chips": {
+			"boost": "最高 4× 加成",
+			"model": "veCRV 模型",
+			"transfer": "不可转让",
+			"rewards": "以 <iq>IQ</iq> 发放奖励"
 		},
-		"sections": {
-			"what": {
-				"title": "什么是 HiIQ",
-				"description": "HiIQ 是 IQ 代币的质押机制。锁定 IQ 后您会获得 HiIQ，它以账户为单位衡量您的锁仓状况，并决定治理投票权重和奖励份额。"
+		"stats": {
+			"locked": {
+				"label": "IQ 锁仓量",
+				"foot": "IQ"
 			},
-			"how": {
-				"title": "运作方式",
-				"description": "参照 veCRV 模型，最长可将 IQ 锁定四年，最多可获得 4 倍的 HiIQ。相同数量的 IQ，锁定时间越长，得到的 HiIQ 余额越高。"
-			},
-			"non-transferable": {
-				"title": "不可转让",
-				"description": "HiIQ 不在任何市场交易，也无法转让。它不是可交易的资产，而是以账户为单位衡量您的 IQ 锁定时长的指标。"
-			},
-			"decay": {
-				"title": "线性衰减",
-				"description": "随着锁仓临近到期，您的 HiIQ 余额会线性下降，在剩余时间归零时与锁定的 IQ 达到 1:1。延长锁仓可恢复倍数。"
-			},
-			"rewards": {
-				"title": "奖励",
-				"description": "质押者按其 HiIQ 余额比例获得额外的 IQ。以 IQ 支付的生态系统费用也可能被销毁或再分配给质押者，使供应模型具有通缩性。"
-			},
-			"requirements": {
-				"title": "前提条件",
-				"description": "质押要求您的 IQ 位于以太坊网络，并且钱包中需持有 ETH，用于支付锁仓、延长和领取奖励的 gas 费用。"
+			"supply": {
+				"label": "HiIQ 总量",
+				"foot": "HiIQ 流通量"
 			}
 		},
-		"source": "参考资料：<link>IQ.wiki 上的 HiIQ</link>。"
+		"mechanism": {
+			"eyebrow": "运作方式",
+			"title": "最长 4 年，最高 <highlight>4× HiIQ。</highlight>",
+			"description": "HiIQ 采用 veCRV 模型：将 $IQ 最长锁定 4 年，即可获得相当于锁仓量最高 4 倍的 HiIQ。锁定时间越长，HiIQ 余额越高，投票权重和奖励份额也随之提升。",
+			"board": {
+				"label": "锁仓 → 加成机制",
+				"meta": "最长 4 年",
+				"source": "$IQ",
+				"deposit": "存入",
+				"lock": "锁定",
+				"lock-caption": "锁定 4 年",
+				"mint": "铸造",
+				"boost": "4×",
+				"boost-unit": "HiIQ",
+				"boost-caption": "加成后余额",
+				"decay": "到期时降至 1×"
+			}
+		},
+		"estimate": {
+			"eyebrow": "估算",
+			"title": "看看一次锁仓的<highlight>回报。</highlight>",
+			"description": "拖动锁定时长，即可查看 1,000 IQ 可获得的 HiIQ 以及相应的加成倍数。任何数量都适用同一条曲线。",
+			"note": "锁仓可随时延长。延长会重置衰减并恢复加成。",
+			"panel": {
+				"label": "锁定 {amount} IQ 的时长",
+				"slider": "锁定时长",
+				"receive": "您将获得",
+				"receive-value": "{amount} <iq>HiIQ</iq>",
+				"from": "基于锁定 {amount} IQ",
+				"boost": "加成"
+			},
+			"duration": {
+				"weeks": "{count, plural, other {#周}}",
+				"years": "{count, plural, other {#年}}"
+			},
+			"duration-short": {
+				"months": "{count, plural, other {#个月}}",
+				"years": "{count, plural, other {#年}}"
+			}
+		},
+		"decay": {
+			"eyebrow": "衰减",
+			"title": "随着锁仓临近到期，HiIQ 会<highlight>衰减。</highlight>",
+			"description": "随着锁仓临近到期，您的 HiIQ 余额会线性下降，在剩余时间归零时与锁定的 IQ 达到 1:1。延长锁仓可恢复加成。",
+			"transfer": "<strong>HiIQ 不可转让。</strong>它不在市场上交易，而是以账户为单位衡量您的 IQ 锁定时长的指标。",
+			"chart": {
+				"label": "锁仓周期内的 HiIQ 余额",
+				"extend": "延长 → 恢复加成",
+				"start": "锁仓开始",
+				"expiry": "到期",
+				"legend": {
+					"balance": "HiIQ 余额",
+					"extended": "延长后"
+				}
+			}
+		},
+		"payout": {
+			"title": "按 HiIQ 余额比例赚取 IQ",
+			"description": "质押者按其 HiIQ 余额比例获得额外的 IQ。生态系统平台费用的一部分可能被销毁或再分配给质押者，为 $IQ 带来通缩效应。",
+			"board": {
+				"source": "奖励",
+				"target": "质押者"
+			}
+		},
+		"requirements": {
+			"title": "质押所需条件",
+			"iq": "位于以太坊的 $IQ，HiIQ 质押在该网络上运行",
+			"gas": "用于锁仓、延长和领取交易 gas 费用的 ETH",
+			"lock": "由您自行选择的锁定期限，最长 4 年"
+		}
 	},
 	"footer": {
 		"now": {
