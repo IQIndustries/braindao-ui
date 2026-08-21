@@ -1,87 +1,38 @@
-export const navLinks = [
+export interface NavLink {
+	key: "home" | "hiiq" | "treasury" | "dashboard";
+	href: string;
+	target?: string;
+	section?: string;
+}
+
+export const navLinks: NavLink[] = [
 	{
-		title: "IQ AI",
-		href: "#iqai",
-		target: "",
+		key: "home",
+		href: "/",
 	},
 	{
-		title: "IQ.wiki",
-		href: "#iq-wiki",
-		target: "",
+		key: "hiiq",
+		href: "/hiiq",
 	},
 	{
-		title: "Sophia",
-		href: "#sophia",
-		target: "",
+		key: "treasury",
+		href: "/#treasury",
+		section: "treasury",
 	},
 	{
-		title: "AIDEN",
-		href: "#aiden",
-		target: "",
-	},
-	{
-		title: "IQ Treasury",
-		href: "#dashboard",
-		target: "",
-	},
-	{
-		title: "IQ Blog",
-		href: "#blog",
-		target: "",
-	},
-	{
-		title: "Learn",
-		href: "https://learn.everipedia.org/iq",
+		key: "dashboard",
+		href: "https://iq.iqai.com/dashboard",
 		target: "_blank",
 	},
 ];
 
 export const appLinks = [
 	{
-		title: "IQ AI",
-		href: "https://iqai.com",
-	},
-	{
-		title: "IQ.wiki",
-		href: "https://iq.wiki/",
-	},
-	{
-		title: "Sophia",
-		href: "https://sophia.iqai.com/",
-	},
-	{
-		title: "AIDEN Chat",
-		href: "https://chat.aiden.id",
-	},
-	{
 		title: "IQ Dashboard",
-		href: "https://iq.iqai.com/",
-	},
-];
-
-export const mobileNavLinks = [
-	{
-		title: "IQ AI",
-		href: "https://iqai.com/",
+		href: "https://iq.iqai.com/dashboard",
 	},
 	{
-		title: "IQ.wiki",
-		href: "https://iq.wiki/",
-	},
-	{
-		title: "Sophia",
-		href: "https://sophia.iqai.com/",
-	},
-	{
-		title: "AIDEN",
-		href: "https://chat.aiden.id/",
-	},
-	{
-		title: "IQ Dashboard",
-		href: "https://iq.iqai.com/",
-	},
-	{
-		title: "IQ Blog",
-		href: "https://blog.iqai.com/",
+		title: "Stake IQ",
+		href: "https://iq.iqai.com/dashboard/stake",
 	},
 ];

@@ -6,37 +6,36 @@ import ThemeWinterSnow from "@/components/themes/theme-winter-snow";
 import { Theme, isTheme } from "@/lib/helpers/theme";
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
-import { ibmPlexMono, montserrat, satoshi } from "../font";
+import { getLocale } from "next-intl/server";
+import { dmMono, dmSans, instrumentSerif, satoshi } from "../font";
+
+const TITLE = "BrainDAO - The DAO behind the IQ token.";
+const DESCRIPTION =
+	"BrainDAO is the legal entity that launched IQ. Track live IQ token stats, stake IQ for HiIQ, and explore the BrainDAO treasury.";
 
 export const metadata: Metadata = {
-	title: "BrainDAO - Building a more intelligent future through the IQ token.",
-	description:
-		"Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+	title: TITLE,
+	description: DESCRIPTION,
 	metadataBase: new URL("https://braindao.org"),
 	openGraph: {
-		title:
-			"BrainDAO - Building a more intelligent future through the IQ token.",
+		title: TITLE,
 		url: "https://braindao.org",
 		type: "website",
-		description:
-			"Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+		description: DESCRIPTION,
 		images: [
 			{
 				url: "https://braindao.org/images/og-image.png",
-				alt: "BrainDAO - Building a more intelligent future through the IQ token.",
+				alt: TITLE,
 			},
 		],
 	},
 	twitter: {
 		card: "summary_large_image",
-		title:
-			"BrainDAO - Building a more intelligent future through the IQ token.",
-		description:
-			"Join our mission to expand the scope of human knowledge with BrainDAO, the governing DAO powering the IQ ecosystem.",
+		title: TITLE,
+		description: DESCRIPTION,
 		images: ["https://braindao.org/images/og-image.png"],
-		site: "@Everipedia",
-		creator: "@Everipedia",
+		site: "@IQofficial",
+		creator: "@IQofficial",
 	},
 };
 
@@ -50,17 +49,21 @@ export default async function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
-	const [locale, messages] = await Promise.all([getLocale(), getMessages()]);
+	const locale = await getLocale();
 
 	const isChristmasTheme = isTheme(Theme.enum.christmas);
 
 	return (
 		<html
 			lang={locale}
-			className={`${montserrat.className} ${ibmPlexMono.variable} ${satoshi.variable}`}
+			// globals.css sets `scroll-behavior: smooth` on html; Next 16 stopped
+			// overriding it during route transitions unless this opts back in.
+			data-scroll-behavior="smooth"
+			// next-themes writes class and color-scheme onto html before hydration.
+			suppressHydrationWarning
+			className={`${dmSans.variable} ${dmMono.variable} ${satoshi.variable} ${instrumentSerif.variable}`}
 		>
 			<head>
-				<link rel="canonical" />
 				<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
@@ -70,7 +73,8 @@ export default async function RootLayout({
 				/>
 			</head>
 			<body>
-				<NextIntlClientProvider locale={locale} messages={messages}>
+				{/* next-intl v4 inherits messages from i18n/request.ts */}
+				<NextIntlClientProvider locale={locale}>
 					<ClientProviders>
 						<div>
 							<Navbar isChristmasTheme={isChristmasTheme} />

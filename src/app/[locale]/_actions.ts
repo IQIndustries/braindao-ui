@@ -1,14 +1,11 @@
 import { env } from "@/env";
+import { DATA_REVALIDATE_SECONDS } from "@/modules/cache";
 import { formatNumber } from "@/modules/helpers/numFormatter";
 import axios, { AxiosError } from "axios";
-import {
-	type CMCTokenData,
-	cmcTokenDataSchema,
-	sophiaStatsSchema,
-} from "./_schema";
+import { unstable_cache } from "next/cache";
+import { type CMCTokenData, cmcTokenDataSchema } from "./_schema";
 
 const CACHE_DURATION_SECONDS_12_HR_IN_SECONDS = 12 * 60 * 60;
-const SOPHIA_STATS_API_URL = `https://app.iqai.com/api/agents/stats?address=${env.NEXT_PUBLIC_SOPHIA_AGENT_ADDRESS}`;
 
 export async function getIqStats() {
 	try {
@@ -72,34 +69,27 @@ export async function getIqStats() {
 	}
 }
 
-export async function getSophiaStats() {
-	try {
-		const response = await axios.get(SOPHIA_STATS_API_URL);
+const fetchMarketCapData = unstable_cache(
+	async (): Promise<CMCTokenData> => {
+		try {
+			const response = await axios.get(`${env.NEXT_PUBLIC_IQ_GATEWAY_URL}`, {
+				headers: {
+					"x-api-key": env.NEXT_PUBLIC_IQ_GATEWAY_KEY,
+				},
+				params: {
+					url: "https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=everipedia",
+					cacheDuration: CACHE_DURATION_SECONDS_12_HR_IN_SECONDS,
+				},
+			});
 
-		return sophiaStatsSchema.parse(response.data);
-	} catch (error) {
-		console.error("Error fetching Sophia stats:", error);
-		return null;
-	}
-}
-
-async function fetchMarketCapData(): Promise<CMCTokenData> {
-	try {
-		const response = await axios.get(`${env.NEXT_PUBLIC_IQ_GATEWAY_URL}`, {
-			headers: {
-				"x-api-key": env.NEXT_PUBLIC_IQ_GATEWAY_KEY,
-			},
-			params: {
-				url: "https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=everipedia",
-				cacheDuration: CACHE_DURATION_SECONDS_12_HR_IN_SECONDS,
-			},
-		});
-
-		return cmcTokenDataSchema.parse(response.data[0]);
-	} catch (error) {
-		if (error instanceof AxiosError) {
-			throw new Error(`CoinMarketCap API error: ${error.message}`);
+			return cmcTokenDataSchema.parse(response.data[0]);
+		} catch (error) {
+			if (error instanceof AxiosError) {
+				throw new Error(`CoinMarketCap API error: ${error.message}`);
+			}
+			throw error;
 		}
-		throw error;
-	}
-}
+	},
+	["iq-market-cap-data"],
+	{ revalidate: DATA_REVALIDATE_SECONDS },
+);

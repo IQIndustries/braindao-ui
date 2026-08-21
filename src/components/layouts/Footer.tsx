@@ -1,105 +1,94 @@
+import { getIqStats } from "@/app/[locale]/_actions";
+import { SocialIcon, type SocialName } from "@/components/icons/socials";
+import { navLinks } from "@/data/Nav";
+import { getTvl } from "@/modules/getTVL";
+import { formatNumber } from "@/modules/helpers/numFormatter";
 import { getTranslations } from "next-intl/server";
-import React from "react";
-import ScrollToTopButton from "./scroll-to-top";
+import Link from "next/link";
+import { BrandLogo } from "./brand-logo";
+import { Container, MonoLabel } from "./section-kit";
 
-const products = [
+const NEWSLETTER_ACTION = "https://www.getdrip.com/forms/505929689/submissions";
+
+const socialLinks: { name: SocialName; label: string; href: string }[] = [
+	{ name: "x", label: "X", href: "https://x.com/IQofficial" },
+	{
+		name: "discord",
+		label: "Discord",
+		href: "https://discord.com/invite/x9EWvTcPXt",
+	},
+	{ name: "telegram", label: "Telegram", href: "https://t.me/everipedia" },
+];
+
+const ecosystemLinks = [
 	{ name: "IQ AI", href: "https://iqai.com/" },
 	{ name: "IQ.wiki", href: "https://iq.wiki/" },
-	{ name: "Sophia", href: "https://sophia.iqai.com/" },
-	{ name: "AIDEN", href: "https://aiden.id/" },
-	{ name: "IQ Dashboard", href: "https://iq.iqai.com/dashboard/" },
+	{ name: "IQ Industries", href: "https://iqindustries.ai/" },
 	{ name: "IQ Blog", href: "https://blog.iqai.com/" },
 ];
 
-const socialLinks = [
-	{ name: "X", href: "https://x.com/IQofficial" },
-	{ name: "Discord", href: "https://discord.com/invite/x9EWvTcPXt" },
-	{ name: "Telegram", href: "https://t.me/everipedia" },
-];
+const FooterLink = ({
+	href,
+	children,
+	external,
+	analyticsKey,
+}: {
+	href: string;
+	children: React.ReactNode;
+	external?: boolean;
+	analyticsKey?: string;
+}) => (
+	<Link
+		href={href}
+		target={external ? "_blank" : undefined}
+		rel={external ? "noopener noreferrer" : undefined}
+		data-ph-capture-attribute-product-link-clicked={analyticsKey}
+		className="font-mono text-xs uppercase tracking-[0.14em] text-neutral-400 transition-colors hover:text-white"
+	>
+		{children}
+	</Link>
+);
+
+const FooterPanel = ({
+	label,
+	children,
+}: { label: string; children: React.ReactNode }) => (
+	<div className="rounded-xl border border-rule p-5">
+		<MonoLabel>{label}</MonoLabel>
+		<div className="mt-4 border-t border-rule-soft pt-4">{children}</div>
+	</div>
+);
 
 const Footer = async () => {
-	const t = await getTranslations("footer");
+	// Both reads are cached at the source, so the footer rendering on every
+	// route costs nothing extra beyond the homepage's own fetches.
+	const [t, iqStats, locked] = await Promise.all([
+		getTranslations("footer"),
+		getIqStats(),
+		getTvl(),
+	]);
+
+	const miniStats = [
+		{ label: t("now.price"), value: iqStats.price ? `$${iqStats.price}` : "—" },
+		{ label: t("now.mcap"), value: iqStats.mcap ? `$${iqStats.mcap}` : "—" },
+		{
+			label: t("now.locked"),
+			value: locked
+				? formatNumber(locked, { minDecimals: 2, compact: true })
+				: "—",
+		},
+	];
 
 	return (
-		<footer className="bg-neutral-950 mt-12 lg:mt-48 shadow-custom">
-			<div className="xl:container xl:mx-auto px-4 md:px-10 xl:px-4 flex flex-col gap-6 py-12">
-				<div className="flex flex-col lg:flex-row gap-6 w-full">
-					<div className="flex flex-row w-full gap-6 md:gap-40 lg:gap-24 items-start">
-						<div className="text-muted-foreground">
-							<h2 className="text-sm font-bold mb-3 font-satoshi">
-								{t("newsletter.title")}
-							</h2>
-							<p className="text-xs">{t("newsletter.description")}</p>
-						</div>
-						<a
-							href="https://www.getdrip.com/forms/505929689/submissions/new"
-							target="_blank"
-							rel="noopener noreferrer"
-							className="bg-primary hover:bg-primary/50 text-white px-4 sm:px-8 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-colors whitespace-nowrap self-center lg:mb-10 inline-block text-center no-underline"
-						>
-							{t("newsletter.button")}
-						</a>
-					</div>
-					<div className="flex flex-row w-full justify-between text-sm gap-8 lg:gap-0">
-						<div>
-							<h3 className="font-bold mb-4 text-muted-foreground text-sm">
-								{t("business.title")}
-							</h3>
-							<a
-								className="text-primary font-medium hover:underline whitespace-nowrap"
-								href={`mailto:${t("business.email")}`}
-								title={t("business.email")}
-							>
-								{t("business.contact")}
-							</a>
-						</div>
-						<div>
-							<h3 className="font-bold mb-4 text-muted-foreground font-satoshi">
-								{t("social.title")}
-							</h3>
-							<div className="space-y-2 flex flex-col text-left text-foreground hover:text-white transition-colors">
-								{socialLinks.map((link) => (
-									<a
-										key={link.name}
-										href={link.href}
-										className="text-muted-foreground hover:text-primary transition-colors"
-									>
-										{link.name}
-									</a>
-								))}
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className="flex flex-col lg:flex-row gap-6 w-full">
-					<div className="flex flex-col gap-6 w-full">
-						<h2 className="text-sm font-bold mb-0 font-satoshi text-white">
-							{t("company.title")}
-						</h2>
-						<div className="flex flex-row items-center gap-x-6 sm:gap-x-4 md:gap-x-6 lg:gap-x-5 gap-y-2 flex-wrap xl:max-w-[420px]">
-							{products.map((link, linkIndex) => (
-								<React.Fragment key={link.name}>
-									<a
-										href={link.href}
-										className="block text-white hover:text-gray-300 transition-colors text-sm sm:text-lg lg:text-2xl font-light whitespace-nowrap flex-shrink-0 relative overflow-hidden group"
-										data-ph-capture-attribute-product-link-clicked={link.name.toLowerCase()}
-									>
-										<span className="relative z-10">{link.name}</span>
-										<div className="absolute bottom-0 left-0 w-full h-0 bg-[#FF5CAA66] transition-all duration-300 ease-out group-hover:h-[50%]" />
-									</a>
-									{linkIndex < products.length - 1 &&
-										(linkIndex + 1) % 3 !== 0 && (
-											<div className="h-8 border-[0.5px] border-neutral-700 rotate-45 transform" />
-										)}
-									{(linkIndex + 1) % 3 === 0 && (
-										<div className="hidden lg:block w-full" />
-									)}
-								</React.Fragment>
-							))}
-						</div>
-					</div>
-					<div className="flex flex-row items-start sm:items-center text-muted-foreground gap-20 sm:gap-60 w-full">
-						<p className="flex-1 text-xs sm:text-sm">
+		<footer className="border-t border-rule-soft bg-surface">
+			<Container className="py-16 sm:py-20">
+				<div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
+					<div className="max-w-sm">
+						<Link href="/" className="inline-flex">
+							<BrandLogo />
+						</Link>
+
+						<p className="mt-5 text-sm leading-relaxed text-neutral-400 text-pretty">
 							{t.rich("about.text", {
 								link: (chunks) => (
 									<a
@@ -114,25 +103,153 @@ const Footer = async () => {
 							})}
 						</p>
 
-						<ScrollToTopButton label={t("scrollTop")} />
+						<div className="mt-6 flex gap-2.5">
+							{socialLinks.map((link) => (
+								<a
+									key={link.name}
+									href={link.href}
+									target="_blank"
+									rel="noopener noreferrer"
+									aria-label={link.label}
+									className="inline-flex size-9 items-center justify-center rounded-full border border-rule-control text-neutral-400 transition-colors hover:border-primary/50 hover:text-primary"
+								>
+									<SocialIcon name={link.name} />
+								</a>
+							))}
+						</div>
+					</div>
+
+					<div className="lg:text-right">
+						<MonoLabel>
+							{t.rich("now.title", {
+								iq: (chunks) => <span className="text-primary">{chunks}</span>,
+							})}
+						</MonoLabel>
+
+						<div className="mt-4 grid w-fit grid-cols-[auto_auto] gap-2.5 lg:flex lg:w-auto lg:flex-wrap lg:justify-end">
+							{miniStats.map((stat) => (
+								<div
+									key={stat.label}
+									className="rounded-lg border border-rule bg-surface-raised px-3.5 py-2.5 text-left"
+								>
+									<MonoLabel>{stat.label}</MonoLabel>
+									<p className="mt-1 font-mono text-[15px] leading-tight text-white">
+										{stat.value}
+									</p>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
-			</div>
-			<div className="bg-neutral-900">
-				<div className="flex flex-col md:flex-row items-center gap-5 md:gap-0 justify-between py-4 xl:container xl:mx-auto text-sm text-[#F3F4F6] px-4 md:px-10 xl:px-4 w-full">
-					<span>{t("powered", { year: new Date().getFullYear() })}</span>
-					<div className="flex flex-row items-center justify-between sm:w-[50%] gap-9 sm:gap-0">
+
+				<div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+					<FooterPanel label={t("columns.pages")}>
+						<div className="flex flex-col items-start gap-2.5">
+							{navLinks.map((link) => (
+								<FooterLink
+									key={link.key}
+									href={link.href}
+									external={link.target === "_blank"}
+								>
+									{t(`pages.${link.key}`)}
+								</FooterLink>
+							))}
+						</div>
+					</FooterPanel>
+
+					<FooterPanel label={t("columns.ecosystem")}>
+						<div className="flex flex-col items-start gap-2.5">
+							{ecosystemLinks.map((link) => (
+								<FooterLink
+									key={link.name}
+									href={link.href}
+									external
+									analyticsKey={link.name.toLowerCase().replace(/[\s.]/g, "-")}
+								>
+									{link.name}
+								</FooterLink>
+							))}
+						</div>
+					</FooterPanel>
+
+					<FooterPanel label={t("columns.resources")}>
+						<div className="flex flex-col items-start gap-2.5">
+							<FooterLink href="https://iq.wiki/wiki/hiiq" external>
+								{t("resources.hiiq")}
+							</FooterLink>
+							<FooterLink href="https://learn.everipedia.org" external>
+								{t("resources.learn")}
+							</FooterLink>
+							<FooterLink href="https://iq.wiki/privacy" external>
+								{t("resources.privacy")}
+							</FooterLink>
+							<FooterLink href={`mailto:${t("business.email")}`}>
+								{t("resources.contact")}
+							</FooterLink>
+						</div>
+					</FooterPanel>
+
+					<FooterPanel label={t("columns.newsletter")}>
+						<p className="text-sm leading-relaxed text-neutral-400 text-pretty">
+							{t.rich("newsletter.description", {
+								iq: (chunks) => <span className="text-primary">{chunks}</span>,
+							})}
+						</p>
+						<form
+							action={NEWSLETTER_ACTION}
+							method="post"
+							target="_blank"
+							className="mt-4 flex gap-2"
+						>
+							<input
+								type="email"
+								name="fields[email]"
+								required
+								placeholder={t("newsletter.placeholder")}
+								className="h-10 min-w-0 flex-1 rounded-lg border border-rule-control bg-transparent px-4 text-[13px] text-white placeholder:text-neutral-600 focus:border-primary/60 focus:outline-none"
+							/>
+							<button
+								type="submit"
+								className="h-10 shrink-0 rounded-lg bg-white px-4 text-[13px] font-medium text-black transition-colors hover:bg-neutral-200"
+							>
+								{t("newsletter.button")}
+							</button>
+						</form>
+					</FooterPanel>
+				</div>
+			</Container>
+
+			<div className="border-t border-rule-soft">
+				<Container className="flex flex-col items-start justify-between gap-4 py-6 sm:flex-row sm:items-center">
+					<div className="flex items-center gap-6">
 						<a
 							href="https://iq.wiki/privacy"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="hover:text-primary transition-colors"
+							className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600 transition-colors hover:text-white"
 						>
 							{t("legal.privacy")}
 						</a>
-						<span>{t("legal.rights")}</span>
+						<a
+							href="https://www.brainfund.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="font-mono text-xs uppercase tracking-[0.16em] text-primary/80 transition-colors hover:text-primary"
+						>
+							BrainFund
+						</a>
 					</div>
-				</div>
+
+					<span className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600">
+						{t("powered", { year: new Date().getFullYear() })}
+					</span>
+
+					<span className="font-mono text-xs uppercase tracking-[0.16em] text-neutral-600">
+						{t.rich("legal.tagline", {
+							iq: (chunks) => <span className="text-primary">{chunks}</span>,
+						})}
+					</span>
+				</Container>
 			</div>
 		</footer>
 	);

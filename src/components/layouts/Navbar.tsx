@@ -1,249 +1,175 @@
 "use client";
 
-import ExchangesMenubar from "@/app/[locale]/_components/exchange-menu";
-import { appLinks, mobileNavLinks, navLinks } from "@/data/Nav";
+import { appLinks, navLinks } from "@/data/Nav";
 import { useActiveSection } from "@/hooks/useActiveSection";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useRef, useState } from "react";
-import { RiMenu3Line } from "react-icons/ri";
-import { Button } from "../ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { RiCloseLine, RiMenu3Line } from "react-icons/ri";
+import {
+	Link as LocaleLink,
+	usePathname as useLocalePathname,
+} from "../../../i18n/routing";
+import { locales } from "../../../messages/_schema";
+import { BrandLogo } from "./brand-logo";
 import LocaleSwitcher from "./locale-switcher";
 
-const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
-	const [state, setState] = useState({
-		isScrolled: false,
-		isMobileMenuOpen: false,
-		isLaunchAppOpen: false,
-	});
+const STAKE_HREF = appLinks[1].href;
+const visibleLocales = locales.filter((loc) => !loc.isHidden);
 
+const Navbar = ({ isChristmasTheme }: { isChristmasTheme: boolean }) => {
+	const [isScrolled, setIsScrolled] = useState(false);
+	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const activeSection = useActiveSection();
-	const scrollHandlerRef = useRef<(() => void) | null>(null);
+	const pathname = usePathname();
+	const localePathname = useLocalePathname();
+	const locale = useLocale();
 	const t = useTranslations("navbar");
 
-	const handleScroll = React.useCallback(() => {
-		setState((prev) => ({ ...prev, isScrolled: window.scrollY > 50 }));
+	useEffect(() => {
+		const handleScroll = () => setIsScrolled(window.scrollY > 12);
+		window.addEventListener("scroll", handleScroll, { passive: true });
+		handleScroll();
+		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
-	useEffect(() => {
-		scrollHandlerRef.current = handleScroll;
-		window.addEventListener("scroll", handleScroll);
-		handleScroll();
-		return () => {
-			if (scrollHandlerRef.current) {
-				window.removeEventListener("scroll", scrollHandlerRef.current);
-			}
-		};
-	}, [handleScroll]);
+	const isLinkActive = (link: (typeof navLinks)[number]) => {
+		if (link.section) return link.section === activeSection;
+		if (link.href === "/") {
+			return (
+				!activeSection && !pathname.replace(/^\/(en|kr|ko|zh)/, "").slice(1)
+			);
+		}
+		return pathname.endsWith(link.href);
+	};
 
 	return (
-		<motion.div
-			className={cn(
-				"fixed top-0 left-0 right-0 w-full mx-auto max-w-[1440px] z-50 transition-all duration-300 text-white after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-white/20 after:to-transparent backdrop-blur-md",
-				state.isScrolled
-					? "bg-black/40 backdrop-blur-md max-w-6xl mt-0 md:mt-2 lg:mt-5 md:rounded-full"
-					: "bg-transparent",
-			)}
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			transition={{ duration: 0.3 }}
-		>
-			<header className="flex flex-col z-50 lg:px-4 px-3 py-1">
-				<div className="flex justify-between items-center w-full transition-all duration-300">
-					<motion.div
-						className="flex gap-2 items-center text-lg font-medium w-fit"
-						initial={{ opacity: 0, y: -10 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.3, delay: 0.1 }}
-					>
-						<Link href="/" className="w-fit">
-							{isChristmasTheme ? (
-								<Image
-									src="/svgs/Braindao-logo-christmas.svg"
-									alt="BrainDAO Logo"
-									width={120}
-									height={120}
-									objectPosition="top"
-									objectFit="contain"
-									className="pb-4"
-								/>
-							) : (
-								<Image
-									src="/svgs/Braindao-logo.svg"
-									alt="BrainDAO Logo"
-									width={144}
-									height={144}
-								/>
-							)}
-						</Link>
-					</motion.div>
+		<header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:pt-5">
+			{/* The pill hugs its content rather than stretching to a column width. */}
+			<nav
+				className={cn(
+					"mx-auto flex h-12 w-fit items-center rounded-full border border-rule-control pl-5 pr-1.5 transition-colors duration-300",
+					isScrolled
+						? "bg-surface/90 backdrop-blur-xl"
+						: "bg-surface/70 backdrop-blur-md",
+				)}
+			>
+				<Link href="/" className="flex shrink-0 items-center">
+					<BrandLogo christmas={isChristmasTheme} priority />
+				</Link>
 
-					<motion.nav
-						initial="hidden"
-						animate="visible"
-						className="hidden xl:flex gap-8 xl:gap-6 text-sm lg:text-base"
-					>
-						{navLinks.map((link, index) => {
-							const activeHref = activeSection ? `#${activeSection}` : null;
-							const isActive = activeHref === link.href;
-
-							return (
-								<motion.a
-									key={link.href}
+				<ul className="mx-5 hidden items-center gap-1 md:flex">
+					{navLinks.map((link) => {
+						const active = isLinkActive(link);
+						return (
+							<li key={link.href}>
+								<Link
 									href={link.href}
 									target={link.target}
+									rel={
+										link.target === "_blank" ? "noopener noreferrer" : undefined
+									}
 									className={cn(
-										"transition-colors duration-200",
-										isActive ? "text-primary" : "hover:text-primary",
+										"inline-flex h-8 items-center px-3 text-[14px] transition-colors",
+										active
+											? "font-medium text-white"
+											: "text-neutral-400 hover:text-white",
 									)}
-									variants={{
-										hidden: { opacity: 0, x: -20 },
-										visible: {
-											opacity: 1,
-											x: 0,
-											transition: { delay: index * 0.1, duration: 0.3 },
-										},
-									}}
-									whileHover={{ scale: 1.05 }}
-									whileTap={{ scale: 0.95 }}
 								>
-									{link.title}
-								</motion.a>
-							);
-						})}
-					</motion.nav>
+									{t(`links.${link.key}`)}
+								</Link>
+							</li>
+						);
+					})}
+				</ul>
 
-					<motion.div
-						className="flex gap-2 items-center"
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 0.3, delay: 0.3 }}
+				<div className="ml-10 flex items-center gap-1.5 md:ml-0">
+					<LocaleSwitcher className="hidden h-8 gap-1 px-2.5 text-[11px] text-neutral-300 md:flex" />
+
+					<Link
+						href={STAKE_HREF}
+						target="_blank"
+						rel="noopener noreferrer"
+						data-ph-capture-attribute-product-link-clicked="stake-iq"
+						className="hidden h-9 items-center rounded-full bg-white px-5 text-[14px] font-semibold text-black transition-colors hover:bg-neutral-200 sm:inline-flex"
 					>
-						<div className="hidden xl:flex gap-2 items-center">
-							<LocaleSwitcher className="transition-all duration-200" />
-							<ExchangesMenubar />
-							<Popover
-								open={state.isLaunchAppOpen}
-								onOpenChange={(open) =>
-									setState((prev) => ({ ...prev, isLaunchAppOpen: open }))
-								}
-							>
-								<PopoverTrigger asChild>
-									<motion.div
-										whileHover={{ scale: 1.03 }}
-										whileTap={{ scale: 0.97 }}
-									>
-										<Button
-											type="button"
-											size={state.isScrolled ? "sm" : "lg"}
-											className={cn(
-												"capitalize",
-												state.isScrolled
-													? "text-xs px-3 h-9"
-													: "text-sm px-4 h-11",
-											)}
-										>
-											<span>{t("launch-app")}</span>
-											<ChevronDown
-												className={cn(state.isScrolled ? "h-3 w-3" : "h-4 w-4")}
-											/>
-										</Button>
-									</motion.div>
-								</PopoverTrigger>
-								<PopoverContent
-									className="w-44 px-4 bg-black border-border rounded-xl"
-									align="start"
-									sideOffset={10}
-									alignOffset={-40}
-								>
-									<div className="space-y-2">
-										{appLinks.map((link) => (
-											<motion.a
-												key={link.href}
-												href={link.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="w-full h-8 flex items-center text-sm font-medium text-muted-foreground hover:text-primary transition-colors duration-200 group"
-												whileHover={{ x: 3 }}
-												onClick={() =>
-													setState((prev) => ({
-														...prev,
-														isLaunchAppOpen: false,
-													}))
-												}
-											>
-												{link.title}
-											</motion.a>
-										))}
-									</div>
-								</PopoverContent>
-							</Popover>
-						</div>
+						{t("stake")}
+					</Link>
 
-						<div className="xl:hidden flex gap-2 items-center">
-							<LocaleSwitcher className="transition-all duration-200" />
-							<ExchangesMenubar />
-							<Popover
-								open={state.isMobileMenuOpen}
-								onOpenChange={(open) =>
-									setState((prev) => ({ ...prev, isMobileMenuOpen: open }))
-								}
-							>
-								<PopoverTrigger asChild>
-									<motion.div whileTap={{ scale: 0.95 }}>
-										<Button
-											type="button"
-											size="lg"
-											className="rounded-full border border-white/20 bg-transparent hover:bg-white/10 p-3"
-										>
-											<RiMenu3Line className="h-10 w-10" />
-										</Button>
-									</motion.div>
-								</PopoverTrigger>
-
-								<PopoverContent
-									className="w-64 p-6 bg-black border-neutral-700 rounded-xl"
-									align="end"
-									sideOffset={10}
-								>
-									<div className="space-y-2">
-										{mobileNavLinks.map((link, index) => (
-											<motion.a
-												key={link.href}
-												href={link.href}
-												target="_blank"
-												rel="noopener noreferrer"
-												className="block text-muted-foreground hover:text-primary text-sm py-2 transition-colors duration-200"
-												initial={{ opacity: 0, x: -10 }}
-												animate={{
-													opacity: 1,
-													x: 0,
-													transition: { delay: index * 0.05 + 0.2 },
-												}}
-												whileTap={{ scale: 0.95 }}
-												onClick={() =>
-													setState((prev) => ({
-														...prev,
-														isMobileMenuOpen: false,
-													}))
-												}
-											>
-												{link.title}
-											</motion.a>
-										))}
-									</div>
-								</PopoverContent>
-							</Popover>
-						</div>
-					</motion.div>
+					<button
+						type="button"
+						aria-label="Menu"
+						aria-expanded={isMenuOpen}
+						onClick={() => setIsMenuOpen((open) => !open)}
+						className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-rule-control text-neutral-300 transition-colors hover:border-primary hover:text-primary md:hidden"
+					>
+						{isMenuOpen ? (
+							<RiCloseLine className="h-4 w-4" />
+						) : (
+							<RiMenu3Line className="h-4 w-4" />
+						)}
+					</button>
 				</div>
-			</header>
-		</motion.div>
+			</nav>
+
+			{isMenuOpen && (
+				<div className="mx-auto mt-2 overflow-hidden rounded-xl border border-rule-control bg-surface/95 backdrop-blur-xl md:hidden">
+					{navLinks.map((link, index) => (
+						<Link
+							key={link.href}
+							href={link.href}
+							target={link.target}
+							rel={link.target === "_blank" ? "noopener noreferrer" : undefined}
+							onClick={() => setIsMenuOpen(false)}
+							className={cn(
+								"flex h-14 items-center px-5 text-[17px] text-white transition-colors hover:bg-white/5",
+								index < navLinks.length - 1 && "border-b border-rule-soft",
+							)}
+						>
+							{t(`links.${link.key}`)}
+						</Link>
+					))}
+
+					{visibleLocales.map((loc, index) => (
+						<LocaleLink
+							key={loc.locale}
+							locale={loc.locale}
+							href={localePathname}
+							onClick={() => setIsMenuOpen(false)}
+							aria-label={`Change language to ${loc.name}`}
+							className={cn(
+								"flex h-14 items-center gap-3 border-b border-rule-soft px-5 text-[17px] transition-colors hover:bg-white/5",
+								index === 0 && "border-t border-rule",
+								loc.locale === locale ? "text-white" : "text-neutral-400",
+							)}
+						>
+							<Image
+								src={loc.icon}
+								alt=""
+								width={28}
+								height={20}
+								aria-hidden="true"
+								className="rounded-sm"
+							/>
+							{loc.name}
+						</LocaleLink>
+					))}
+
+					<Link
+						href={STAKE_HREF}
+						target="_blank"
+						rel="noopener noreferrer"
+						onClick={() => setIsMenuOpen(false)}
+						className="flex h-14 items-center px-5 text-[17px] font-medium text-primary"
+					>
+						{t("stake")}
+					</Link>
+				</div>
+			)}
+		</header>
 	);
 };
 

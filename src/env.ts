@@ -13,10 +13,6 @@ export const env = createEnv({
 			.string()
 			.min(1)
 			.default("0x1bf5457ecaa14ff63cc89efd560e251e814e16ba"),
-		NEXT_PUBLIC_SOPHIA_AGENT_ADDRESS: z
-			.string()
-			.min(1)
-			.default("0x4dBcC239b265295500D2Fe2d0900629BDcBBD0fB"),
 		NEXT_PUBLIC_IQ_GATEWAY_URL: z
 			.string()
 			.url()
@@ -35,8 +31,6 @@ export const env = createEnv({
 	experimental__runtimeEnv: {
 		NEXT_PUBLIC_IQ_ADDRESS: process.env.NEXT_PUBLIC_IQ_ADDRESS,
 		NEXT_PUBLIC_HIIQ_ADDRESS: process.env.NEXT_PUBLIC_HIIQ_ADDRESS,
-		NEXT_PUBLIC_SOPHIA_AGENT_ADDRESS:
-			process.env.NEXT_PUBLIC_SOPHIA_AGENT_ADDRESS,
 		NEXT_PUBLIC_IQ_GATEWAY_URL: process.env.NEXT_PUBLIC_IQ_GATEWAY_URL,
 		NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
 		NEXT_PUBLIC_ALCHEMY_API_KEY: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,

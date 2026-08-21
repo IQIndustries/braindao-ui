@@ -66,6 +66,21 @@ const config: Config = {
 					foreground: "hsl(var(--destructive-foreground))",
 				},
 				border: "hsl(var(--border))",
+				// Hairline rules and panel fills carry the structure across the site.
+				// One ladder, four rungs, each tied to a role: `rule-soft` divides the
+				// rows inside a container, `rule` bounds the container itself,
+				// `rule-control` outlines chrome you can click, and `rule-action` the
+				// buttons and tag pills that sit highest. Chrome brightens to pink on
+				// hover rather than climbing this ladder.
+				"rule-soft": "#1D1D20",
+				rule: "#232326",
+				"rule-control": "#2A2A2E",
+				"rule-action": "#2F2F34",
+				// The fills climb the same way: `canvas` is the page itself, `surface`
+				// a panel sitting on it, `surface-raised` a cell inside that panel.
+				canvas: "#0A0A0A",
+				surface: "#0E0E10",
+				"surface-raised": "#131316",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",
 				chart: {
@@ -92,9 +107,16 @@ const config: Config = {
 				sm: "calc(var(--radius) - 4px)",
 			},
 			fontFamily: {
+				sans: [
+					"var(--font-dm-sans)",
+					"ui-sans-serif",
+					"system-ui",
+					"sans-serif",
+				],
+				display: ["var(--font-instrument-serif)", "Georgia", "serif"],
+				mono: ["var(--font-dm-mono)", "ui-monospace", "monospace"],
 				satoshi: ["var(--font-satoshi)", "sans-serif"],
 				"satoshi-light": ["var(--font-satoshi-light)", "sans-serif"],
-				"ibm-plex-mono": ["var(--font-ibm-plex-mono)", "monospace"],
 			},
 			animation: {
 				ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",

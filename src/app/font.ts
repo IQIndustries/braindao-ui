@@ -1,16 +1,25 @@
-import { IBM_Plex_Mono, Montserrat } from "next/font/google";
+import { DM_Mono, DM_Sans, Instrument_Serif } from "next/font/google";
 import localFont from "next/font/local";
 
-export const montserrat = Montserrat({
+export const dmSans = DM_Sans({
 	subsets: ["latin"],
 	display: "swap",
+	variable: "--font-dm-sans",
 });
 
-export const ibmPlexMono = IBM_Plex_Mono({
+export const dmMono = DM_Mono({
 	subsets: ["latin"],
-	weight: ["400", "500", "600", "700"],
+	weight: ["300", "400", "500"],
 	display: "swap",
-	variable: "--font-ibm-plex-mono",
+	variable: "--font-dm-mono",
+});
+
+export const instrumentSerif = Instrument_Serif({
+	subsets: ["latin"],
+	weight: ["400"],
+	style: ["normal", "italic"],
+	display: "swap",
+	variable: "--font-instrument-serif",
 });
 
 export const satoshi = localFont({
