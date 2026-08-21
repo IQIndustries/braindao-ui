@@ -4,10 +4,17 @@ import Markets from "@/components/layouts/markets";
 import TokenOverview from "@/components/layouts/token-overview";
 import TokenUtility from "@/components/layouts/token-utility";
 import Treasury from "@/components/layouts/treasury";
+import { alternatesFor } from "@/lib/helpers/alternates";
 import { fetchCoinMarketData } from "@/modules/fetchCoinMarketData";
 import { getTvl } from "@/modules/getTVL";
+import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import { getIqStats } from "./_actions";
 import { IQStats } from "./_components/iq-stat";
+
+export async function generateMetadata(): Promise<Metadata> {
+	return { alternates: alternatesFor(await getLocale(), "/") };
+}
 
 export default async function Home() {
 	const [tvl, marketData, iqStatsData] = await Promise.all([
