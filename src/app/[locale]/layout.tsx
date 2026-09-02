@@ -11,7 +11,7 @@ import { dmMono, dmSans, instrumentSerif, satoshi } from "../font";
 
 const TITLE = "BrainDAO - The DAO behind the IQ token.";
 const DESCRIPTION =
-	"BrainDAO is the legal entity that launched IQ. Track live IQ token stats, stake IQ for HiIQ, and explore the BrainDAO treasury.";
+	"BrainDAO governs the IQ token, stewards its treasury, and operates HiIQ staking.";
 
 export const metadata: Metadata = {
 	title: TITLE,
