@@ -13,11 +13,12 @@ type RPCParams = [EthCallParams, string] | unknown[];
 
 export const alchemyFetch = async (method: string, params: RPCParams) => {
 	const response = await fetch(
-		`https://eth-mainnet.g.alchemy.com/v2/${env.NEXT_PUBLIC_ALCHEMY_API_KEY}`,
+		`${env.NEXT_PUBLIC_IQ_GATEWAY_URL}/alchemy/eth-mainnet/v2`,
 		{
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
+				"x-api-key": env.IQ_GATEWAY_ALCHEMY_KEY,
 			},
 			body: JSON.stringify({
 				jsonrpc: "2.0",
@@ -28,6 +29,9 @@ export const alchemyFetch = async (method: string, params: RPCParams) => {
 		},
 	);
 
+	if (!response.ok) {
+		throw new Error(`Gateway responded ${response.status}`);
+	}
 	const data = await response.json();
 	if (data.error) {
 		throw new Error(data.error.message);
