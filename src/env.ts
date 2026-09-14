@@ -4,6 +4,15 @@ import { z } from "zod";
 const isProd = process.env.NEXT_PUBLIC_VERCEL_ENV === "production";
 
 export const env = createEnv({
+	server: {
+		// Alchemy reads go through IQ Gateway (`/alchemy/<network>/v2`), which
+		// holds the private Alchemy key and trips a breaker on runaway loops.
+		IQ_GATEWAY_ALCHEMY_KEY: z.string().min(1),
+		IQ_GATEWAY_ALCHEMY_URL: z
+			.string()
+			.url()
+			.default("https://api.iq-gateway.xyz/alchemy/eth-mainnet/v2"),
+	},
 	client: {
 		NEXT_PUBLIC_IQ_ADDRESS: z
 			.string()
@@ -25,7 +34,6 @@ export const env = createEnv({
 					? "phc_4MsVVKQqCaAJUKqSLTIbPpEEl4fWW8h8FKV8mj7Wjsf"
 					: "phc_cRzhhwKmv122zsoEzDViTsRWaFNxPP9GeZJ5p4eWniZ",
 			),
-		NEXT_PUBLIC_ALCHEMY_API_KEY: z.string().min(1),
 		NEXT_PUBLIC_IQ_GATEWAY_KEY: z.string().min(1),
 	},
 	experimental__runtimeEnv: {
@@ -33,7 +41,6 @@ export const env = createEnv({
 		NEXT_PUBLIC_HIIQ_ADDRESS: process.env.NEXT_PUBLIC_HIIQ_ADDRESS,
 		NEXT_PUBLIC_IQ_GATEWAY_URL: process.env.NEXT_PUBLIC_IQ_GATEWAY_URL,
 		NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
-		NEXT_PUBLIC_ALCHEMY_API_KEY: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY,
 		NEXT_PUBLIC_IQ_GATEWAY_KEY: process.env.NEXT_PUBLIC_IQ_GATEWAY_KEY,
 	},
 	emptyStringAsUndefined: true,
