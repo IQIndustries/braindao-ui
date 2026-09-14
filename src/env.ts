@@ -8,6 +8,10 @@ export const env = createEnv({
 		// Alchemy reads go through IQ Gateway (`/alchemy/<network>/v2`), which
 		// holds the private Alchemy key and trips a breaker on runaway loops.
 		IQ_GATEWAY_ALCHEMY_KEY: z.string().min(1),
+		IQ_GATEWAY_ALCHEMY_URL: z
+			.string()
+			.url()
+			.default("https://api.iq-gateway.xyz/alchemy/eth-mainnet/v2"),
 	},
 	client: {
 		NEXT_PUBLIC_IQ_ADDRESS: z

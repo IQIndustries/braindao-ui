@@ -12,22 +12,19 @@ interface EthCallParams {
 type RPCParams = [EthCallParams, string] | unknown[];
 
 export const alchemyFetch = async (method: string, params: RPCParams) => {
-	const response = await fetch(
-		`${env.NEXT_PUBLIC_IQ_GATEWAY_URL}/alchemy/eth-mainnet/v2`,
-		{
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-				"x-api-key": env.IQ_GATEWAY_ALCHEMY_KEY,
-			},
-			body: JSON.stringify({
-				jsonrpc: "2.0",
-				id: 1,
-				method: method,
-				params: params,
-			}),
+	const response = await fetch(env.IQ_GATEWAY_ALCHEMY_URL, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			"x-api-key": env.IQ_GATEWAY_ALCHEMY_KEY,
 		},
-	);
+		body: JSON.stringify({
+			jsonrpc: "2.0",
+			id: 1,
+			method: method,
+			params: params,
+		}),
+	});
 
 	if (!response.ok) {
 		throw new Error(`Gateway responded ${response.status}`);
