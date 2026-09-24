@@ -24,7 +24,7 @@ const ecosystemLinks = [
 	{ name: "IQ AI", href: "https://iqai.com/" },
 	{ name: "IQ.wiki", href: "https://iq.wiki/" },
 	{ name: "IQ Industries", href: "https://iqindustries.com/" },
-	{ name: "IQ Blog", href: "https://blog.iqai.com/" },
+	{ name: "IQ News", href: "https://iqindustries.com/news" },
 ];
 
 const FooterLink = ({
@@ -177,8 +177,11 @@ const Footer = async () => {
 							<FooterLink href="https://iq.wiki/wiki/hiiq" external>
 								{t("resources.hiiq")}
 							</FooterLink>
-							<FooterLink href="https://learn.everipedia.org" external>
-								{t("resources.learn")}
+							<FooterLink
+								href="https://iqindustries.com/documentation"
+								external
+							>
+								{t("resources.documentation")}
 							</FooterLink>
 							<FooterLink href="https://iq.wiki/privacy" external>
 								{t("resources.privacy")}
