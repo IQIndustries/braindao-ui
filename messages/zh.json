@@ -35,7 +35,7 @@
 	},
 	"token": {
 		"eyebrow": "IQ 代币",
-		"title": "治理与资金库",
+		"title": "治理与质押。",
 		"description": "$IQ 是 BrainDAO 发行的治理代币。持有者通过 HiIQ 锁定 IQ，以对提案投票、赚取质押奖励并指导产品开发。基于 IQ 构建的产品在各自的平台上运行；BrainDAO 是代币本身背后的主体。",
 		"primary-cta": "了解 $IQ",
 		"secondary-cta": "查看资金库",
@@ -105,7 +105,7 @@
 	},
 	"treasury": {
 		"eyebrow": "IQ 资金库",
-		"title": "资金库服务",
+		"title": "资金库策略。",
 		"description": "BrainDAO 管理 IQ 资金库（IQ、稳定币及战略投资），用于资助奖励、流动性与 IQ 生态增长。",
 		"primary-cta": "打开资金库",
 		"secondary-cta": "IQ 仪表盘",
