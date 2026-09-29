@@ -35,8 +35,8 @@
 	},
 	"token": {
 		"eyebrow": "IQ 토큰",
-		"title": "거버넌스, 스테이킹, 그리고 공동 <highlight>트레저리.</highlight>",
-		"description": "$IQ는 BrainDAO가 발행한 거버넌스 토큰입니다. 보유자는 HiIQ를 통해 IQ를 잠가 제안에 투표하고, 스테이킹 보상을 받고, DAO 트레저리의 방향을 정합니다. IQ 위에 구축된 제품들은 각자의 플랫폼에서 운영되며, BrainDAO는 토큰 자체를 뒷받침하는 주체입니다.",
+		"title": "거버넌스와 트레저리",
+		"description": "$IQ는 BrainDAO가 발행한 거버넌스 토큰입니다. 보유자는 HiIQ를 통해 IQ를 잠가 제안에 투표하고, 스테이킹 보상을 받고, 제품 개발의 방향을 정합니다. IQ 위에 구축된 제품들은 각자의 플랫폼에서 운영되며, BrainDAO는 토큰 자체를 뒷받침하는 주체입니다.",
 		"primary-cta": "$IQ 알아보기",
 		"secondary-cta": "트레저리 보기",
 		"flow": {
@@ -105,8 +105,8 @@
 	},
 	"treasury": {
 		"eyebrow": "IQ 트레저리",
-		"title": "<highlight>IQ 스테이커</highlight>가 운영하는 트레저리.",
-		"description": "BrainDAO는 IQ 생태계의 트레저리(IQ, 스테이블코인, 전략 자산)를 관리하며, 거버넌스 투표로 보상·유동성·성장에 투입합니다.",
+		"title": "트레저리 서비스",
+		"description": "BrainDAO는 IQ 트레저리(IQ, 스테이블코인, 전략적 투자)를 관리하며, 보상·유동성·IQ 생태계 성장에 투입합니다.",
 		"primary-cta": "트레저리 열기",
 		"secondary-cta": "IQ 대시보드",
 		"chart": {

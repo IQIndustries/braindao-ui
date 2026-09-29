@@ -35,8 +35,8 @@
 	},
 	"token": {
 		"eyebrow": "The IQ token",
-		"title": "Governance, staking, and a shared <highlight>treasury.</highlight>",
-		"description": "$IQ is the governance token launched by BrainDAO. Holders lock IQ through HiIQ to vote on proposals, earn staking rewards, and direct the DAO's treasury. Products built on IQ live on their own platforms; BrainDAO is the entity behind the token itself.",
+		"title": "Governance and treasury",
+		"description": "$IQ is the governance token launched by BrainDAO. Holders lock IQ through HiIQ to vote on proposals, earn staking rewards & direct product development. Products built on IQ live on their own platforms; BrainDAO is the entity behind the token itself.",
 		"primary-cta": "About $IQ",
 		"secondary-cta": "View treasury",
 		"flow": {
@@ -105,8 +105,8 @@
 	},
 	"treasury": {
 		"eyebrow": "IQ Treasury",
-		"title": "A treasury governed by <highlight>IQ stakers.</highlight>",
-		"description": "BrainDAO stewards the IQ ecosystem's treasury (IQ, stablecoins, and strategic assets), deployed by governance vote to fund rewards, liquidity, and growth.",
+		"title": "Treasury Service",
+		"description": "BrainDAO stewards the IQ treasury (IQ, stablecoins, and strategic investments), deployed to fund rewards, liquidity, and IQ ecosystem growth.",
 		"primary-cta": "Open Treasury",
 		"secondary-cta": "IQ Dashboard",
 		"chart": {
